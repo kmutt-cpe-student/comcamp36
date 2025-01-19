@@ -1,11 +1,11 @@
-name: Comcamp36 Github Action
+name: Build Test
 permissions:
   contents: write
 
 on:
-  push:
+  pull_request:
     branches:
-      - "main"
+      - "**"
 
 jobs:
   build:
