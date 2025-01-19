@@ -9,6 +9,17 @@ import { LoggerModule } from 'nestjs-pino';
       pinoHttp: {
         transport: {
           target: 'pino-pretty',
+          options: {
+            colorize: true,
+            singleLine: true,
+            translateTime: 'SYS:yyyy-mm-dd HH:MM:ss',
+            ignore: 'pid,hostname',
+            minimumLevel: 'info',
+            errorLikeObjectKeys: ['err', 'error'],
+          },
+        },
+        serializers: {
+          req: (req) => `${req.id} ${req.method} ${req.url}`,
         },
       },
     }),
