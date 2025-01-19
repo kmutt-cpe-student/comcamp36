@@ -5,10 +5,12 @@ permissions:
 on:
   push:
     branches:
-      - '**'
+      - 'main'
 
 jobs:
-  format:
+  build:
+    name: Format Lint & Build
+    timeout-minutes: 15
     runs-on: ubuntu-latest
 
     steps:
@@ -30,11 +32,6 @@ jobs:
         with:
           node-version: 22
           cache: "pnpm"
-
-      - name: Get pnpm store directory
-        shell: bash
-        run: |
-            echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
 
       - name: Install dependencies
         run: pnpm install
