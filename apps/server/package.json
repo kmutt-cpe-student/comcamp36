@@ -25,6 +25,9 @@
     "@nestjs/platform-express": "^10.0.0",
     "@nestjs/swagger": "^11.0.2",
     "@scalar/nestjs-api-reference": "^0.3.175",
+    "nestjs-pino": "^4.2.0",
+    "pino-http": "^10.4.0",
+    "pino-pretty": "^13.0.0",
     "reflect-metadata": "^0.2.0",
     "rxjs": "^7.8.1"
   },
