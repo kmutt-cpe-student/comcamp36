@@ -9,7 +9,7 @@ on:
 
 jobs:
   build:
-    name: Build Test
+    name: Lint & Build Test
     timeout-minutes: 15
     runs-on: ubuntu-latest
 
@@ -30,11 +30,14 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 22
+          node-version: 20
           cache: "pnpm"
 
       - name: Install dependencies
         run: pnpm install
+
+      - name: Run Lint
+        run: pnpm lint
 
       - name: Run build
         run: pnpm build
