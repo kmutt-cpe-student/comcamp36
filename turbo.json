@@ -5,7 +5,8 @@
     "build": {
       "dependsOn": ["^build"],
       "inputs": ["$TURBO_DEFAULT$", ".env*"],
-      "outputs": [".next/**", "!.next/cache/**", "dist/**"]
+      "outputs": [".next/**", "!.next/cache/**", "dist/**"],
+      "env": ["NEXT_PUBLIC_SERVER_URL, SERVER_URL"]
     },
     "lint": {
       "dependsOn": ["^lint"]
@@ -17,5 +18,7 @@
       "cache": false,
       "persistent": true
     }
-  }
+  },
+  "globalEnv": ["NEXT_PUBLIC_SERVER_URL"],
+  "globalDependencies": ["**/.env.*local"]
 }
