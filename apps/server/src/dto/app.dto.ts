@@ -17,3 +17,8 @@ export class CheckTelResponseDto {
   @ApiProperty()
   check: boolean;
 }
+
+export class CheckTel2PatloadDto {
+  @ApiProperty()
+  test: File;
+}

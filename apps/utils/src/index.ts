@@ -1,11 +1,15 @@
-import { exec } from "child_process";
 import chokidar from "chokidar";
 import { promises as fs } from "fs";
+import openapiTS, { astToString } from "openapi-typescript";
 import * as path from "path";
 import ts from "typescript";
 
 const SERVER_PATH = "../server/openapi.json";
 const CLIENT_PATH = "./types.d.ts";
+
+const DATE = ts.factory.createTypeReferenceNode(
+  ts.factory.createIdentifier("Date"),
+);
 
 const FILE = ts.factory.createTypeReferenceNode(
   ts.factory.createIdentifier("File"),
@@ -29,36 +33,28 @@ watcher.on("ready", () => {
 
 watcher.on("change", async (path, stats) => {
   console.log(`${GetDate()} File ${path} has been changed`);
-  const fileContents = await fs.readFile(path, "utf-8");
-  console.log(`${GetDate()} File contents:\n${fileContents}`);
-  generateType();
+  await new Promise((resolve) => setTimeout(resolve, 10000));
+  await generateType();
 });
 
 async function generateType() {
-  exec(`prettier --write ${fullPath}`, (error, stdout, stderr) => {
-    if (error) {
-      console.error(`Error executing prettier: ${error}`);
-      return;
-    }
-    if (stderr) {
-      console.error(`Prettier stderr: ${stderr}`);
-      return;
-    }
-    console.log(`Prettier stdout: ${stdout}`);
-  });
-
-  exec(
-    `pnpm dlx openapi-typescript ${fullPath} -o ${CLIENT_PATH}`,
-    (error, stdout, stderr) => {
-      if (error) {
-        console.error(`Error executing openapi-typescript: ${error}`);
-        return;
+  const ast = await openapiTS(new URL("http://localhost:4000/api-json"), {
+    transform(schemaObject) {
+      console.log(schemaObject);
+      if (schemaObject.format === "binary") {
+        return schemaObject.nullable
+          ? ts.factory.createUnionTypeNode([FILE, NULL])
+          : FILE;
       }
-      if (stderr) {
-        console.error(`openapi-typescript stderr: ${stderr}`);
-        return;
+      if (schemaObject.format === "date-time") {
+        return schemaObject.nullable
+          ? ts.factory.createUnionTypeNode([DATE, NULL])
+          : DATE;
       }
-      console.log(`openapi-typescript stdout: ${stdout}`);
     },
-  );
+    additionalProperties: false,
+  });
+  const contents = astToString(ast);
+
+  await fs.writeFile(CLIENT_PATH, contents);
 }
