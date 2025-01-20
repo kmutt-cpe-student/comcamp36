@@ -1,4 +1,5 @@
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
+import * as fs from 'fs';
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { apiReference } from '@scalar/nestjs-api-reference';
@@ -15,6 +16,8 @@ async function bootstrap() {
 
   const documentFactory = () => SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('api', app, documentFactory);
+
+  fs.writeFileSync('./openapi.json', JSON.stringify(documentFactory()));
 
   app.use(
     '/reference',
