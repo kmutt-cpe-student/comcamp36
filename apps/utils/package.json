@@ -1,0 +1,23 @@
+{
+  "name": "utils",
+  "version": "0.1.0",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "tsx ./src/index.ts"
+  },
+  "devDependencies": {
+    "@repo/typescript-config": "workspace:*",
+    "@types/node": "^20",
+    "eslint": "^9",
+    "eslint-config-next": "15.1.5",
+    "tsx": "^4.19.2"
+  },
+  "dependencies": {
+    "chokidar": "^4.0.3",
+    "openapi-fetch": "^0.13.4",
+    "openapi-typescript": "^7.5.2",
+    "prettier": "^3.4.2",
+    "typescript": "^5.7.3"
+  }
+}

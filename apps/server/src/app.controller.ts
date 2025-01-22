@@ -12,9 +12,11 @@ export class AppController {
   constructor(private readonly appService: AppService) {}
 
   @Get()
-  @ApiResponse({ status: 200, type: GetHelloResponseDto, isArray: true })
-  getHello(): string {
-    return this.appService.getHello();
+  @ApiResponse({ status: 200, type: GetHelloResponseDto })
+  getHello(): GetHelloResponseDto {
+    return {
+      id: 'test',
+    };
   }
 
   @Post()

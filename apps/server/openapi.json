@@ -10,12 +10,7 @@
             "description": "",
             "content": {
               "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/GetHelloResponseDto"
-                  }
-                }
+                "schema": { "$ref": "#/components/schemas/GetHelloResponseDto" }
               }
             }
           }

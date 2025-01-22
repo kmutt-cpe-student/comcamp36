@@ -30,6 +30,12 @@ async function bootstrap() {
 
   app.useLogger(app.get(Logger));
 
+  app.enableCors({
+    origin: 'http://localhost:3000',
+    methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE', 'OPTIONS'],
+    credentials: true,
+  });
+
   await app.listen(process.env.PORT ?? 4000);
 }
 bootstrap();
