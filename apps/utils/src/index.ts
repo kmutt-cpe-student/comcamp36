@@ -5,7 +5,7 @@ import * as path from "path";
 import ts from "typescript";
 
 const SERVER_PATH = "../server/openapi.json";
-const CLIENT_PATH = "./types.d.ts";
+const CLIENT_PATH = "../web/src/libs/server/types.d.ts";
 
 const DATE = ts.factory.createTypeReferenceNode(
   ts.factory.createIdentifier("Date"),
@@ -40,7 +40,6 @@ watcher.on("change", async (path, stats) => {
 async function generateType() {
   const ast = await openapiTS(new URL("http://localhost:4000/api-json"), {
     transform(schemaObject) {
-      console.log(schemaObject);
       if (schemaObject.format === "binary") {
         return schemaObject.nullable
           ? ts.factory.createUnionTypeNode([FILE, NULL])

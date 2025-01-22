@@ -3,8 +3,10 @@ import { CheckTelResponseDto } from './dto/app.dto';
 
 @Injectable()
 export class AppService {
-  getHello(): string {
-    return 'Hello World!';
+  getHello() {
+    return {
+      id: 'hellow',
+    };
   }
 
   checkTel(tel: string): CheckTelResponseDto {
