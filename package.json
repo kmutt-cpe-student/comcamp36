@@ -8,7 +8,9 @@
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "lint-staged": "lint-staged",
     "prepare": "husky",
-    "with-env": "dotenv -e .env.local --"
+    "with-env": "dotenv -e .env.local --",
+    "db:start": "pnpm supabase start",
+    "db:stop": "pnpm supabase stop"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.6.1",
@@ -18,6 +20,7 @@
     "lint-staged": "^15.4.1",
     "prettier": "^3.2.5",
     "prettier-plugin-organize-imports": "^4.1.0",
+    "supabase": "^2.6.8",
     "turbo": "^2.3.3",
     "typescript": "5.5.4"
   },
