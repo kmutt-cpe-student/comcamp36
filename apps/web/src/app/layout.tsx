@@ -1,4 +1,5 @@
 import QueryProvider from "@/components/provider/query";
+import { TailwindIndicator } from "@/components/tailwind-indicator";
 import type { Metadata } from "next";
 import "./globals.css";
 
@@ -16,6 +17,7 @@ export default function RootLayout({
     <html lang="en">
       <body className="antialiased">
         <QueryProvider>{children}</QueryProvider>
+        <TailwindIndicator />
       </body>
     </html>
   );
