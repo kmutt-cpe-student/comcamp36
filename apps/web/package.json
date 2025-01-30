@@ -19,6 +19,7 @@
     "next": "^15.1.2",
     "openapi-fetch": "^0.13.4",
     "openapi-react-query": "^0.2.9",
+    "posthog-js": "^1.211.2",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "tailwind-merge": "^2.6.0",
