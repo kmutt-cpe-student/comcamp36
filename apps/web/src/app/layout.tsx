@@ -1,3 +1,4 @@
+import { CSPostHogProvider } from "@/components/provider/post-hog";
 import QueryProvider from "@/components/provider/query";
 import { TailwindIndicator } from "@/components/tailwind-indicator";
 import type { Metadata } from "next";
@@ -16,8 +17,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="antialiased">
-        <QueryProvider>{children}</QueryProvider>
         <TailwindIndicator />
+        <QueryProvider>
+          <CSPostHogProvider>{children}</CSPostHogProvider>
+        </QueryProvider>
       </body>
     </html>
   );
