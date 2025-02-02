@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@radix-ui/react-slot": "^1.1.1",
+    "@radix-ui/react-switch": "^1.1.2",
     "@t3-oss/env-nextjs": "^0.11.1",
     "@tanstack/react-query": "^5.64.2",
     "class-variance-authority": "^0.7.1",
@@ -22,6 +23,7 @@
     "posthog-js": "^1.211.2",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "sonner": "^1.7.4",
     "tailwind-merge": "^2.6.0",
     "zod": "^3.24.1"
   },
