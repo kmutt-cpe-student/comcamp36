@@ -4,4 +4,39 @@
   --font-game-of-squid: "GameOfSquid", sans-serif;
   --font-prompt: "Prompt", serif;
   --font-noto-sans-thai-looped: "Noto Sans Thai Looped", serif;
+
+  --color-charcoal: #231f20;
+  --color-charcoal-1: #1b1818;
+  --color-charcoal-2: #535051;
+  --color-charcoal-3: #6c696a;
+  --color-charcoal-4: #848283;
+  --color-charcoal-special: #b5b4b4;
+
+  --color-mustard: #ffc94a;
+  --color-mustard-1: #c69c39;
+  --color-mustard-2: #ffcf5e;
+  --color-mustard-3: #ffd572;
+  --color-mustard-4: #ffdb86;
+  --color-mustard-special: #c69c39;
+
+  --color-vermilion: #f15a29;
+  --color-vermilion-1: #bb461f;
+  --color-vermilion-2: #f26c40;
+  --color-vermilion-3: #f47e58;
+  --color-vermilion-4: #f59170;
+  --color-vermilion-special: #f7a388;
+
+  --color-dimgray: #6e6e6e;
+  --color-dimgray-1: #555555;
+  --color-dimgray-2: #7e7e7e;
+  --color-dimgray-3: #8e8e8e;
+  --color-dimgray-4: #9e9e9e;
+  --color-dimgray-special: #aeaeae;
+
+  --color-deepteal: #006a71;
+  --color-deepteal-1: #005257;
+  --color-deepteal-2: #1c7a80;
+  --color-deepteal-3: #388b90;
+  --color-deepteal-4: #559ba0;
+  --color-deepteal-special: #71acb0;
 }
