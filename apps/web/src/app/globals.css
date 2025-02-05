@@ -45,29 +45,37 @@
   h1 {
     font-size: 3.8rem;
     line-height: auto;
+    font-weight: 600;
   }
   h2 {
     font-size: 3rem;
     line-height: auto;
+    text-transform: uppercase;
+    font-weight: 500;
   }
   h3 {
     font-size: 2.4rem;
     line-height: auto;
+    font-weight: 400;
   }
   h4 {
     font-size: 1.9rem;
     line-height: auto;
+    font-weight: 400;
   }
   h5 {
     font-size: 1.5rem;
     line-height: auto;
+    font-weight: 300;
   }
   p {
     font-size: 1.25rem;
     line-height: auto;
+    font-weight: 400;
   }
   small {
     font-size: 1rem;
     line-height: auto;
+    font-weight: 400;
   }
 }
