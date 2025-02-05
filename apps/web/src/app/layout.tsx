@@ -1,7 +1,7 @@
 import { CSPostHogProvider } from "@/components/provider/post-hog";
 import QueryProvider from "@/components/provider/query";
 import { TailwindIndicator } from "@/components/tailwind-indicator";
-import { gameOfSquid, notoSansThaiLooped, prompt } from "@/fonts";
+import { gameOfSquid, gemunuLibre, notoSansThaiLooped, prompt } from "@/fonts";
 import type { Metadata } from "next";
 import "./globals.css";
 
@@ -18,7 +18,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${gameOfSquid.variable} ${prompt.className} ${notoSansThaiLooped.className}`}
+        className={`${gameOfSquid.variable} ${prompt.className} ${notoSansThaiLooped.className} ${gemunuLibre.className}`}
       >
         <TailwindIndicator />
         <QueryProvider>

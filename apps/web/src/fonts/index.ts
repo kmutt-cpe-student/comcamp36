@@ -1,4 +1,4 @@
-import { Noto_Sans_Thai_Looped, Prompt } from "next/font/google";
+import { Gemunu_Libre, Noto_Sans_Thai_Looped, Prompt } from "next/font/google";
 import localFont from "next/font/local";
 
 export const gameOfSquid = localFont({
@@ -15,4 +15,8 @@ export const prompt = Prompt({
 export const notoSansThaiLooped = Noto_Sans_Thai_Looped({
   weight: ["400"],
   subsets: ["thai", "latin"],
+});
+
+export const gemunuLibre = Gemunu_Libre({
+  weight: ["400"],
 });
