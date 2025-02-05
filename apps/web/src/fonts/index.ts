@@ -19,4 +19,5 @@ export const notoSansThaiLooped = Noto_Sans_Thai_Looped({
 
 export const gemunuLibre = Gemunu_Libre({
   weight: ["400"],
+  subsets: ["latin"],
 });
