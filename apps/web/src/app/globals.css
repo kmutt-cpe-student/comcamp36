@@ -2,4 +2,6 @@
 
 @theme {
   --font-game-of-squid: "GameOfSquid", sans-serif;
+  --font-prompt: "Prompt", serif;
+  --font-noto-sans-thai-looped: "Noto Sans Thai Looped", serif;
 }
