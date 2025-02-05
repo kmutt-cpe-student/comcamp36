@@ -1,6 +1,7 @@
 import { CSPostHogProvider } from "@/components/provider/post-hog";
 import QueryProvider from "@/components/provider/query";
 import { TailwindIndicator } from "@/components/tailwind-indicator";
+import { GameOfSquid } from "@/fonts/fonts";
 import type { Metadata } from "next";
 import "./globals.css";
 
@@ -16,7 +17,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="antialiased">
+      <body className={`${GameOfSquid.variable}`}>
         <TailwindIndicator />
         <QueryProvider>
           <CSPostHogProvider>{children}</CSPostHogProvider>
