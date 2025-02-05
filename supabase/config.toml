@@ -121,7 +121,7 @@ password_requirements = ""
 
 [auth.email]
 # Allow/disallow new user signups via email to your project.
-enable_signup = true
+enable_signup = false
 # If enabled, a user will be required to confirm any email change on both the old, and new email
 # addresses. If disabled, only the new email is required to confirm.
 double_confirm_changes = true
@@ -211,6 +211,12 @@ max_frequency = "5s"
 # Use an external OAuth provider. The full list of providers are: `apple`, `azure`, `bitbucket`,
 # `discord`, `facebook`, `github`, `gitlab`, `google`, `keycloak`, `linkedin_oidc`, `notion`, `twitch`,
 # `twitter`, `slack`, `spotify`, `workos`, `zoom`.
+[auth.external.google]
+enabled = true
+client_id = "env(GOOGLE_OAUTH_CLIENT_ID)"
+secret = "env(GOOGLE_OAUTH_CLIENT_SECRET)"
+redirect_uri = ""
+
 [auth.external.apple]
 enabled = false
 client_id = ""
@@ -257,9 +263,12 @@ inspector_port = 8083
 # Uncomment to specify a custom file path to the entrypoint.
 # Supported file extensions are: .ts, .js, .mjs, .jsx, .tsx
 # entrypoint = "./functions/MY_FUNCTION_NAME/index.ts"
+# Specifies static files to be bundled with the function. Supports glob patterns.
+# For example, if you want to serve static HTML pages in your function:
+# static_files = [ "./functions/MY_FUNCTION_NAME/*.html" ]
 
 [analytics]
-enabled = true
+enabled = false
 port = 54327
 # Configure one of the supported backends: `postgres`, `bigquery`.
 backend = "postgres"

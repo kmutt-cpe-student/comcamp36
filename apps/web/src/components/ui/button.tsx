@@ -7,10 +7,10 @@ import { cn } from "@/libs/utils";
 const buttonVariants = cva("", {
   variants: {
     variant: {
-      default: "bg-primary text-primary-foreground shadow hover:bg-primary/90",
+      default: "",
     },
     size: {
-      default: "h-9 px-4 py-2",
+      default: "",
     },
   },
   defaultVariants: {
