@@ -17,13 +17,13 @@ export default function ComingSoon() {
           </div>
         </section>
         <section className="pt-6 pb-3">
-          <h1 className="lg:text-7xl text-4xl text-center font-GameOfSquid">
+          <h2 className="lg:text-7xl text-4xl text-center font-game-of-squid">
             Coming Soon
-          </h1>
+          </h2>
         </section>
         <section className="py-4">
           <p className="lg:text-2xl font-light text-center">
-            เปิดรับสมัครผู้เข้าแข่งขันอีก
+            เปิดรับสมัครผู้เข้าแข่งขันในอีก
           </p>
         </section>
         <section className="py-4 flex justify-center">
