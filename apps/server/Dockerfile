@@ -19,37 +19,35 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-FROM node:20-alpine AS builder
-RUN apk update
-# Set working directory
-WORKDIR /app
-RUN corepack enable pnpm
+FROM node:20-alpine AS base
+RUN apk update && apk add --no-cache curl
+RUN corepack disable
+RUN npm install -g pnpm@9.0.0
 ENV PNPM_HOME="/pnpm"
 ENV PATH="$PNPM_HOME:$PATH"
+
+FROM base AS builder
+WORKDIR /app
 RUN pnpm i -g turbo
 COPY . .
 RUN turbo prune server --docker
 
-# Add lockfile and package.json's of isolated subworkspace
-FROM node:20-alpine AS installer
-RUN apk update
+FROM base AS installer
 WORKDIR /app
 COPY --from=builder /app/out/json/ .
 COPY --from=builder /app/out/pnpm-lock.yaml ./pnpm-lock.yaml
 COPY --from=builder /app/turbo.json ./turbo.json
-# COPY --from=builder /app/apps/api/prisma ./prisma // might need later
 RUN pnpm i --frozen-lockfile
-# RUN yarn prisma generate 
 
-
-FROM node:20-alpine AS sourcer
+FROM base AS sourcer
 WORKDIR /app
 COPY --from=installer /app/ .
 COPY --from=builder /app/out/full/ .
 COPY .gitignore .gitignore
-RUN pnpm turbo build server
+RUN pnpm turbo build
 
-FROM node:20-alpine as runner
+FROM base AS runner
 WORKDIR /app
 COPY --from=sourcer /app/ .
+EXPOSE 4000
 CMD [ "node", "apps/server/dist/main.js" ]
