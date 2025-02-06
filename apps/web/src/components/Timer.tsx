@@ -59,7 +59,7 @@ export default function Timer({ deadline }: Props) {
   return (
     <div className="flex border-[2px] border-[#525252] bg-[#000000]/35 backdrop-blur-xs rounded-[10px] lg:px-8 px-5 py-2">
       <div className="text-vermilion flex-col items-center">
-        <h2 className="lg:text-7xl text-4xl font-genmunu-libre w-full flex justify-center">
+        <h2 className="lg:text-7xl text-4xl font-genmunu-libre w-full flex justify-center tabular-nums min-w-[2ch]">
           {formatTime(days)}
         </h2>
         <p className="lg:text-xl text-sm w-full flex justify-center">วัน</p>
@@ -70,7 +70,7 @@ export default function Timer({ deadline }: Props) {
         </h2>
       </div>
       <div className="text-vermilion flex-col items-center">
-        <h2 className="lg:text-7xl text-4xl font-genmunu-libre w-full flex justify-center">
+        <h2 className="lg:text-7xl text-4xl font-genmunu-libre w-full flex justify-center tabular-nums min-w-[2ch]">
           {formatTime(hours)}
         </h2>
         <p className="lg:text-xl text-sm w-full flex justify-center">ชั่วโมง</p>
@@ -81,7 +81,7 @@ export default function Timer({ deadline }: Props) {
         </h2>
       </div>
       <div className="text-vermilion flex-col items-center">
-        <h2 className="lg:text-7xl text-4xl font-genmunu-libre w-full flex justify-center">
+        <h2 className="lg:text-7xl text-4xl font-genmunu-libre w-full flex justify-center tabular-nums min-w-[2ch]">
           {formatTime(minutes)}
         </h2>
         <p className="lg:text-xl text-sm w-full flex justify-center">นาที</p>
@@ -92,7 +92,7 @@ export default function Timer({ deadline }: Props) {
         </h2>
       </div>
       <div className="text-vermilion flex-col items-center">
-        <h2 className="lg:text-7xl text-4xl font-genmunu-libre w-full flex justify-center">
+        <h2 className="lg:text-7xl text-4xl font-genmunu-libre w-full flex justify-center tabular-nums min-w-[2ch]">
           {formatTime(seconds)}
         </h2>
         <p className="lg:text-xl text-sm w-full flex justify-center">วินาที</p>
