@@ -14,7 +14,7 @@ export default function Home() {
             <Image
               style={{ width: "100%", height: "auto" }}
               width={869}
-              height={450}
+              height={449}
               src="/Logo.png"
               alt="ComCamp36Logo"
             />
