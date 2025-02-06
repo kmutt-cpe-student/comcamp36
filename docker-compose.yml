@@ -1,0 +1,15 @@
+services:
+  server:
+    image: ghcr.io/kmutt-cpe-student/comcamp36-server:main
+    env_file: ".env.local"
+    networks:
+      - main
+    ports:
+      - "4000:4000"
+    depends_on:
+      db:
+        condition: service_healthy
+
+networks:
+  main:
+    driver: bridge
