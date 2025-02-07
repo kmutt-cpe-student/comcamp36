@@ -6,7 +6,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Comcamp36",
+  title: "Comcamp#36",
   description: "Camp by Computer Engineering Department, KMUTT",
 };
 

@@ -12,7 +12,7 @@ export default function ComingSoon() {
               width={550}
               height={288}
               src="/Logo.png"
-              alt="ComCamp36Logo"
+              alt="ComCamp#36 Logo"
             />
           </div>
         </section>
