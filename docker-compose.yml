@@ -5,7 +5,7 @@ services:
     networks:
       - main
     ports:
-      - "4000:4000"
+      - "7642:4000"
 
 networks:
   main:
