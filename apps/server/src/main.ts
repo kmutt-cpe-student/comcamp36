@@ -30,11 +30,19 @@ async function bootstrap() {
 
   app.useLogger(app.get(Logger));
 
-  app.enableCors({
-    origin: 'http://localhost:3000',
-    methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE', 'OPTIONS'],
-    credentials: true,
-  });
+  if (process.env.NODE_ENV !== 'production') {
+    app.enableCors({
+      origin: 'http://localhost:3000',
+      methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE', 'OPTIONS'],
+      credentials: true,
+    });
+  } else {
+    app.enableCors({
+      origin: 'https://comcamp.io',
+      methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE', 'OPTIONS'],
+      credentials: true,
+    });
+  }
 
   await app.listen(process.env.PORT ?? 4000);
 }
