@@ -23,7 +23,7 @@ export default function RedirectHandler({ deadline }: DateRedirectedProps) {
       return;
     }
 
-    if (isDevelopment) {
+    if (!isDevelopment) {
       if (pathname !== allowedPath) {
         router.push(allowedPath);
       }
