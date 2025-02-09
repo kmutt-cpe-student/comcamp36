@@ -7,419 +7,1016 @@ const Board = (props: SVGProps<SVGSVGElement>) => (
     xmlSpace="preserve"
     {...props}
   >
-    <style>
-      {`
-        .st0{fill:#ECFFD4;}
-        .st1{fill:#C9FFEC;}
-        .st2{fill:#E9FFFA;}
-        .st3{fill:#FFE9ED;}
-        .st4{fill:#006A71;}
-        .st5{fill:#F15A29;}
-        .st6{fill:#BE3400;}
-        .st7{fill:#FFC794;}
-        .st8{fill:#94FFEE;}
-        .st9{fill:#FFC94A;}
-        .st10{fill:#D49B00;}
-        .st11{fill:#FFFFAC;}
-        .st12{fill:#00262A;}
-        .st13{fill:#74D8B4;}
-        .st14{fill:#FFE3BF;}
-        .st15{fill:#FFFFD1;}
-        .st16{fill:#278D00;}
-        .st17{fill:#FF35DF;}
-        .st18{fill:#0096DF;}
-        .st19{fill:#008A84;}
-        .st20{fill:#00D4B9;}
-        .st21{fill:#00F4D5;}
-        .st22{fill:#FFFFFF;}
-      `}
-    </style>
     <g>
       <g>
-        <rect x="100" y="700" className="st0" width="100" height="100" />
-      </g>
-      <g>
-        <rect x="300" y="700" className="st1" width="100" height="100" />
-      </g>
-      <g>
-        <rect x="500" y="700" className="st2" width="100" height="100" />
-      </g>
-      <g>
-        <rect x="700" y="700" className="st3" width="100" height="100" />
-      </g>
-      <g>
-        <rect y="600" className="st2" width="100" height="100" />
-      </g>
-      <g>
-        <rect x="200" y="600" className="st0" width="100" height="100" />
-      </g>
-      <g>
-        <rect x="400" y="600" className="st0" width="100" height="100" />
-      </g>
-      <g>
-        <rect x="600" y="600" className="st0" width="100" height="100" />
-      </g>
-      <g>
-        <rect x="100" y="500" className="st3" width="100" height="100" />
-      </g>
-      <g>
-        <rect x="300" y="500" className="st2" width="100" height="100" />
-      </g>
-      <g>
-        <rect x="500" y="500" className="st3" width="100" height="100" />
-      </g>
-      <g>
-        <rect x="600" y="500" className="st4" width="100" height="100" />
-      </g>
-      <g>
-        <rect x="700" y="500" className="st0" width="100" height="100" />
-      </g>
-      <g>
-        <rect y="400" className="st2" width="100" height="100" />
-      </g>
-      <g>
-        <rect x="100" y="400" className="st4" width="100" height="100" />
-      </g>
-      <g>
-        <rect x="200" y="400" className="st0" width="100" height="100" />
-      </g>
-      <g>
-        <rect x="400" y="400" className="st1" width="100" height="100" />
-      </g>
-      <g>
-        <rect x="600" y="400" className="st2" width="100" height="100" />
-      </g>
-      <g>
-        <rect x="100" y="300" className="st0" width="100" height="100" />
-      </g>
-      <g>
-        <rect x="300" y="300" className="st2" width="100" height="100" />
-      </g>
-      <g>
-        <rect x="500" y="300" className="st0" width="100" height="100" />
-      </g>
-      <g>
-        <rect x="700" y="300" className="st3" width="100" height="100" />
-      </g>
-      <g>
-        <rect y="200" className="st3" width="100" height="100" />
-      </g>
-      <g>
-        <rect x="100" y="200" className="st5" width="100" height="100" />
-      </g>
-      <g>
-        <rect x="200" y="200" className="st0" width="100" height="100" />
-      </g>
-      <g>
-        <rect x="400" y="200" className="st3" width="100" height="100" />
-      </g>
-      <g>
-        <rect x="600" y="200" className="st1" width="100" height="100" />
-      </g>
-      <g>
-        <rect x="100" y="100" className="st2" width="100" height="100" />
-      </g>
-      <g>
-        <rect x="700" y="200" className="st5" width="100" height="100" />
-      </g>
-      <g>
-        <rect x="700" y="295" className="st6" width="100" height="5" />
-      </g>
-      <g>
-        <rect x="700" y="200" className="st7" width="100" height="5" />
-      </g>
-      <g>
-        <rect x="600" y="300" className="st5" width="100" height="100" />
-      </g>
+        <rect
+          x="100"
+          y="700"
+          className="fill-[#ECFFD4]"
+          width="100"
+          height="100"
+        />
+      </g>
+      <g>
+        <rect
+          x="300"
+          y="700"
+          className="fill-[#C9FFEC]"
+          width="100"
+          height="100"
+        />
+      </g>
+      <g>
+        <rect
+          x="500"
+          y="700"
+          className="fill-[#E9FFFA]"
+          width="100"
+          height="100"
+        />
+      </g>
+      <g>
+        <rect
+          x="700"
+          y="700"
+          className="fill-[#FFE9ED]"
+          width="100"
+          height="100"
+        />
+      </g>
+      <g>
+        <rect y="600" className="fill-[#E9FFFA]" width="100" height="100" />
+      </g>
+      <g>
+        <rect
+          x="200"
+          y="600"
+          className="fill-[#ECFFD4]"
+          width="100"
+          height="100"
+        />
+      </g>
+      <g>
+        <rect
+          x="400"
+          y="600"
+          className="fill-[#ECFFD4]"
+          width="100"
+          height="100"
+        />
+      </g>
+      <g>
+        <rect
+          x="600"
+          y="600"
+          className="fill-[#ECFFD4]"
+          width="100"
+          height="100"
+        />
+      </g>
+      <g>
+        <rect
+          x="100"
+          y="500"
+          className="fill-[#FFE9ED]"
+          width="100"
+          height="100"
+        />
+      </g>
+      <g>
+        <rect
+          x="300"
+          y="500"
+          className="fill-[#E9FFFA]"
+          width="100"
+          height="100"
+        />
+      </g>
+      <g>
+        <rect
+          x="500"
+          y="500"
+          className="fill-[#FFE9ED]"
+          width="100"
+          height="100"
+        />
+      </g>
+      <g>
+        <rect
+          x="600"
+          y="500"
+          className="fill-[#006A71]"
+          width="100"
+          height="100"
+        />
+      </g>
       <g>
-        <rect x="600" y="395" className="st6" width="100" height="5" />
+        <rect
+          x="700"
+          y="500"
+          className="fill-[#ECFFD4]"
+          width="100"
+          height="100"
+        />
       </g>
       <g>
-        <rect x="600" y="300" className="st7" width="100" height="5" />
+        <rect y="400" className="fill-[#E9FFFA]" width="100" height="100" />
       </g>
-      <g>
-        <rect x="100" y="600" className="st5" width="100" height="100" />
-      </g>
-      <g>
-        <rect x="100" y="695" className="st6" width="100" height="5" />
-      </g>
-      <g>
-        <rect x="100" y="600" className="st7" width="100" height="5" />
-      </g>
-      <g>
-        <rect y="700" className="st5" width="100" height="100" />
-      </g>
-      <g>
-        <rect y="700" className="st7" width="100" height="5" />
-      </g>
-      <g>
-        <rect x="400" y="700" className="st5" width="100" height="100" />
-      </g>
-      <g>
-        <rect x="400" y="700" className="st7" width="100" height="5" />
-      </g>
-      <g>
-        <rect x="400" y="500" className="st5" width="100" height="100" />
+      <g>
+        <rect
+          x="100"
+          y="400"
+          className="fill-[#006A71]"
+          width="100"
+          height="100"
+        />
+      </g>
+      <g>
+        <rect
+          x="200"
+          y="400"
+          className="fill-[#ECFFD4]"
+          width="100"
+          height="100"
+        />
+      </g>
+      <g>
+        <rect
+          x="400"
+          y="400"
+          className="fill-[#C9FFEC]"
+          width="100"
+          height="100"
+        />
+      </g>
+      <g>
+        <rect
+          x="600"
+          y="400"
+          className="fill-[#E9FFFA]"
+          width="100"
+          height="100"
+        />
+      </g>
+      <g>
+        <rect
+          x="100"
+          y="300"
+          className="fill-[#ECFFD4]"
+          width="100"
+          height="100"
+        />
+      </g>
+      <g>
+        <rect
+          x="300"
+          y="300"
+          className="fill-[#E9FFFA]"
+          width="100"
+          height="100"
+        />
+      </g>
+      <g>
+        <rect
+          x="500"
+          y="300"
+          className="fill-[#ECFFD4]"
+          width="100"
+          height="100"
+        />
+      </g>
+      <g>
+        <rect
+          x="700"
+          y="300"
+          className="fill-[#FFE9ED]"
+          width="100"
+          height="100"
+        />
+      </g>
+      <g>
+        <rect y="200" className="fill-[#FFE9ED]" width="100" height="100" />
+      </g>
+      <g>
+        <rect
+          x="100"
+          y="200"
+          className="fill-[#F15A29]"
+          width="100"
+          height="100"
+        />
+      </g>
+      <g>
+        <rect
+          x="200"
+          y="200"
+          className="fill-[#ECFFD4]"
+          width="100"
+          height="100"
+        />
+      </g>
+      <g>
+        <rect
+          x="400"
+          y="200"
+          className="fill-[#FFE9ED]"
+          width="100"
+          height="100"
+        />
+      </g>
+      <g>
+        <rect
+          x="600"
+          y="200"
+          className="fill-[#C9FFEC]"
+          width="100"
+          height="100"
+        />
       </g>
       <g>
-        <rect x="400" y="595" className="st6" width="100" height="5" />
+        <rect
+          x="100"
+          y="100"
+          className="fill-[#E9FFFA]"
+          width="100"
+          height="100"
+        />
       </g>
-      <g>
-        <rect x="400" y="500" className="st7" width="100" height="5" />
-      </g>
-      <g>
-        <rect x="400" y="300" className="st5" width="100" height="100" />
+      <g>
+        <rect
+          x="700"
+          y="200"
+          className="fill-[#F15A29]"
+          width="100"
+          height="100"
+        />
+      </g>
+      <g>
+        <rect
+          x="700"
+          y="295"
+          className="fill-[#BE3400]"
+          width="100"
+          height="5"
+        />
+      </g>
+      <g>
+        <rect
+          x="700"
+          y="200"
+          className="fill-[#FFC794]"
+          width="100"
+          height="5"
+        />
+      </g>
+      <g>
+        <rect
+          x="600"
+          y="300"
+          className="fill-[#F15A29]"
+          width="100"
+          height="100"
+        />
+      </g>
+      <g>
+        <rect
+          x="600"
+          y="395"
+          className="fill-[#BE3400]"
+          width="100"
+          height="5"
+        />
+      </g>
+      <g>
+        <rect
+          x="600"
+          y="300"
+          className="fill-[#FFC794]"
+          width="100"
+          height="5"
+        />
+      </g>
+      <g>
+        <rect
+          x="100"
+          y="600"
+          className="fill-[#F15A29]"
+          width="100"
+          height="100"
+        />
+      </g>
+      <g>
+        <rect
+          x="100"
+          y="695"
+          className="fill-[#BE3400]"
+          width="100"
+          height="5"
+        />
+      </g>
+      <g>
+        <rect
+          x="100"
+          y="600"
+          className="fill-[#FFC794]"
+          width="100"
+          height="5"
+        />
+      </g>
+      <g>
+        <rect y="700" className="fill-[#F15A29]" width="100" height="100" />
+      </g>
+      <g>
+        <rect y="700" className="fill-[#FFC794]" width="100" height="5" />
+      </g>
+      <g>
+        <rect
+          x="400"
+          y="700"
+          className="fill-[#F15A29]"
+          width="100"
+          height="100"
+        />
+      </g>
+      <g>
+        <rect
+          x="400"
+          y="700"
+          className="fill-[#FFC794]"
+          width="100"
+          height="5"
+        />
+      </g>
+      <g>
+        <rect
+          x="400"
+          y="500"
+          className="fill-[#F15A29]"
+          width="100"
+          height="100"
+        />
+      </g>
+      <g>
+        <rect
+          x="400"
+          y="595"
+          className="fill-[#BE3400]"
+          width="100"
+          height="5"
+        />
+      </g>
+      <g>
+        <rect
+          x="400"
+          y="500"
+          className="fill-[#FFC794]"
+          width="100"
+          height="5"
+        />
       </g>
       <g>
-        <rect x="400" y="395" className="st6" width="100" height="5" />
+        <rect
+          x="400"
+          y="300"
+          className="fill-[#F15A29]"
+          width="100"
+          height="100"
+        />
       </g>
       <g>
-        <rect x="400" y="300" className="st7" width="100" height="5" />
+        <rect
+          x="400"
+          y="395"
+          className="fill-[#BE3400]"
+          width="100"
+          height="5"
+        />
       </g>
       <g>
-        <rect x="400" y="100" className="st5" width="100" height="100" />
+        <rect
+          x="400"
+          y="300"
+          className="fill-[#FFC794]"
+          width="100"
+          height="5"
+        />
       </g>
       <g>
-        <rect x="400" y="195" className="st6" width="100" height="5" />
+        <rect
+          x="400"
+          y="100"
+          className="fill-[#F15A29]"
+          width="100"
+          height="100"
+        />
       </g>
-      <g>
-        <rect x="400" y="100" className="st7" width="100" height="5" />
-      </g>
-      <g>
-        <rect x="200" y="100" className="st5" width="100" height="100" />
+      <g>
+        <rect
+          x="400"
+          y="195"
+          className="fill-[#BE3400]"
+          width="100"
+          height="5"
+        />
+      </g>
+      <g>
+        <rect
+          x="400"
+          y="100"
+          className="fill-[#FFC794]"
+          width="100"
+          height="5"
+        />
+      </g>
+      <g>
+        <rect
+          x="200"
+          y="100"
+          className="fill-[#F15A29]"
+          width="100"
+          height="100"
+        />
       </g>
       <g>
-        <rect x="300" y="100" className="st1" width="100" height="100" />
+        <rect
+          x="300"
+          y="100"
+          className="fill-[#C9FFEC]"
+          width="100"
+          height="100"
+        />
       </g>
       <g>
-        <rect x="500" y="100" className="st3" width="100" height="100" />
+        <rect
+          x="500"
+          y="100"
+          className="fill-[#FFE9ED]"
+          width="100"
+          height="100"
+        />
       </g>
       <g>
-        <rect x="700" y="100" className="st2" width="100" height="100" />
+        <rect
+          x="700"
+          y="100"
+          className="fill-[#E9FFFA]"
+          width="100"
+          height="100"
+        />
       </g>
       <g>
-        <rect className="st8" width="100" height="100" />
+        <rect className="fill-[#94FFEE]" width="100" height="100" />
       </g>
       <g>
-        <rect x="200" className="st8" width="100" height="100" />
+        <rect x="200" className="fill-[#94FFEE]" width="100" height="100" />
       </g>
       <g>
-        <rect x="400" className="st8" width="100" height="100" />
+        <rect x="400" className="fill-[#94FFEE]" width="100" height="100" />
       </g>
       <g>
-        <rect x="600" className="st8" width="100" height="100" />
+        <rect x="600" className="fill-[#94FFEE]" width="100" height="100" />
       </g>
       <g>
-        <rect x="200" y="300" className="st9" width="100" height="100" />
+        <rect
+          x="200"
+          y="300"
+          className="fill-[#FFC94A]"
+          width="100"
+          height="100"
+        />
       </g>
       <g>
-        <rect x="200" y="395" className="st10" width="100" height="5" />
+        <rect
+          x="200"
+          y="395"
+          className="fill-[#D49B00]"
+          width="100"
+          height="5"
+        />
       </g>
       <g>
-        <rect x="200" y="300" className="st11" width="100" height="5" />
+        <rect
+          x="200"
+          y="300"
+          className="fill-[#FFFFAC]"
+          width="100"
+          height="5"
+        />
       </g>
       <g>
-        <rect x="600" y="100" className="st9" width="100" height="100" />
+        <rect
+          x="600"
+          y="100"
+          className="fill-[#FFC94A]"
+          width="100"
+          height="100"
+        />
       </g>
       <g>
-        <rect x="600" y="195" className="st10" width="100" height="5" />
+        <rect
+          x="600"
+          y="195"
+          className="fill-[#D49B00]"
+          width="100"
+          height="5"
+        />
       </g>
       <g>
-        <rect x="600" y="100" className="st11" width="100" height="5" />
+        <rect
+          x="600"
+          y="100"
+          className="fill-[#FFFFAC]"
+          width="100"
+          height="5"
+        />
       </g>
       <g>
-        <rect x="700" className="st9" width="100" height="100" />
+        <rect x="700" className="fill-[#FFC94A]" width="100" height="100" />
       </g>
       <g>
-        <rect x="700" y="95" className="st10" width="100" height="5" />
+        <rect
+          x="700"
+          y="95"
+          className="fill-[#D49B00]"
+          width="100"
+          height="5"
+        />
       </g>
       <g>
-        <rect x="700" y="0.5" className="st11" width="100" height="6" />
+        <rect
+          x="700"
+          y="0.5"
+          className="fill-[#FFFFAC]"
+          width="100"
+          height="6"
+        />
       </g>
       <g>
-        <rect x="500" className="st9" width="100" height="100" />
+        <rect x="500" className="fill-[#FFC94A]" width="100" height="100" />
       </g>
       <g>
-        <rect x="500" y="95" className="st10" width="100" height="5" />
+        <rect
+          x="500"
+          y="95"
+          className="fill-[#D49B00]"
+          width="100"
+          height="5"
+        />
       </g>
       <g>
-        <rect x="500" y="0.5" className="st11" width="100" height="6" />
+        <rect
+          x="500"
+          y="0.5"
+          className="fill-[#FFFFAC]"
+          width="100"
+          height="6"
+        />
       </g>
       <g>
-        <rect x="300" className="st9" width="100" height="100" />
+        <rect x="300" className="fill-[#FFC94A]" width="100" height="100" />
       </g>
       <g>
-        <rect x="300" y="95" className="st10" width="100" height="5" />
+        <rect
+          x="300"
+          y="95"
+          className="fill-[#D49B00]"
+          width="100"
+          height="5"
+        />
       </g>
       <g>
-        <rect x="300" y="0.5" className="st11" width="100" height="6" />
+        <rect
+          x="300"
+          y="0.5"
+          className="fill-[#FFFFAC]"
+          width="100"
+          height="6"
+        />
       </g>
       <g>
-        <rect x="100" className="st9" width="100" height="100" />
+        <rect x="100" className="fill-[#FFC94A]" width="100" height="100" />
       </g>
       <g>
-        <rect x="100" y="95" className="st10" width="100" height="5" />
+        <rect
+          x="100"
+          y="95"
+          className="fill-[#D49B00]"
+          width="100"
+          height="5"
+        />
       </g>
       <g>
-        <rect x="100" y="0.5" className="st11" width="100" height="6" />
+        <rect
+          x="100"
+          y="0.5"
+          className="fill-[#FFFFAC]"
+          width="100"
+          height="6"
+        />
       </g>
       <g>
-        <rect x="200" y="500" className="st9" width="100" height="100" />
+        <rect
+          x="200"
+          y="500"
+          className="fill-[#FFC94A]"
+          width="100"
+          height="100"
+        />
       </g>
       <g>
-        <rect x="200" y="595" className="st10" width="100" height="5" />
+        <rect
+          x="200"
+          y="595"
+          className="fill-[#D49B00]"
+          width="100"
+          height="5"
+        />
       </g>
       <g>
-        <rect x="200" y="500" className="st11" width="100" height="5" />
+        <rect
+          x="200"
+          y="500"
+          className="fill-[#FFFFAC]"
+          width="100"
+          height="5"
+        />
       </g>
       <g>
-        <rect x="300" y="200" className="st9" width="100" height="100" />
+        <rect
+          x="300"
+          y="200"
+          className="fill-[#FFC94A]"
+          width="100"
+          height="100"
+        />
       </g>
       <g>
-        <rect x="300" y="295" className="st10" width="100" height="5" />
+        <rect
+          x="300"
+          y="295"
+          className="fill-[#D49B00]"
+          width="100"
+          height="5"
+        />
       </g>
       <g>
-        <rect x="300" y="200" className="st11" width="100" height="5" />
+        <rect
+          x="300"
+          y="200"
+          className="fill-[#FFFFAC]"
+          width="100"
+          height="5"
+        />
       </g>
       <g>
-        <rect y="500" className="st9" width="100" height="100" />
+        <rect y="500" className="fill-[#FFC94A]" width="100" height="100" />
       </g>
       <g>
-        <rect y="595" className="st10" width="100" height="5" />
+        <rect y="595" className="fill-[#D49B00]" width="100" height="5" />
       </g>
       <g>
-        <rect y="500" className="st11" width="100" height="5" />
+        <rect y="500" className="fill-[#FFFFAC]" width="100" height="5" />
       </g>
       <g>
-        <rect y="300" className="st9" width="100" height="100" />
+        <rect y="300" className="fill-[#FFC94A]" width="100" height="100" />
       </g>
       <g>
-        <rect x="600" y="595" className="st12" width="100" height="5" />
+        <rect
+          x="600"
+          y="595"
+          className="fill-[#00262A]"
+          width="100"
+          height="5"
+        />
       </g>
       <g>
-        <rect x="600" y="500" className="st13" width="100" height="5" />
+        <rect
+          x="600"
+          y="500"
+          className="fill-[#74D8B4]"
+          width="100"
+          height="5"
+        />
       </g>
       <g>
-        <rect x="100" y="495" className="st12" width="100" height="5" />
+        <rect
+          x="100"
+          y="495"
+          className="fill-[#00262A]"
+          width="100"
+          height="5"
+        />
       </g>
       <g>
-        <rect x="100" y="400" className="st13" width="100" height="5" />
+        <rect
+          x="100"
+          y="400"
+          className="fill-[#74D8B4]"
+          width="100"
+          height="5"
+        />
       </g>
       <g>
-        <rect y="395" className="st10" width="100" height="5" />
+        <rect y="395" className="fill-[#D49B00]" width="100" height="5" />
       </g>
       <g>
-        <rect y="300" className="st11" width="100" height="5" />
+        <rect y="300" className="fill-[#FFFFAC]" width="100" height="5" />
       </g>
       <g>
-        <rect y="100" className="st9" width="100" height="100" />
+        <rect y="100" className="fill-[#FFC94A]" width="100" height="100" />
       </g>
       <g>
-        <rect x="200" y="195" className="st6" width="100" height="5" />
+        <rect
+          x="200"
+          y="195"
+          className="fill-[#BE3400]"
+          width="100"
+          height="5"
+        />
       </g>
       <g>
-        <rect x="200" y="100" className="st7" width="100" height="5" />
+        <rect
+          x="200"
+          y="100"
+          className="fill-[#FFC794]"
+          width="100"
+          height="5"
+        />
       </g>
       <g>
-        <rect x="100" y="295" className="st6" width="100" height="5" />
+        <rect
+          x="100"
+          y="295"
+          className="fill-[#BE3400]"
+          width="100"
+          height="5"
+        />
       </g>
       <g>
-        <rect x="100" y="200" className="st7" width="100" height="5" />
+        <rect
+          x="100"
+          y="200"
+          className="fill-[#FFC794]"
+          width="100"
+          height="5"
+        />
       </g>
       <g>
-        <rect y="195" className="st10" width="100" height="5" />
+        <rect y="195" className="fill-[#D49B00]" width="100" height="5" />
       </g>
       <g>
-        <rect y="100" className="st11" width="100" height="5" />
+        <rect y="100" className="fill-[#FFFFAC]" width="100" height="5" />
       </g>
       <g>
-        <rect x="600" y="700" className="st9" width="100" height="100" />
+        <rect
+          x="600"
+          y="700"
+          className="fill-[#FFC94A]"
+          width="100"
+          height="100"
+        />
       </g>
       <g>
-        <rect x="600" y="700" className="st11" width="100" height="5" />
+        <rect
+          x="600"
+          y="700"
+          className="fill-[#FFFFAC]"
+          width="100"
+          height="5"
+        />
       </g>
       <g>
-        <rect x="200" y="700" className="st9" width="100" height="100" />
+        <rect
+          x="200"
+          y="700"
+          className="fill-[#FFC94A]"
+          width="100"
+          height="100"
+        />
       </g>
       <g>
-        <rect x="200" y="700" className="st11" width="100" height="5" />
+        <rect
+          x="200"
+          y="700"
+          className="fill-[#FFFFAC]"
+          width="100"
+          height="5"
+        />
       </g>
       <g>
-        <rect x="300" y="600" className="st9" width="100" height="100" />
+        <rect
+          x="300"
+          y="600"
+          className="fill-[#FFC94A]"
+          width="100"
+          height="100"
+        />
       </g>
       <g>
-        <rect x="300" y="695" className="st10" width="100" height="5" />
+        <rect
+          x="300"
+          y="695"
+          className="fill-[#D49B00]"
+          width="100"
+          height="5"
+        />
       </g>
       <g>
-        <rect x="200" y="795" className="st10" width="100" height="5" />
+        <rect
+          x="200"
+          y="795"
+          className="fill-[#D49B00]"
+          width="100"
+          height="5"
+        />
       </g>
       <g>
-        <rect x="600" y="795" className="st10" width="100" height="5" />
+        <rect
+          x="600"
+          y="795"
+          className="fill-[#D49B00]"
+          width="100"
+          height="5"
+        />
       </g>
       <g>
-        <rect x="300" y="600" className="st11" width="100" height="5" />
+        <rect
+          x="300"
+          y="600"
+          className="fill-[#FFFFAC]"
+          width="100"
+          height="5"
+        />
       </g>
       <g>
-        <rect x="500" y="600" className="st9" width="100" height="100" />
+        <rect
+          x="500"
+          y="600"
+          className="fill-[#FFC94A]"
+          width="100"
+          height="100"
+        />
       </g>
       <g>
-        <rect x="500" y="695" className="st10" width="100" height="5" />
+        <rect
+          x="500"
+          y="695"
+          className="fill-[#D49B00]"
+          width="100"
+          height="5"
+        />
       </g>
       <g>
-        <rect x="500" y="600" className="st11" width="100" height="5" />
+        <rect
+          x="500"
+          y="600"
+          className="fill-[#FFFFAC]"
+          width="100"
+          height="5"
+        />
       </g>
       <g>
-        <rect x="700" y="600" className="st9" width="100" height="100" />
+        <rect
+          x="700"
+          y="600"
+          className="fill-[#FFC94A]"
+          width="100"
+          height="100"
+        />
       </g>
       <g>
-        <rect x="700" y="695" className="st10" width="100" height="5" />
+        <rect
+          x="700"
+          y="695"
+          className="fill-[#D49B00]"
+          width="100"
+          height="5"
+        />
       </g>
       <g>
-        <rect x="700" y="600" className="st11" width="100" height="5" />
+        <rect
+          x="700"
+          y="600"
+          className="fill-[#FFFFAC]"
+          width="100"
+          height="5"
+        />
       </g>
       <g>
-        <rect x="700" y="400" className="st9" width="100" height="100" />
+        <rect
+          x="700"
+          y="400"
+          className="fill-[#FFC94A]"
+          width="100"
+          height="100"
+        />
       </g>
       <g>
-        <rect x="700" y="495" className="st10" width="100" height="5" />
+        <rect
+          x="700"
+          y="495"
+          className="fill-[#D49B00]"
+          width="100"
+          height="5"
+        />
       </g>
       <g>
-        <rect x="700" y="400" className="st11" width="100" height="5" />
+        <rect
+          x="700"
+          y="400"
+          className="fill-[#FFFFAC]"
+          width="100"
+          height="5"
+        />
       </g>
       <g>
-        <rect x="500" y="400" className="st9" width="100" height="100" />
+        <rect
+          x="500"
+          y="400"
+          className="fill-[#FFC94A]"
+          width="100"
+          height="100"
+        />
       </g>
       <g>
-        <rect x="500" y="495" className="st10" width="100" height="5" />
+        <rect
+          x="500"
+          y="495"
+          className="fill-[#D49B00]"
+          width="100"
+          height="5"
+        />
       </g>
       <g>
-        <rect x="500" y="400" className="st11" width="100" height="5" />
+        <rect
+          x="500"
+          y="400"
+          className="fill-[#FFFFAC]"
+          width="100"
+          height="5"
+        />
       </g>
       <g>
-        <rect x="300" y="400" className="st9" width="100" height="100" />
+        <rect
+          x="300"
+          y="400"
+          className="fill-[#FFC94A]"
+          width="100"
+          height="100"
+        />
       </g>
       <g>
-        <rect x="300" y="495" className="st10" width="100" height="5" />
+        <rect
+          x="300"
+          y="495"
+          className="fill-[#D49B00]"
+          width="100"
+          height="5"
+        />
       </g>
       <g>
-        <rect x="300" y="400" className="st11" width="100" height="5" />
+        <rect
+          x="300"
+          y="400"
+          className="fill-[#FFFFAC]"
+          width="100"
+          height="5"
+        />
       </g>
       <g>
-        <rect x="500" y="200" className="st9" width="100" height="100" />
+        <rect
+          x="500"
+          y="200"
+          className="fill-[#FFC94A]"
+          width="100"
+          height="100"
+        />
       </g>
       <g>
-        <rect x="500" y="295" className="st10" width="100" height="5" />
+        <rect
+          x="500"
+          y="295"
+          className="fill-[#D49B00]"
+          width="100"
+          height="5"
+        />
       </g>
       <g>
-        <rect x="500" y="200" className="st11" width="100" height="5" />
+        <rect
+          x="500"
+          y="200"
+          className="fill-[#FFFFAC]"
+          width="100"
+          height="5"
+        />
       </g>
       <g>
         <path
-          className="st14"
+          className="fill-[#FFE3BF]"
           d="M30.68,744.5H16v-4.25h21.25L25.56,761.5h-4.25L30.68,744.5z"
         />
         <path
-          className="st14"
+          className="fill-[#FFE3BF]"
           d="M52.13,761.5c-2.94,0-5.45-1.03-7.52-3.1c-2.07-2.07-3.1-4.58-3.1-7.52c0-2.94,1.03-5.45,3.1-7.52
 			c2.07-2.07,4.58-3.1,7.52-3.1c2.94,0,5.45,1.04,7.52,3.1c2.07,2.07,3.1,4.58,3.1,7.52c0,2.94-1.04,5.45-3.1,7.52
 			C57.58,760.47,55.07,761.5,52.13,761.5z M52.13,757.25c1.77,0,3.28-0.62,4.52-1.86c1.24-1.24,1.86-2.74,1.86-4.52
@@ -427,7 +1024,7 @@ const Board = (props: SVGProps<SVGSVGElement>) => (
 			c0,1.77,0.62,3.28,1.86,4.52C48.85,756.63,50.35,757.25,52.13,757.25z"
         />
         <path
-          className="st14"
+          className="fill-[#FFE3BF]"
           d="M83.04,740.25L71.25,761.5H67l11.79-21.25H83.04z M69.66,745.56c-0.73,0-1.36-0.26-1.88-0.78
 			c-0.52-0.52-0.78-1.15-0.78-1.88s0.26-1.36,0.78-1.88c0.52-0.52,1.15-0.78,1.88-0.78s1.36,0.26,1.88,0.78
 			c0.52,0.52,0.78,1.15,0.78,1.88s-0.26,1.36-0.78,1.88C71.01,745.3,70.39,745.56,69.66,745.56z M81.34,761.5
@@ -436,9 +1033,12 @@ const Board = (props: SVGProps<SVGSVGElement>) => (
         />
       </g>
       <g>
-        <path className="st15" d="M626.63,761.5h-4.25v-21.25h4.25V761.5z" />
         <path
-          className="st15"
+          className="fill-[#FFFFD1]"
+          d="M626.63,761.5h-4.25v-21.25h4.25V761.5z"
+        />
+        <path
+          className="fill-[#FFFFD1]"
           d="M641.5,761.5c-2.94,0-5.45-1.03-7.52-3.1c-2.07-2.07-3.1-4.58-3.1-7.52c0-2.94,1.04-5.45,3.1-7.52
 			c2.07-2.07,4.58-3.1,7.52-3.1c2.94,0,5.45,1.04,7.52,3.1c2.07,2.07,3.1,4.58,3.1,7.52c0,2.94-1.04,5.45-3.1,7.52
 			C646.95,760.47,644.44,761.5,641.5,761.5z M641.5,757.25c1.77,0,3.28-0.62,4.52-1.86c1.24-1.24,1.86-2.74,1.86-4.52
@@ -446,7 +1046,7 @@ const Board = (props: SVGProps<SVGSVGElement>) => (
 			c0,1.77,0.62,3.28,1.86,4.52C638.22,756.63,639.73,757.25,641.5,757.25z"
         />
         <path
-          className="st15"
+          className="fill-[#FFFFD1]"
           d="M667,761.5c-2.94,0-5.45-1.03-7.52-3.1c-2.07-2.07-3.1-4.58-3.1-7.52c0-2.94,1.04-5.45,3.1-7.52
 			c2.07-2.07,4.58-3.1,7.52-3.1c2.94,0,5.45,1.04,7.52,3.1c2.07,2.07,3.1,4.58,3.1,7.52c0,2.94-1.04,5.45-3.1,7.52
 			C672.45,760.47,669.94,761.5,667,761.5z M667,757.25c1.77,0,3.28-0.62,4.52-1.86c1.24-1.24,1.86-2.74,1.86-4.52
@@ -456,14 +1056,14 @@ const Board = (props: SVGProps<SVGSVGElement>) => (
       </g>
       <g>
         <path
-          className="st14"
+          className="fill-[#FFE3BF]"
           d="M430.88,761.5H416v-4.25h14.88c0.6,0,1.1-0.2,1.51-0.61c0.41-0.41,0.61-0.91,0.61-1.51s-0.21-1.1-0.61-1.51
 			c-0.41-0.41-0.91-0.61-1.51-0.61h-5.31v-4.25h5.31c0.6,0,1.1-0.2,1.51-0.61c0.41-0.41,0.61-0.91,0.61-1.51s-0.21-1.1-0.61-1.51
 			c-0.41-0.41-0.91-0.61-1.51-0.61H416v-4.25h14.88c1.77,0,3.28,0.62,4.52,1.86c1.24,1.24,1.86,2.75,1.86,4.52
 			c0,1.64-0.53,3.05-1.59,4.25c1.06,1.2,1.59,2.61,1.59,4.25c0,1.77-0.62,3.28-1.86,4.52C434.15,760.88,432.65,761.5,430.88,761.5z"
         />
         <path
-          className="st14"
+          className="fill-[#FFE3BF]"
           d="M452.13,761.5c-2.94,0-5.45-1.03-7.52-3.1c-2.07-2.07-3.1-4.58-3.1-7.52c0-2.94,1.04-5.45,3.1-7.52
 			c2.07-2.07,4.58-3.1,7.52-3.1s5.45,1.04,7.52,3.1c2.07,2.07,3.1,4.58,3.1,7.52c0,2.94-1.04,5.45-3.1,7.52
 			C457.58,760.47,455.07,761.5,452.13,761.5z M452.13,757.25c1.77,0,3.28-0.62,4.52-1.86c1.24-1.24,1.86-2.74,1.86-4.52
@@ -471,7 +1071,7 @@ const Board = (props: SVGProps<SVGSVGElement>) => (
 			c0,1.77,0.62,3.28,1.86,4.52C448.85,756.63,450.35,757.25,452.13,757.25z"
         />
         <path
-          className="st14"
+          className="fill-[#FFE3BF]"
           d="M483.04,740.25l-11.79,21.25H467l11.79-21.25H483.04z M469.66,745.56c-0.73,0-1.36-0.26-1.88-0.78
 			c-0.52-0.52-0.78-1.15-0.78-1.88s0.26-1.36,0.78-1.88c0.52-0.52,1.15-0.78,1.88-0.78s1.36,0.26,1.88,0.78
 			c0.52,0.52,0.78,1.15,0.78,1.88s-0.26,1.36-0.78,1.88C471.01,745.3,470.39,745.56,469.66,745.56z M481.34,761.5
@@ -481,14 +1081,14 @@ const Board = (props: SVGProps<SVGSVGElement>) => (
       </g>
       <g>
         <path
-          className="st15"
+          className="fill-[#FFFFD1]"
           d="M240.44,757.25v4.25h-31.88v-6.38c0-1.77,0.62-3.28,1.86-4.52c1.24-1.24,2.74-1.86,4.52-1.86h8.5
 			c0.6,0,1.1-0.2,1.51-0.61c0.41-0.41,0.61-0.91,0.61-1.51s-0.21-1.1-0.61-1.51c-0.41-0.41-0.91-0.61-1.51-0.61h-12.75v-4.25h12.75
 			c1.77,0,3.28,0.62,4.52,1.86c1.24,1.24,1.86,2.75,1.86,4.52c0,1.77-0.62,3.28-1.86,4.52c-1.24,1.24-2.75,1.86-4.52,1.86h-8.5
 			c-0.6,0-1.1,0.21-1.51,0.61c-0.41,0.41-0.61,0.91-0.61,1.51v2.13H240.44z"
         />
         <path
-          className="st15"
+          className="fill-[#FFFFD1]"
           d="M255.31,761.5c-2.94,0-5.45-1.03-7.52-3.1c-2.07-2.07-3.1-4.58-3.1-7.52c0-2.94,1.03-5.45,3.1-7.52
 			c2.07-2.07,4.58-3.1,7.52-3.1c2.94,0,5.45,1.04,7.52,3.1c2.07,2.07,3.1,4.58,3.1,7.52c0,2.94-1.04,5.45-3.1,7.52
 			C260.76,760.47,258.26,761.5,255.31,761.5z M255.31,757.25c1.77,0,3.28-0.62,4.52-1.86c1.24-1.24,1.86-2.74,1.86-4.52
@@ -496,7 +1096,7 @@ const Board = (props: SVGProps<SVGSVGElement>) => (
 			c0,1.77,0.62,3.28,1.86,4.52C252.04,756.63,253.54,757.25,255.31,757.25z"
         />
         <path
-          className="st15"
+          className="fill-[#FFFFD1]"
           d="M280.81,761.5c-2.94,0-5.45-1.03-7.52-3.1c-2.07-2.07-3.1-4.58-3.1-7.52c0-2.94,1.03-5.45,3.1-7.52
 			c2.07-2.07,4.58-3.1,7.52-3.1c2.94,0,5.45,1.04,7.52,3.1c2.07,2.07,3.1,4.58,3.1,7.52c0,2.94-1.04,5.45-3.1,7.52
 			C286.26,760.47,283.76,761.5,280.81,761.5z M280.81,757.25c1.77,0,3.28-0.62,4.52-1.86c1.24-1.24,1.86-2.74,1.86-4.52
@@ -506,68 +1106,68 @@ const Board = (props: SVGProps<SVGSVGElement>) => (
       </g>
       <g>
         <path
-          className="st16"
+          className="fill-[#278D00]"
           d="M160.63,740.25v21.25h-21.25v-21.25H160.63z M156.38,744.5h-12.75v12.75h12.75V744.5z"
         />
       </g>
       <g>
         <path
-          className="st16"
+          className="fill-[#278D00]"
           d="M260.63,640.25v21.25h-21.25v-21.25H260.63z M256.38,644.5h-12.75v12.75h12.75V644.5z"
         />
       </g>
       <g>
         <path
-          className="st16"
+          className="fill-[#278D00]"
           d="M460.63,640.25v21.25h-21.25v-21.25H460.63z M456.38,644.5h-12.75v12.75h12.75V644.5z"
         />
       </g>
       <g>
         <path
-          className="st16"
+          className="fill-[#278D00]"
           d="M660.63,640.25v21.25h-21.25v-21.25H660.63z M656.38,644.5h-12.75v12.75h12.75V644.5z"
         />
       </g>
       <g>
         <path
-          className="st16"
+          className="fill-[#278D00]"
           d="M760.63,540.25v21.25h-21.25v-21.25H760.63z M756.38,544.5h-12.75v12.75h12.75V544.5z"
         />
       </g>
       <g>
         <path
-          className="st16"
+          className="fill-[#278D00]"
           d="M560.63,340.25v21.25h-21.25v-21.25H560.63z M556.38,344.5h-12.75v12.75h12.75V344.5z"
         />
       </g>
       <g>
         <path
-          className="st16"
+          className="fill-[#278D00]"
           d="M160.63,340.25v21.25h-21.25v-21.25H160.63z M156.38,344.5h-12.75v12.75h12.75V344.5z"
         />
       </g>
       <g>
         <path
-          className="st16"
+          className="fill-[#278D00]"
           d="M260.63,440.25v21.25h-21.25v-21.25H260.63z M256.38,444.5h-12.75v12.75h12.75V444.5z"
         />
       </g>
       <g>
         <path
-          className="st16"
+          className="fill-[#278D00]"
           d="M260.63,240.25v21.25h-21.25v-21.25H260.63z M256.38,244.5h-12.75v12.75h12.75V244.5z"
         />
       </g>
       <g>
         <path
-          className="st15"
+          className="fill-[#FFFFD1]"
           d="M740.44,657.25v4.25h-31.88v-6.38c0-1.77,0.62-3.28,1.86-4.52c1.24-1.24,2.74-1.86,4.52-1.86h8.5
 			c0.6,0,1.1-0.2,1.51-0.61c0.41-0.41,0.61-0.91,0.61-1.51s-0.21-1.1-0.61-1.51c-0.41-0.41-0.91-0.61-1.51-0.61h-12.75v-4.25h12.75
 			c1.77,0,3.28,0.62,4.52,1.86c1.24,1.24,1.86,2.75,1.86,4.52c0,1.77-0.62,3.28-1.86,4.52c-1.24,1.24-2.75,1.86-4.52,1.86h-8.5
 			c-0.6,0-1.1,0.21-1.51,0.61c-0.41,0.41-0.61,0.91-0.61,1.51v2.13H740.44z"
         />
         <path
-          className="st15"
+          className="fill-[#FFFFD1]"
           d="M755.31,661.5c-2.94,0-5.45-1.03-7.52-3.1c-2.07-2.07-3.1-4.58-3.1-7.52c0-2.94,1.04-5.45,3.1-7.52
 			c2.07-2.07,4.58-3.1,7.52-3.1c2.94,0,5.45,1.04,7.52,3.1c2.07,2.07,3.1,4.58,3.1,7.52c0,2.94-1.04,5.45-3.1,7.52
 			C760.76,660.47,758.26,661.5,755.31,661.5z M755.31,657.25c1.77,0,3.28-0.62,4.52-1.86c1.24-1.24,1.86-2.74,1.86-4.52
@@ -575,7 +1175,7 @@ const Board = (props: SVGProps<SVGSVGElement>) => (
 			c0,1.77,0.62,3.28,1.86,4.52C752.04,656.63,753.54,657.25,755.31,657.25z"
         />
         <path
-          className="st15"
+          className="fill-[#FFFFD1]"
           d="M780.81,661.5c-2.94,0-5.45-1.03-7.52-3.1c-2.07-2.07-3.1-4.58-3.1-7.52c0-2.94,1.04-5.45,3.1-7.52
 			c2.07-2.07,4.58-3.1,7.52-3.1c2.94,0,5.45,1.04,7.52,3.1c2.07,2.07,3.1,4.58,3.1,7.52c0,2.94-1.04,5.45-3.1,7.52
 			C786.26,660.47,783.76,661.5,780.81,661.5z M780.81,657.25c1.77,0,3.28-0.62,4.52-1.86c1.24-1.24,1.86-2.74,1.86-4.52
@@ -585,14 +1185,14 @@ const Board = (props: SVGProps<SVGSVGElement>) => (
       </g>
       <g>
         <path
-          className="st15"
+          className="fill-[#FFFFD1]"
           d="M540.44,657.25v4.25h-31.88v-6.38c0-1.77,0.62-3.28,1.86-4.52c1.24-1.24,2.75-1.86,4.52-1.86h8.5
 			c0.6,0,1.1-0.2,1.51-0.61c0.41-0.41,0.61-0.91,0.61-1.51s-0.21-1.1-0.61-1.51c-0.41-0.41-0.91-0.61-1.51-0.61h-12.75v-4.25h12.75
 			c1.77,0,3.28,0.62,4.52,1.86c1.24,1.24,1.86,2.75,1.86,4.52c0,1.77-0.62,3.28-1.86,4.52c-1.24,1.24-2.75,1.86-4.52,1.86h-8.5
 			c-0.6,0-1.1,0.21-1.51,0.61c-0.41,0.41-0.61,0.91-0.61,1.51v2.13H540.44z"
         />
         <path
-          className="st15"
+          className="fill-[#FFFFD1]"
           d="M555.31,661.5c-2.94,0-5.45-1.03-7.52-3.1c-2.07-2.07-3.1-4.58-3.1-7.52c0-2.94,1.04-5.45,3.1-7.52
 			c2.07-2.07,4.58-3.1,7.52-3.1s5.45,1.04,7.52,3.1c2.07,2.07,3.1,4.58,3.1,7.52c0,2.94-1.04,5.45-3.1,7.52
 			C560.76,660.47,558.26,661.5,555.31,661.5z M555.31,657.25c1.77,0,3.28-0.62,4.52-1.86c1.24-1.24,1.86-2.74,1.86-4.52
@@ -600,7 +1200,7 @@ const Board = (props: SVGProps<SVGSVGElement>) => (
 			c0,1.77,0.62,3.28,1.86,4.52C552.04,656.63,553.54,657.25,555.31,657.25z"
         />
         <path
-          className="st15"
+          className="fill-[#FFFFD1]"
           d="M580.81,661.5c-2.94,0-5.45-1.03-7.52-3.1c-2.07-2.07-3.1-4.58-3.1-7.52c0-2.94,1.04-5.45,3.1-7.52
 			c2.07-2.07,4.58-3.1,7.52-3.1s5.45,1.04,7.52,3.1c2.07,2.07,3.1,4.58,3.1,7.52c0,2.94-1.04,5.45-3.1,7.52
 			C586.26,660.47,583.76,661.5,580.81,661.5z M580.81,657.25c1.77,0,3.28-0.62,4.52-1.86c1.24-1.24,1.86-2.74,1.86-4.52
@@ -609,9 +1209,12 @@ const Board = (props: SVGProps<SVGSVGElement>) => (
         />
       </g>
       <g>
-        <path className="st15" d="M326.63,661.5h-4.25v-21.25h4.25V661.5z" />
         <path
-          className="st15"
+          className="fill-[#FFFFD1]"
+          d="M326.63,661.5h-4.25v-21.25h4.25V661.5z"
+        />
+        <path
+          className="fill-[#FFFFD1]"
           d="M341.5,661.5c-2.94,0-5.45-1.03-7.52-3.1c-2.07-2.07-3.1-4.58-3.1-7.52c0-2.94,1.03-5.45,3.1-7.52
 			c2.07-2.07,4.58-3.1,7.52-3.1c2.94,0,5.45,1.04,7.52,3.1c2.07,2.07,3.1,4.58,3.1,7.52c0,2.94-1.04,5.45-3.1,7.52
 			C346.95,660.47,344.44,661.5,341.5,661.5z M341.5,657.25c1.77,0,3.28-0.62,4.52-1.86c1.24-1.24,1.86-2.74,1.86-4.52
@@ -619,7 +1222,7 @@ const Board = (props: SVGProps<SVGSVGElement>) => (
 			c0,1.77,0.62,3.28,1.86,4.52C338.22,656.63,339.73,657.25,341.5,657.25z"
         />
         <path
-          className="st15"
+          className="fill-[#FFFFD1]"
           d="M367,661.5c-2.94,0-5.45-1.03-7.52-3.1c-2.07-2.07-3.1-4.58-3.1-7.52c0-2.94,1.03-5.45,3.1-7.52
 			c2.07-2.07,4.58-3.1,7.52-3.1c2.94,0,5.45,1.04,7.52,3.1c2.07,2.07,3.1,4.58,3.1,7.52c0,2.94-1.04,5.45-3.1,7.52
 			C372.45,660.47,369.94,661.5,367,661.5z M367,657.25c1.77,0,3.28-0.62,4.52-1.86c1.24-1.24,1.86-2.74,1.86-4.52
@@ -629,14 +1232,14 @@ const Board = (props: SVGProps<SVGSVGElement>) => (
       </g>
       <g>
         <path
-          className="st14"
+          className="fill-[#FFE3BF]"
           d="M142.56,657.25v4.25h-31.88v-6.38c0-1.77,0.62-3.28,1.86-4.52c1.24-1.24,2.74-1.86,4.52-1.86h8.5
 			c0.6,0,1.1-0.2,1.51-0.61c0.41-0.41,0.61-0.91,0.61-1.51s-0.21-1.1-0.61-1.51c-0.41-0.41-0.91-0.61-1.51-0.61h-12.75v-4.25h12.75
 			c1.77,0,3.28,0.62,4.52,1.86c1.24,1.24,1.86,2.75,1.86,4.52c0,1.77-0.62,3.28-1.86,4.52c-1.24,1.24-2.75,1.86-4.52,1.86h-8.5
 			c-0.6,0-1.1,0.21-1.51,0.61c-0.41,0.41-0.61,0.91-0.61,1.51v2.13H142.56z"
         />
         <path
-          className="st14"
+          className="fill-[#FFE3BF]"
           d="M157.44,661.5c-2.94,0-5.45-1.03-7.52-3.1c-2.07-2.07-3.1-4.58-3.1-7.52c0-2.94,1.03-5.45,3.1-7.52
 			c2.07-2.07,4.58-3.1,7.52-3.1c2.94,0,5.45,1.04,7.52,3.1c2.07,2.07,3.1,4.58,3.1,7.52c0,2.94-1.04,5.45-3.1,7.52
 			C162.89,660.47,160.38,661.5,157.44,661.5z M157.44,657.25c1.77,0,3.28-0.62,4.52-1.86c1.24-1.24,1.86-2.74,1.86-4.52
@@ -644,7 +1247,7 @@ const Board = (props: SVGProps<SVGSVGElement>) => (
 			c0,1.77,0.62,3.28,1.86,4.52C154.16,656.63,155.67,657.25,157.44,657.25z"
         />
         <path
-          className="st14"
+          className="fill-[#FFE3BF]"
           d="M188.35,640.25l-11.79,21.25h-4.25l11.79-21.25H188.35z M174.97,645.56c-0.73,0-1.36-0.26-1.88-0.78
 			c-0.52-0.52-0.78-1.15-0.78-1.88s0.26-1.36,0.78-1.88c0.52-0.52,1.15-0.78,1.88-0.78s1.36,0.26,1.88,0.78
 			c0.52,0.52,0.78,1.15,0.78,1.88s-0.26,1.36-0.78,1.88C176.32,645.3,175.7,645.56,174.97,645.56z M186.66,661.5
@@ -653,9 +1256,12 @@ const Board = (props: SVGProps<SVGSVGElement>) => (
         />
       </g>
       <g>
-        <path className="st15" d="M26.63,561.5h-4.25v-21.25h4.25V561.5z" />
         <path
-          className="st15"
+          className="fill-[#FFFFD1]"
+          d="M26.63,561.5h-4.25v-21.25h4.25V561.5z"
+        />
+        <path
+          className="fill-[#FFFFD1]"
           d="M41.5,561.5c-2.94,0-5.45-1.03-7.52-3.1c-2.07-2.07-3.1-4.58-3.1-7.52c0-2.94,1.03-5.45,3.1-7.52
 			c2.07-2.07,4.58-3.1,7.52-3.1c2.94,0,5.45,1.04,7.52,3.1c2.07,2.07,3.1,4.58,3.1,7.52c0,2.94-1.04,5.45-3.1,7.52
 			C46.95,560.47,44.44,561.5,41.5,561.5z M41.5,557.25c1.77,0,3.28-0.62,4.52-1.86c1.24-1.24,1.86-2.74,1.86-4.52
@@ -663,7 +1269,7 @@ const Board = (props: SVGProps<SVGSVGElement>) => (
 			c0,1.77,0.62,3.28,1.86,4.52C38.22,556.63,39.73,557.25,41.5,557.25z"
         />
         <path
-          className="st15"
+          className="fill-[#FFFFD1]"
           d="M67,561.5c-2.94,0-5.45-1.03-7.52-3.1c-2.07-2.07-3.1-4.58-3.1-7.52c0-2.94,1.03-5.45,3.1-7.52
 			c2.07-2.07,4.58-3.1,7.52-3.1c2.94,0,5.45,1.04,7.52,3.1c2.07,2.07,3.1,4.58,3.1,7.52c0,2.94-1.04,5.45-3.1,7.52
 			C72.45,560.47,69.94,561.5,67,561.5z M67,557.25c1.77,0,3.28-0.62,4.52-1.86c1.24-1.24,1.86-2.74,1.86-4.52
@@ -673,14 +1279,14 @@ const Board = (props: SVGProps<SVGSVGElement>) => (
       </g>
       <g>
         <path
-          className="st14"
+          className="fill-[#FFE3BF]"
           d="M442.56,557.25v4.25h-31.88v-6.38c0-1.77,0.62-3.28,1.86-4.52c1.24-1.24,2.75-1.86,4.52-1.86h8.5
 			c0.6,0,1.1-0.2,1.51-0.61c0.41-0.41,0.61-0.91,0.61-1.51s-0.21-1.1-0.61-1.51c-0.41-0.41-0.91-0.61-1.51-0.61h-12.75v-4.25h12.75
 			c1.77,0,3.28,0.62,4.52,1.86c1.24,1.24,1.86,2.75,1.86,4.52c0,1.77-0.62,3.28-1.86,4.52c-1.24,1.24-2.75,1.86-4.52,1.86h-8.5
 			c-0.6,0-1.1,0.21-1.51,0.61c-0.41,0.41-0.61,0.91-0.61,1.51v2.13H442.56z"
         />
         <path
-          className="st14"
+          className="fill-[#FFE3BF]"
           d="M457.44,561.5c-2.94,0-5.45-1.03-7.52-3.1c-2.07-2.07-3.1-4.58-3.1-7.52c0-2.94,1.04-5.45,3.1-7.52
 			c2.07-2.07,4.58-3.1,7.52-3.1s5.45,1.04,7.52,3.1c2.07,2.07,3.1,4.58,3.1,7.52c0,2.94-1.04,5.45-3.1,7.52
 			C462.89,560.47,460.38,561.5,457.44,561.5z M457.44,557.25c1.77,0,3.28-0.62,4.52-1.86c1.24-1.24,1.86-2.74,1.86-4.52
@@ -688,7 +1294,7 @@ const Board = (props: SVGProps<SVGSVGElement>) => (
 			c0,1.77,0.62,3.28,1.86,4.52C454.16,556.63,455.67,557.25,457.44,557.25z"
         />
         <path
-          className="st14"
+          className="fill-[#FFE3BF]"
           d="M488.35,540.25l-11.79,21.25h-4.25l11.79-21.25H488.35z M474.97,545.56c-0.73,0-1.36-0.26-1.88-0.78
 			c-0.52-0.52-0.78-1.15-0.78-1.88s0.26-1.36,0.78-1.88c0.52-0.52,1.15-0.78,1.88-0.78s1.36,0.26,1.88,0.78
 			c0.52,0.52,0.78,1.15,0.78,1.88s-0.26,1.36-0.78,1.88C476.32,545.3,475.7,545.56,474.97,545.56z M486.66,561.5
@@ -697,9 +1303,12 @@ const Board = (props: SVGProps<SVGSVGElement>) => (
         />
       </g>
       <g>
-        <path className="st15" d="M226.63,561.5h-4.25v-21.25h4.25V561.5z" />
         <path
-          className="st15"
+          className="fill-[#FFFFD1]"
+          d="M226.63,561.5h-4.25v-21.25h4.25V561.5z"
+        />
+        <path
+          className="fill-[#FFFFD1]"
           d="M241.5,561.5c-2.94,0-5.45-1.03-7.52-3.1c-2.07-2.07-3.1-4.58-3.1-7.52c0-2.94,1.03-5.45,3.1-7.52
 			c2.07-2.07,4.58-3.1,7.52-3.1c2.94,0,5.45,1.04,7.52,3.1c2.07,2.07,3.1,4.58,3.1,7.52c0,2.94-1.04,5.45-3.1,7.52
 			C246.95,560.47,244.44,561.5,241.5,561.5z M241.5,557.25c1.77,0,3.28-0.62,4.52-1.86c1.24-1.24,1.86-2.74,1.86-4.52
@@ -707,7 +1316,7 @@ const Board = (props: SVGProps<SVGSVGElement>) => (
 			c0,1.77,0.62,3.28,1.86,4.52C238.22,556.63,239.73,557.25,241.5,557.25z"
         />
         <path
-          className="st15"
+          className="fill-[#FFFFD1]"
           d="M267,561.5c-2.94,0-5.45-1.03-7.52-3.1c-2.07-2.07-3.1-4.58-3.1-7.52c0-2.94,1.03-5.45,3.1-7.52
 			c2.07-2.07,4.58-3.1,7.52-3.1c2.94,0,5.45,1.04,7.52,3.1c2.07,2.07,3.1,4.58,3.1,7.52c0,2.94-1.04,5.45-3.1,7.52
 			C272.45,560.47,269.94,561.5,267,561.5z M267,557.25c1.77,0,3.28-0.62,4.52-1.86c1.24-1.24,1.86-2.74,1.86-4.52
@@ -717,14 +1326,14 @@ const Board = (props: SVGProps<SVGSVGElement>) => (
       </g>
       <g>
         <path
-          className="st15"
+          className="fill-[#FFFFD1]"
           d="M740.44,457.25v4.25h-31.88v-6.38c0-1.77,0.62-3.28,1.86-4.52c1.24-1.24,2.74-1.86,4.52-1.86h8.5
 			c0.6,0,1.1-0.2,1.51-0.61c0.41-0.41,0.61-0.91,0.61-1.51s-0.21-1.1-0.61-1.51c-0.41-0.41-0.91-0.61-1.51-0.61h-12.75v-4.25h12.75
 			c1.77,0,3.28,0.62,4.52,1.86c1.24,1.24,1.86,2.75,1.86,4.52c0,1.77-0.62,3.28-1.86,4.52c-1.24,1.24-2.75,1.86-4.52,1.86h-8.5
 			c-0.6,0-1.1,0.21-1.51,0.61c-0.41,0.41-0.61,0.91-0.61,1.51v2.13H740.44z"
         />
         <path
-          className="st15"
+          className="fill-[#FFFFD1]"
           d="M755.31,461.5c-2.94,0-5.45-1.03-7.52-3.1c-2.07-2.07-3.1-4.58-3.1-7.52c0-2.94,1.04-5.45,3.1-7.52
 			c2.07-2.07,4.58-3.1,7.52-3.1c2.94,0,5.45,1.04,7.52,3.1c2.07,2.07,3.1,4.58,3.1,7.52c0,2.94-1.04,5.45-3.1,7.52
 			C760.76,460.47,758.26,461.5,755.31,461.5z M755.31,457.25c1.77,0,3.28-0.62,4.52-1.86c1.24-1.24,1.86-2.74,1.86-4.52
@@ -732,7 +1341,7 @@ const Board = (props: SVGProps<SVGSVGElement>) => (
 			c0,1.77,0.62,3.28,1.86,4.52C752.04,456.63,753.54,457.25,755.31,457.25z"
         />
         <path
-          className="st15"
+          className="fill-[#FFFFD1]"
           d="M780.81,461.5c-2.94,0-5.45-1.03-7.52-3.1c-2.07-2.07-3.1-4.58-3.1-7.52c0-2.94,1.04-5.45,3.1-7.52
 			c2.07-2.07,4.58-3.1,7.52-3.1c2.94,0,5.45,1.04,7.52,3.1c2.07,2.07,3.1,4.58,3.1,7.52c0,2.94-1.04,5.45-3.1,7.52
 			C786.26,460.47,783.76,461.5,780.81,461.5z M780.81,457.25c1.77,0,3.28-0.62,4.52-1.86c1.24-1.24,1.86-2.74,1.86-4.52
@@ -742,7 +1351,7 @@ const Board = (props: SVGProps<SVGSVGElement>) => (
       </g>
       <g>
         <path
-          className="st15"
+          className="fill-[#FFFFD1]"
           d="M528.75,461.5h-14.88v-4.25h14.88c0.6,0,1.1-0.2,1.51-0.61c0.41-0.41,0.61-0.91,0.61-1.51
 			s-0.21-1.1-0.61-1.51c-0.41-0.41-0.91-0.61-1.51-0.61h-5.31v-4.25h5.31c0.6,0,1.1-0.2,1.51-0.61c0.41-0.41,0.61-0.91,0.61-1.51
 			s-0.21-1.1-0.61-1.51c-0.41-0.41-0.91-0.61-1.51-0.61h-14.88v-4.25h14.88c1.77,0,3.28,0.62,4.52,1.86
@@ -750,7 +1359,7 @@ const Board = (props: SVGProps<SVGSVGElement>) => (
 			C532.03,460.88,530.52,461.5,528.75,461.5z"
         />
         <path
-          className="st15"
+          className="fill-[#FFFFD1]"
           d="M550,461.5c-2.94,0-5.45-1.03-7.52-3.1c-2.07-2.07-3.1-4.58-3.1-7.52c0-2.94,1.04-5.45,3.1-7.52
 			c2.07-2.07,4.58-3.1,7.52-3.1s5.45,1.04,7.52,3.1c2.07,2.07,3.1,4.58,3.1,7.52c0,2.94-1.04,5.45-3.1,7.52
 			C555.45,460.47,552.94,461.5,550,461.5z M550,457.25c1.77,0,3.28-0.62,4.52-1.86c1.24-1.24,1.86-2.74,1.86-4.52
@@ -758,7 +1367,7 @@ const Board = (props: SVGProps<SVGSVGElement>) => (
 			c0,1.77,0.62,3.28,1.86,4.52C546.72,456.63,548.23,457.25,550,457.25z"
         />
         <path
-          className="st15"
+          className="fill-[#FFFFD1]"
           d="M575.5,461.5c-2.94,0-5.45-1.03-7.52-3.1c-2.07-2.07-3.1-4.58-3.1-7.52c0-2.94,1.04-5.45,3.1-7.52
 			c2.07-2.07,4.58-3.1,7.52-3.1s5.45,1.04,7.52,3.1c2.07,2.07,3.1,4.58,3.1,7.52c0,2.94-1.04,5.45-3.1,7.52
 			C580.95,460.47,578.44,461.5,575.5,461.5z M575.5,457.25c1.77,0,3.28-0.62,4.52-1.86c1.24-1.24,1.86-2.74,1.86-4.52
@@ -768,14 +1377,14 @@ const Board = (props: SVGProps<SVGSVGElement>) => (
       </g>
       <g>
         <path
-          className="st15"
+          className="fill-[#FFFFD1]"
           d="M340.44,457.25v4.25h-31.88v-6.38c0-1.77,0.62-3.28,1.86-4.52c1.24-1.24,2.74-1.86,4.52-1.86h8.5
 			c0.6,0,1.1-0.2,1.51-0.61c0.41-0.41,0.61-0.91,0.61-1.51s-0.21-1.1-0.61-1.51c-0.41-0.41-0.91-0.61-1.51-0.61h-12.75v-4.25h12.75
 			c1.77,0,3.28,0.62,4.52,1.86c1.24,1.24,1.86,2.75,1.86,4.52c0,1.77-0.62,3.28-1.86,4.52c-1.24,1.24-2.75,1.86-4.52,1.86h-8.5
 			c-0.6,0-1.1,0.21-1.51,0.61c-0.41,0.41-0.61,0.91-0.61,1.51v2.13H340.44z"
         />
         <path
-          className="st15"
+          className="fill-[#FFFFD1]"
           d="M355.31,461.5c-2.94,0-5.45-1.03-7.52-3.1c-2.07-2.07-3.1-4.58-3.1-7.52c0-2.94,1.03-5.45,3.1-7.52
 			c2.07-2.07,4.58-3.1,7.52-3.1c2.94,0,5.45,1.04,7.52,3.1c2.07,2.07,3.1,4.58,3.1,7.52c0,2.94-1.04,5.45-3.1,7.52
 			C360.76,460.47,358.26,461.5,355.31,461.5z M355.31,457.25c1.77,0,3.28-0.62,4.52-1.86c1.24-1.24,1.86-2.74,1.86-4.52
@@ -783,7 +1392,7 @@ const Board = (props: SVGProps<SVGSVGElement>) => (
 			c0,1.77,0.62,3.28,1.86,4.52C352.04,456.63,353.54,457.25,355.31,457.25z"
         />
         <path
-          className="st15"
+          className="fill-[#FFFFD1]"
           d="M380.81,461.5c-2.94,0-5.45-1.03-7.52-3.1c-2.07-2.07-3.1-4.58-3.1-7.52c0-2.94,1.03-5.45,3.1-7.52
 			c2.07-2.07,4.58-3.1,7.52-3.1c2.94,0,5.45,1.04,7.52,3.1c2.07,2.07,3.1,4.58,3.1,7.52c0,2.94-1.04,5.45-3.1,7.52
 			C386.26,460.47,383.76,461.5,380.81,461.5z M380.81,457.25c1.77,0,3.28-0.62,4.52-1.86c1.24-1.24,1.86-2.74,1.86-4.52
@@ -793,14 +1402,14 @@ const Board = (props: SVGProps<SVGSVGElement>) => (
       </g>
       <g>
         <path
-          className="st15"
+          className="fill-[#FFFFD1]"
           d="M28.75,361.5H13.88v-4.25h14.88c0.6,0,1.1-0.2,1.51-0.61c0.41-0.41,0.61-0.91,0.61-1.51s-0.21-1.1-0.61-1.51
 			c-0.41-0.41-0.91-0.61-1.51-0.61h-5.31v-4.25h5.31c0.6,0,1.1-0.2,1.51-0.61c0.41-0.41,0.61-0.91,0.61-1.51s-0.21-1.1-0.61-1.51
 			c-0.41-0.41-0.91-0.61-1.51-0.61H13.88v-4.25h14.88c1.77,0,3.28,0.62,4.52,1.86c1.24,1.24,1.86,2.75,1.86,4.52
 			c0,1.64-0.53,3.05-1.59,4.25c1.06,1.2,1.59,2.61,1.59,4.25c0,1.77-0.62,3.28-1.86,4.52C32.03,360.88,30.52,361.5,28.75,361.5z"
         />
         <path
-          className="st15"
+          className="fill-[#FFFFD1]"
           d="M50,361.5c-2.94,0-5.45-1.03-7.52-3.1c-2.07-2.07-3.1-4.58-3.1-7.52c0-2.94,1.03-5.45,3.1-7.52
 			c2.07-2.07,4.58-3.1,7.52-3.1c2.94,0,5.45,1.04,7.52,3.1c2.07,2.07,3.1,4.58,3.1,7.52c0,2.94-1.04,5.45-3.1,7.52
 			C55.45,360.47,52.94,361.5,50,361.5z M50,357.25c1.77,0,3.28-0.62,4.52-1.86c1.24-1.24,1.86-2.74,1.86-4.52
@@ -808,7 +1417,7 @@ const Board = (props: SVGProps<SVGSVGElement>) => (
 			c0,1.77,0.62,3.28,1.86,4.52C46.72,356.63,48.23,357.25,50,357.25z"
         />
         <path
-          className="st15"
+          className="fill-[#FFFFD1]"
           d="M75.5,361.5c-2.94,0-5.45-1.03-7.52-3.1c-2.07-2.07-3.1-4.58-3.1-7.52c0-2.94,1.03-5.45,3.1-7.52
 			c2.07-2.07,4.58-3.1,7.52-3.1c2.94,0,5.45,1.04,7.52,3.1c2.07,2.07,3.1,4.58,3.1,7.52c0,2.94-1.04,5.45-3.1,7.52
 			C80.95,360.47,78.44,361.5,75.5,361.5z M75.5,357.25c1.77,0,3.28-0.62,4.52-1.86c1.24-1.24,1.86-2.74,1.86-4.52
@@ -818,14 +1427,14 @@ const Board = (props: SVGProps<SVGSVGElement>) => (
       </g>
       <g>
         <path
-          className="st14"
+          className="fill-[#FFE3BF]"
           d="M642.56,357.25v4.25h-31.88v-6.38c0-1.77,0.62-3.28,1.86-4.52c1.24-1.24,2.74-1.86,4.52-1.86h8.5
 			c0.6,0,1.1-0.2,1.51-0.61c0.41-0.41,0.61-0.91,0.61-1.51s-0.21-1.1-0.61-1.51c-0.41-0.41-0.91-0.61-1.51-0.61h-12.75v-4.25h12.75
 			c1.77,0,3.28,0.62,4.52,1.86c1.24,1.24,1.86,2.75,1.86,4.52c0,1.77-0.62,3.28-1.86,4.52c-1.24,1.24-2.75,1.86-4.52,1.86h-8.5
 			c-0.6,0-1.1,0.21-1.51,0.61c-0.41,0.41-0.61,0.91-0.61,1.51v2.13H642.56z"
         />
         <path
-          className="st14"
+          className="fill-[#FFE3BF]"
           d="M657.44,361.5c-2.94,0-5.45-1.03-7.52-3.1c-2.07-2.07-3.1-4.58-3.1-7.52c0-2.94,1.04-5.45,3.1-7.52
 			c2.07-2.07,4.58-3.1,7.52-3.1c2.94,0,5.45,1.04,7.52,3.1c2.07,2.07,3.1,4.58,3.1,7.52c0,2.94-1.04,5.45-3.1,7.52
 			C662.89,360.47,660.38,361.5,657.44,361.5z M657.44,357.25c1.77,0,3.28-0.62,4.52-1.86c1.24-1.24,1.86-2.74,1.86-4.52
@@ -833,7 +1442,7 @@ const Board = (props: SVGProps<SVGSVGElement>) => (
 			c0,1.77,0.62,3.28,1.86,4.52C654.16,356.63,655.67,357.25,657.44,357.25z"
         />
         <path
-          className="st14"
+          className="fill-[#FFE3BF]"
           d="M688.35,340.25l-11.79,21.25h-4.25l11.79-21.25H688.35z M674.97,345.56c-0.73,0-1.36-0.26-1.88-0.78
 			c-0.52-0.52-0.78-1.15-0.78-1.88s0.26-1.36,0.78-1.88c0.52-0.52,1.15-0.78,1.88-0.78s1.36,0.26,1.88,0.78
 			c0.52,0.52,0.78,1.15,0.78,1.88s-0.26,1.36-0.78,1.88C676.32,345.3,675.7,345.56,674.97,345.56z M686.66,361.5
@@ -843,14 +1452,14 @@ const Board = (props: SVGProps<SVGSVGElement>) => (
       </g>
       <g>
         <path
-          className="st14"
+          className="fill-[#FFE3BF]"
           d="M430.88,361.5H416v-4.25h14.88c0.6,0,1.1-0.2,1.51-0.61c0.41-0.41,0.61-0.91,0.61-1.51s-0.21-1.1-0.61-1.51
 			c-0.41-0.41-0.91-0.61-1.51-0.61h-5.31v-4.25h5.31c0.6,0,1.1-0.2,1.51-0.61c0.41-0.41,0.61-0.91,0.61-1.51s-0.21-1.1-0.61-1.51
 			c-0.41-0.41-0.91-0.61-1.51-0.61H416v-4.25h14.88c1.77,0,3.28,0.62,4.52,1.86c1.24,1.24,1.86,2.75,1.86,4.52
 			c0,1.64-0.53,3.05-1.59,4.25c1.06,1.2,1.59,2.61,1.59,4.25c0,1.77-0.62,3.28-1.86,4.52C434.15,360.88,432.65,361.5,430.88,361.5z"
         />
         <path
-          className="st14"
+          className="fill-[#FFE3BF]"
           d="M452.13,361.5c-2.94,0-5.45-1.03-7.52-3.1c-2.07-2.07-3.1-4.58-3.1-7.52c0-2.94,1.04-5.45,3.1-7.52
 			c2.07-2.07,4.58-3.1,7.52-3.1s5.45,1.04,7.52,3.1c2.07,2.07,3.1,4.58,3.1,7.52c0,2.94-1.04,5.45-3.1,7.52
 			C457.58,360.47,455.07,361.5,452.13,361.5z M452.13,357.25c1.77,0,3.28-0.62,4.52-1.86c1.24-1.24,1.86-2.74,1.86-4.52
@@ -858,7 +1467,7 @@ const Board = (props: SVGProps<SVGSVGElement>) => (
 			c0,1.77,0.62,3.28,1.86,4.52C448.85,356.63,450.35,357.25,452.13,357.25z"
         />
         <path
-          className="st14"
+          className="fill-[#FFE3BF]"
           d="M483.04,340.25l-11.79,21.25H467l11.79-21.25H483.04z M469.66,345.56c-0.73,0-1.36-0.26-1.88-0.78
 			c-0.52-0.52-0.78-1.15-0.78-1.88s0.26-1.36,0.78-1.88c0.52-0.52,1.15-0.78,1.88-0.78s1.36,0.26,1.88,0.78
 			c0.52,0.52,0.78,1.15,0.78,1.88s-0.26,1.36-0.78,1.88C471.01,345.3,470.39,345.56,469.66,345.56z M481.34,361.5
@@ -867,9 +1476,12 @@ const Board = (props: SVGProps<SVGSVGElement>) => (
         />
       </g>
       <g>
-        <path className="st15" d="M226.63,361.5h-4.25v-21.25h4.25V361.5z" />
         <path
-          className="st15"
+          className="fill-[#FFFFD1]"
+          d="M226.63,361.5h-4.25v-21.25h4.25V361.5z"
+        />
+        <path
+          className="fill-[#FFFFD1]"
           d="M241.5,361.5c-2.94,0-5.45-1.03-7.52-3.1c-2.07-2.07-3.1-4.58-3.1-7.52c0-2.94,1.03-5.45,3.1-7.52
 			c2.07-2.07,4.58-3.1,7.52-3.1c2.94,0,5.45,1.04,7.52,3.1c2.07,2.07,3.1,4.58,3.1,7.52c0,2.94-1.04,5.45-3.1,7.52
 			C246.95,360.47,244.44,361.5,241.5,361.5z M241.5,357.25c1.77,0,3.28-0.62,4.52-1.86c1.24-1.24,1.86-2.74,1.86-4.52
@@ -877,7 +1489,7 @@ const Board = (props: SVGProps<SVGSVGElement>) => (
 			c0,1.77,0.62,3.28,1.86,4.52C238.22,356.63,239.73,357.25,241.5,357.25z"
         />
         <path
-          className="st15"
+          className="fill-[#FFFFD1]"
           d="M267,361.5c-2.94,0-5.45-1.03-7.52-3.1c-2.07-2.07-3.1-4.58-3.1-7.52c0-2.94,1.03-5.45,3.1-7.52
 			c2.07-2.07,4.58-3.1,7.52-3.1c2.94,0,5.45,1.04,7.52,3.1c2.07,2.07,3.1,4.58,3.1,7.52c0,2.94-1.04,5.45-3.1,7.52
 			C272.45,360.47,269.94,361.5,267,361.5z M267,357.25c1.77,0,3.28-0.62,4.52-1.86c1.24-1.24,1.86-2.74,1.86-4.52
@@ -887,14 +1499,14 @@ const Board = (props: SVGProps<SVGSVGElement>) => (
       </g>
       <g>
         <path
-          className="st14"
+          className="fill-[#FFE3BF]"
           d="M730.88,261.5H716v-4.25h14.88c0.6,0,1.1-0.2,1.51-0.61c0.41-0.41,0.61-0.91,0.61-1.51s-0.21-1.1-0.61-1.51
 			c-0.41-0.41-0.91-0.61-1.51-0.61h-5.31v-4.25h5.31c0.6,0,1.1-0.2,1.51-0.61c0.41-0.41,0.61-0.91,0.61-1.51s-0.21-1.1-0.61-1.51
 			c-0.41-0.41-0.91-0.61-1.51-0.61H716v-4.25h14.88c1.77,0,3.28,0.62,4.52,1.86c1.24,1.24,1.86,2.75,1.86,4.52
 			c0,1.64-0.53,3.05-1.59,4.25c1.06,1.2,1.59,2.61,1.59,4.25c0,1.77-0.62,3.28-1.86,4.52C734.15,260.88,732.65,261.5,730.88,261.5z"
         />
         <path
-          className="st14"
+          className="fill-[#FFE3BF]"
           d="M752.13,261.5c-2.94,0-5.45-1.03-7.52-3.1c-2.07-2.07-3.1-4.58-3.1-7.52c0-2.94,1.04-5.45,3.1-7.52
 			c2.07-2.07,4.58-3.1,7.52-3.1c2.94,0,5.45,1.04,7.52,3.1c2.07,2.07,3.1,4.58,3.1,7.52c0,2.94-1.04,5.45-3.1,7.52
 			C757.58,260.47,755.07,261.5,752.13,261.5z M752.13,257.25c1.77,0,3.28-0.62,4.52-1.86c1.24-1.24,1.86-2.74,1.86-4.52
@@ -902,7 +1514,7 @@ const Board = (props: SVGProps<SVGSVGElement>) => (
 			c0,1.77,0.62,3.28,1.86,4.52C748.85,256.63,750.35,257.25,752.13,257.25z"
         />
         <path
-          className="st14"
+          className="fill-[#FFE3BF]"
           d="M783.04,240.25l-11.79,21.25H767l11.79-21.25H783.04z M769.66,245.56c-0.73,0-1.36-0.26-1.88-0.78
 			c-0.52-0.52-0.78-1.15-0.78-1.88s0.26-1.36,0.78-1.88c0.52-0.52,1.15-0.78,1.88-0.78s1.36,0.26,1.88,0.78
 			c0.52,0.52,0.78,1.15,0.78,1.88s-0.26,1.36-0.78,1.88C771.01,245.3,770.39,245.56,769.66,245.56z M781.34,261.5
@@ -912,14 +1524,14 @@ const Board = (props: SVGProps<SVGSVGElement>) => (
       </g>
       <g>
         <path
-          className="st15"
+          className="fill-[#FFFFD1]"
           d="M540.44,257.25v4.25h-31.88v-6.38c0-1.77,0.62-3.28,1.86-4.52c1.24-1.24,2.75-1.86,4.52-1.86h8.5
 			c0.6,0,1.1-0.2,1.51-0.61c0.41-0.41,0.61-0.91,0.61-1.51s-0.21-1.1-0.61-1.51c-0.41-0.41-0.91-0.61-1.51-0.61h-12.75v-4.25h12.75
 			c1.77,0,3.28,0.62,4.52,1.86c1.24,1.24,1.86,2.75,1.86,4.52c0,1.77-0.62,3.28-1.86,4.52c-1.24,1.24-2.75,1.86-4.52,1.86h-8.5
 			c-0.6,0-1.1,0.21-1.51,0.61c-0.41,0.41-0.61,0.91-0.61,1.51v2.13H540.44z"
         />
         <path
-          className="st15"
+          className="fill-[#FFFFD1]"
           d="M555.31,261.5c-2.94,0-5.45-1.03-7.52-3.1c-2.07-2.07-3.1-4.58-3.1-7.52c0-2.94,1.04-5.45,3.1-7.52
 			c2.07-2.07,4.58-3.1,7.52-3.1s5.45,1.04,7.52,3.1c2.07,2.07,3.1,4.58,3.1,7.52c0,2.94-1.04,5.45-3.1,7.52
 			C560.76,260.47,558.26,261.5,555.31,261.5z M555.31,257.25c1.77,0,3.28-0.62,4.52-1.86c1.24-1.24,1.86-2.74,1.86-4.52
@@ -927,7 +1539,7 @@ const Board = (props: SVGProps<SVGSVGElement>) => (
 			c0,1.77,0.62,3.28,1.86,4.52C552.04,256.63,553.54,257.25,555.31,257.25z"
         />
         <path
-          className="st15"
+          className="fill-[#FFFFD1]"
           d="M580.81,261.5c-2.94,0-5.45-1.03-7.52-3.1c-2.07-2.07-3.1-4.58-3.1-7.52c0-2.94,1.04-5.45,3.1-7.52
 			c2.07-2.07,4.58-3.1,7.52-3.1s5.45,1.04,7.52,3.1c2.07,2.07,3.1,4.58,3.1,7.52c0,2.94-1.04,5.45-3.1,7.52
 			C586.26,260.47,583.76,261.5,580.81,261.5z M580.81,257.25c1.77,0,3.28-0.62,4.52-1.86c1.24-1.24,1.86-2.74,1.86-4.52
@@ -936,9 +1548,12 @@ const Board = (props: SVGProps<SVGSVGElement>) => (
         />
       </g>
       <g>
-        <path className="st15" d="M326.63,261.5h-4.25v-21.25h4.25V261.5z" />
         <path
-          className="st15"
+          className="fill-[#FFFFD1]"
+          d="M326.63,261.5h-4.25v-21.25h4.25V261.5z"
+        />
+        <path
+          className="fill-[#FFFFD1]"
           d="M341.5,261.5c-2.94,0-5.45-1.03-7.52-3.1c-2.07-2.07-3.1-4.58-3.1-7.52c0-2.94,1.03-5.45,3.1-7.52
 			c2.07-2.07,4.58-3.1,7.52-3.1c2.94,0,5.45,1.04,7.52,3.1c2.07,2.07,3.1,4.58,3.1,7.52c0,2.94-1.04,5.45-3.1,7.52
 			C346.95,260.47,344.44,261.5,341.5,261.5z M341.5,257.25c1.77,0,3.28-0.62,4.52-1.86c1.24-1.24,1.86-2.74,1.86-4.52
@@ -946,7 +1561,7 @@ const Board = (props: SVGProps<SVGSVGElement>) => (
 			c0,1.77,0.62,3.28,1.86,4.52C338.22,256.63,339.73,257.25,341.5,257.25z"
         />
         <path
-          className="st15"
+          className="fill-[#FFFFD1]"
           d="M367,261.5c-2.94,0-5.45-1.03-7.52-3.1c-2.07-2.07-3.1-4.58-3.1-7.52c0-2.94,1.03-5.45,3.1-7.52
 			c2.07-2.07,4.58-3.1,7.52-3.1c2.94,0,5.45,1.04,7.52,3.1c2.07,2.07,3.1,4.58,3.1,7.52c0,2.94-1.04,5.45-3.1,7.52
 			C372.45,260.47,369.94,261.5,367,261.5z M367,257.25c1.77,0,3.28-0.62,4.52-1.86c1.24-1.24,1.86-2.74,1.86-4.52
@@ -956,12 +1571,12 @@ const Board = (props: SVGProps<SVGSVGElement>) => (
       </g>
       <g>
         <path
-          className="st17"
+          className="fill-[#FF35DF]"
           d="M734.59,750.88l-7.97-10.63h5.31l5.31,7.07l5.31-7.07h5.31l-7.97,10.63l7.97,10.63h-5.31l-5.31-7.07
 			l-5.31,7.07h-5.31L734.59,750.88z"
         />
         <path
-          className="st17"
+          className="fill-[#FF35DF]"
           d="M767,761.5h-14.88v-4.25H767c0.6,0,1.1-0.2,1.51-0.61c0.41-0.41,0.61-0.91,0.61-1.51s-0.21-1.1-0.61-1.51
 			c-0.41-0.41-0.91-0.61-1.51-0.61h-5.31v-4.25H767c0.6,0,1.1-0.2,1.51-0.61c0.41-0.41,0.61-0.91,0.61-1.51s-0.21-1.1-0.61-1.51
 			c-0.41-0.41-0.91-0.61-1.51-0.61h-14.88v-4.25H767c1.77,0,3.28,0.62,4.52,1.86c1.24,1.24,1.86,2.75,1.86,4.52
@@ -970,12 +1585,12 @@ const Board = (props: SVGProps<SVGSVGElement>) => (
       </g>
       <g>
         <path
-          className="st17"
+          className="fill-[#FF35DF]"
           d="M129.28,550.88l-7.97-10.63h5.31l5.31,7.07l5.31-7.07h5.31l-7.97,10.63l7.97,10.63h-5.31l-5.31-7.07
 			l-5.31,7.07h-5.31L129.28,550.88z"
         />
         <path
-          className="st17"
+          className="fill-[#FF35DF]"
           d="M178.69,557.25v4.25h-31.88v-6.38c0-1.77,0.62-3.28,1.86-4.52c1.24-1.24,2.74-1.86,4.52-1.86h8.5
 			c0.6,0,1.1-0.2,1.51-0.61c0.41-0.41,0.61-0.91,0.61-1.51s-0.21-1.1-0.61-1.51c-0.41-0.41-0.91-0.61-1.51-0.61h-12.75v-4.25h12.75
 			c1.77,0,3.28,0.62,4.52,1.86c1.24,1.24,1.86,2.75,1.86,4.52c0,1.77-0.62,3.28-1.86,4.52c-1.24,1.24-2.75,1.86-4.52,1.86h-8.5
@@ -984,12 +1599,12 @@ const Board = (props: SVGProps<SVGSVGElement>) => (
       </g>
       <g>
         <path
-          className="st17"
+          className="fill-[#FF35DF]"
           d="M529.28,550.88l-7.97-10.63h5.31l5.31,7.07l5.31-7.07h5.31l-7.97,10.63l7.97,10.63h-5.31l-5.31-7.07
 			l-5.31,7.07h-5.31L529.28,550.88z"
         />
         <path
-          className="st17"
+          className="fill-[#FF35DF]"
           d="M578.69,557.25v4.25h-31.88v-6.38c0-1.77,0.62-3.28,1.86-4.52c1.24-1.24,2.75-1.86,4.52-1.86h8.5
 			c0.6,0,1.1-0.2,1.51-0.61c0.41-0.41,0.61-0.91,0.61-1.51s-0.21-1.1-0.61-1.51c-0.41-0.41-0.91-0.61-1.51-0.61h-12.75v-4.25h12.75
 			c1.77,0,3.28,0.62,4.52,1.86c1.24,1.24,1.86,2.75,1.86,4.52c0,1.77-0.62,3.28-1.86,4.52c-1.24,1.24-2.75,1.86-4.52,1.86h-8.5
@@ -998,12 +1613,12 @@ const Board = (props: SVGProps<SVGSVGElement>) => (
       </g>
       <g>
         <path
-          className="st17"
+          className="fill-[#FF35DF]"
           d="M729.28,350.88l-7.97-10.63h5.31l5.31,7.07l5.31-7.07h5.31l-7.97,10.63l7.97,10.63h-5.31l-5.31-7.07
 			l-5.31,7.07h-5.31L729.28,350.88z"
         />
         <path
-          className="st17"
+          className="fill-[#FF35DF]"
           d="M778.69,357.25v4.25h-31.88v-6.38c0-1.77,0.62-3.28,1.86-4.52c1.24-1.24,2.75-1.86,4.52-1.86h8.5
 			c0.6,0,1.1-0.2,1.51-0.61c0.41-0.41,0.61-0.91,0.61-1.51s-0.21-1.1-0.61-1.51c-0.41-0.41-0.91-0.61-1.51-0.61h-12.75v-4.25h12.75
 			c1.77,0,3.28,0.62,4.52,1.86c1.24,1.24,1.86,2.75,1.86,4.52c0,1.77-0.62,3.28-1.86,4.52c-1.24,1.24-2.75,1.86-4.52,1.86h-8.5
@@ -1012,12 +1627,12 @@ const Board = (props: SVGProps<SVGSVGElement>) => (
       </g>
       <g>
         <path
-          className="st17"
+          className="fill-[#FF35DF]"
           d="M534.59,150.88l-7.97-10.63h5.31l5.31,7.07l5.31-7.07h5.31l-7.97,10.63l7.97,10.63h-5.31l-5.31-7.07
 			l-5.31,7.07h-5.31L534.59,150.88z"
         />
         <path
-          className="st17"
+          className="fill-[#FF35DF]"
           d="M567,161.5h-14.88v-4.25H567c0.6,0,1.1-0.2,1.51-0.61c0.41-0.41,0.61-0.91,0.61-1.51s-0.21-1.1-0.61-1.51
 			c-0.41-0.41-0.91-0.61-1.51-0.61h-5.31v-4.25H567c0.6,0,1.1-0.2,1.51-0.61c0.41-0.41,0.61-0.91,0.61-1.51s-0.21-1.1-0.61-1.51
 			c-0.41-0.41-0.91-0.61-1.51-0.61h-14.88v-4.25H567c1.77,0,3.28,0.62,4.52,1.86c1.24,1.24,1.86,2.75,1.86,4.52
@@ -1026,12 +1641,12 @@ const Board = (props: SVGProps<SVGSVGElement>) => (
       </g>
       <g>
         <path
-          className="st17"
+          className="fill-[#FF35DF]"
           d="M429.28,250.88l-7.97-10.63h5.31l5.31,7.07l5.31-7.07h5.31l-7.97,10.63l7.97,10.63h-5.31l-5.31-7.07
 			l-5.31,7.07h-5.31L429.28,250.88z"
         />
         <path
-          className="st17"
+          className="fill-[#FF35DF]"
           d="M478.69,257.25v4.25h-31.88v-6.38c0-1.77,0.62-3.28,1.86-4.52c1.24-1.24,2.75-1.86,4.52-1.86h8.5
 			c0.6,0,1.1-0.2,1.51-0.61c0.41-0.41,0.61-0.91,0.61-1.51s-0.21-1.1-0.61-1.51c-0.41-0.41-0.91-0.61-1.51-0.61h-12.75v-4.25h12.75
 			c1.77,0,3.28,0.62,4.52,1.86c1.24,1.24,1.86,2.75,1.86,4.52c0,1.77-0.62,3.28-1.86,4.52c-1.24,1.24-2.75,1.86-4.52,1.86h-8.5
@@ -1040,12 +1655,12 @@ const Board = (props: SVGProps<SVGSVGElement>) => (
       </g>
       <g>
         <path
-          className="st17"
+          className="fill-[#FF35DF]"
           d="M29.28,250.88l-7.97-10.63h5.31l5.31,7.07l5.31-7.07h5.31l-7.97,10.63l7.97,10.63h-5.31l-5.31-7.07
 			l-5.31,7.07h-5.31L29.28,250.88z"
         />
         <path
-          className="st17"
+          className="fill-[#FF35DF]"
           d="M78.69,257.25v4.25H46.81v-6.38c0-1.77,0.62-3.28,1.86-4.52c1.24-1.24,2.74-1.86,4.52-1.86h8.5
 			c0.6,0,1.1-0.2,1.51-0.61c0.41-0.41,0.61-0.91,0.61-1.51s-0.21-1.1-0.61-1.51c-0.41-0.41-0.91-0.61-1.51-0.61H48.94v-4.25h12.75
 			c1.77,0,3.28,0.62,4.52,1.86c1.24,1.24,1.86,2.75,1.86,4.52c0,1.77-0.62,3.28-1.86,4.52c-1.24,1.24-2.75,1.86-4.52,1.86h-8.5
@@ -1054,11 +1669,11 @@ const Board = (props: SVGProps<SVGSVGElement>) => (
       </g>
       <g>
         <path
-          className="st18"
+          className="fill-[#0096DF]"
           d="M126.63,136h8.5v4.25h-4.25v21.25h4.25v4.25h-8.5V136z"
         />
         <path
-          className="st18"
+          className="fill-[#0096DF]"
           d="M154.25,161.5h-14.88v-4.25h14.88c0.6,0,1.1-0.2,1.51-0.61c0.41-0.41,0.61-0.91,0.61-1.51
 			s-0.21-1.1-0.61-1.51c-0.41-0.41-0.91-0.61-1.51-0.61h-5.31v-4.25h5.31c0.6,0,1.1-0.2,1.51-0.61c0.41-0.41,0.61-0.91,0.61-1.51
 			s-0.21-1.1-0.61-1.51c-0.41-0.41-0.91-0.61-1.51-0.61h-14.88v-4.25h14.88c1.77,0,3.28,0.62,4.52,1.86
@@ -1066,51 +1681,51 @@ const Board = (props: SVGProps<SVGSVGElement>) => (
 			C157.53,160.88,156.02,161.5,154.25,161.5z"
         />
         <path
-          className="st18"
+          className="fill-[#0096DF]"
           d="M169.13,140.25h-4.25V136h8.5v29.75h-8.5v-4.25h4.25V140.25z"
         />
       </g>
       <g>
         <path
-          className="st18"
+          className="fill-[#0096DF]"
           d="M26.63,636h8.5v4.25h-4.25v21.25h4.25v4.25h-8.5V636z"
         />
         <path
-          className="st18"
+          className="fill-[#0096DF]"
           d="M54.25,661.5H39.38v-4.25h14.88c0.6,0,1.1-0.2,1.51-0.61c0.41-0.41,0.61-0.91,0.61-1.51s-0.21-1.1-0.61-1.51
 			c-0.41-0.41-0.91-0.61-1.51-0.61h-5.31v-4.25h5.31c0.6,0,1.1-0.2,1.51-0.61c0.41-0.41,0.61-0.91,0.61-1.51s-0.21-1.1-0.61-1.51
 			c-0.41-0.41-0.91-0.61-1.51-0.61H39.38v-4.25h14.88c1.77,0,3.28,0.62,4.52,1.86c1.24,1.24,1.86,2.75,1.86,4.52
 			c0,1.64-0.53,3.05-1.59,4.25c1.06,1.2,1.59,2.61,1.59,4.25c0,1.77-0.62,3.28-1.86,4.52C57.53,660.88,56.02,661.5,54.25,661.5z"
         />
         <path
-          className="st18"
+          className="fill-[#0096DF]"
           d="M69.13,640.25h-4.25V636h8.5v29.75h-8.5v-4.25h4.25V640.25z"
         />
       </g>
       <g>
         <path
-          className="st18"
+          className="fill-[#0096DF]"
           d="M21.31,436h8.5v4.25h-4.25v21.25h4.25v4.25h-8.5V436z"
         />
         <path
-          className="st18"
+          className="fill-[#0096DF]"
           d="M65.94,457.25v4.25H34.06v-6.38c0-1.77,0.62-3.28,1.86-4.52c1.24-1.24,2.74-1.86,4.52-1.86h8.5
 			c0.6,0,1.1-0.21,1.51-0.61c0.41-0.41,0.61-0.91,0.61-1.51s-0.21-1.1-0.61-1.51c-0.41-0.41-0.91-0.61-1.51-0.61H36.19v-4.25h12.75
 			c1.77,0,3.28,0.62,4.52,1.86c1.24,1.24,1.86,2.75,1.86,4.52s-0.62,3.28-1.86,4.52c-1.24,1.24-2.75,1.86-4.52,1.86h-8.5
 			c-0.6,0-1.1,0.21-1.51,0.61c-0.41,0.41-0.61,0.91-0.61,1.51v2.13H65.94z"
         />
         <path
-          className="st18"
+          className="fill-[#0096DF]"
           d="M74.44,440.25h-4.25V436h8.5v29.75h-8.5v-4.25h4.25V440.25z"
         />
       </g>
       <g>
         <path
-          className="st18"
+          className="fill-[#0096DF]"
           d="M626.63,436h8.5v4.25h-4.25v21.25h4.25v4.25h-8.5V436z"
         />
         <path
-          className="st18"
+          className="fill-[#0096DF]"
           d="M654.25,461.5h-14.88v-4.25h14.88c0.6,0,1.1-0.21,1.51-0.61c0.41-0.41,0.61-0.91,0.61-1.51
 			s-0.21-1.1-0.61-1.51c-0.41-0.41-0.91-0.61-1.51-0.61h-5.31v-4.25h5.31c0.6,0,1.1-0.21,1.51-0.61c0.41-0.41,0.61-0.91,0.61-1.51
 			s-0.21-1.1-0.61-1.51c-0.41-0.41-0.91-0.61-1.51-0.61h-14.88v-4.25h14.88c1.77,0,3.28,0.62,4.52,1.86
@@ -1118,88 +1733,88 @@ const Board = (props: SVGProps<SVGSVGElement>) => (
 			C657.53,460.88,656.02,461.5,654.25,461.5z"
         />
         <path
-          className="st18"
+          className="fill-[#0096DF]"
           d="M669.13,440.25h-4.25V436h8.5v29.75h-8.5v-4.25h4.25V440.25z"
         />
       </g>
       <g>
         <path
-          className="st18"
+          className="fill-[#0096DF]"
           d="M521.31,736h8.5v4.25h-4.25v21.25h4.25v4.25h-8.5V736z"
         />
         <path
-          className="st18"
+          className="fill-[#0096DF]"
           d="M565.94,757.25v4.25h-31.88v-6.38c0-1.77,0.62-3.28,1.86-4.52c1.24-1.24,2.74-1.86,4.52-1.86h8.5
 			c0.6,0,1.1-0.21,1.51-0.61c0.41-0.41,0.61-0.91,0.61-1.51s-0.21-1.1-0.61-1.51c-0.41-0.41-0.91-0.61-1.51-0.61h-12.75v-4.25h12.75
 			c1.77,0,3.28,0.62,4.52,1.86c1.24,1.24,1.86,2.75,1.86,4.52c0,1.77-0.62,3.28-1.86,4.52c-1.24,1.24-2.75,1.86-4.52,1.86h-8.5
 			c-0.6,0-1.1,0.21-1.51,0.61c-0.41,0.41-0.61,0.91-0.61,1.51v2.13H565.94z"
         />
         <path
-          className="st18"
+          className="fill-[#0096DF]"
           d="M574.44,740.25h-4.25V736h8.5v29.75h-8.5v-4.25h4.25V740.25z"
         />
       </g>
       <g>
         <path
-          className="st18"
+          className="fill-[#0096DF]"
           d="M321.31,536h8.5v4.25h-4.25v21.25h4.25v4.25h-8.5V536z"
         />
         <path
-          className="st18"
+          className="fill-[#0096DF]"
           d="M365.94,557.25v4.25h-31.88v-6.38c0-1.77,0.62-3.28,1.86-4.52c1.24-1.24,2.74-1.86,4.52-1.86h8.5
 			c0.6,0,1.1-0.2,1.51-0.61c0.41-0.41,0.61-0.91,0.61-1.51s-0.21-1.1-0.61-1.51c-0.41-0.41-0.91-0.61-1.51-0.61h-12.75v-4.25h12.75
 			c1.77,0,3.28,0.62,4.52,1.86c1.24,1.24,1.86,2.75,1.86,4.52c0,1.77-0.62,3.28-1.86,4.52c-1.24,1.24-2.75,1.86-4.52,1.86h-8.5
 			c-0.6,0-1.1,0.21-1.51,0.61c-0.41,0.41-0.61,0.91-0.61,1.51v2.13H365.94z"
         />
         <path
-          className="st18"
+          className="fill-[#0096DF]"
           d="M374.44,540.25h-4.25V536h8.5v29.75h-8.5v-4.25h4.25V540.25z"
         />
       </g>
       <g>
         <path
-          className="st18"
+          className="fill-[#0096DF]"
           d="M721.31,136h8.5v4.25h-4.25v21.25h4.25v4.25h-8.5V136z"
         />
         <path
-          className="st18"
+          className="fill-[#0096DF]"
           d="M765.94,157.25v4.25h-31.88v-6.38c0-1.77,0.62-3.28,1.86-4.52c1.24-1.24,2.74-1.86,4.52-1.86h8.5
 			c0.6,0,1.1-0.2,1.51-0.61c0.41-0.41,0.61-0.91,0.61-1.51s-0.21-1.1-0.61-1.51c-0.41-0.41-0.91-0.61-1.51-0.61h-12.75v-4.25h12.75
 			c1.77,0,3.28,0.62,4.52,1.86c1.24,1.24,1.86,2.75,1.86,4.52c0,1.77-0.62,3.28-1.86,4.52c-1.24,1.24-2.75,1.86-4.52,1.86h-8.5
 			c-0.6,0-1.1,0.21-1.51,0.61c-0.41,0.41-0.61,0.91-0.61,1.51v2.13H765.94z"
         />
         <path
-          className="st18"
+          className="fill-[#0096DF]"
           d="M774.44,140.25h-4.25V136h8.5v29.75h-8.5v-4.25h4.25V140.25z"
         />
       </g>
       <g>
         <path
-          className="st18"
+          className="fill-[#0096DF]"
           d="M321.31,336h8.5v4.25h-4.25v21.25h4.25v4.25h-8.5V336z"
         />
         <path
-          className="st18"
+          className="fill-[#0096DF]"
           d="M365.94,357.25v4.25h-31.88v-6.38c0-1.77,0.62-3.28,1.86-4.52c1.24-1.24,2.74-1.86,4.52-1.86h8.5
 			c0.6,0,1.1-0.2,1.51-0.61c0.41-0.41,0.61-0.91,0.61-1.51s-0.21-1.1-0.61-1.51c-0.41-0.41-0.91-0.61-1.51-0.61h-12.75v-4.25h12.75
 			c1.77,0,3.28,0.62,4.52,1.86c1.24,1.24,1.86,2.75,1.86,4.52c0,1.77-0.62,3.28-1.86,4.52c-1.24,1.24-2.75,1.86-4.52,1.86h-8.5
 			c-0.6,0-1.1,0.21-1.51,0.61c-0.41,0.41-0.61,0.91-0.61,1.51v2.13H365.94z"
         />
         <path
-          className="st18"
+          className="fill-[#0096DF]"
           d="M374.44,340.25h-4.25V336h8.5v29.75h-8.5v-4.25h4.25V340.25z"
         />
       </g>
       <g>
         <path
-          className="st14"
+          className="fill-[#FFE3BF]"
           d="M130.88,261.5H116v-4.25h14.88c0.6,0,1.1-0.2,1.51-0.61c0.41-0.41,0.61-0.91,0.61-1.51s-0.21-1.1-0.61-1.51
 			c-0.41-0.41-0.91-0.61-1.51-0.61h-5.31v-4.25h5.31c0.6,0,1.1-0.2,1.51-0.61c0.41-0.41,0.61-0.91,0.61-1.51s-0.21-1.1-0.61-1.51
 			c-0.41-0.41-0.91-0.61-1.51-0.61H116v-4.25h14.88c1.77,0,3.28,0.62,4.52,1.86c1.24,1.24,1.86,2.75,1.86,4.52
 			c0,1.64-0.53,3.05-1.59,4.25c1.06,1.2,1.59,2.61,1.59,4.25c0,1.77-0.62,3.28-1.86,4.52C134.15,260.88,132.65,261.5,130.88,261.5z"
         />
         <path
-          className="st14"
+          className="fill-[#FFE3BF]"
           d="M152.13,261.5c-2.94,0-5.45-1.03-7.52-3.1c-2.07-2.07-3.1-4.58-3.1-7.52c0-2.94,1.03-5.45,3.1-7.52
 			c2.07-2.07,4.58-3.1,7.52-3.1c2.94,0,5.45,1.04,7.52,3.1c2.07,2.07,3.1,4.58,3.1,7.52c0,2.94-1.04,5.45-3.1,7.52
 			C157.58,260.47,155.07,261.5,152.13,261.5z M152.13,257.25c1.77,0,3.28-0.62,4.52-1.86c1.24-1.24,1.86-2.74,1.86-4.52
@@ -1207,7 +1822,7 @@ const Board = (props: SVGProps<SVGSVGElement>) => (
 			c0,1.77,0.62,3.28,1.86,4.52C148.85,256.63,150.35,257.25,152.13,257.25z"
         />
         <path
-          className="st14"
+          className="fill-[#FFE3BF]"
           d="M183.04,240.25l-11.79,21.25H167l11.79-21.25H183.04z M169.66,245.56c-0.73,0-1.36-0.26-1.88-0.78
 			c-0.52-0.52-0.78-1.15-0.78-1.88s0.26-1.36,0.78-1.88c0.52-0.52,1.15-0.78,1.88-0.78s1.36,0.26,1.88,0.78
 			c0.52,0.52,0.78,1.15,0.78,1.88s-0.26,1.36-0.78,1.88C171.01,245.3,170.39,245.56,169.66,245.56z M181.34,261.5
@@ -1217,14 +1832,14 @@ const Board = (props: SVGProps<SVGSVGElement>) => (
       </g>
       <g>
         <path
-          className="st15"
+          className="fill-[#FFFFD1]"
           d="M40.44,157.25v4.25H8.56v-6.38c0-1.77,0.62-3.28,1.86-4.52c1.24-1.24,2.74-1.86,4.52-1.86h8.5
 			c0.6,0,1.1-0.2,1.51-0.61c0.41-0.41,0.61-0.91,0.61-1.51s-0.21-1.1-0.61-1.51c-0.41-0.41-0.91-0.61-1.51-0.61H10.69v-4.25h12.75
 			c1.77,0,3.28,0.62,4.52,1.86c1.24,1.24,1.86,2.75,1.86,4.52c0,1.77-0.62,3.28-1.86,4.52c-1.24,1.24-2.75,1.86-4.52,1.86h-8.5
 			c-0.6,0-1.1,0.21-1.51,0.61c-0.41,0.41-0.61,0.91-0.61,1.51v2.13H40.44z"
         />
         <path
-          className="st15"
+          className="fill-[#FFFFD1]"
           d="M55.31,161.5c-2.94,0-5.45-1.03-7.52-3.1c-2.07-2.07-3.1-4.58-3.1-7.52c0-2.94,1.03-5.45,3.1-7.52
 			c2.07-2.07,4.58-3.1,7.52-3.1c2.94,0,5.45,1.04,7.52,3.1c2.07,2.07,3.1,4.58,3.1,7.52c0,2.94-1.04,5.45-3.1,7.52
 			C60.76,160.47,58.26,161.5,55.31,161.5z M55.31,157.25c1.77,0,3.28-0.62,4.52-1.86c1.24-1.24,1.86-2.74,1.86-4.52
@@ -1232,7 +1847,7 @@ const Board = (props: SVGProps<SVGSVGElement>) => (
 			c0,1.77,0.62,3.28,1.86,4.52C52.04,156.63,53.54,157.25,55.31,157.25z"
         />
         <path
-          className="st15"
+          className="fill-[#FFFFD1]"
           d="M80.81,161.5c-2.94,0-5.45-1.03-7.52-3.1c-2.07-2.07-3.1-4.58-3.1-7.52c0-2.94,1.03-5.45,3.1-7.52
 			c2.07-2.07,4.58-3.1,7.52-3.1c2.94,0,5.45,1.04,7.52,3.1c2.07,2.07,3.1,4.58,3.1,7.52c0,2.94-1.04,5.45-3.1,7.52
 			C86.26,160.47,83.76,161.5,80.81,161.5z M80.81,157.25c1.77,0,3.28-0.62,4.52-1.86c1.24-1.24,1.86-2.74,1.86-4.52
@@ -1242,14 +1857,14 @@ const Board = (props: SVGProps<SVGSVGElement>) => (
       </g>
       <g>
         <path
-          className="st15"
+          className="fill-[#FFFFD1]"
           d="M640.44,157.25v4.25h-31.88v-6.38c0-1.77,0.62-3.28,1.86-4.52c1.24-1.24,2.74-1.86,4.52-1.86h8.5
 			c0.6,0,1.1-0.2,1.51-0.61c0.41-0.41,0.61-0.91,0.61-1.51s-0.21-1.1-0.61-1.51c-0.41-0.41-0.91-0.61-1.51-0.61h-12.75v-4.25h12.75
 			c1.77,0,3.28,0.62,4.52,1.86c1.24,1.24,1.86,2.75,1.86,4.52c0,1.77-0.62,3.28-1.86,4.52c-1.24,1.24-2.75,1.86-4.52,1.86h-8.5
 			c-0.6,0-1.1,0.21-1.51,0.61c-0.41,0.41-0.61,0.91-0.61,1.51v2.13H640.44z"
         />
         <path
-          className="st15"
+          className="fill-[#FFFFD1]"
           d="M655.31,161.5c-2.94,0-5.45-1.03-7.52-3.1c-2.07-2.07-3.1-4.58-3.1-7.52c0-2.94,1.04-5.45,3.1-7.52
 			c2.07-2.07,4.58-3.1,7.52-3.1c2.94,0,5.45,1.04,7.52,3.1c2.07,2.07,3.1,4.58,3.1,7.52c0,2.94-1.04,5.45-3.1,7.52
 			C660.76,160.47,658.26,161.5,655.31,161.5z M655.31,157.25c1.77,0,3.28-0.62,4.52-1.86c1.24-1.24,1.86-2.74,1.86-4.52
@@ -1257,7 +1872,7 @@ const Board = (props: SVGProps<SVGSVGElement>) => (
 			c0,1.77,0.62,3.28,1.86,4.52C652.04,156.63,653.54,157.25,655.31,157.25z"
         />
         <path
-          className="st15"
+          className="fill-[#FFFFD1]"
           d="M680.81,161.5c-2.94,0-5.45-1.03-7.52-3.1c-2.07-2.07-3.1-4.58-3.1-7.52c0-2.94,1.04-5.45,3.1-7.52
 			c2.07-2.07,4.58-3.1,7.52-3.1c2.94,0,5.45,1.04,7.52,3.1c2.07,2.07,3.1,4.58,3.1,7.52c0,2.94-1.04,5.45-3.1,7.52
 			C686.26,160.47,683.76,161.5,680.81,161.5z M680.81,157.25c1.77,0,3.28-0.62,4.52-1.86c1.24-1.24,1.86-2.74,1.86-4.52
@@ -1267,14 +1882,14 @@ const Board = (props: SVGProps<SVGSVGElement>) => (
       </g>
       <g>
         <path
-          className="st14"
+          className="fill-[#FFE3BF]"
           d="M430.88,161.5H416v-4.25h14.88c0.6,0,1.1-0.2,1.51-0.61c0.41-0.41,0.61-0.91,0.61-1.51s-0.21-1.1-0.61-1.51
 			c-0.41-0.41-0.91-0.61-1.51-0.61h-5.31v-4.25h5.31c0.6,0,1.1-0.2,1.51-0.61c0.41-0.41,0.61-0.91,0.61-1.51s-0.21-1.1-0.61-1.51
 			c-0.41-0.41-0.91-0.61-1.51-0.61H416v-4.25h14.88c1.77,0,3.28,0.62,4.52,1.86c1.24,1.24,1.86,2.75,1.86,4.52
 			c0,1.64-0.53,3.05-1.59,4.25c1.06,1.2,1.59,2.61,1.59,4.25c0,1.77-0.62,3.28-1.86,4.52C434.15,160.88,432.65,161.5,430.88,161.5z"
         />
         <path
-          className="st14"
+          className="fill-[#FFE3BF]"
           d="M452.13,161.5c-2.94,0-5.45-1.03-7.52-3.1c-2.07-2.07-3.1-4.58-3.1-7.52c0-2.94,1.04-5.45,3.1-7.52
 			c2.07-2.07,4.58-3.1,7.52-3.1s5.45,1.04,7.52,3.1c2.07,2.07,3.1,4.58,3.1,7.52c0,2.94-1.04,5.45-3.1,7.52
 			C457.58,160.47,455.07,161.5,452.13,161.5z M452.13,157.25c1.77,0,3.28-0.62,4.52-1.86c1.24-1.24,1.86-2.74,1.86-4.52
@@ -1282,7 +1897,7 @@ const Board = (props: SVGProps<SVGSVGElement>) => (
 			c0,1.77,0.62,3.28,1.86,4.52C448.85,156.63,450.35,157.25,452.13,157.25z"
         />
         <path
-          className="st14"
+          className="fill-[#FFE3BF]"
           d="M483.04,140.25l-11.79,21.25H467l11.79-21.25H483.04z M469.66,145.56c-0.73,0-1.36-0.26-1.88-0.78
 			c-0.52-0.52-0.78-1.15-0.78-1.88s0.26-1.36,0.78-1.88c0.52-0.52,1.15-0.78,1.88-0.78s1.36,0.26,1.88,0.78
 			c0.52,0.52,0.78,1.15,0.78,1.88s-0.26,1.36-0.78,1.88C471.01,145.3,470.39,145.56,469.66,145.56z M481.34,161.5
@@ -1292,14 +1907,14 @@ const Board = (props: SVGProps<SVGSVGElement>) => (
       </g>
       <g>
         <path
-          className="st14"
+          className="fill-[#FFE3BF]"
           d="M242.56,157.25v4.25h-31.88v-6.38c0-1.77,0.62-3.28,1.86-4.52c1.24-1.24,2.74-1.86,4.52-1.86h8.5
 			c0.6,0,1.1-0.2,1.51-0.61c0.41-0.41,0.61-0.91,0.61-1.51s-0.21-1.1-0.61-1.51c-0.41-0.41-0.91-0.61-1.51-0.61h-12.75v-4.25h12.75
 			c1.77,0,3.28,0.62,4.52,1.86c1.24,1.24,1.86,2.75,1.86,4.52c0,1.77-0.62,3.28-1.86,4.52c-1.24,1.24-2.75,1.86-4.52,1.86h-8.5
 			c-0.6,0-1.1,0.21-1.51,0.61c-0.41,0.41-0.61,0.91-0.61,1.51v2.13H242.56z"
         />
         <path
-          className="st14"
+          className="fill-[#FFE3BF]"
           d="M257.44,161.5c-2.94,0-5.45-1.03-7.52-3.1c-2.07-2.07-3.1-4.58-3.1-7.52c0-2.94,1.03-5.45,3.1-7.52
 			c2.07-2.07,4.58-3.1,7.52-3.1c2.94,0,5.45,1.04,7.52,3.1c2.07,2.07,3.1,4.58,3.1,7.52c0,2.94-1.04,5.45-3.1,7.52
 			C262.89,160.47,260.38,161.5,257.44,161.5z M257.44,157.25c1.77,0,3.28-0.62,4.52-1.86c1.24-1.24,1.86-2.74,1.86-4.52
@@ -1307,7 +1922,7 @@ const Board = (props: SVGProps<SVGSVGElement>) => (
 			c0,1.77,0.62,3.28,1.86,4.52C254.16,156.63,255.67,157.25,257.44,157.25z"
         />
         <path
-          className="st14"
+          className="fill-[#FFE3BF]"
           d="M288.35,140.25l-11.79,21.25h-4.25l11.79-21.25H288.35z M274.97,145.56c-0.73,0-1.36-0.26-1.88-0.78
 			c-0.52-0.52-0.78-1.15-0.78-1.88s0.26-1.36,0.78-1.88c0.52-0.52,1.15-0.78,1.88-0.78s1.36,0.26,1.88,0.78
 			c0.52,0.52,0.78,1.15,0.78,1.88s-0.26,1.36-0.78,1.88C276.32,145.3,275.7,145.56,274.97,145.56z M286.66,161.5
@@ -1317,7 +1932,7 @@ const Board = (props: SVGProps<SVGSVGElement>) => (
       </g>
       <g>
         <path
-          className="st15"
+          className="fill-[#FFFFD1]"
           d="M713.88,46.63c0-1.77,0.62-3.28,1.86-4.52c1.24-1.24,2.74-1.86,4.52-1.86H733v4.25h-12.75
 			c-0.6,0-1.1,0.21-1.51,0.61c-0.41,0.41-0.61,0.91-0.61,1.51v2.13h10.63c1.77,0,3.28,0.62,4.52,1.86c1.24,1.24,1.86,2.75,1.86,4.52
 			c0,1.77-0.62,3.28-1.86,4.52c-1.24,1.24-2.75,1.86-4.52,1.86h-8.5c-1.77,0-3.28-0.62-4.52-1.86c-1.24-1.24-1.86-2.74-1.86-4.52
@@ -1325,7 +1940,7 @@ const Board = (props: SVGProps<SVGSVGElement>) => (
 			c0.41-0.41,0.61-0.91,0.61-1.51s-0.21-1.1-0.61-1.51c-0.41-0.41-0.91-0.61-1.51-0.61H718.13z"
         />
         <path
-          className="st15"
+          className="fill-[#FFFFD1]"
           d="M750,61.5c-2.94,0-5.45-1.03-7.52-3.1c-2.07-2.07-3.1-4.58-3.1-7.52c0-2.94,1.04-5.45,3.1-7.52
 			c2.07-2.07,4.58-3.1,7.52-3.1c2.94,0,5.45,1.04,7.52,3.1c2.07,2.07,3.1,4.58,3.1,7.52c0,2.94-1.04,5.45-3.1,7.52
 			C755.45,60.47,752.94,61.5,750,61.5z M750,57.25c1.77,0,3.28-0.62,4.52-1.86c1.24-1.24,1.86-2.74,1.86-4.52
@@ -1333,7 +1948,7 @@ const Board = (props: SVGProps<SVGSVGElement>) => (
 			c0,1.77,0.62,3.28,1.86,4.52C746.72,56.63,748.23,57.25,750,57.25z"
         />
         <path
-          className="st15"
+          className="fill-[#FFFFD1]"
           d="M775.5,61.5c-2.94,0-5.45-1.03-7.52-3.1c-2.07-2.07-3.1-4.58-3.1-7.52c0-2.94,1.04-5.45,3.1-7.52
 			c2.07-2.07,4.58-3.1,7.52-3.1c2.94,0,5.45,1.04,7.52,3.1c2.07,2.07,3.1,4.58,3.1,7.52c0,2.94-1.04,5.45-3.1,7.52
 			C780.95,60.47,778.44,61.5,775.5,61.5z M775.5,57.25c1.77,0,3.28-0.62,4.52-1.86c1.24-1.24,1.86-2.74,1.86-4.52
@@ -1343,7 +1958,7 @@ const Board = (props: SVGProps<SVGSVGElement>) => (
       </g>
       <g>
         <path
-          className="st15"
+          className="fill-[#FFFFD1]"
           d="M513.88,46.63c0-1.77,0.62-3.28,1.86-4.52c1.24-1.24,2.75-1.86,4.52-1.86H533v4.25h-12.75
 			c-0.6,0-1.1,0.21-1.51,0.61c-0.41,0.41-0.61,0.91-0.61,1.51v2.13h10.63c1.77,0,3.28,0.62,4.52,1.86c1.24,1.24,1.86,2.75,1.86,4.52
 			c0,1.77-0.62,3.28-1.86,4.52c-1.24,1.24-2.75,1.86-4.52,1.86h-8.5c-1.77,0-3.28-0.62-4.52-1.86c-1.24-1.24-1.86-2.74-1.86-4.52
@@ -1351,7 +1966,7 @@ const Board = (props: SVGProps<SVGSVGElement>) => (
 			c0.41-0.41,0.61-0.91,0.61-1.51s-0.21-1.1-0.61-1.51c-0.41-0.41-0.91-0.61-1.51-0.61H518.13z"
         />
         <path
-          className="st15"
+          className="fill-[#FFFFD1]"
           d="M550,61.5c-2.94,0-5.45-1.03-7.52-3.1c-2.07-2.07-3.1-4.58-3.1-7.52c0-2.94,1.04-5.45,3.1-7.52
 			c2.07-2.07,4.58-3.1,7.52-3.1s5.45,1.04,7.52,3.1c2.07,2.07,3.1,4.58,3.1,7.52c0,2.94-1.04,5.45-3.1,7.52
 			C555.45,60.47,552.94,61.5,550,61.5z M550,57.25c1.77,0,3.28-0.62,4.52-1.86c1.24-1.24,1.86-2.74,1.86-4.52
@@ -1359,7 +1974,7 @@ const Board = (props: SVGProps<SVGSVGElement>) => (
 			c0,1.77,0.62,3.28,1.86,4.52C546.72,56.63,548.23,57.25,550,57.25z"
         />
         <path
-          className="st15"
+          className="fill-[#FFFFD1]"
           d="M575.5,61.5c-2.94,0-5.45-1.03-7.52-3.1c-2.07-2.07-3.1-4.58-3.1-7.52c0-2.94,1.04-5.45,3.1-7.52
 			c2.07-2.07,4.58-3.1,7.52-3.1s5.45,1.04,7.52,3.1c2.07,2.07,3.1,4.58,3.1,7.52c0,2.94-1.04,5.45-3.1,7.52
 			C580.95,60.47,578.44,61.5,575.5,61.5z M575.5,57.25c1.77,0,3.28-0.62,4.52-1.86c1.24-1.24,1.86-2.74,1.86-4.52
@@ -1369,7 +1984,7 @@ const Board = (props: SVGProps<SVGSVGElement>) => (
       </g>
       <g>
         <path
-          className="st15"
+          className="fill-[#FFFFD1]"
           d="M313.88,46.63c0-1.77,0.62-3.28,1.86-4.52c1.24-1.24,2.74-1.86,4.52-1.86H333v4.25h-12.75
 			c-0.6,0-1.1,0.21-1.51,0.61c-0.41,0.41-0.61,0.91-0.61,1.51v2.13h10.63c1.77,0,3.28,0.62,4.52,1.86c1.24,1.24,1.86,2.75,1.86,4.52
 			c0,1.77-0.62,3.28-1.86,4.52c-1.24,1.24-2.75,1.86-4.52,1.86h-8.5c-1.77,0-3.28-0.62-4.52-1.86c-1.24-1.24-1.86-2.74-1.86-4.52
@@ -1377,7 +1992,7 @@ const Board = (props: SVGProps<SVGSVGElement>) => (
 			c0.41-0.41,0.61-0.91,0.61-1.51s-0.21-1.1-0.61-1.51c-0.41-0.41-0.91-0.61-1.51-0.61H318.13z"
         />
         <path
-          className="st15"
+          className="fill-[#FFFFD1]"
           d="M350,61.5c-2.94,0-5.45-1.03-7.52-3.1c-2.07-2.07-3.1-4.58-3.1-7.52c0-2.94,1.03-5.45,3.1-7.52
 			c2.07-2.07,4.58-3.1,7.52-3.1c2.94,0,5.45,1.04,7.52,3.1c2.07,2.07,3.1,4.58,3.1,7.52c0,2.94-1.04,5.45-3.1,7.52
 			C355.45,60.47,352.94,61.5,350,61.5z M350,57.25c1.77,0,3.28-0.62,4.52-1.86c1.24-1.24,1.86-2.74,1.86-4.52
@@ -1385,7 +2000,7 @@ const Board = (props: SVGProps<SVGSVGElement>) => (
 			c0,1.77,0.62,3.28,1.86,4.52C346.72,56.63,348.23,57.25,350,57.25z"
         />
         <path
-          className="st15"
+          className="fill-[#FFFFD1]"
           d="M375.5,61.5c-2.94,0-5.45-1.03-7.52-3.1c-2.07-2.07-3.1-4.58-3.1-7.52c0-2.94,1.03-5.45,3.1-7.52
 			c2.07-2.07,4.58-3.1,7.52-3.1c2.94,0,5.45,1.04,7.52,3.1c2.07,2.07,3.1,4.58,3.1,7.52c0,2.94-1.04,5.45-3.1,7.52
 			C380.95,60.47,378.44,61.5,375.5,61.5z M375.5,57.25c1.77,0,3.28-0.62,4.52-1.86c1.24-1.24,1.86-2.74,1.86-4.52
@@ -1395,7 +2010,7 @@ const Board = (props: SVGProps<SVGSVGElement>) => (
       </g>
       <g>
         <path
-          className="st15"
+          className="fill-[#FFFFD1]"
           d="M113.88,46.63c0-1.77,0.62-3.28,1.86-4.52c1.24-1.24,2.74-1.86,4.52-1.86H133v4.25h-12.75
 			c-0.6,0-1.1,0.21-1.51,0.61c-0.41,0.41-0.61,0.91-0.61,1.51v2.13h10.63c1.77,0,3.28,0.62,4.52,1.86c1.24,1.24,1.86,2.75,1.86,4.52
 			c0,1.77-0.62,3.28-1.86,4.52c-1.24,1.24-2.75,1.86-4.52,1.86h-8.5c-1.77,0-3.28-0.62-4.52-1.86c-1.24-1.24-1.86-2.74-1.86-4.52
@@ -1403,7 +2018,7 @@ const Board = (props: SVGProps<SVGSVGElement>) => (
 			c0.41-0.41,0.61-0.91,0.61-1.51s-0.21-1.1-0.61-1.51c-0.41-0.41-0.91-0.61-1.51-0.61H118.13z"
         />
         <path
-          className="st15"
+          className="fill-[#FFFFD1]"
           d="M150,61.5c-2.94,0-5.45-1.03-7.52-3.1c-2.07-2.07-3.1-4.58-3.1-7.52c0-2.94,1.03-5.45,3.1-7.52
 			c2.07-2.07,4.58-3.1,7.52-3.1c2.94,0,5.45,1.04,7.52,3.1c2.07,2.07,3.1,4.58,3.1,7.52c0,2.94-1.04,5.45-3.1,7.52
 			C155.45,60.47,152.94,61.5,150,61.5z M150,57.25c1.77,0,3.28-0.62,4.52-1.86c1.24-1.24,1.86-2.74,1.86-4.52
@@ -1411,7 +2026,7 @@ const Board = (props: SVGProps<SVGSVGElement>) => (
 			c0,1.77,0.62,3.28,1.86,4.52C146.72,56.63,148.23,57.25,150,57.25z"
         />
         <path
-          className="st15"
+          className="fill-[#FFFFD1]"
           d="M175.5,61.5c-2.94,0-5.45-1.03-7.52-3.1c-2.07-2.07-3.1-4.58-3.1-7.52c0-2.94,1.03-5.45,3.1-7.52
 			c2.07-2.07,4.58-3.1,7.52-3.1c2.94,0,5.45,1.04,7.52,3.1c2.07,2.07,3.1,4.58,3.1,7.52c0,2.94-1.04,5.45-3.1,7.52
 			C180.95,60.47,178.44,61.5,175.5,61.5z M175.5,57.25c1.77,0,3.28-0.62,4.52-1.86c1.24-1.24,1.86-2.74,1.86-4.52
@@ -1421,7 +2036,7 @@ const Board = (props: SVGProps<SVGSVGElement>) => (
       </g>
       <g>
         <path
-          className="st1"
+          className="fill-[#C9FFEC]"
           d="M669.89,571.33c-3.86-3.09-7.92-2.85-7.92-2.85s6.24-4.59,6.24-17.59c0-7.49-5.34-14.49-10.27-19.07
 			c-3.8,6.86-4.27,14.68-4.5,21.2h-6.89c0.2-12.01,3.87-21.69,9.83-29.84c-0.79-2.79-3.35-4.84-6.39-4.84
 			c-3.67,0-6.65,2.98-6.65,6.65c0,1.66,0.61,3.18,1.62,4.34c-5.45,4.24-13.19,12.55-13.19,21.57c0,13,6.24,17.59,6.24,17.59
@@ -1430,7 +2045,7 @@ const Board = (props: SVGProps<SVGSVGElement>) => (
       </g>
       <g>
         <path
-          className="st19"
+          className="fill-[#008A84]"
           d="M469.89,471.33c-3.86-3.09-7.92-2.85-7.92-2.85s6.24-4.59,6.24-17.59c0-7.49-5.34-14.49-10.27-19.07
 			c-3.8,6.86-4.27,14.68-4.5,21.2h-6.89c0.2-12.01,3.87-21.69,9.83-29.84c-0.79-2.79-3.35-4.84-6.39-4.84
 			c-3.67,0-6.65,2.98-6.65,6.65c0,1.66,0.61,3.18,1.62,4.34c-5.45,4.24-13.19,12.55-13.19,21.57c0,13,6.24,17.59,6.24,17.59
@@ -1439,7 +2054,7 @@ const Board = (props: SVGProps<SVGSVGElement>) => (
       </g>
       <g>
         <path
-          className="st1"
+          className="fill-[#C9FFEC]"
           d="M169.89,471.33c-3.86-3.09-7.92-2.85-7.92-2.85s6.24-4.59,6.24-17.59c0-7.49-5.34-14.49-10.27-19.07
 			c-3.8,6.86-4.27,14.68-4.5,21.2h-6.89c0.2-12.01,3.87-21.69,9.83-29.84c-0.79-2.79-3.35-4.84-6.39-4.84
 			c-3.67,0-6.65,2.98-6.65,6.65c0,1.66,0.61,3.18,1.62,4.34c-5.45,4.24-13.19,12.55-13.19,21.57c0,13,6.24,17.59,6.24,17.59
@@ -1448,7 +2063,7 @@ const Board = (props: SVGProps<SVGSVGElement>) => (
       </g>
       <g>
         <path
-          className="st19"
+          className="fill-[#008A84]"
           d="M369.5,168.08c-2.95-2.04-3.49-2.2-3.57-2.13l-2.56-24.81c0,0,4.48-0.4,5.27-6.52
 			c0.79-6.13,0.92-10.54,0.92-10.54s-5.93-2.31-9.22-2.24l-1.78,7.58h-3.03l-0.68-8.19c0,0-2.88-0.51-4.86-0.51
 			c-1.98,0-4.86,0.51-4.86,0.51l-0.68,8.19h-3.03l-1.78-7.58c-3.29-0.07-9.22,2.24-9.22,2.24s0.13,4.41,0.92,10.54
@@ -1458,7 +2073,7 @@ const Board = (props: SVGProps<SVGSVGElement>) => (
       </g>
       <g>
         <path
-          className="st19"
+          className="fill-[#008A84]"
           d="M669.5,268.08c-2.95-2.04-3.49-2.2-3.57-2.13l-2.56-24.81c0,0,4.48-0.4,5.27-6.52
 			c0.79-6.13,0.92-10.54,0.92-10.54s-5.93-2.31-9.22-2.24l-1.78,7.58h-3.03l-0.68-8.19c0,0-2.88-0.51-4.86-0.51
 			s-4.86,0.51-4.86,0.51l-0.68,8.19h-3.03l-1.78-7.58c-3.29-0.07-9.22,2.24-9.22,2.24s0.13,4.41,0.92,10.54
@@ -1468,7 +2083,7 @@ const Board = (props: SVGProps<SVGSVGElement>) => (
       </g>
       <g>
         <path
-          className="st19"
+          className="fill-[#008A84]"
           d="M369.5,768.08c-2.95-2.04-3.49-2.2-3.57-2.13l-2.56-24.81c0,0,4.48-0.4,5.27-6.52
 			c0.79-6.13,0.92-10.54,0.92-10.54s-5.93-2.31-9.22-2.24l-1.78,7.58h-3.03l-0.68-8.19c0,0-2.88-0.51-4.86-0.51
 			c-1.98,0-4.86,0.51-4.86,0.51l-0.68,8.19h-3.03l-1.78-7.58c-3.29-0.07-9.22,2.24-9.22,2.24s0.13,4.41,0.92,10.54
@@ -1478,7 +2093,7 @@ const Board = (props: SVGProps<SVGSVGElement>) => (
       </g>
       <g>
         <path
-          className="st14"
+          className="fill-[#FFE3BF]"
           d="M89.92,782.07c1.19,0,2.08,0.27,2.66,0.8c0.59,0.53,0.88,1.37,0.88,2.49v6.57H92.1l-0.38-1.35h-0.07
 			c-0.28,0.35-0.56,0.64-0.85,0.86c-0.29,0.23-0.63,0.4-1.01,0.5c-0.38,0.11-0.84,0.16-1.38,0.16c-0.58,0-1.1-0.1-1.56-0.31
 			s-0.83-0.53-1.09-0.96c-0.26-0.43-0.4-0.98-0.4-1.66c0-0.97,0.38-1.72,1.13-2.24c0.76-0.52,1.9-0.81,3.44-0.85l1.64-0.05v-0.5
@@ -1490,7 +2105,7 @@ const Board = (props: SVGProps<SVGSVGElement>) => (
       </g>
       <g>
         <path
-          className="st14"
+          className="fill-[#FFE3BF]"
           d="M11.87,722.11H9.98v-8.53c0-0.3,0-0.58,0.01-0.84c0.01-0.26,0.02-0.51,0.03-0.76
 			c0.01-0.25,0.02-0.48,0.04-0.71c-0.16,0.16-0.32,0.31-0.49,0.45c-0.17,0.14-0.36,0.31-0.58,0.5l-1.4,1.13l-0.97-1.22l3.67-2.88
 			h1.58V722.11z"
@@ -1498,7 +2113,7 @@ const Board = (props: SVGProps<SVGSVGElement>) => (
       </g>
       <g>
         <path
-          className="st18"
+          className="fill-[#0096DF]"
           d="M14.64,622.11H6v-1.48l3.31-3.37c0.65-0.66,1.19-1.23,1.62-1.72c0.43-0.49,0.76-0.95,0.97-1.4
 			c0.22-0.45,0.32-0.94,0.32-1.47c0-0.66-0.19-1.16-0.58-1.49c-0.38-0.33-0.88-0.5-1.49-0.5c-0.59,0-1.12,0.11-1.58,0.33
 			c-0.47,0.22-0.95,0.53-1.46,0.93l-1.03-1.28c0.35-0.3,0.72-0.57,1.13-0.81c0.4-0.24,0.85-0.43,1.35-0.58
@@ -1508,7 +2123,7 @@ const Board = (props: SVGProps<SVGSVGElement>) => (
       </g>
       <g>
         <path
-          className="st15"
+          className="fill-[#FFFFD1]"
           d="M14.13,512.22c0,0.58-0.11,1.08-0.33,1.5s-0.54,0.77-0.94,1.04c-0.41,0.26-0.88,0.46-1.4,0.58v0.07
 			c1.03,0.12,1.8,0.44,2.31,0.96c0.51,0.52,0.76,1.21,0.76,2.06c0,0.74-0.18,1.41-0.53,1.99c-0.35,0.58-0.9,1.04-1.64,1.37
 			c-0.74,0.33-1.68,0.5-2.83,0.5c-0.68,0-1.32-0.05-1.91-0.16c-0.59-0.11-1.15-0.29-1.67-0.54v-1.73c0.54,0.28,1.12,0.49,1.74,0.63
@@ -1521,7 +2136,7 @@ const Board = (props: SVGProps<SVGSVGElement>) => (
       </g>
       <g>
         <path
-          className="st18"
+          className="fill-[#0096DF]"
           d="M15.13,419.26h-1.78v2.84h-1.85v-2.84H5.53v-1.51l5.92-8.55h1.89v8.44h1.78V419.26z M11.49,414.15
 			c0-0.29,0-0.56,0.01-0.83c0.01-0.26,0.01-0.52,0.03-0.76c0.01-0.25,0.02-0.47,0.03-0.68c0.01-0.21,0.02-0.4,0.03-0.57h-0.07
 			c-0.1,0.24-0.21,0.49-0.35,0.74c-0.14,0.25-0.28,0.47-0.42,0.67l-3.4,4.93h4.16V414.15z"
@@ -1529,7 +2144,7 @@ const Board = (props: SVGProps<SVGSVGElement>) => (
       </g>
       <g>
         <path
-          className="st15"
+          className="fill-[#FFFFD1]"
           d="M10.25,314.13c0.85,0,1.6,0.15,2.23,0.45c0.64,0.3,1.13,0.73,1.48,1.3c0.35,0.56,0.53,1.25,0.53,2.07
 			c0,0.9-0.19,1.67-0.58,2.32c-0.38,0.65-0.94,1.15-1.67,1.49s-1.61,0.52-2.65,0.52c-0.66,0-1.28-0.06-1.87-0.18
 			c-0.59-0.12-1.09-0.29-1.49-0.52v-1.75c0.43,0.25,0.96,0.46,1.58,0.61c0.62,0.16,1.21,0.23,1.77,0.23c0.61,0,1.14-0.09,1.57-0.28
@@ -1540,7 +2155,7 @@ const Board = (props: SVGProps<SVGSVGElement>) => (
       </g>
       <g>
         <path
-          className="st17"
+          className="fill-[#FF35DF]"
           d="M6.05,216.63c0-0.74,0.05-1.48,0.15-2.2c0.1-0.72,0.28-1.4,0.54-2.04c0.26-0.64,0.61-1.21,1.07-1.71
 			s1.04-0.89,1.74-1.17c0.7-0.28,1.55-0.42,2.55-0.42c0.25,0,0.54,0.01,0.85,0.03c0.32,0.02,0.58,0.06,0.78,0.12v1.6
 			c-0.23-0.07-0.48-0.13-0.75-0.16s-0.54-0.05-0.82-0.05c-0.82,0-1.49,0.13-2.03,0.38c-0.54,0.25-0.97,0.6-1.28,1.04
@@ -1555,13 +2170,13 @@ const Board = (props: SVGProps<SVGSVGElement>) => (
       </g>
       <g>
         <path
-          className="st15"
+          className="fill-[#FFFFD1]"
           d="M7.49,122.11l5.13-11.16H5.87v-1.69h8.8v1.37l-5.11,11.48H7.49z"
         />
       </g>
       <g>
         <path
-          className="st20"
+          className="fill-[#00D4B9]"
           d="M10.3,9.07c0.76,0,1.43,0.12,2.02,0.35c0.59,0.23,1.05,0.58,1.4,1.03c0.34,0.46,0.51,1.03,0.51,1.71
 			c0,0.52-0.11,0.97-0.32,1.35s-0.5,0.72-0.86,1.02c-0.36,0.29-0.76,0.55-1.21,0.77c0.5,0.25,0.97,0.54,1.4,0.85
 			c0.43,0.32,0.77,0.69,1.03,1.11c0.26,0.42,0.39,0.92,0.39,1.51c0,0.72-0.18,1.34-0.53,1.86c-0.35,0.52-0.85,0.93-1.5,1.21
@@ -1578,7 +2193,7 @@ const Board = (props: SVGProps<SVGSVGElement>) => (
       </g>
       <g>
         <path
-          className="st16"
+          className="fill-[#278D00]"
           d="M187.96,781.55c0,0.4-0.01,0.77-0.03,1.12c-0.02,0.35-0.04,0.63-0.06,0.85h0.09
 			c0.28-0.41,0.65-0.75,1.12-1.03c0.47-0.28,1.07-0.41,1.82-0.41c1.16,0,2.1,0.42,2.82,1.26s1.07,2.09,1.07,3.74
 			c0,1.12-0.16,2.05-0.49,2.79c-0.32,0.74-0.78,1.31-1.37,1.68c-0.59,0.38-1.27,0.57-2.05,0.57c-0.74,0-1.35-0.13-1.81-0.4
@@ -1589,7 +2204,7 @@ const Board = (props: SVGProps<SVGSVGElement>) => (
       </g>
       <g>
         <path
-          className="st15"
+          className="fill-[#FFFFD1]"
           d="M290.03,792.11c-0.88,0-1.65-0.17-2.33-0.52c-0.68-0.35-1.21-0.89-1.59-1.63c-0.38-0.74-0.58-1.68-0.58-2.83
 			c0-1.19,0.2-2.16,0.6-2.91c0.4-0.75,0.95-1.3,1.66-1.65c0.7-0.35,1.5-0.52,2.39-0.52c0.52,0,1.01,0.05,1.48,0.16
 			c0.47,0.11,0.86,0.24,1.19,0.4l-0.58,1.55c-0.31-0.13-0.66-0.25-1.04-0.34c-0.38-0.1-0.74-0.14-1.09-0.14
@@ -1600,7 +2215,7 @@ const Board = (props: SVGProps<SVGSVGElement>) => (
       </g>
       <g>
         <path
-          className="st19"
+          className="fill-[#008A84]"
           d="M389.4,792.11c-1.16,0-2.1-0.42-2.81-1.26c-0.71-0.84-1.06-2.09-1.06-3.76c0-1.66,0.36-2.91,1.07-3.76
 			c0.71-0.85,1.66-1.28,2.83-1.28c0.5,0,0.94,0.06,1.3,0.19c0.36,0.13,0.68,0.3,0.95,0.51c0.27,0.22,0.5,0.46,0.69,0.72h0.09
 			c-0.01-0.17-0.03-0.42-0.06-0.75s-0.04-0.61-0.04-0.84v-3.64h1.91v13.68h-1.51l-0.32-1.3h-0.07c-0.19,0.28-0.42,0.53-0.69,0.75
@@ -1611,7 +2226,7 @@ const Board = (props: SVGProps<SVGSVGElement>) => (
       </g>
       <g>
         <path
-          className="st14"
+          className="fill-[#FFE3BF]"
           d="M489.9,782.05c0.85,0,1.59,0.18,2.21,0.53c0.62,0.35,1.09,0.86,1.41,1.52s0.49,1.44,0.49,2.34v1.06h-6.52
 			c0.02,0.98,0.29,1.74,0.79,2.27c0.5,0.53,1.21,0.79,2.12,0.79c0.61,0,1.16-0.06,1.64-0.17c0.48-0.11,0.98-0.29,1.49-0.51v1.58
 			c-0.49,0.22-0.98,0.38-1.48,0.49c-0.49,0.11-1.09,0.16-1.78,0.16c-0.94,0-1.76-0.18-2.47-0.55s-1.27-0.92-1.67-1.67
@@ -1622,7 +2237,7 @@ const Board = (props: SVGProps<SVGSVGElement>) => (
       </g>
       <g>
         <path
-          className="st18"
+          className="fill-[#0096DF]"
           d="M590.8,783.69h-2.39v8.24h-1.91v-8.24h-1.64v-0.9l1.64-0.59v-0.61c0-0.83,0.13-1.49,0.39-1.99
 			c0.26-0.5,0.63-0.86,1.11-1.09c0.48-0.23,1.06-0.34,1.75-0.34c0.42,0,0.8,0.04,1.15,0.11c0.35,0.07,0.64,0.15,0.88,0.23
 			l-0.49,1.46c-0.19-0.06-0.41-0.12-0.67-0.17c-0.25-0.05-0.52-0.08-0.79-0.08c-0.48,0-0.84,0.16-1.07,0.47
@@ -1631,7 +2246,7 @@ const Board = (props: SVGProps<SVGSVGElement>) => (
       </g>
       <g>
         <path
-          className="st15"
+          className="fill-[#FFFFD1]"
           d="M689.42,782.05c0.65,0,1.22,0.12,1.72,0.37c0.5,0.25,0.92,0.6,1.25,1.07h0.09l0.22-1.26h1.57v9.85
 			c0,0.91-0.16,1.68-0.49,2.3c-0.32,0.62-0.82,1.09-1.48,1.4c-0.66,0.32-1.5,0.48-2.52,0.48c-0.72,0-1.37-0.05-1.96-0.14
 			s-1.12-0.25-1.6-0.47v-1.71c0.49,0.25,1.03,0.44,1.63,0.57c0.59,0.13,1.25,0.19,1.97,0.19c0.8,0,1.43-0.22,1.88-0.67
@@ -1645,7 +2260,7 @@ const Board = (props: SVGProps<SVGSVGElement>) => (
       </g>
       <g>
         <path
-          className="st17"
+          className="fill-[#FF35DF]"
           d="M787.96,781.89c0,0.32-0.01,0.63-0.03,0.92c-0.02,0.29-0.04,0.53-0.06,0.74h0.11
 			c0.2-0.34,0.46-0.61,0.76-0.83c0.31-0.22,0.65-0.38,1.03-0.49c0.38-0.11,0.76-0.16,1.16-0.16c0.77,0,1.41,0.12,1.93,0.37
 			c0.52,0.25,0.92,0.63,1.19,1.14c0.27,0.52,0.4,1.19,0.4,2.03v6.32h-1.89v-6.05c0-0.76-0.16-1.32-0.49-1.69
@@ -1654,209 +2269,563 @@ const Board = (props: SVGProps<SVGSVGElement>) => (
         />
       </g>
       <g>
-        <rect x="400" className="st21" width="100" height="5" />
+        <rect x="400" className="fill-[#00F4D5]" width="100" height="5" />
       </g>
       <g>
-        <rect x="200" className="st21" width="100" height="5" />
+        <rect x="200" className="fill-[#00F4D5]" width="100" height="5" />
       </g>
       <g>
-        <rect x="0" className="st21" width="100" height="5" />
+        <rect x="0" className="fill-[#00F4D5]" width="100" height="5" />
       </g>
       <g>
-        <rect x="600" className="st21" width="100" height="5" />
+        <rect x="600" className="fill-[#00F4D5]" width="100" height="5" />
       </g>
       <g>
-        <rect y="795" className="st6" width="100" height="5" />
+        <rect y="795" className="fill-[#BE3400]" width="100" height="5" />
       </g>
       <g>
-        <rect x="400" y="795" className="st6" width="100" height="5" />
-      </g>
-      <g>
-        <g>
-          <rect y="35" className="st22" width="10" height="10" />
-        </g>
-        <g>
-          <rect x="10" y="45" className="st22" width="10" height="10" />
-        </g>
-        <g>
-          <rect y="55" className="st22" width="10" height="10" />
-        </g>
-        <g>
-          <rect x="20" y="35" className="st22" width="10" height="10" />
-        </g>
-        <g>
-          <rect x="30" y="45" className="st22" width="10" height="10" />
-        </g>
-        <g>
-          <rect x="20" y="55" className="st22" width="10" height="10" />
-        </g>
-        <g>
-          <rect x="40" y="35" className="st22" width="10" height="10" />
-        </g>
-        <g>
-          <rect x="40" y="55" className="st22" width="10" height="10" />
-        </g>
-        <g>
-          <rect x="50" y="45" className="st22" width="10" height="10" />
-        </g>
-        <g>
-          <rect x="60" y="35" className="st22" width="10" height="10" />
-        </g>
-        <g>
-          <rect x="60" y="55" className="st22" width="10" height="10" />
-        </g>
-        <g>
-          <rect x="70" y="45" className="st22" width="10" height="10" />
-        </g>
-        <g>
-          <rect x="80" y="35" className="st22" width="10" height="10" />
-        </g>
-        <g>
-          <rect x="80" y="55" className="st22" width="10" height="10" />
-        </g>
-        <g>
-          <rect x="90" y="45" className="st22" width="10" height="10" />
-        </g>
+        <rect
+          x="400"
+          y="795"
+          className="fill-[#BE3400]"
+          width="100"
+          height="5"
+        />
       </g>
       <g>
         <g>
-          <rect x="200" y="35" className="st22" width="10" height="10" />
+          <rect y="35" className="fill-[#FFFFFF]" width="10" height="10" />
         </g>
         <g>
-          <rect x="210" y="45" className="st22" width="10" height="10" />
+          <rect
+            x="10"
+            y="45"
+            className="fill-[#FFFFFF]"
+            width="10"
+            height="10"
+          />
         </g>
         <g>
-          <rect x="200" y="55" className="st22" width="10" height="10" />
+          <rect y="55" className="fill-[#FFFFFF]" width="10" height="10" />
         </g>
         <g>
-          <rect x="220" y="35" className="st22" width="10" height="10" />
+          <rect
+            x="20"
+            y="35"
+            className="fill-[#FFFFFF]"
+            width="10"
+            height="10"
+          />
         </g>
         <g>
-          <rect x="230" y="45" className="st22" width="10" height="10" />
+          <rect
+            x="30"
+            y="45"
+            className="fill-[#FFFFFF]"
+            width="10"
+            height="10"
+          />
         </g>
         <g>
-          <rect x="220" y="55" className="st22" width="10" height="10" />
+          <rect
+            x="20"
+            y="55"
+            className="fill-[#FFFFFF]"
+            width="10"
+            height="10"
+          />
         </g>
         <g>
-          <rect x="240" y="35" className="st22" width="10" height="10" />
+          <rect
+            x="40"
+            y="35"
+            className="fill-[#FFFFFF]"
+            width="10"
+            height="10"
+          />
         </g>
         <g>
-          <rect x="240" y="55" className="st22" width="10" height="10" />
+          <rect
+            x="40"
+            y="55"
+            className="fill-[#FFFFFF]"
+            width="10"
+            height="10"
+          />
         </g>
         <g>
-          <rect x="250" y="45" className="st22" width="10" height="10" />
+          <rect
+            x="50"
+            y="45"
+            className="fill-[#FFFFFF]"
+            width="10"
+            height="10"
+          />
         </g>
         <g>
-          <rect x="260" y="35" className="st22" width="10" height="10" />
+          <rect
+            x="60"
+            y="35"
+            className="fill-[#FFFFFF]"
+            width="10"
+            height="10"
+          />
         </g>
         <g>
-          <rect x="260" y="55" className="st22" width="10" height="10" />
+          <rect
+            x="60"
+            y="55"
+            className="fill-[#FFFFFF]"
+            width="10"
+            height="10"
+          />
         </g>
         <g>
-          <rect x="270" y="45" className="st22" width="10" height="10" />
+          <rect
+            x="70"
+            y="45"
+            className="fill-[#FFFFFF]"
+            width="10"
+            height="10"
+          />
         </g>
         <g>
-          <rect x="280" y="35" className="st22" width="10" height="10" />
+          <rect
+            x="80"
+            y="35"
+            className="fill-[#FFFFFF]"
+            width="10"
+            height="10"
+          />
         </g>
         <g>
-          <rect x="280" y="55" className="st22" width="10" height="10" />
+          <rect
+            x="80"
+            y="55"
+            className="fill-[#FFFFFF]"
+            width="10"
+            height="10"
+          />
         </g>
         <g>
-          <rect x="290" y="45" className="st22" width="10" height="10" />
-        </g>
-      </g>
-      <g>
-        <g>
-          <rect x="400" y="35" className="st22" width="10" height="10" />
-        </g>
-        <g>
-          <rect x="410" y="45" className="st22" width="10" height="10" />
-        </g>
-        <g>
-          <rect x="400" y="55" className="st22" width="10" height="10" />
-        </g>
-        <g>
-          <rect x="420" y="35" className="st22" width="10" height="10" />
-        </g>
-        <g>
-          <rect x="430" y="45" className="st22" width="10" height="10" />
-        </g>
-        <g>
-          <rect x="420" y="55" className="st22" width="10" height="10" />
-        </g>
-        <g>
-          <rect x="440" y="35" className="st22" width="10" height="10" />
-        </g>
-        <g>
-          <rect x="440" y="55" className="st22" width="10" height="10" />
-        </g>
-        <g>
-          <rect x="450" y="45" className="st22" width="10" height="10" />
-        </g>
-        <g>
-          <rect x="460" y="35" className="st22" width="10" height="10" />
-        </g>
-        <g>
-          <rect x="460" y="55" className="st22" width="10" height="10" />
-        </g>
-        <g>
-          <rect x="470" y="45" className="st22" width="10" height="10" />
-        </g>
-        <g>
-          <rect x="480" y="35" className="st22" width="10" height="10" />
-        </g>
-        <g>
-          <rect x="480" y="55" className="st22" width="10" height="10" />
-        </g>
-        <g>
-          <rect x="490" y="45" className="st22" width="10" height="10" />
+          <rect
+            x="90"
+            y="45"
+            className="fill-[#FFFFFF]"
+            width="10"
+            height="10"
+          />
         </g>
       </g>
       <g>
         <g>
-          <rect x="600" y="35" className="st22" width="10" height="10" />
+          <rect
+            x="200"
+            y="35"
+            className="fill-[#FFFFFF]"
+            width="10"
+            height="10"
+          />
         </g>
         <g>
-          <rect x="610" y="45" className="st22" width="10" height="10" />
+          <rect
+            x="210"
+            y="45"
+            className="fill-[#FFFFFF]"
+            width="10"
+            height="10"
+          />
         </g>
         <g>
-          <rect x="600" y="55" className="st22" width="10" height="10" />
+          <rect
+            x="200"
+            y="55"
+            className="fill-[#FFFFFF]"
+            width="10"
+            height="10"
+          />
         </g>
         <g>
-          <rect x="620" y="35" className="st22" width="10" height="10" />
+          <rect
+            x="220"
+            y="35"
+            className="fill-[#FFFFFF]"
+            width="10"
+            height="10"
+          />
         </g>
         <g>
-          <rect x="630" y="45" className="st22" width="10" height="10" />
+          <rect
+            x="230"
+            y="45"
+            className="fill-[#FFFFFF]"
+            width="10"
+            height="10"
+          />
         </g>
         <g>
-          <rect x="620" y="55" className="st22" width="10" height="10" />
+          <rect
+            x="220"
+            y="55"
+            className="fill-[#FFFFFF]"
+            width="10"
+            height="10"
+          />
         </g>
         <g>
-          <rect x="640" y="35" className="st22" width="10" height="10" />
+          <rect
+            x="240"
+            y="35"
+            className="fill-[#FFFFFF]"
+            width="10"
+            height="10"
+          />
         </g>
         <g>
-          <rect x="640" y="55" className="st22" width="10" height="10" />
+          <rect
+            x="240"
+            y="55"
+            className="fill-[#FFFFFF]"
+            width="10"
+            height="10"
+          />
         </g>
         <g>
-          <rect x="650" y="45" className="st22" width="10" height="10" />
+          <rect
+            x="250"
+            y="45"
+            className="fill-[#FFFFFF]"
+            width="10"
+            height="10"
+          />
         </g>
         <g>
-          <rect x="660" y="35" className="st22" width="10" height="10" />
+          <rect
+            x="260"
+            y="35"
+            className="fill-[#FFFFFF]"
+            width="10"
+            height="10"
+          />
         </g>
         <g>
-          <rect x="660" y="55" className="st22" width="10" height="10" />
+          <rect
+            x="260"
+            y="55"
+            className="fill-[#FFFFFF]"
+            width="10"
+            height="10"
+          />
         </g>
         <g>
-          <rect x="670" y="45" className="st22" width="10" height="10" />
+          <rect
+            x="270"
+            y="45"
+            className="fill-[#FFFFFF]"
+            width="10"
+            height="10"
+          />
         </g>
         <g>
-          <rect x="680" y="35" className="st22" width="10" height="10" />
+          <rect
+            x="280"
+            y="35"
+            className="fill-[#FFFFFF]"
+            width="10"
+            height="10"
+          />
         </g>
         <g>
-          <rect x="680" y="55" className="st22" width="10" height="10" />
+          <rect
+            x="280"
+            y="55"
+            className="fill-[#FFFFFF]"
+            width="10"
+            height="10"
+          />
         </g>
         <g>
-          <rect x="690" y="45" className="st22" width="10" height="10" />
+          <rect
+            x="290"
+            y="45"
+            className="fill-[#FFFFFF]"
+            width="10"
+            height="10"
+          />
+        </g>
+      </g>
+      <g>
+        <g>
+          <rect
+            x="400"
+            y="35"
+            className="fill-[#FFFFFF]"
+            width="10"
+            height="10"
+          />
+        </g>
+        <g>
+          <rect
+            x="410"
+            y="45"
+            className="fill-[#FFFFFF]"
+            width="10"
+            height="10"
+          />
+        </g>
+        <g>
+          <rect
+            x="400"
+            y="55"
+            className="fill-[#FFFFFF]"
+            width="10"
+            height="10"
+          />
+        </g>
+        <g>
+          <rect
+            x="420"
+            y="35"
+            className="fill-[#FFFFFF]"
+            width="10"
+            height="10"
+          />
+        </g>
+        <g>
+          <rect
+            x="430"
+            y="45"
+            className="fill-[#FFFFFF]"
+            width="10"
+            height="10"
+          />
+        </g>
+        <g>
+          <rect
+            x="420"
+            y="55"
+            className="fill-[#FFFFFF]"
+            width="10"
+            height="10"
+          />
+        </g>
+        <g>
+          <rect
+            x="440"
+            y="35"
+            className="fill-[#FFFFFF]"
+            width="10"
+            height="10"
+          />
+        </g>
+        <g>
+          <rect
+            x="440"
+            y="55"
+            className="fill-[#FFFFFF]"
+            width="10"
+            height="10"
+          />
+        </g>
+        <g>
+          <rect
+            x="450"
+            y="45"
+            className="fill-[#FFFFFF]"
+            width="10"
+            height="10"
+          />
+        </g>
+        <g>
+          <rect
+            x="460"
+            y="35"
+            className="fill-[#FFFFFF]"
+            width="10"
+            height="10"
+          />
+        </g>
+        <g>
+          <rect
+            x="460"
+            y="55"
+            className="fill-[#FFFFFF]"
+            width="10"
+            height="10"
+          />
+        </g>
+        <g>
+          <rect
+            x="470"
+            y="45"
+            className="fill-[#FFFFFF]"
+            width="10"
+            height="10"
+          />
+        </g>
+        <g>
+          <rect
+            x="480"
+            y="35"
+            className="fill-[#FFFFFF]"
+            width="10"
+            height="10"
+          />
+        </g>
+        <g>
+          <rect
+            x="480"
+            y="55"
+            className="fill-[#FFFFFF]"
+            width="10"
+            height="10"
+          />
+        </g>
+        <g>
+          <rect
+            x="490"
+            y="45"
+            className="fill-[#FFFFFF]"
+            width="10"
+            height="10"
+          />
+        </g>
+      </g>
+      <g>
+        <g>
+          <rect
+            x="600"
+            y="35"
+            className="fill-[#FFFFFF]"
+            width="10"
+            height="10"
+          />
+        </g>
+        <g>
+          <rect
+            x="610"
+            y="45"
+            className="fill-[#FFFFFF]"
+            width="10"
+            height="10"
+          />
+        </g>
+        <g>
+          <rect
+            x="600"
+            y="55"
+            className="fill-[#FFFFFF]"
+            width="10"
+            height="10"
+          />
+        </g>
+        <g>
+          <rect
+            x="620"
+            y="35"
+            className="fill-[#FFFFFF]"
+            width="10"
+            height="10"
+          />
+        </g>
+        <g>
+          <rect
+            x="630"
+            y="45"
+            className="fill-[#FFFFFF]"
+            width="10"
+            height="10"
+          />
+        </g>
+        <g>
+          <rect
+            x="620"
+            y="55"
+            className="fill-[#FFFFFF]"
+            width="10"
+            height="10"
+          />
+        </g>
+        <g>
+          <rect
+            x="640"
+            y="35"
+            className="fill-[#FFFFFF]"
+            width="10"
+            height="10"
+          />
+        </g>
+        <g>
+          <rect
+            x="640"
+            y="55"
+            className="fill-[#FFFFFF]"
+            width="10"
+            height="10"
+          />
+        </g>
+        <g>
+          <rect
+            x="650"
+            y="45"
+            className="fill-[#FFFFFF]"
+            width="10"
+            height="10"
+          />
+        </g>
+        <g>
+          <rect
+            x="660"
+            y="35"
+            className="fill-[#FFFFFF]"
+            width="10"
+            height="10"
+          />
+        </g>
+        <g>
+          <rect
+            x="660"
+            y="55"
+            className="fill-[#FFFFFF]"
+            width="10"
+            height="10"
+          />
+        </g>
+        <g>
+          <rect
+            x="670"
+            y="45"
+            className="fill-[#FFFFFF]"
+            width="10"
+            height="10"
+          />
+        </g>
+        <g>
+          <rect
+            x="680"
+            y="35"
+            className="fill-[#FFFFFF]"
+            width="10"
+            height="10"
+          />
+        </g>
+        <g>
+          <rect
+            x="680"
+            y="55"
+            className="fill-[#FFFFFF]"
+            width="10"
+            height="10"
+          />
+        </g>
+        <g>
+          <rect
+            x="690"
+            y="45"
+            className="fill-[#FFFFFF]"
+            width="10"
+            height="10"
+          />
         </g>
       </g>
     </g>
