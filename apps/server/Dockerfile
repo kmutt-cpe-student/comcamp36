@@ -21,8 +21,10 @@
 
 FROM node:20-alpine AS base
 RUN apk update && apk add --no-cache curl
-RUN corepack disable
-RUN npm install -g pnpm@9.0.0
+# early, build was failing because corepack cannot find matching keyid
+# ref: https://github.com/nodejs/corepack/issues/612
+RUN npm i -g corepack@latest
+RUN corepack enable pnpm
 ENV PNPM_HOME="/pnpm"
 ENV PATH="$PNPM_HOME:$PATH"
 
