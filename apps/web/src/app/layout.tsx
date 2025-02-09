@@ -1,3 +1,4 @@
+import CookieConsent from "@/components/cookie-consent";
 import { CSPostHogProvider } from "@/components/provider/post-hog";
 import QueryProvider from "@/components/provider/query";
 import { TailwindIndicator } from "@/components/tailwind-indicator";
@@ -22,7 +23,10 @@ export default function RootLayout({
       >
         <TailwindIndicator />
         <QueryProvider>
-          <CSPostHogProvider>{children}</CSPostHogProvider>
+          <CSPostHogProvider>
+            {children}
+            <CookieConsent />
+          </CSPostHogProvider>
         </QueryProvider>
       </body>
     </html>
