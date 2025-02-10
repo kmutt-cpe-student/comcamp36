@@ -8,7 +8,6 @@ import Knight from "./Knight";
 import Rook from "./Rook";
 
 const BOARD_SIZE = 8;
-const CELL_SIZE = 100;
 
 interface Position {
   x: number;
@@ -325,27 +324,21 @@ const ChessGame = () => {
 
   return (
     <div className="relative">
-      <div
-        className="relative inline-block"
-        style={{
-          width: BOARD_SIZE * CELL_SIZE,
-          height: BOARD_SIZE * CELL_SIZE,
-        }}
-      >
-        <div className="relative">
-          <Board />
+      <div className="relative w-full max-w-[800px] mx-auto aspect-square">
+        <div className="relative size-full">
+          <Board className="size-full" />
 
           <div
             className="absolute"
             style={{
-              left: gameState.currentPosition.x * CELL_SIZE,
-              top: gameState.currentPosition.y * CELL_SIZE,
-              width: CELL_SIZE,
-              height: CELL_SIZE,
+              left: `${(gameState.currentPosition.x * 100) / BOARD_SIZE}%`,
+              top: `${(gameState.currentPosition.y * 100) / BOARD_SIZE}%`,
+              width: `${100 / BOARD_SIZE}%`,
+              height: `${100 / BOARD_SIZE}%`,
               transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
             }}
           >
-            <PieceComponent />
+            <PieceComponent className="size-full" />
           </div>
 
           <div className="absolute top-0 left-0 w-full h-full grid grid-cols-8 grid-rows-8">
@@ -363,7 +356,7 @@ const ChessGame = () => {
                   )}
                 >
                   {isValid && (
-                    <div className="bg-black/10 rounded-full size-[90px] transition-all duration-200 group-hover:bg-black/20 group-active:bg-black/30 group-active:scale-95" />
+                    <div className="bg-black/10 rounded-full size-[90%] transition-all duration-200 group-hover:bg-black/20 group-active:bg-black/30 group-active:scale-95" />
                   )}
                 </div>
               );
@@ -408,7 +401,7 @@ const ChessGame = () => {
         </button>
       </div>
 
-      <div className="mt-4 p-4 bg-gray-100 rounded max-w-[800px]">
+      <div className="mt-4 p-4 bg-gray-100 rounded w-full max-w-[800px] mx-auto">
         <h3 className="font-bold mb-2">Move History:</h3>
         <p className="text-wrap">{gameState.moveHistory.join(" > ")}</p>
       </div>
