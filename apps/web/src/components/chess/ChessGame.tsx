@@ -1,7 +1,7 @@
 "use client";
 
 import { cn } from "@/libs/utils";
-import { useCallback, useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 import Bishop from "./Bishop";
 import Board from "./Board";
 import Knight from "./Knight";
@@ -14,7 +14,7 @@ interface Position {
   y: number;
 }
 
-interface GameState {
+interface BaseGameState {
   currentPosition: Position;
   currentPiece: "knight" | "bishop" | "rook";
   moveHistory: string[];
@@ -22,6 +22,11 @@ interface GameState {
   noDeductionMoves: number;
   nextMultiplier: number;
   visitedSquares: Set<string>;
+  visitedTransformSquares: Set<string>;
+}
+
+interface GameState extends BaseGameState {
+  prevStates: BaseGameState[];
 }
 
 const YELLOW_SQUARES: Record<string, number> = {
@@ -145,7 +150,7 @@ const isValidMove = (
 const getValidMoves = (
   pos: Position,
   pieceType: "knight" | "bishop" | "rook",
-): Position[] => {
+) => {
   const moves: Position[] = [];
 
   if (pieceType === "knight") {
@@ -220,25 +225,47 @@ const isEndSquare = (pos: Position) => {
 };
 
 const ChessGame = () => {
-  const [gameState, setGameState] = useState<GameState>({
-    currentPosition: fromChessNotation("b1"),
-    currentPiece: "knight",
-    moveHistory: ["b1"],
-    score: 0,
-    noDeductionMoves: 0,
-    nextMultiplier: 1,
-    visitedSquares: new Set(["b1"]),
-  });
+  const initialState = useMemo<GameState>(
+    () => ({
+      currentPosition: fromChessNotation("b1"),
+      currentPiece: "knight",
+      moveHistory: ["b1"],
+      score: 0,
+      noDeductionMoves: 0,
+      nextMultiplier: 1,
+      visitedSquares: new Set(["b1"]),
+      visitedTransformSquares: new Set(),
+      prevStates: [],
+    }),
+    [],
+  );
+
+  const [gameState, setGameState] = useState<GameState>(initialState);
 
   const handleMove = useCallback(
     (toPos: Position) => {
       if (
-        !isValidMove(gameState.currentPosition, toPos, gameState.currentPiece)
+        !isValidMove(
+          gameState.currentPosition,
+          toPos,
+          gameState.currentPiece,
+        ) ||
+        isEndSquare(gameState.currentPosition)
       ) {
         return;
       }
 
       setGameState((prev) => {
+        const currentState: BaseGameState = {
+          currentPosition: prev.currentPosition,
+          currentPiece: prev.currentPiece,
+          moveHistory: prev.moveHistory,
+          score: prev.score,
+          noDeductionMoves: prev.noDeductionMoves,
+          nextMultiplier: prev.nextMultiplier,
+          visitedSquares: prev.visitedSquares,
+          visitedTransformSquares: prev.visitedTransformSquares,
+        };
         let newScore = prev.score;
         const notation = toChessNotation(toPos);
         const isVisited = prev.visitedSquares.has(notation);
@@ -251,6 +278,9 @@ const ChessGame = () => {
           newScore = Math.round(newScore * 0.9);
         }
 
+        let newNoDeductionMoves = Math.max(0, prev.noDeductionMoves - 1);
+        let newNextMultiplier = 1;
+
         if (!isVisited || LIGHT_GREEN_SQUARES.has(notation)) {
           if (YELLOW_SQUARES[notation]) {
             newScore += YELLOW_SQUARES[notation] * prev.nextMultiplier;
@@ -260,22 +290,37 @@ const ChessGame = () => {
             );
             newScore += bonus;
           }
+
+          if (BLUE_SQUARES[notation]) {
+            newNoDeductionMoves = BLUE_SQUARES[notation];
+          }
+          if (PINK_SQUARES[notation]) {
+            newNextMultiplier = PINK_SQUARES[notation];
+          }
         }
 
         const newMoveHistory = [...prev.moveHistory, notation];
         const specialPiece = isTransformSquare(toPos);
         const newVisited = new Set(prev.visitedSquares).add(notation);
 
-        return {
+        const newState: GameState = {
           currentPosition: toPos,
-          currentPiece: specialPiece || "knight",
+          currentPiece:
+            specialPiece && !prev.visitedTransformSquares.has(notation)
+              ? specialPiece
+              : "knight",
           moveHistory: newMoveHistory,
           score: newScore,
-          noDeductionMoves:
-            BLUE_SQUARES[notation] || Math.max(0, prev.noDeductionMoves - 1),
-          nextMultiplier: PINK_SQUARES[notation] || 1,
+          noDeductionMoves: newNoDeductionMoves,
+          nextMultiplier: newNextMultiplier,
           visitedSquares: newVisited,
+          visitedTransformSquares: specialPiece
+            ? new Set(prev.visitedTransformSquares).add(notation)
+            : prev.visitedTransformSquares,
+          prevStates: [...prev.prevStates, currentState],
         };
+
+        return newState;
       });
     },
     [gameState.currentPosition, gameState.currentPiece],
@@ -289,14 +334,18 @@ const ChessGame = () => {
   );
 
   const handleReset = useCallback(() => {
-    setGameState({
-      currentPosition: fromChessNotation("b1"),
-      currentPiece: "knight",
-      moveHistory: ["b1"],
-      score: 0,
-      noDeductionMoves: 0,
-      nextMultiplier: 1,
-      visitedSquares: new Set(["b1"]),
+    setGameState(initialState);
+  }, [initialState]);
+
+  const handleUndo = useCallback(() => {
+    setGameState((prev) => {
+      if (prev.prevStates.length === 0) return prev;
+      const lastState = prev.prevStates[prev.prevStates.length - 1];
+      const newPrevStates = prev.prevStates.slice(0, -1);
+      return {
+        ...lastState,
+        prevStates: newPrevStates,
+      };
     });
   }, []);
 
@@ -313,8 +362,20 @@ const ChessGame = () => {
     gameState.currentPosition,
     gameState.currentPiece,
   );
-  const isValidMoveSquare = (x: number, y: number) =>
-    validMoves.some((move) => move.x === x && move.y === y);
+
+  const isValidMoveSquare = (x: number, y: number) => {
+    if (isEndSquare(gameState.currentPosition)) return false;
+    return validMoves.some((move) => move.x === x && move.y === y);
+  };
+
+  const shouldShowGrayscale = (x: number, y: number) => {
+    const notation = toChessNotation({ x, y });
+    return (
+      gameState.visitedSquares.has(notation) &&
+      !LIGHT_GREEN_SQUARES.has(notation) &&
+      !isEndSquare({ x, y })
+    );
+  };
 
   const PieceComponent = {
     knight: Knight,
@@ -329,7 +390,7 @@ const ChessGame = () => {
           <Board className="size-full" />
 
           <div
-            className="absolute"
+            className="absolute z-10"
             style={{
               left: `${(gameState.currentPosition.x * 100) / BOARD_SIZE}%`,
               top: `${(gameState.currentPosition.y * 100) / BOARD_SIZE}%`,
@@ -353,6 +414,8 @@ const ChessGame = () => {
                   className={cn(
                     "group flex items-center justify-center transition-colors duration-200",
                     isValid && "cursor-pointer",
+                    shouldShowGrayscale(x, y) &&
+                      "backdrop-grayscale bg-black/40",
                   )}
                 >
                   {isValid && (
@@ -391,6 +454,13 @@ const ChessGame = () => {
           onClick={handleReset}
         >
           Reset Game
+        </button>
+        <button
+          className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 disabled:opacity-50 disabled:cursor-not-allowed"
+          onClick={handleUndo}
+          disabled={gameState.prevStates.length === 0}
+        >
+          Undo
         </button>
         <button
           className="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600 disabled:opacity-50 disabled:cursor-not-allowed"
