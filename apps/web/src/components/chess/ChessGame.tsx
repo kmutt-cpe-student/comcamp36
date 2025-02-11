@@ -239,7 +239,6 @@ const ChessGame = () => {
       noDeductionMoves: 0,
       nextMultiplier: 1,
       visitedSquares: new Set(["b1"]),
-      visitedTransformSquares: new Set(),
       prevStates: [],
     }),
     [],
