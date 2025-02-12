@@ -1,7 +1,18 @@
 "use client";
 
 import { cn } from "@/libs/utils";
-import { useCallback, useMemo, useState } from "react";
+import {
+  DndContext,
+  KeyboardSensor,
+  MouseSensor,
+  TouchSensor,
+  useDraggable,
+  useDroppable,
+  useSensor,
+  useSensors,
+  type DragEndEvent,
+} from "@dnd-kit/core";
+import { useCallback, useMemo, useState, type ReactNode } from "react";
 import Bishop from "./Bishop";
 import Board from "./Board";
 import Knight from "./Knight";
@@ -229,6 +240,80 @@ const isEndSquare = (pos: Position) => {
   return END_SQUARES.has(notation);
 };
 
+const DraggablePiece = ({
+  id,
+  position,
+  children,
+}: {
+  id: string;
+  position: Position;
+  children: ReactNode;
+}) => {
+  const { attributes, listeners, setNodeRef, transform, isDragging } =
+    useDraggable({
+      id,
+    });
+
+  return (
+    <div
+      ref={setNodeRef}
+      style={{
+        transform: `translate3d(${transform?.x || 0}px, ${transform?.y || 0}px, 0)`,
+        left: `${(position.x * 100) / BOARD_SIZE}%`,
+        top: `${(position.y * 100) / BOARD_SIZE}%`,
+        width: `${100 / BOARD_SIZE}%`,
+        height: `${100 / BOARD_SIZE}%`,
+        transition: isDragging
+          ? "none"
+          : "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
+        cursor: isDragging ? "grabbing" : "grab",
+      }}
+      {...listeners}
+      {...attributes}
+      className="absolute z-10"
+    >
+      {children}
+    </div>
+  );
+};
+
+const DroppableSquare = ({
+  id,
+  onClick,
+  isValid,
+  shouldShowGrayscale,
+}: {
+  id: string;
+  onClick: () => void;
+  isValid: boolean;
+  shouldShowGrayscale: boolean;
+}) => {
+  const { setNodeRef, isOver } = useDroppable({
+    id,
+  });
+
+  return (
+    <div
+      ref={setNodeRef}
+      onClick={onClick}
+      className={cn(
+        "group flex items-center justify-center transition-colors duration-200",
+        isValid && "cursor-pointer",
+        shouldShowGrayscale && "backdrop-grayscale bg-black/40",
+      )}
+    >
+      {isValid && (
+        <div
+          className={cn(
+            "bg-black/10 rounded-full size-[90%] transition-all duration-200 group-hover:bg-black/20 group-active:bg-black/30 group-active:scale-95",
+            isOver && "bg-black/20",
+          )}
+        />
+      )}
+    </div>
+  );
+};
+
 const ChessGame = () => {
   const initialState = useMemo<GameState>(
     () => ({
@@ -332,6 +417,17 @@ const ChessGame = () => {
     [handleMove],
   );
 
+  const handleDragEnd = useCallback(
+    (event: DragEndEvent) => {
+      const { over } = event;
+      if (over) {
+        const toPos = fromChessNotation(String(over.id));
+        handleMove(toPos);
+      }
+    },
+    [handleMove],
+  );
+
   const handleReset = useCallback(() => {
     setGameState(initialState);
   }, [initialState]);
@@ -382,99 +478,94 @@ const ChessGame = () => {
     rook: Rook,
   }[gameState.currentPiece];
 
+  const sensors = useSensors(
+    useSensor(MouseSensor),
+    useSensor(TouchSensor),
+    useSensor(KeyboardSensor),
+  );
+
   return (
-    <div className="relative">
-      <div className="relative w-full max-w-[800px] mx-auto aspect-square">
-        <div className="relative size-full">
-          <Board className="size-full" />
+    <DndContext onDragEnd={handleDragEnd} sensors={sensors}>
+      <div className="relative">
+        <div className="relative w-full max-w-[800px] mx-auto aspect-square">
+          <div className="relative size-full">
+            <Board className="size-full" />
 
-          <div
-            className="absolute z-10"
-            style={{
-              left: `${(gameState.currentPosition.x * 100) / BOARD_SIZE}%`,
-              top: `${(gameState.currentPosition.y * 100) / BOARD_SIZE}%`,
-              width: `${100 / BOARD_SIZE}%`,
-              height: `${100 / BOARD_SIZE}%`,
-              transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
-            }}
-          >
-            <PieceComponent className="size-full" />
-          </div>
+            <DraggablePiece
+              id={toChessNotation(gameState.currentPosition)}
+              position={gameState.currentPosition}
+            >
+              <PieceComponent className="size-full" />
+            </DraggablePiece>
 
-          <div className="absolute top-0 left-0 w-full h-full grid grid-cols-8 grid-rows-8">
-            {Array.from({ length: BOARD_SIZE * BOARD_SIZE }).map((_, i) => {
-              const x = i % BOARD_SIZE;
-              const y = Math.floor(i / BOARD_SIZE);
-              const isValid = isValidMoveSquare({ x, y });
-              return (
-                <div
-                  key={i}
-                  onClick={() => handleClick({ x, y })}
-                  className={cn(
-                    "group flex items-center justify-center transition-colors duration-200",
-                    isValid && "cursor-pointer",
-                    shouldShowGrayscale({ x, y }) &&
-                      "backdrop-grayscale bg-black/40",
-                  )}
-                >
-                  {isValid && (
-                    <div className="bg-black/10 rounded-full size-[90%] transition-all duration-200 group-hover:bg-black/20 group-active:bg-black/30 group-active:scale-95" />
-                  )}
-                </div>
-              );
-            })}
+            <div className="absolute top-0 left-0 w-full h-full grid grid-cols-8 grid-rows-8">
+              {Array.from({ length: BOARD_SIZE * BOARD_SIZE }).map((_, i) => {
+                const x = i % BOARD_SIZE;
+                const y = Math.floor(i / BOARD_SIZE);
+                const isValid = isValidMoveSquare({ x, y });
+                return (
+                  <DroppableSquare
+                    key={i}
+                    id={toChessNotation({ x, y })}
+                    onClick={() => handleClick({ x, y })}
+                    isValid={isValid}
+                    shouldShowGrayscale={shouldShowGrayscale({ x, y })}
+                  />
+                );
+              })}
+            </div>
           </div>
         </div>
-      </div>
 
-      <div className="mt-4 text-xl font-bold text-center">
-        Current Piece:{" "}
-        {gameState.currentPiece.charAt(0).toUpperCase() +
-          gameState.currentPiece.slice(1)}
-      </div>
+        <div className="mt-4 text-xl font-bold text-center">
+          Current Piece:{" "}
+          {gameState.currentPiece.charAt(0).toUpperCase() +
+            gameState.currentPiece.slice(1)}
+        </div>
 
-      <div className="mt-2 text-xl font-bold text-center">
-        Score: {gameState.score}
-        {gameState.noDeductionMoves > 0 && (
-          <span className="ml-2 text-blue-500">
-            (No deduction: {gameState.noDeductionMoves} moves)
-          </span>
-        )}
-        {gameState.nextMultiplier > 1 && (
-          <span className="ml-2 text-pink-500">
-            (Next bonus x{gameState.nextMultiplier})
-          </span>
-        )}
-      </div>
+        <div className="mt-2 text-xl font-bold text-center">
+          Score: {gameState.score}
+          {gameState.noDeductionMoves > 0 && (
+            <span className="ml-2 text-blue-500">
+              (No deduction: {gameState.noDeductionMoves} moves)
+            </span>
+          )}
+          {gameState.nextMultiplier > 1 && (
+            <span className="ml-2 text-pink-500">
+              (Next bonus x{gameState.nextMultiplier})
+            </span>
+          )}
+        </div>
 
-      <div className="mt-4 flex gap-4 justify-center">
-        <button
-          className="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600"
-          onClick={handleReset}
-        >
-          Reset Game
-        </button>
-        <button
-          className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 disabled:opacity-50 disabled:cursor-not-allowed"
-          onClick={handleUndo}
-          disabled={gameState.prevStates.length === 0}
-        >
-          Undo
-        </button>
-        <button
-          className="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600 disabled:opacity-50 disabled:cursor-not-allowed"
-          onClick={handleSubmit}
-          disabled={!canSubmit}
-        >
-          Submit
-        </button>
-      </div>
+        <div className="mt-4 flex gap-4 justify-center">
+          <button
+            className="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600"
+            onClick={handleReset}
+          >
+            Reset Game
+          </button>
+          <button
+            className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 disabled:opacity-50 disabled:cursor-not-allowed"
+            onClick={handleUndo}
+            disabled={gameState.prevStates.length === 0}
+          >
+            Undo
+          </button>
+          <button
+            className="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600 disabled:opacity-50 disabled:cursor-not-allowed"
+            onClick={handleSubmit}
+            disabled={!canSubmit}
+          >
+            Submit
+          </button>
+        </div>
 
-      <div className="mt-4 p-4 bg-gray-100 rounded w-full max-w-[800px] mx-auto">
-        <h3 className="font-bold mb-2">Move History:</h3>
-        <p className="text-wrap">{gameState.moveHistory.join(" > ")}</p>
+        <div className="mt-4 p-4 bg-gray-100 rounded w-full max-w-[800px] mx-auto">
+          <h3 className="font-bold mb-2">Move History:</h3>
+          <p className="text-wrap">{gameState.moveHistory.join(" > ")}</p>
+        </div>
       </div>
-    </div>
+    </DndContext>
   );
 };
 
