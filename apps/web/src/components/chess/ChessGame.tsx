@@ -151,6 +151,10 @@ const isValidMove = (
     return false;
   }
 
+  if (to.x === from.x && to.y === from.y) {
+    return;
+  }
+
   switch (pieceType) {
     case "knight":
       return isKnightMove(from, to);
