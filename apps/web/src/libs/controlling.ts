@@ -10,7 +10,7 @@ interface DateRedirectedProps {
 export default function RedirectHandler({ deadline }: DateRedirectedProps) {
   const router = useRouter();
   const pathname = usePathname();
-  const allowedPath = "/comingsoon";
+  const allowedPath = "/";
 
   //   I can't found development status in .env. (NOT SURE ABOUT THIS.)
   const isDevelopment = process.env.NODE_ENV === "development";
