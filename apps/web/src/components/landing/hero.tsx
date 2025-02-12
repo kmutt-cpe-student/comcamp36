@@ -1,9 +1,10 @@
+import FadeObserverDiv from "@/components/landing/fade-div";
 import Timer from "@/components/Timer";
 import Image from "next/image";
 
 function Hero() {
   return (
-    <div className="bg-charcoal-1 h-screen 2xl:grid-cols-2 grid-cols-1 items-center justify-center place-items-center grid">
+    <FadeObserverDiv className="h-screen pt-[15vh] 2xl:pt-0 2xl:grid-cols-2 grid-cols-1 items-center justify-center place-items-center grid">
       <div className="flex flex-col items-center">
         <div className="xl:w-[33rem] w-[20rem] flex justify-center">
           <Image
@@ -31,18 +32,18 @@ function Hero() {
         </div>
       </div>
       <div>
-        <div className="xl:w-[45rem] w-[30rem] flex justify-center">
+        <div className="xl:w-[45rem] w-[24rem] flex justify-center">
           <Image
             style={{ width: "100%", height: "auto" }}
-            width={550}
-            height={288}
+            width={0}
+            height={0}
             src="/static/image/hero-circle.svg"
-            alt="ComCamp36Logo"
-            priority
+            alt="Hero card section"
+            loading="lazy"
           />
         </div>
       </div>
-    </div>
+    </FadeObserverDiv>
   );
 }
 
