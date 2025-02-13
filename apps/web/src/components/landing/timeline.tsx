@@ -6,8 +6,8 @@ import FadeObserverDiv from "@/components/landing/fade-div";
 
 const TimelineItems = [
   {
-    day: "1-10",
-    month: "March",
+    day: "24 Feb -",
+    month: "13 Mar",
     monthColor: "text-[#FFC94A]",
     year: "2025",
     title: "รับสมัคร",
@@ -16,7 +16,7 @@ const TimelineItems = [
   },
   {
     day: "16",
-    month: "March",
+    month: "Mar",
     year: "2025",
     title: "ประกาศผล",
     imageSrc: "/static/image/timeline/02release.svg",
@@ -25,7 +25,7 @@ const TimelineItems = [
   },
   {
     day: "16-18",
-    month: "March",
+    month: "Mar",
     monthColor: "text-[#FFC94A]",
     year: "2025",
     title: "ยืนยันสิทธิ์",
@@ -34,7 +34,7 @@ const TimelineItems = [
   },
   {
     day: "7-11",
-    month: "April",
+    month: "Apr",
     year: "2025",
     title: "วันค่าย",
     imageSrc: "/static/image/timeline/04thatday.svg",
