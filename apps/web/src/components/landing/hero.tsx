@@ -4,9 +4,9 @@ import Image from "next/image";
 
 function Hero() {
   return (
-    <FadeObserverDiv className="h-screen pt-[15vh] 2xl:pt-0 2xl:grid-cols-2 grid-cols-1 items-center justify-center place-items-center grid">
+    <FadeObserverDiv className="grid h-[75rem] grid-cols-1 place-items-center items-center justify-center pt-[15vh] 2xl:grid-cols-2 2xl:pt-0">
       <div className="flex flex-col items-center">
-        <div className="xl:w-[33rem] w-[20rem] flex justify-center">
+        <div className="flex w-[20rem] justify-center xl:w-[33rem]">
           <Image
             style={{ width: "100%", height: "auto" }}
             width={550}
@@ -20,7 +20,7 @@ function Hero() {
           <h1 className="font-game-of-squid w-full text-center">
             7-11 <span className="text-vermilion">APRIL</span> 2025
           </h1>
-          <p className="max-w-[50rem] px-4 text-center text-wrap">
+          <p className="max-w-[50rem] text-wrap px-4 text-center">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
             ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
@@ -32,7 +32,7 @@ function Hero() {
         </div>
       </div>
       <div>
-        <div className="xl:w-[45rem] w-[24rem] flex justify-center">
+        <div className="flex w-[24rem] justify-center xl:w-[45rem]">
           <Image
             style={{ width: "100%", height: "auto" }}
             width={0}
