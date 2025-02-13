@@ -45,27 +45,31 @@ const LEARNS: LearnProps[] = [
 
 function Learn() {
   return (
-    <FadeObserverDiv className="flex w-full flex-col items-center gap-2.5 py-20">
+    <div className="flex w-full flex-col items-center gap-2.5 py-20">
       <h2 className="font-game-of-squid">WHAT YOU&apos;LL LEARN</h2>
       <div className="mx-10 flex flex-col gap-8">
         {LEARNS.map((learn) => (
-          <MagicCard key={learn.title} className="max-w-[65rem]">
-            <div className="grid grid-cols-[1fr_4fr] place-content-center place-items-center px-4 py-4">
-              <div className="aspect-square h-[16rem] rounded-xl bg-white"></div>
-              <div className="flex w-full flex-col justify-center px-10">
-                <h5 className="w-full break-words font-bold">{learn.title}</h5>
-                <h5 className="text-vermilion w-full break-words font-bold">
-                  {learn.seconday}
-                </h5>
-                <small className="break-words text-gray-300">
-                  {learn.description}
-                </small>
+          <FadeObserverDiv key={learn.title}>
+            <MagicCard className="max-w-[65rem]">
+              <div className="grid grid-cols-[1fr_4fr] place-content-center place-items-center px-4 py-4">
+                <div className="aspect-square h-[16rem] rounded-xl bg-white"></div>
+                <div className="flex w-full flex-col justify-center px-10">
+                  <h5 className="w-full break-words font-bold">
+                    {learn.title}
+                  </h5>
+                  <h5 className="text-vermilion w-full break-words font-bold">
+                    {learn.seconday}
+                  </h5>
+                  <small className="break-words text-gray-300">
+                    {learn.description}
+                  </small>
+                </div>
               </div>
-            </div>
-          </MagicCard>
+            </MagicCard>
+          </FadeObserverDiv>
         ))}
       </div>
-    </FadeObserverDiv>
+    </div>
   );
 }
 export default Learn;
