@@ -1,5 +1,6 @@
 import { MenuIcon } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 const NAVBARITEMS = [
   {
@@ -25,13 +26,15 @@ export default function Navbar() {
     <div className="font-prompt fixed left-0 top-0 w-full px-5 py-5">
       <div className="backdrop-blur-xs h-18 flex items-center justify-between rounded-[20px] border-[1px] border-[#424242] bg-[#292929]/50 px-5 lg:px-9">
         <div className="flex w-20 items-center justify-center pt-1">
-          <Image
-            style={{ width: "100%", height: "auto", objectFit: "cover" }}
-            width={550}
-            height={288}
-            src="/static/image/logo.svg"
-            alt="ComCamp36Logo"
-          />
+          <Link href="/#hero">
+            <Image
+              style={{ width: "100%", height: "auto", objectFit: "cover" }}
+              width={550}
+              height={288}
+              src="/static/image/logo.svg"
+              alt="ComCamp36Logo"
+            />
+          </Link>
         </div>
         <div className="flex h-full items-center">
           <div className="hidden flex-row gap-4 text-xl xl:flex">
