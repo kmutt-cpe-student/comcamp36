@@ -5,6 +5,8 @@ const Hero = dynamic(() => import("../components/landing/hero"));
 const WhatIs = dynamic(() => import("../components/landing/what-is"));
 const Learn = dynamic(() => import("../components/landing/learn"));
 const Faq = dynamic(() => import("../components/landing/faq"));
+const StudentReq = dynamic(() => import("../components/landing/requirement"));
+const Timeline = dynamic(() => import("../components/landing/timeline"));
 
 export default function Home() {
   return (
@@ -16,6 +18,8 @@ export default function Home() {
         <Hero />
         <WhatIs />
         <Learn />
+        <StudentReq />
+        <Timeline />
         <Faq />
       </div>
     </div>

@@ -4,7 +4,7 @@ import Image from "next/image";
 
 function Hero() {
   return (
-    <FadeObserverDiv className="grid h-[75rem] grid-cols-1 place-items-center items-center justify-center 2xl:grid-cols-2 2xl:pt-0">
+    <FadeObserverDiv className="grid h-screen grid-cols-1 place-items-center items-center justify-center 2xl:grid-cols-2 2xl:pt-0">
       <div className="flex flex-col items-center">
         <div className="flex w-[20rem] justify-center 2xl:w-[28rem]">
           <Image

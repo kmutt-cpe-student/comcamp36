@@ -1,15 +1,17 @@
-import RequirementItem from "./ui/requirementBox";
+import RequirementItem from "@/components/landing/components/requirement-box";
+
+import FadeObserverDiv from "@/components/landing/fade-div";
 
 export default function StudentReq() {
   return (
-    <div className="font-prompt text-white bg-[#231F20] bg-cover bg-no-repeat bg-fixed bg-center py-15 ">
-      <div className="px-5 flex justify-center items-center">
-        <h2 className="lg:text-5xl text-4xl text-center font-game-of-squid text-[#FFC94A]">
+    <div className="font-prompt py-15 bg-[#231F20] bg-cover bg-fixed bg-center bg-no-repeat text-white">
+      <FadeObserverDiv className="flex items-center justify-center px-5">
+        <h2 className="font-game-of-squid text-center text-4xl text-[#FFC94A] lg:text-5xl">
           Requirements
         </h2>
-      </div>
+      </FadeObserverDiv>
 
-      <div className="grid grid-cols-1 place-items-center md:flex md:flex-row justify-center gap-[5%] px-10 py-10 mb-10">
+      <FadeObserverDiv className="mb-10 grid grid-cols-1 place-items-center justify-center gap-[5%] px-10 py-10 md:flex md:flex-row">
         <RequirementItem
           imageSrc="/free_mockup.svg"
           text={`นักเรียนที่กำลังศึกษาอยู่ในระดับชั้น\nมัธยมศึกษาปีที่ 4-5 หรือเทียบเท่า\nในปีการศึกษา 2567`}
@@ -24,7 +26,7 @@ export default function StudentReq() {
           imageSrc="/free_mockup.svg"
           text={`ผู้ปกครองอนุญาตให้เข้าร่วมกิจกรรม\nและมีความสะดวกที่จะพักค้างคืน\nเป็นระยะเวลา 5 วัน 4 คืน`}
         />
-      </div>
+      </FadeObserverDiv>
     </div>
   );
 }

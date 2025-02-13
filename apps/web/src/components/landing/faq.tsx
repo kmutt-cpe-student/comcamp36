@@ -1,3 +1,4 @@
+import FadeObserverDiv from "@/components/landing/fade-div";
 import {
   Accordion,
   AccordionContent,
@@ -38,7 +39,7 @@ const faqs = [
 
 function Faq() {
   return (
-    <div className="flex h-fit w-full flex-col items-center justify-center py-[20rem]">
+    <FadeObserverDiv className="flex h-fit w-full flex-col items-center justify-center py-[20rem]">
       <h1 className="text-vermilion">FAQ</h1>
       <Accordion type="multiple" className="w-full max-w-[80rem] px-10">
         {faqs.map((item) => (
@@ -60,13 +61,13 @@ function Faq() {
             </AccordionPrimitive.Header>
             <AccordionContent className="text-muted-foreground">
               <p className="font-noto-sans-thai-looped text-dimgray-special">
-                A : {item.content}
+                {item.content}
               </p>
             </AccordionContent>
           </AccordionItem>
         ))}
       </Accordion>
-    </div>
+    </FadeObserverDiv>
   );
 }
 export default Faq;

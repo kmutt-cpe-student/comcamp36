@@ -1,20 +1,21 @@
-import TimelineBox from "./ui/timelineBox";
+import TimelineBox from "@/components/landing/components/timeline-box";
+import FadeObserverDiv from "@/components/landing/fade-div";
 
 export default function Timeline() {
   return (
-    <div className="font-prompt text-white bg-[#231F20] bg-cover bg-no-repeat bg-fixed bg-center py-10 relative">
+    <div className="font-prompt relative bg-[#231F20] bg-cover bg-fixed bg-center bg-no-repeat py-10 text-white">
       <div className="pb-20">
         {/* Title */}
-        <div className="px-5 flex justify-center items-center mt-10">
-          <h2 className="text-4xl md:text-4xl lg:text-5xl text-center font-game-of-squid text-[#FFC94A]">
+        <FadeObserverDiv className="mt-10 flex items-center justify-center px-5">
+          <h2 className="font-game-of-squid text-center text-4xl text-[#FFC94A] md:text-4xl lg:text-5xl">
             Timeline
           </h2>
-        </div>
+        </FadeObserverDiv>
 
         {/* Timeline Container */}
-        <div className="grid grid-cols-1 place-items-center md:flex md:flex-row justify-center gap-[2%] px-10 py-10 relative">
+        <div className="relative grid grid-cols-1 place-items-center justify-center gap-[2%] px-10 py-10 md:flex md:flex-row">
           {/* Timeline Line */}
-          <div className="absolute bg-white z-0 w-2 left-1/2 top-15 bottom-0 md:w-full md:h-1 md:left-0 md:right-0 md:top-1/2 md:transform md:-translate-y-1/2"></div>
+          <div className="top-15 absolute bottom-0 left-1/2 z-0 w-2 bg-white md:left-0 md:right-0 md:top-1/2 md:h-1 md:w-full md:-translate-y-1/2 md:transform"></div>
 
           {/* Box 1 */}
           <TimelineBox
