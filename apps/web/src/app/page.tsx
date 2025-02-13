@@ -10,7 +10,7 @@ const Timeline = dynamic(() => import("../components/landing/timeline"));
 
 export default function Home() {
   return (
-    <div className="bg-charcoal-1 absolute h-fit w-full">
+    <div className="bg-charcoal-1 absolute h-fit w-full scroll-smooth">
       <div className="absolute z-[100]">
         <Navbar />
       </div>

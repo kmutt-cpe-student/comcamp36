@@ -45,9 +45,9 @@ const LEARNS: LearnProps[] = [
 
 function Learn() {
   return (
-    <div className="flex w-full flex-col items-center gap-2.5 py-20">
+    <div className="flex w-full flex-col items-center gap-2.5 py-20" id="learn">
       <FadeObserverDiv className="font-game-of-squid text-center">
-        WHAT YOU&apos;LL LEARN
+        <h2>WHAT YOU&apos;LL LEARN</h2>
       </FadeObserverDiv>
       <div className="mx-10 flex flex-col gap-8">
         {LEARNS.map((learn) => (

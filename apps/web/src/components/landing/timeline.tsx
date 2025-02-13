@@ -42,7 +42,10 @@ const TimelineItems = [
 
 export default function Timeline() {
   return (
-    <div className="font-prompt relative bg-[#231F20] bg-cover bg-fixed bg-center bg-no-repeat py-10 text-white">
+    <div
+      className="font-prompt relative bg-[#231F20] bg-cover bg-fixed bg-center bg-no-repeat py-10 text-white"
+      id="timeline"
+    >
       <div className="pb-20">
         <FadeObserverDiv className="mt-10 flex items-center justify-center px-5">
           <h2 className="font-game-of-squid text-center text-4xl text-[#FFC94A] md:text-4xl lg:text-5xl">

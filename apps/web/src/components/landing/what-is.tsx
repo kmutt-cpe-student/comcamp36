@@ -4,7 +4,7 @@ import Image from "next/image";
 function WhatIs() {
   return (
     <div className="flex h-[63rem] w-full flex-col place-items-center items-center justify-center 2xl:grid 2xl:grid-cols-2">
-      <FadeObserverDiv className="w-[32rem] 2xl:w-[42rem]">
+      <FadeObserverDiv className="w-[32rem] 2xl:w-[42rem]" id="whatis">
         <Image
           style={{ width: "100%", height: "auto" }}
           width={0}

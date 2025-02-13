@@ -19,7 +19,10 @@ const requirements = [
 
 export default function StudentReq() {
   return (
-    <div className="font-prompt py-15 bg-[#231F20] bg-cover bg-fixed bg-center bg-no-repeat text-white">
+    <div
+      className="font-prompt py-15 bg-[#231F20] bg-cover bg-fixed bg-center bg-no-repeat text-white"
+      id="requirements"
+    >
       <FadeObserverDiv className="flex items-center justify-center px-5">
         <h2 className="font-game-of-squid text-center text-4xl text-[#FFC94A] lg:text-5xl">
           Requirements
