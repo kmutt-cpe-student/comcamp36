@@ -97,7 +97,7 @@ function Faq() {
             className="border-vermilion border-[1px] px-4 py-4 last:border-b-[1px]"
           >
             <AccordionPrimitive.Header className="flex">
-              <AccordionPrimitive.Trigger className="flex h-fit flex-1 items-center justify-between py-2 text-left font-semibold leading-6 transition-all [&>svg>path:last-child]:origin-center [&>svg>path:last-child]:transition-all [&>svg>path:last-child]:duration-200 [&[data-state=open]>svg>path:last-child]:rotate-90 [&[data-state=open]>svg>path:last-child]:opacity-0 [&[data-state=open]>svg]:rotate-180">
+              <AccordionPrimitive.Trigger className="flex h-fit flex-1 cursor-pointer items-center justify-between py-2 text-left font-semibold leading-6 transition-all [&>svg>path:last-child]:origin-center [&>svg>path:last-child]:transition-all [&>svg>path:last-child]:duration-200 [&[data-state=open]>svg>path:last-child]:rotate-90 [&[data-state=open]>svg>path:last-child]:opacity-0 [&[data-state=open]>svg]:rotate-180">
                 <h5 className="font-bold">Q : {item?.title}</h5>
                 <Plus
                   size={16}
