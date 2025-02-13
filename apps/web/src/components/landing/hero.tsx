@@ -20,7 +20,7 @@ function Hero() {
           <h3 className="font-game-of-squid w-full text-center">
             7-11 <span className="text-vermilion">APRIL</span> 2025
           </h3>
-          <small className="max-w-[50rem] text-wrap px-4 text-center">
+          <small className="max-w-[50rem] text-balance px-4 text-center">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
             ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut

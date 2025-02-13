@@ -43,7 +43,7 @@ const TimelineItems = [
 export default function Timeline() {
   return (
     <div
-      className="font-prompt relative bg-[#231F20] bg-cover bg-fixed bg-center bg-no-repeat py-10 text-white"
+      className="font-prompt bg-charcoal-1 relative bg-cover bg-fixed bg-center bg-no-repeat py-10 text-white"
       id="timeline"
     >
       <div className="pb-20">
