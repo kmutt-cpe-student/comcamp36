@@ -6,7 +6,7 @@ const config = {
   printWidth: 80,
   tabWidth: 2,
   singleQuote: false,
-  plugins: ["prettier-plugin-organize-imports"],
-}
+  plugins: ["prettier-plugin-organize-imports", "prettier-plugin-tailwindcss"],
+};
 
-export default config
+export default config;
