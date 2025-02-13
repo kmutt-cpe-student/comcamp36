@@ -46,20 +46,24 @@ const LEARNS: LearnProps[] = [
 function Learn() {
   return (
     <div className="flex w-full flex-col items-center gap-2.5 py-20">
-      <h2 className="font-game-of-squid">WHAT YOU&apos;LL LEARN</h2>
+      <FadeObserverDiv className="font-game-of-squid text-center">
+        WHAT YOU&apos;LL LEARN
+      </FadeObserverDiv>
       <div className="mx-10 flex flex-col gap-8">
         {LEARNS.map((learn) => (
           <FadeObserverDiv key={learn.title}>
-            <MagicCard className="max-w-[65rem]">
-              <div className="grid grid-cols-[1fr_4fr] place-content-center place-items-center px-4 py-4">
-                <div className="aspect-square h-[16rem] rounded-xl bg-white"></div>
-                <div className="flex w-full flex-col justify-center px-10">
+            <MagicCard className="w-fit max-w-[65rem] md:w-full">
+              <div className="grid gap-4 px-4 py-4 md:grid-cols-[1fr_4fr] md:gap-0">
+                <div className="flex h-full w-full items-center justify-center px-4 pt-4 md:p-0">
+                  <div className="aspect-square w-full rounded-xl bg-white md:h-[16rem] md:w-fit md:px-0"></div>
+                </div>
+                <div className="flex w-full flex-col justify-center gap-2 px-4 pb-4 md:pb-0">
                   <h5 className="w-full break-words font-bold">
                     {learn.title}
                   </h5>
-                  <h5 className="text-vermilion w-full break-words font-bold">
+                  <p className="text-vermilion w-full break-words font-bold">
                     {learn.seconday}
-                  </h5>
+                  </p>
                   <small className="break-words text-gray-300">
                     {learn.description}
                   </small>
