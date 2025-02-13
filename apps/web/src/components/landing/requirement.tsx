@@ -27,7 +27,7 @@ const requirements = [
 export default function StudentReq() {
   return (
     <div
-      className="font-prompt py-15 bg-charcoal-1 bg-cover bg-fixed bg-center bg-no-repeat text-white"
+      className="font-prompt py-15 bg-charcoal-1 bg-cover bg-fixed bg-center bg-no-repeat text-white xl:scroll-mt-20"
       id="requirements"
     >
       <FadeObserverDiv className="flex items-center justify-center px-5">

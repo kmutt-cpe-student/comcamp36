@@ -85,7 +85,7 @@ const faqs = [
 function Faq() {
   return (
     <FadeObserverDiv
-      className="flex h-fit w-full flex-col items-center justify-center py-[20rem]"
+      className="flex h-fit w-full flex-col items-center justify-center py-[20rem] xl:scroll-mt-[-150px]"
       id="faq"
     >
       <h1 className="text-vermilion">FAQ</h1>

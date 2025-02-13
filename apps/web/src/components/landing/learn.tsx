@@ -49,7 +49,10 @@ const LEARNS: LearnProps[] = [
 
 function Learn() {
   return (
-    <div className="flex w-full flex-col items-center gap-2.5 py-20" id="learn">
+    <div
+      className="flex w-full flex-col items-center gap-2.5 py-20 xl:scroll-mt-10"
+      id="learn"
+    >
       <FadeObserverDiv className="font-game-of-squid text-center">
         <h3 className="pb-6 lowercase">WHAT YOU&apos;LL LEARN</h3>
       </FadeObserverDiv>
