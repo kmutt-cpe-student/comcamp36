@@ -13,13 +13,13 @@ export const metadata: Metadata = {
   openGraph: {
     title: "ComCamp 36",
     url: "https://comcamp.io",
-    images: "/og-image.webp",
+    images: `${process.env.CF_PAGES_BRANCH === "production" ? "https://comcamp.io" : `${process.env.CF_PAGES_URL}`}/og-image.webp`,
     type: "website",
     description: `ComCamp 36 โดยภาควิชาวิศวกรรมคอมพิวเตอร์ มจธ. ชวนน้อง ๆ ที่สนใจในด้านคอมพิวเตอร์มาปลดล็อกสกิลวิศวะคอมฯ พร้อมสัมผัสความเป็นนักศึกษาวิศวะคอมฯ ที่ไม่เหมือนใคร แล้วมาหาคำตอบได้ใน "ComCamp ครั้งที่ 36"`,
   },
   twitter: {
     title: "ComCamp 36",
-    images: "/og-image.webp",
+    images: `${process.env.CF_PAGES_BRANCH === "production" ? "https://comcamp.io" : `${process.env.CF_PAGES_URL}`}/og-image.webp`,
     description: `ComCamp 36 โดยภาควิชาวิศวกรรมคอมพิวเตอร์ มจธ. ชวนน้อง ๆ ที่สนใจในด้านคอมพิวเตอร์มาปลดล็อกสกิลวิศวะคอมฯ พร้อมสัมผัสความเป็นนักศึกษาวิศวะคอมฯ ที่ไม่เหมือนใคร แล้วมาหาคำตอบได้ใน "ComCamp ครั้งที่ 36"`,
     card: "summary_large_image",
   },
