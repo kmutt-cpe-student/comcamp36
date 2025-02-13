@@ -9,37 +9,41 @@ interface LearnProps {
 
 const LEARNS: LearnProps[] = [
   {
-    title: "เรียนรู้การเขียนภาษา C จากพี่ๆ หน้าตาดีและมีผีมือ",
-    seconday: "Learn C programming with the smart and good-looking senpai.",
+    title: "เรียนรู้การเขียนโปรแกรมด้วยภาษา C",
+    seconday: "C Programming",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor " +
-      "incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud" +
-      " exercitation ullamco laboris nisi ut aliquip ex",
+      `น้อง ๆ จะได้เรียนรู้และฝึกเขียนโปรแกรมด้วย "ภาษา C"  ` +
+      "ซึ่งเป็นหนึ่งในภาษาการเขียนโปรแกรมที่ทรงพลังและได้รับความนิยมมาอย่างยาวนาน" +
+      " พร้อมทั้งลงมือปฏิบัติจริง แม้ไม่มีพื้นฐานการเขียนโปรแกรมมาก่อนก็สามารถเข้าใจได้อย่างง่ายดาย",
   },
   {
-    title:
-      "เรียนรู้วิทยาการข้อมูลและปัญญาประดิษฐ์ จากพี่ๆ ที่ใช้ปัญญาประดิษฐ์สร้างปัญญาประดิษฐ์",
-    seconday: "Data Science and AI",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor " +
-      "incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud" +
-      " exercitation ullamco laboris nisi ut aliquip ex",
-  },
-  {
-    title: "เรียนรู้การสร้างเว็บไซต์เบื้องต้น จากพี่ๆ สาย Dev",
+    title: "เรียนรู้การพัฒนาเว็บไซต์",
     seconday: "Web Development",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor " +
-      "incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud" +
-      " exercitation ullamco laboris nisi ut aliquip ex",
+      "น้อง ๆ จะได้เรียนรู้และลงมือปฏิบัติพื้นฐานของการพัฒนาเว็บไซต์  " +
+      "ตั้งแต่การเข้าใจการทำงานของอินเทอร์เน็ต โครงสร้างเว็บสถาปัตยกรรม (Front-end, Back-end, API, Database)" +
+      " การออกแบบและจัดวางด้วย HTML, CSS (Tailwind CSS)  รวมถึงการใช้ JavaScript เบื้องต้น" +
+      " พร้อมทั้งทำความรู้จักกับ Middleware และ Frameworks อย่าง React/NextJS" +
+      " ที่ช่วยให้น้อง ๆ สามารถสร้างเว็บไซต์ที่ทันสมัยและตอบโจทย์ผู้ใช้งานได้อย่างมืออาชีพ",
   },
   {
-    title: "เรียนรู้การออกแบบและพัฒนาเกมเบื้องต้น จากพี่ๆ ผู้สร้างเกมที่ติดเกม",
+    title: "เรียนรู้การพัฒนาเกม",
     seconday: "Game Development",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor " +
-      "incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud" +
-      " exercitation ullamco laboris nisi ut aliquip ex",
+      "น้อง ๆ จะได้ก้าวเข้าสู่โลกของการสร้างเกมด้วยการทำความเข้าใจพื้นฐานของ Game Development และการใช้งาน Unity Engine ที่เป็นที่นิยม " +
+      "พร้อมทั้งสำรวจเครื่องมือต่าง ๆ ภายใน Unity เช่น Scene, Hierarchy, Game View และ Inspector" +
+      ` พร้อมทั้งเรียนรู้การเขียนสคริปต์ควบคุมการทำงานของเกม จากนั้นลงมือปฏิบัติจริงผ่านการทดลองสร้างมินิโปรเจกต์ "Goose Game" ` +
+      ` ที่จะทำให้ทุกขั้นตอนการพัฒนาเกมเป็นเรื่องสนุกและเข้าใจได้ง่าย`,
+  },
+  {
+    title: "เรียนรู้วิทยาการข้อมูลและปัญญาประดิษฐ์",
+    seconday: "AI Development",
+    description:
+      "น้อง ๆ จะได้เปิดประสบการณ์ใหม่กับโลกของ Data Science และ AI ผ่านการทำความเข้าใจความสำคัญของข้อมูล" +
+      "การใช้งาน Google Colab และเครื่องมือยอดนิยมใน Python เช่น Numpy, Pandas, Matplotlib และ Scikit-Learn" +
+      " พร้อมทั้งเรียนรู้พื้นฐานของ Machine Learning ที่ช่วยให้ AI สามารถ “มองเห็น” และจำแนกข้อมูลภาพได้" +
+      " นอกจากนี้ ยังมีการแนะนำแนวคิดของ Prompt Engineering และ LLM " +
+      " มาพร้อมกับกิจกรรมแข่งขันสนุก ๆ ที่จะช่วยให้น้อง ๆ ได้ลงมือปฏิบัติจริงในโลกของ AI",
   },
 ];
 

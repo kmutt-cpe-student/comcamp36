@@ -18,14 +18,14 @@ function WhatIs() {
         <h2 className="font-game-of-squid w-full text-start">
           WHAT IS COMCAMP<span className="text-vermilion">36</span>?
         </h2>
-        <small className="max-w-[50rem] pr-32 text-start">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-          culpa qui officia deserunt mollit anim id est laborum.
+        <small className="font-noto-sans-thai max-w-[50rem] pr-32 text-start">
+          &emsp;โครงการฝึกอบรมเชิงปฏิบัติการคอมพิวเตอร์เบื้องต้น หรือ
+          &quot;ComCamp&quot; คือค่ายที่ทางภาควิชาวิศวกรรมคอมพิวเตอร์ มจธ.
+          ได้จัดขึ้น โดยภายในค่ายจะมีทั้งการแนะแนวการศึกษาต่อ และกิจกรรมต่าง ๆ
+          ที่ออกแบบมาเพื่อเปิดโลกการเรียนรู้ และสร้างแรงบันดาลใจ
+          ด้านวิศวกรรมคอมพิวเตอร์ ซึ่งจะทำให้น้อง ๆ
+          ได้รับทั้งความรู้พร้อมกับความสนุกสนาน
+          อีกทั้งยังได้เข้ามารู้จักกับภาควิชาวิศวกรรมคอมพิวเตอร์มากขึ้นอีกด้วย
         </small>
       </FadeObserverDiv>
     </div>

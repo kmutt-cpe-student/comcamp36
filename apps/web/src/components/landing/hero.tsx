@@ -21,10 +21,16 @@ function Hero() {
             7-11 <span className="text-vermilion">APRIL</span> 2025
           </h3>
           <small className="max-w-[50rem] text-balance px-4 text-center">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat
+            ขอเชิญชวนน้อง ๆ เข้าร่วมการผจญภัยไปกับ{" "}
+            <span className="font-bold">&quot;ComCamp ครั้งที่ 36&quot;</span>{" "}
+            ที่จะพาน้อง ๆ ผู้มีพรสวรรค์ที่ซ่อนเร้นอยู่ไปทำภารกิจ
+            และผจญภัยไปพร้อมกับเพื่อน ๆ และ พี่ ๆ CPE แต่จะเกิดอะไรขึ้น
+            เมื่อเหล่าเป็ดและห่านผู้ผดุงความยุติธรรมต้องรวมพลัง ขอชวนน้อง ๆ
+            มาร่วม &quot;ติดปีก&quot; ปลดล็อกสกิลวิศวะคอมฯ ในค่ายสุดเจ๋ง
+            ที่เต็มไปด้วยความรู้และความสนุกสุดป่วน
+            พร้อมกับสัมผัสความเป็นนักศึกษาวิศวะคอมฯ ที่ไม่เหมือนใคร
+            แล้วมาร่วมหาคำตอบได้ใน{" "}
+            <span className="font-bold">&quot;ComCamp ครั้งที่ 36&quot;</span>
           </small>
           <div className="w-fit pt-6">
             <Timer deadline="February, 24, 2025" />
