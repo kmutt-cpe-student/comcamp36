@@ -1,4 +1,5 @@
 import Navbar from "@/components/Navbar";
+import Footer from "@/components/navigate/footer";
 import dynamic from "next/dynamic";
 
 const Hero = dynamic(() => import("../components/landing/hero"));
@@ -21,6 +22,7 @@ export default function Home() {
         <StudentReq />
         <Timeline />
         <Faq />
+        <Footer />
       </div>
     </div>
   );
