@@ -8,10 +8,11 @@ const Learn = dynamic(() => import("../components/landing/learn"));
 const Faq = dynamic(() => import("../components/landing/faq"));
 const StudentReq = dynamic(() => import("../components/landing/requirement"));
 const Timeline = dynamic(() => import("../components/landing/timeline"));
+const Contact = dynamic(() => import("../components/landing/contact"));
 
 export default function Home() {
   return (
-    <div className="bg-charcoal-1 absolute h-fit w-full scroll-smooth">
+    <div className="bg-charcoal-1 absolute h-fit w-full overflow-x-hidden scroll-smooth">
       <div className="absolute z-[100]">
         <Navbar />
       </div>
@@ -22,6 +23,7 @@ export default function Home() {
         <StudentReq />
         <Timeline />
         <Faq />
+        <Contact />
         <Footer />
       </div>
     </div>
