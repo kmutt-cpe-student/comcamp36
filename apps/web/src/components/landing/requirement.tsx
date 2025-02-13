@@ -24,9 +24,9 @@ export default function StudentReq() {
       id="requirements"
     >
       <FadeObserverDiv className="flex items-center justify-center px-5">
-        <h2 className="font-game-of-squid text-center text-4xl text-[#FFC94A] lg:text-5xl">
+        <h3 className="font-game-of-squid text-center text-4xl text-[#FFC94A] lg:text-5xl">
           Requirements
-        </h2>
+        </h3>
       </FadeObserverDiv>
 
       <FadeObserverDiv className="mb-10 grid grid-cols-1 place-items-center justify-center gap-[5%] px-10 py-10 md:flex md:flex-row">

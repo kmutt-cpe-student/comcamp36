@@ -47,7 +47,7 @@ function Learn() {
   return (
     <div className="flex w-full flex-col items-center gap-2.5 py-20" id="learn">
       <FadeObserverDiv className="font-game-of-squid text-center">
-        <h2>WHAT YOU&apos;LL LEARN</h2>
+        <h3 className="pb-6 lowercase">WHAT YOU&apos;LL LEARN</h3>
       </FadeObserverDiv>
       <div className="mx-10 flex flex-col gap-8">
         {LEARNS.map((learn) => (
@@ -55,7 +55,7 @@ function Learn() {
             <MagicCard className="w-fit max-w-[65rem] md:w-full">
               <div className="grid gap-4 px-4 py-4 md:grid-cols-[1fr_4fr] md:gap-0">
                 <div className="flex h-full w-full items-center justify-center px-4 pt-4 md:p-0">
-                  <div className="aspect-square w-full rounded-xl bg-white md:h-[16rem] md:w-fit md:px-0"></div>
+                  <div className="aspect-square w-full rounded-xl bg-white md:h-[12rem] md:w-fit md:px-0"></div>
                 </div>
                 <div className="flex w-full flex-col justify-center gap-2 px-4 pb-4 md:pb-0">
                   <h5 className="w-full break-words font-bold">
