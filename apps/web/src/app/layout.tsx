@@ -8,8 +8,21 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Comcamp36",
-  description: "Camp by Computer Engineering Department, KMUTT",
+  title: "ComCamp 36",
+  description: `ComCamp 36 โดยภาควิชาวิศวกรรมคอมพิวเตอร์ มจธ. ชวนน้อง ๆ ที่สนใจในด้านคอมพิวเตอร์มาปลดล็อกสกิลวิศวะคอมฯ พร้อมสัมผัสความเป็นนักศึกษาวิศวะคอมฯ ที่ไม่เหมือนใคร แล้วมาหาคำตอบได้ใน "ComCamp ครั้งที่ 36"`,
+  openGraph: {
+    title: "ComCamp 36",
+    url: "https://comcamp.io",
+    images: "/og-image.webp",
+    type: "website",
+    description: `ComCamp 36 โดยภาควิชาวิศวกรรมคอมพิวเตอร์ มจธ. ชวนน้อง ๆ ที่สนใจในด้านคอมพิวเตอร์มาปลดล็อกสกิลวิศวะคอมฯ พร้อมสัมผัสความเป็นนักศึกษาวิศวะคอมฯ ที่ไม่เหมือนใคร แล้วมาหาคำตอบได้ใน "ComCamp ครั้งที่ 36"`,
+  },
+  twitter: {
+    title: "ComCamp 36",
+    images: "/og-image.webp",
+    description: `ComCamp 36 โดยภาควิชาวิศวกรรมคอมพิวเตอร์ มจธ. ชวนน้อง ๆ ที่สนใจในด้านคอมพิวเตอร์มาปลดล็อกสกิลวิศวะคอมฯ พร้อมสัมผัสความเป็นนักศึกษาวิศวะคอมฯ ที่ไม่เหมือนใคร แล้วมาหาคำตอบได้ใน "ComCamp ครั้งที่ 36"`,
+    card: "summary_large_image",
+  },
 };
 
 export default function RootLayout({
