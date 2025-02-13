@@ -6,15 +6,21 @@ const Hero = dynamic(() => import("../components/landing/hero"), {
     <p className="w-full h-full flex items-center justify-center">Loading...</p>
   ),
 });
+const WhatIs = dynamic(() => import("../components/landing/what-is"), {
+  loading: () => (
+    <p className="w-full h-full flex items-center justify-center">Loading...</p>
+  ),
+});
 
 export default function Home() {
   return (
-    <div className="absolute w-full bg-charcoal-1">
+    <div className="absolute w-full bg-charcoal-1 h-fit">
       <div className="absolute z-[100]">
         <Navbar />
       </div>
-      <div className="font-prompt text-white h-screen bg-[url(/static/image/landing-bg.svg)] bg-cover bg-no-repeat bg-center relative">
+      <div className="font-prompt text-white h-fit bg-charcoal-1 bg-cover bg-no-repeat bg-center relative">
         <Hero />
+        <WhatIs />
       </div>
     </div>
   );
