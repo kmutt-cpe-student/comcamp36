@@ -11,7 +11,7 @@ function Hero() {
             style={{ width: "100%", height: "auto" }}
             width={550}
             height={288}
-            src="/Logo.png"
+            src="/static/image/logo.svg"
             alt="ComCamp36Logo"
             priority
           />

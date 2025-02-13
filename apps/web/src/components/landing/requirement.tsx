@@ -4,15 +4,15 @@ import FadeObserverDiv from "@/components/landing/fade-div";
 
 const requirements = [
   {
-    imageSrc: "/free_mockup.svg",
+    imageSrc: "/static/image/free-duck.svg",
     text: `นักเรียนที่กำลังศึกษาอยู่ในระดับชั้น\nมัธยมศึกษาปีที่ 4-5 หรือเทียบเท่า\nในปีการศึกษา 2567`,
   },
   {
-    imageSrc: "/free_mockup.svg",
+    imageSrc: "/static/image/free-duck.svg",
     text: `มีความสนใจในด้านคอมพิวเตอร์หรือ\nภาควิชาคอมพิวเตอร์\nโดยไม่จำเป็นต้องมีพื้นฐานมาก่อน`,
   },
   {
-    imageSrc: "/free_mockup.svg",
+    imageSrc: "/static/image/free-duck.svg",
     text: `ผู้ปกครองอนุญาตให้เข้าร่วมกิจกรรม\nและมีความสะดวกที่จะพักค้างคืน\nเป็นระยะเวลา 5 วัน 4 คืน`,
   },
 ];
