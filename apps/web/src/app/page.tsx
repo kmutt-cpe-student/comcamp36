@@ -1,17 +1,9 @@
-import Learn from "@/components/landing/learn";
 import Navbar from "@/components/Navbar";
 import dynamic from "next/dynamic";
 
-const Hero = dynamic(() => import("../components/landing/hero"), {
-  loading: () => (
-    <p className="flex h-full w-full items-center justify-center">Loading...</p>
-  ),
-});
-const WhatIs = dynamic(() => import("../components/landing/what-is"), {
-  loading: () => (
-    <p className="flex h-full w-full items-center justify-center">Loading...</p>
-  ),
-});
+const Hero = dynamic(() => import("../components/landing/hero"));
+const WhatIs = dynamic(() => import("../components/landing/what-is"));
+const Learn = dynamic(() => import("../components/landing/learn"));
 
 export default function Home() {
   return (
