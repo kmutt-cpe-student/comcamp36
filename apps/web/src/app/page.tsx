@@ -4,6 +4,7 @@ import dynamic from "next/dynamic";
 const Hero = dynamic(() => import("../components/landing/hero"));
 const WhatIs = dynamic(() => import("../components/landing/what-is"));
 const Learn = dynamic(() => import("../components/landing/learn"));
+const Faq = dynamic(() => import("../components/landing/faq"));
 
 export default function Home() {
   return (
@@ -15,6 +16,7 @@ export default function Home() {
         <Hero />
         <WhatIs />
         <Learn />
+        <Faq />
       </div>
     </div>
   );

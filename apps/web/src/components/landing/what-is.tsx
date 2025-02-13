@@ -3,8 +3,8 @@ import Image from "next/image";
 
 function WhatIs() {
   return (
-    <div className="grid h-[63rem] w-full grid-cols-1 place-items-center items-center justify-center 2xl:grid-cols-2">
-      <div className="w-[21rem] xl:w-[42rem]">
+    <div className="flex h-[63rem] w-full flex-col place-items-center items-center justify-center 2xl:grid 2xl:grid-cols-2">
+      <div className="w-[32rem] 2xl:w-[42rem]">
         <Image
           style={{ width: "100%", height: "auto" }}
           width={0}
@@ -16,7 +16,7 @@ function WhatIs() {
       </div>
       <div className="flex flex-col items-center justify-center text-center">
         <h1 className="font-game-of-squid w-full text-center">
-          WHAT IS COMCAMP<span className="text-vermilion">36</span> ?
+          WHAT IS COMCAMP<span className="text-vermilion">36</span>?
         </h1>
         <p className="max-w-[50rem] px-4">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
