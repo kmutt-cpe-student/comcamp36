@@ -14,11 +14,9 @@ function Footer() {
             priority
           />
         </div>
-        <div className="flex flex-col gap-1">
-          <p className="text-[1rem]">ComCamp36 All right reserved.</p>
-          <p className="text-[1rem]">
-            ©2025 Made with Love and Tear, CPE38 ❤️
-          </p>
+        <div className="flex flex-col gap-1 text-white/30">
+          <p className="text-[1rem]">©2025 ComCamp36. All rights reserved.</p>
+          <p className="text-[1rem]">Made with Love and Tear by CPE38 ❤️</p>
         </div>
       </div>
     </div>
