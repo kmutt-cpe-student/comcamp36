@@ -2,6 +2,21 @@ import RequirementItem from "@/components/landing/components/requirement-box";
 
 import FadeObserverDiv from "@/components/landing/fade-div";
 
+const requirements = [
+  {
+    imageSrc: "/free_mockup.svg",
+    text: `นักเรียนที่กำลังศึกษาอยู่ในระดับชั้น\nมัธยมศึกษาปีที่ 4-5 หรือเทียบเท่า\nในปีการศึกษา 2567`,
+  },
+  {
+    imageSrc: "/free_mockup.svg",
+    text: `มีความสนใจในด้านคอมพิวเตอร์หรือ\nภาควิชาคอมพิวเตอร์\nโดยไม่จำเป็นต้องมีพื้นฐานมาก่อน`,
+  },
+  {
+    imageSrc: "/free_mockup.svg",
+    text: `ผู้ปกครองอนุญาตให้เข้าร่วมกิจกรรม\nและมีความสะดวกที่จะพักค้างคืน\nเป็นระยะเวลา 5 วัน 4 คืน`,
+  },
+];
+
 export default function StudentReq() {
   return (
     <div className="font-prompt py-15 bg-[#231F20] bg-cover bg-fixed bg-center bg-no-repeat text-white">
@@ -12,20 +27,13 @@ export default function StudentReq() {
       </FadeObserverDiv>
 
       <FadeObserverDiv className="mb-10 grid grid-cols-1 place-items-center justify-center gap-[5%] px-10 py-10 md:flex md:flex-row">
-        <RequirementItem
-          imageSrc="/free_mockup.svg"
-          text={`นักเรียนที่กำลังศึกษาอยู่ในระดับชั้น\nมัธยมศึกษาปีที่ 4-5 หรือเทียบเท่า\nในปีการศึกษา 2567`}
-        />
-
-        <RequirementItem
-          imageSrc="/free_mockup.svg"
-          text={`มีความสนใจในด้านคอมพิวเตอร์หรือ\nภาควิชาคอมพิวเตอร์\nโดยไม่จำเป็นต้องมีพื้นฐานมาก่อน`}
-        />
-
-        <RequirementItem
-          imageSrc="/free_mockup.svg"
-          text={`ผู้ปกครองอนุญาตให้เข้าร่วมกิจกรรม\nและมีความสะดวกที่จะพักค้างคืน\nเป็นระยะเวลา 5 วัน 4 คืน`}
-        />
+        {requirements.map((requirement, index) => (
+          <RequirementItem
+            key={index}
+            imageSrc={requirement.imageSrc}
+            text={requirement.text}
+          />
+        ))}
       </FadeObserverDiv>
     </div>
   );
