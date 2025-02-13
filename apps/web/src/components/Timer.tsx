@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { SlidingNumber } from "./slide-number";
 
 type Props = { deadline: string };
 
@@ -9,10 +10,6 @@ export default function Timer({ deadline }: Props) {
   const [hours, setHours] = useState(0);
   const [minutes, setMinutes] = useState(0);
   const [seconds, setSeconds] = useState(0);
-
-  const formatTime = (time: number) => {
-    return time.toString().padStart(2, "0");
-  };
 
   const getTime = (deadline: string) => {
     const time = Date.parse(deadline) - Date.now();
@@ -31,12 +28,12 @@ export default function Timer({ deadline }: Props) {
 
   if (days == 0 && hours == 0 && minutes == 0 && seconds == 0) {
     return (
-      <div className="flex border-[2px] border-[#525252] bg-[#000000]/35 backdrop-blur-xs rounded-[10px] px-5 py-2">
-        <div className="w-full h-full flex items-center justify-center">
+      <div className="backdrop-blur-xs flex rounded-[10px] border-[2px] border-[#525252] bg-[#000000]/35 px-5 py-2">
+        <div className="flex h-full w-full items-center justify-center">
           <div role="status">
             <svg
               aria-hidden="true"
-              className="w-10 text-gray-200 animate-spin dark:text-gray-600 fill-vermilion"
+              className="fill-vermilion w-10 animate-spin text-gray-200 dark:text-gray-600"
               viewBox="0 0 100 101"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
@@ -57,45 +54,45 @@ export default function Timer({ deadline }: Props) {
   }
 
   return (
-    <div className="flex border-[2px] border-[#525252] bg-[#000000]/35 backdrop-blur-xs rounded-[10px] lg:px-8 px-5 py-2">
+    <div className="backdrop-blur-xs flex rounded-[10px] border-[2px] border-[#525252] bg-[#000000]/35 px-5 py-2 lg:px-8">
       <div className="text-vermilion flex-col items-center">
-        <h2 className="lg:text-7xl text-4xl font-genmunu-libre w-full flex justify-center tabular-nums min-w-[2ch]">
-          {formatTime(days)}
+        <h2 className="font-genmunu-libre flex w-full min-w-[2ch] justify-center text-4xl tabular-nums lg:text-7xl">
+          <SlidingNumber value={days} padStart />
         </h2>
-        <p className="lg:text-xl text-sm w-full flex justify-center">วัน</p>
+        <p className="flex w-full justify-center text-sm lg:text-xl">วัน</p>
       </div>
       <div>
-        <h2 className="lg:text-7xl text-4xl text-vermilion font-genmunu-libre lg:mx-5 mx-3">
+        <h2 className="text-vermilion font-genmunu-libre mx-3 text-4xl lg:mx-5 lg:text-7xl">
           :
         </h2>
       </div>
       <div className="text-vermilion flex-col items-center">
-        <h2 className="lg:text-7xl text-4xl font-genmunu-libre w-full flex justify-center tabular-nums min-w-[2ch]">
-          {formatTime(hours)}
+        <h2 className="font-genmunu-libre flex w-full min-w-[2ch] justify-center text-4xl tabular-nums lg:text-7xl">
+          <SlidingNumber value={hours} padStart />
         </h2>
-        <p className="lg:text-xl text-sm w-full flex justify-center">ชั่วโมง</p>
+        <p className="flex w-full justify-center text-sm lg:text-xl">ชั่วโมง</p>
       </div>
       <div>
-        <h2 className="lg:text-7xl text-4xl text-vermilion font-genmunu-libre lg:mx-5 mx-3">
+        <h2 className="text-vermilion font-genmunu-libre mx-3 text-4xl lg:mx-5 lg:text-7xl">
           :
         </h2>
       </div>
       <div className="text-vermilion flex-col items-center">
-        <h2 className="lg:text-7xl text-4xl font-genmunu-libre w-full flex justify-center tabular-nums min-w-[2ch]">
-          {formatTime(minutes)}
+        <h2 className="font-genmunu-libre flex w-full min-w-[2ch] justify-center text-4xl tabular-nums lg:text-7xl">
+          <SlidingNumber value={minutes} padStart />
         </h2>
-        <p className="lg:text-xl text-sm w-full flex justify-center">นาที</p>
+        <p className="flex w-full justify-center text-sm lg:text-xl">นาที</p>
       </div>
       <div>
-        <h2 className="lg:text-7xl text-4xl text-vermilion font-genmunu-libre lg:mx-5 mx-3">
+        <h2 className="text-vermilion font-genmunu-libre mx-3 text-4xl lg:mx-5 lg:text-7xl">
           :
         </h2>
       </div>
       <div className="text-vermilion flex-col items-center">
-        <h2 className="lg:text-7xl text-4xl font-genmunu-libre w-full flex justify-center tabular-nums min-w-[2ch]">
-          {formatTime(seconds)}
+        <h2 className="font-genmunu-libre flex w-full min-w-[2ch] justify-center text-4xl tabular-nums lg:text-7xl">
+          <SlidingNumber value={seconds} padStart />
         </h2>
-        <p className="lg:text-xl text-sm w-full flex justify-center">วินาที</p>
+        <p className="flex w-full justify-center text-sm lg:text-xl">วินาที</p>
       </div>
     </div>
   );

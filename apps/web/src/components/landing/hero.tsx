@@ -1,5 +1,5 @@
 import FadeObserverDiv from "@/components/landing/fade-div";
-import Timer from "@/components/Timer";
+import Timer from "@/components/timer";
 import Image from "next/image";
 
 function Hero() {
