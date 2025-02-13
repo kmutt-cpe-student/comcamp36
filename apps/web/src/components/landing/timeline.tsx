@@ -1,3 +1,6 @@
+"use client";
+
+import { InView } from "@/components/animation/in-view";
 import TimelineBox from "@/components/landing/components/timeline-box";
 import FadeObserverDiv from "@/components/landing/fade-div";
 
@@ -53,13 +56,28 @@ export default function Timeline() {
           </h2>
         </FadeObserverDiv>
 
-        <div className="relative grid grid-cols-1 place-items-center justify-center gap-[2%] px-10 py-10 md:flex md:flex-row">
-          <div className="top-15 absolute bottom-0 left-1/2 z-0 w-2 bg-white md:left-0 md:right-0 md:top-1/2 md:h-1 md:w-full md:-translate-y-1/2 md:transform"></div>
+        <InView
+          viewOptions={{ once: true }}
+          variants={{
+            hidden: {
+              opacity: 0,
+            },
+            visible: {
+              opacity: 1,
+              transition: {
+                staggerChildren: 0.09,
+              },
+            },
+          }}
+        >
+          <div className="relative grid grid-cols-1 place-items-center justify-center gap-[2%] px-10 py-10 md:flex md:flex-row">
+            <div className="top-15 absolute bottom-0 left-1/2 z-0 w-2 bg-white md:left-0 md:right-0 md:top-1/2 md:h-1 md:w-full md:-translate-y-1/2 md:transform"></div>
 
-          {TimelineItems.map((box, index) => (
-            <TimelineBox key={index} {...box} />
-          ))}
-        </div>
+            {TimelineItems.map((box, index) => (
+              <TimelineBox key={index} {...box} />
+            ))}
+          </div>
+        </InView>
       </div>
     </div>
   );

@@ -1,5 +1,8 @@
+"use client";
+
 import RequirementItem from "@/components/landing/components/requirement-box";
 
+import { InView } from "@/components/animation/in-view";
 import FadeObserverDiv from "@/components/landing/fade-div";
 
 const requirements = [
@@ -29,15 +32,30 @@ export default function StudentReq() {
         </h3>
       </FadeObserverDiv>
 
-      <FadeObserverDiv className="mb-10 grid grid-cols-1 place-items-center justify-center gap-[5%] px-10 py-10 md:flex md:flex-row">
-        {requirements.map((requirement, index) => (
-          <RequirementItem
-            key={index}
-            imageSrc={requirement.imageSrc}
-            text={requirement.text}
-          />
-        ))}
-      </FadeObserverDiv>
+      <InView
+        viewOptions={{ once: true }}
+        variants={{
+          hidden: {
+            opacity: 0,
+          },
+          visible: {
+            opacity: 1,
+            transition: {
+              staggerChildren: 0.09,
+            },
+          },
+        }}
+      >
+        <div className="mb-10 grid grid-cols-1 place-items-center justify-center gap-[5%] px-10 py-10 md:flex md:flex-row">
+          {requirements.map((requirement, index) => (
+            <RequirementItem
+              key={index}
+              imageSrc={requirement.imageSrc}
+              text={requirement.text}
+            />
+          ))}
+        </div>
+      </InView>
     </div>
   );
 }

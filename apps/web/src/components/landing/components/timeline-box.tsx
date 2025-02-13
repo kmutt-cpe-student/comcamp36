@@ -1,4 +1,4 @@
-import FadeObserverDiv from "@/components/landing/fade-div";
+import { motion } from "framer-motion";
 import Image from "next/image";
 
 interface TimelineBoxProps {
@@ -23,7 +23,15 @@ export default function TimelineBox({
   textColor = "text-white",
 }: TimelineBoxProps) {
   return (
-    <FadeObserverDiv
+    <motion.div
+      variants={{
+        hidden: { opacity: 0, scale: 0.8, filter: "blur(10px)" },
+        visible: {
+          opacity: 1,
+          scale: 1,
+          filter: "blur(0px)",
+        },
+      }}
       className="z-10 flex h-auto min-h-[280px] w-[80vw] max-w-[300px] flex-col items-center justify-center rounded-bl-[5vw] rounded-br-[5vw] rounded-tl-[40vw] rounded-tr-[40vw] md:w-[60vw] md:rounded-tl-[30vw] md:rounded-tr-[30vw] lg:rounded-tl-[30vw] lg:rounded-tr-[30vw]"
       style={{
         backgroundColor,
@@ -44,6 +52,6 @@ export default function TimelineBox({
           </h1>
         </div>
       </div>
-    </FadeObserverDiv>
+    </motion.div>
   );
 }
