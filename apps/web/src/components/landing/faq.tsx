@@ -10,7 +10,7 @@ function Faq() {
       className="flex h-fit w-full flex-col items-center justify-center py-[20rem] xl:scroll-mt-[-150px]"
       id="faq"
     >
-      <h2 className="text-vermilion-1">FAQs</h2>
+      <h2 className="font-game-of-squid text-vermilion-1 capitalize">FAQs</h2>
       <div className="flex w-full max-w-[80rem] flex-col px-16">
         {faqs.slice(0, 12).map((faq) => (
           <FaqAccordion key={faq.id} {...faq} />
