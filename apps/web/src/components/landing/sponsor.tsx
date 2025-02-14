@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-function Sponser() {
+function Sponsors() {
   return (
     <div className="grid h-[60rem] w-full place-content-center">
       <div className="flex h-[10rem]">
@@ -26,4 +26,4 @@ function Sponser() {
     </div>
   );
 }
-export default Sponser;
+export default Sponsors;

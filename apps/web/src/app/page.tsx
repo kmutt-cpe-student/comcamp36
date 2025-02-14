@@ -9,7 +9,7 @@ const Faq = dynamic(() => import("../components/landing/faq"));
 const StudentReq = dynamic(() => import("../components/landing/requirement"));
 const Timeline = dynamic(() => import("../components/landing/timeline"));
 const Contact = dynamic(() => import("../components/landing/contact"));
-const Sponser = dynamic(() => import("../components/landing/sponser"));
+const Sponsors = dynamic(() => import("../components/landing/sponsor"));
 
 export default function Home() {
   return (
@@ -24,7 +24,7 @@ export default function Home() {
         <StudentReq />
         <Timeline />
         <Faq />
-        <Sponser />
+        <Sponsors />
         <Contact />
         <Footer />
       </div>
