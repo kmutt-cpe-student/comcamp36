@@ -87,8 +87,10 @@ const Contact = () => {
           </MagicCard>
         </div>
         <MagicCard className="flex h-full flex-col p-10 2xl:h-fit">
-          <h3 className="font-game-of-squid pb-4">CONTACT</h3>
-          <div className="flex h-full flex-col justify-center gap-10">
+          <h3 className="font-game-of-squid pb-0 lg:pb-4 xl:pb-4 2xl:pb-4">
+            CONTACT
+          </h3>
+          <div className="flex h-full flex-col justify-center gap-10 pb-8 lg:pb-0 2xl:pb-0">
             {CONTACT_LIST.map((contact, index) => (
               <div key={index} className="flex flex-col">
                 <h5 className="font-bold">{contact.label}</h5>
