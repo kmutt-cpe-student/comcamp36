@@ -2,7 +2,7 @@ import Image from "next/image";
 
 function Sponsors() {
   return (
-    <div className="grid h-[60rem] w-full place-content-center">
+    <div className="mb-[20rem] grid h-[60rem] w-full place-content-center">
       <div className="flex h-[10rem]">
         <Image
           style={{ width: "100%", height: "auto" }}
