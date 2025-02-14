@@ -4,7 +4,7 @@ import { Tilt } from "../card/tilt-card";
 
 function WhatIs() {
   return (
-    <div className="flex h-[63rem] w-full flex-col place-items-center items-center justify-center 2xl:grid 2xl:grid-cols-[1fr_1.75fr]">
+    <div className="mt-20 flex h-[63rem] w-full flex-col place-items-center items-center justify-center sm:mt-0 2xl:grid 2xl:grid-cols-[1fr_1.75fr]">
       <FadeObserverDiv className="w-[32rem]" id="whatis">
         <Tilt
           isRevese
