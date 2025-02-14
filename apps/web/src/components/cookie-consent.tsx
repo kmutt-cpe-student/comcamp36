@@ -1,9 +1,9 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
 import { cn } from "@/libs/utils";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { MagicCard } from "./magic-card";
 
 export default function CookieConsent({ demo = false }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -36,35 +36,40 @@ export default function CookieConsent({ demo = false }) {
   return (
     <div
       className={cn(
-        "fixed z-[200] bottom-0 left-0 right-0 sm:left-4 sm:bottom-4 w-full sm:max-w-md duration-700 font-prompt text-black",
+        "font-prompt fixed bottom-0 left-0 right-0 z-[200] w-full text-black duration-700 sm:bottom-4 sm:left-4 sm:max-w-md",
         !isOpen
-          ? "transition-[opacity,transform] translate-y-8 opacity-0"
-          : "transition-[opacity,transform] translate-y-0 opacity-100",
+          ? "translate-y-8 opacity-0 transition-[opacity,transform]"
+          : "translate-y-0 opacity-100 transition-[opacity,transform]",
         hide && "hidden",
       )}
     >
-      <div className="bg-white">
-        <div className="grid gap-2">
-          <div className="border-b h-14 flex items-center justify-between p-4">
-            <h1 className="text-lg font-medium">เราใช้ คุกกี้</h1>
+      <MagicCard className="border border-white/10">
+        <div className="grid gap-2 text-white">
+          <div className="flex h-14 items-center justify-between border-b border-white/10 p-4">
+            <h1 className="text-lg font-medium">เราใช้ คุกกี้ 🍪 </h1>
           </div>
           <div className="p-4">
-            <p className="text-sm font-normal text-start">
+            <p className="text-start text-sm font-normal">
               เว็บไซต์ Comcamp 36 มีการใช้งานคุกกี้ (Cookies)
               พื้นฐานที่จําเป็นซึ่งช่วยให้สามารถเข้าใช้เว็บไซต์ได้โดยการเปิดใช้ฟังก์ชันพื้นฐานต่างๆ
               และการเข้าสู่ส่วนที่ปลอดภัยของเว็บไซต์ หากไม่มีคุกกี้เหล่านี้
               เว็บไซต์จะไม่สามารถทำงานได้อย่างถูกต้อง{" "}
-              <Link href="/policy">นโยบายข้อมูลส่วนบุคคล</Link>
+              <Link href="/privacy" className="text-vermilion">
+                นโยบายข้อมูลส่วนบุคคล
+              </Link>
               <br />
             </p>
           </div>
-          <div className="flex gap-2 p-2 py-5 border-t">
-            <Button onClick={accept} className="w-full">
+          <div className="flex gap-2 border-t border-white/10">
+            <button
+              onClick={accept}
+              className="hover:text-vermilion h-full w-full cursor-pointer py-5 transition-colors"
+            >
               ยอมรับ
-            </Button>
+            </button>
           </div>
         </div>
-      </div>
+      </MagicCard>
     </div>
   );
 }
