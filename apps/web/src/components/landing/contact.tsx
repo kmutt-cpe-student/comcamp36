@@ -85,7 +85,7 @@ const Contact = () => {
             </div>
           </MagicCard>
         </div>
-        <MagicCard className="flex h-fit flex-col p-10">
+        <MagicCard className="flex h-full flex-col p-10 2xl:h-fit">
           <h3 className="font-game-of-squid pb-4">CONTACT</h3>
           <div className="flex h-full flex-col justify-center gap-10">
             {CONTACT_LIST.map((contact, index) => (
