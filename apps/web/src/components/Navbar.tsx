@@ -8,10 +8,9 @@ import {
   Drawer,
   DrawerClose,
   DrawerContent,
+  DrawerTitle,
   DrawerTrigger,
 } from "@/components/ui/drawer";
-import { useState } from "react";
-import { Button } from "./ui/button";
 
 const NAVBARITEMS = [
   {
@@ -31,40 +30,6 @@ const NAVBARITEMS = [
     href: "#faq",
   },
 ];
-
-function NavDrawer() {
-  const [open, setOpen] = useState(false);
-
-  const handleItemClick = (href: string) => {
-    setOpen(false);
-    window.location.href = `/${href}`;
-    window.location.reload();
-  };
-
-  return (
-    <Drawer open={open} onOpenChange={setOpen}>
-      <DrawerTrigger asChild>
-        <button className="block text-xl xl:hidden">
-          <MenuIcon color="#d1d5dc" />
-        </button>
-      </DrawerTrigger>
-      <DrawerContent>
-        <div className="mb-10 flex flex-col gap-y-5 overflow-auto p-6">
-          {NAVBARITEMS.map((item) => (
-            <DrawerClose key={item.href} asChild>
-              <Button
-                onClick={() => handleItemClick(item.href)}
-                className="hover:text-vermilion text-white transition-colors"
-              >
-                <span className="font-prompt text-[1.3rem]">{item.label}</span>
-              </Button>
-            </DrawerClose>
-          ))}
-        </div>
-      </DrawerContent>
-    </Drawer>
-  );
-}
 
 export default function Navbar() {
   return (
@@ -93,7 +58,34 @@ export default function Navbar() {
               </a>
             ))}
           </div>
-          <NavDrawer />
+
+          <Drawer>
+            <DrawerTrigger asChild>
+              <button className="block text-xl xl:hidden">
+                <MenuIcon color="#d1d5dc" />
+              </button>
+            </DrawerTrigger>
+            <DrawerContent className="bg-charcoal-1/10 backdrop-blur-3xl">
+              <DrawerTitle className="sr-only">Navbar</DrawerTitle>
+              <div className="mb-10 flex flex-col gap-y-5 overflow-auto p-6">
+                {NAVBARITEMS.map((item) => (
+                  <DrawerClose
+                    key={item.href}
+                    asChild
+                    className="flex items-center justify-center"
+                  >
+                    <Link href={item.href}>
+                      <button className="hover:text-vermilion cursor-pointer text-white transition-colors">
+                        <span className="font-prompt text-[1.3rem] font-bold">
+                          {item.label}
+                        </span>
+                      </button>
+                    </Link>
+                  </DrawerClose>
+                ))}
+              </div>
+            </DrawerContent>
+          </Drawer>
         </div>
       </div>
     </div>
