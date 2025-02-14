@@ -38,6 +38,7 @@ const Contact = () => {
             <h3 className="font-game-of-squid">Social Media</h3>
             <div className="mt-4 flex flex-col gap-y-6">
               <div className="flex gap-x-3">
+                {/** please don't update lucide to newer version as brands icon are being deprecated! */}
                 <FacebookIcon size={32} className="text-white/75" />
                 <p className="text-white/75 hover:underline">
                   <a
@@ -45,7 +46,7 @@ const Contact = () => {
                     target="_blank"
                     rel="noopener,noreferrer"
                   >
-                    ComCamp KMUTT
+                    Comcamp KMUTT
                   </a>
                 </p>
               </div>
