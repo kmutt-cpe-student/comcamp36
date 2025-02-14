@@ -74,8 +74,9 @@ function Learn() {
             <MagicCard className="w-fit max-w-[65rem] md:w-full">
               <div className="grid gap-4 px-4 py-4 md:grid-cols-[1fr_4fr] md:gap-0">
                 <div className="flex h-full w-full items-center justify-center px-4 pt-4 md:p-0">
-                  <div className="aspect-square w-full overflow-hidden rounded-xl bg-[#231f20] md:h-[12rem] md:w-fit md:px-0">
+                  <div className="aspect-square w-full overflow-hidden rounded-xl bg-[#231f20] p-6 md:h-[12rem] md:w-fit md:px-0">
                     <Image
+                      style={{ width: "100%", height: "auto" }}
                       src={learn.img}
                       alt="mascot"
                       width={250}
