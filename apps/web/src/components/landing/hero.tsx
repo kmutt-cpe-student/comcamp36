@@ -8,8 +8,8 @@ function Hero() {
       className="grid h-screen grid-cols-1 place-items-center items-center justify-center bg-[url(/static/image/hero-bg.svg)] 2xl:grid-cols-2 2xl:pt-0"
       id="hero"
     >
-      <div className="flex flex-col items-center">
-        <div className="flex w-[24rem] justify-center">
+      <div className="mt-30 flex flex-col items-center px-2 sm:mt-0 md:px-0">
+        <div className="flex w-[18rem] justify-center md:w-[24rem]">
           <Image
             style={{ width: "100%", height: "auto" }}
             width={550}
