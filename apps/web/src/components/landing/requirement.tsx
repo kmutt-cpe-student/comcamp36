@@ -3,7 +3,6 @@
 import RequirementItem from "@/components/landing/components/requirement-box";
 
 import { InView } from "@/components/animation/in-view";
-import FadeObserverDiv from "@/components/landing/fade-div";
 
 const requirements = [
   {
@@ -27,14 +26,24 @@ const requirements = [
 export default function StudentReq() {
   return (
     <div
-      className="font-prompt py-15 bg-charcoal-1 bg-cover bg-fixed bg-center bg-no-repeat text-white xl:scroll-mt-20"
+      className="font-prompt bg-charcoal-1 bg-cover bg-fixed bg-center bg-no-repeat py-[10rem] text-white xl:scroll-mt-20"
       id="requirements"
     >
-      <FadeObserverDiv className="flex items-center justify-center px-5">
+      <InView
+        viewOptions={{ once: true }}
+        variants={{
+          hidden: {
+            opacity: 0,
+          },
+          visible: {
+            opacity: 1,
+          },
+        }}
+      >
         <h3 className="font-game-of-squid text-center text-4xl text-[#FFC94A] lg:text-5xl">
           Requirements
         </h3>
-      </FadeObserverDiv>
+      </InView>
 
       <InView
         viewOptions={{ once: true }}
@@ -50,7 +59,7 @@ export default function StudentReq() {
           },
         }}
       >
-        <div className="mb-10 grid grid-cols-1 place-items-center justify-center gap-[5%] px-10 py-10 md:flex md:flex-row">
+        <div className="flex w-full flex-wrap justify-center gap-10 py-20">
           {requirements.map((requirement, index) => (
             <RequirementItem
               key={index}
