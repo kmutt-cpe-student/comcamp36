@@ -1,6 +1,17 @@
+"use client";
+
 import { MenuIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+
+import {
+  Drawer,
+  DrawerClose,
+  DrawerContent,
+  DrawerTrigger,
+} from "@/components/ui/drawer";
+import { useState } from "react";
+import { Button } from "./ui/button";
 
 const NAVBARITEMS = [
   {
@@ -20,6 +31,40 @@ const NAVBARITEMS = [
     href: "#faq",
   },
 ];
+
+function NavDrawer() {
+  const [open, setOpen] = useState(false);
+
+  const handleItemClick = (href: string) => {
+    setOpen(false);
+    window.location.href = `/${href}`;
+    window.location.reload();
+  };
+
+  return (
+    <Drawer open={open} onOpenChange={setOpen}>
+      <DrawerTrigger asChild>
+        <button className="block text-xl xl:hidden">
+          <MenuIcon color="#d1d5dc" />
+        </button>
+      </DrawerTrigger>
+      <DrawerContent>
+        <div className="mb-10 flex flex-col gap-y-5 overflow-auto p-6">
+          {NAVBARITEMS.map((item) => (
+            <DrawerClose key={item.href} asChild>
+              <Button
+                onClick={() => handleItemClick(item.href)}
+                className="hover:text-vermilion text-white transition-colors"
+              >
+                <span className="font-prompt text-[1.3rem]">{item.label}</span>
+              </Button>
+            </DrawerClose>
+          ))}
+        </div>
+      </DrawerContent>
+    </Drawer>
+  );
+}
 
 export default function Navbar() {
   return (
@@ -48,9 +93,7 @@ export default function Navbar() {
               </a>
             ))}
           </div>
-          <button className="block text-xl xl:hidden">
-            <MenuIcon />
-          </button>
+          <NavDrawer />
         </div>
       </div>
     </div>
