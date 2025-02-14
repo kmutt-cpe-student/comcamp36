@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 
 function Footer() {
   return (
@@ -20,11 +19,11 @@ function Footer() {
           <p className="text-[1rem]">Made with Love and Tear by CPE38 ❤️</p>
         </div>
       </div>
-      <div className="flex items-end justify-end">
+      {/* <div className="flex items-end justify-end">
         <Link href="/privacy" className="hover:underline">
           Privacy Policy
         </Link>
-      </div>
+      </div> */}
     </div>
   );
 }
