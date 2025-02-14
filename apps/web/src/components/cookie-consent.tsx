@@ -1,9 +1,9 @@
 "use client";
 
+import { MagicCard } from "@/components/card/magic-card";
 import { cn } from "@/libs/utils";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { MagicCard } from "./magic-card";
 
 export default function CookieConsent({ demo = false }) {
   const [isOpen, setIsOpen] = useState(false);

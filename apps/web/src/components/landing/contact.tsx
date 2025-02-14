@@ -1,4 +1,4 @@
-import { MagicCard } from "@/components/magic-card";
+import { MagicCard } from "@/components/card/magic-card";
 import { FacebookIcon, InstagramIcon } from "lucide-react";
 import Image from "next/image";
 

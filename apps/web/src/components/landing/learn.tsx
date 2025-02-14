@@ -1,5 +1,5 @@
+import { MagicCard } from "@/components/card/magic-card";
 import FadeObserverDiv from "@/components/landing/fade-div";
-import { MagicCard } from "@/components/magic-card";
 import Image from "next/image";
 import { ReactNode } from "react";
 
