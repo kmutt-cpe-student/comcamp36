@@ -1,6 +1,7 @@
 import FadeObserverDiv from "@/components/landing/fade-div";
 import Timer from "@/components/timer";
 import Image from "next/image";
+import { Tilt } from "../card/tilt-card";
 
 function Hero() {
   return (
@@ -41,16 +42,18 @@ function Hero() {
         </div>
       </div>
       <div className="hidden 2xl:block">
-        <div className="flex w-[35rem] justify-center">
-          <Image
-            style={{ width: "100%", height: "auto" }}
-            width={0}
-            height={0}
-            src="/static/image/hero-circle.svg"
-            alt="Hero card section"
-            loading="lazy"
-          />
-        </div>
+        <Tilt isRevese>
+          <div className="flex w-[35rem] justify-center">
+            <Image
+              style={{ width: "100%", height: "auto" }}
+              width={0}
+              height={0}
+              src="/static/image/hero-circle.svg"
+              alt="Hero card section"
+              loading="lazy"
+            />
+          </div>
+        </Tilt>
       </div>
     </FadeObserverDiv>
   );
