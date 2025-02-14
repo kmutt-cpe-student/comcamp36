@@ -3,10 +3,10 @@ import Image from "next/image";
 function Sponsors() {
   return (
     <div className="mb-[20rem] grid h-[60rem] w-full place-content-center">
-      <h2 className="font-game-of-squid text-vermilion-1 capitalize">
+      <h2 className="font-game-of-squid text-vermilion-1 text-center capitalize">
         Sponsored By
       </h2>
-      <div className="mt-8 flex h-[10rem]">
+      <div className="mx-auto mt-8 flex h-[10rem]">
         <Image
           style={{ width: "100%", height: "140px" }}
           width={0}
