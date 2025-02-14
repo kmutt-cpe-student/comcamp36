@@ -15,10 +15,10 @@ function WhatIs() {
         />
       </FadeObserverDiv>
       <FadeObserverDiv className="flex flex-col items-center justify-center text-center">
-        <h2 className="font-game-of-squid w-full text-start">
+        <h2 className="font-game-of-squid w-full text-center md:text-start">
           WHAT IS COMCAMP<span className="text-vermilion">36</span>?
         </h2>
-        <small className="font-noto-sans-thai max-w-[50rem] pr-32 text-start">
+        <small className="font-noto-sans-thai max-w-[50rem] text-center md:pr-32 md:text-start">
           &emsp;โครงการฝึกอบรมเชิงปฏิบัติการคอมพิวเตอร์เบื้องต้น หรือ
           &quot;ComCamp&quot; คือค่ายที่ทางภาควิชาวิศวกรรมคอมพิวเตอร์ มจธ.
           ได้จัดขึ้น โดยภายในค่ายจะมีทั้งการแนะแนวการศึกษาต่อ และกิจกรรมต่าง ๆ
