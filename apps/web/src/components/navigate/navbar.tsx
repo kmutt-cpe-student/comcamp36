@@ -29,6 +29,10 @@ const NAVBARITEMS = [
     label: "คำถามที่พบบ่อย",
     href: "#faq",
   },
+  {
+    label: "ติดต่อ",
+    href: "#contact",
+  },
 ];
 
 export default function Navbar() {

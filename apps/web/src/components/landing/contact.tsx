@@ -23,7 +23,10 @@ const CONTACT_LIST = [
 
 const Contact = () => {
   return (
-    <div className="grid h-fit w-full grid-cols-1 place-items-end p-5 lg:grid-cols-[2.5fr_1fr]">
+    <div
+      className="grid h-fit w-full grid-cols-1 place-items-end p-5 lg:grid-cols-[2.5fr_1fr]"
+      id="contact"
+    >
       <div className="grid h-fit grid-cols-1 gap-4 md:grid-cols-[1.5fr_1fr]">
         <div className="grid h-full grid-rows-[auto_1fr] gap-4">
           <MagicCard className="p-10">
