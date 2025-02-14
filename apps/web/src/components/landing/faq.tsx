@@ -2,7 +2,6 @@ import { faqs } from "@/app/faq/faq";
 import FaqAccordion from "@/components/faq-accordion";
 import FadeObserverDiv from "@/components/landing/fade-div";
 import { TextShimmer } from "@/components/text/text-shimmer";
-import { Accordion } from "@/components/ui/accordion";
 import Link from "next/link";
 
 function Faq() {
@@ -11,20 +10,12 @@ function Faq() {
       className="flex h-fit w-full flex-col items-center justify-center py-[20rem] xl:scroll-mt-[-150px]"
       id="faq"
     >
-      <TextShimmer
-        duration={1.2}
-        className="cursor-pointer text-4xl font-bold transition-opacity duration-200 [--base-color:var(--color-vermilion)] [--base-gradient-color:var(--color-vermilion-1)] dark:[--base-color:var(--color-vermilion)] dark:[--base-gradient-color:var(--color-vermilion-1)]"
-      >
-        FAQs
-      </TextShimmer>
-      <Accordion
-        className="divide-dimgray-1 flex w-full max-w-[80rem] flex-col divide-y"
-        transition={{ duration: 0.2, ease: "easeInOut" }}
-      >
+      <h2 className="text-vermilion-1">FAQs</h2>
+      <div className="flex w-full max-w-[80rem] flex-col px-16">
         {faqs.slice(0, 12).map((faq) => (
           <FaqAccordion key={faq.id} {...faq} />
         ))}
-      </Accordion>
+      </div>
       <Link
         href="/faq"
         className="hover:text-vermilion pt-10 transition-colors"

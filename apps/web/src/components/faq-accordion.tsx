@@ -16,28 +16,24 @@ export interface faqsProps {
 const FaqAccordion = ({ id, title, content }: faqsProps) => {
   return (
     <Accordion
-      className="divide-dimgray-1 flex w-full max-w-[80rem] flex-col divide-y"
+      className="border-b-dimgray-special/20 flex w-full max-w-[80rem] flex-col border-b"
       transition={{ duration: 0.2, ease: "easeInOut" }}
     >
-      <AccordionItem
-        key={id}
-        value={id}
-        className="border-b-dimgray-1 py-4 last:border-b-[1px]"
-      >
+      <AccordionItem key={id} value={id} className="border-0 py-4">
         <AccordionTrigger className="group w-full text-left text-zinc-50 group-hover:text-red-500">
-          <div className="flex items-center justify-between text-xl">
+          <div className="flex cursor-pointer items-center justify-between text-xl">
             <TextShimmer
               duration={1.5}
-              className="cursor-pointer text-xl font-medium transition-colors [--base-color:var(--color-white)] [--base-gradient-color:var(--color-white)] group-hover:[--base-color:var(--color-vermilion)] group-hover:[--base-gradient-color:var(--color-vermilion-1)] dark:[--base-color:var(--color-white)] dark:[--base-gradient-color:var(--color-white)]"
+              className="text-xl font-medium transition-colors [--base-color:var(--color-white)] [--base-gradient-color:var(--color-white)] group-hover:[--base-color:var(--color-vermilion)] group-hover:[--base-gradient-color:var(--color-vermilion-1)] dark:[--base-color:var(--color-white)] dark:[--base-gradient-color:var(--color-white)]"
             >
               {title}
             </TextShimmer>
-            <Minus className="group-data-expanded:inline-block group-data-expanded:-rotate-180 hidden h-4 w-4 rotate-90 cursor-pointer text-zinc-50 transition-transform duration-200" />
-            <Plus className="group-data-expanded:hidden h-4 w-4 cursor-pointer text-zinc-50 transition-transform duration-200" />
+            <Minus className="group-data-expanded:inline-block group-data-expanded:-rotate-180 text-dimgray-special hidden size-5 rotate-90 cursor-pointer transition-transform duration-200" />
+            <Plus className="group-data-expanded:hidden text-dimgray-special/20 size-5 cursor-pointer transition-transform duration-200" />
           </div>
         </AccordionTrigger>
         <AccordionContent>
-          <p className="text-dimgray-special pl-5 pt-1">• {content}</p>
+          <p className="text-dimgray-special/80 px-16 pl-5 pt-1">• {content}</p>
         </AccordionContent>
       </AccordionItem>
     </Accordion>
