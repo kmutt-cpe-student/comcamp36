@@ -3,7 +3,6 @@ import { CSPostHogProvider } from "@/components/provider/post-hog";
 import QueryProvider from "@/components/provider/query";
 import { TailwindIndicator } from "@/components/tailwind-indicator";
 import { gameOfSquid, gemunuLibre, notoSansThaiLooped, prompt } from "@/fonts";
-import RedirectHandler from "@/libs/controlling";
 import type { Metadata } from "next";
 import "./globals.css";
 
@@ -23,7 +22,6 @@ export default function RootLayout({
         className={`${gameOfSquid.variable} ${prompt.className} ${notoSansThaiLooped.className} ${gemunuLibre.className}`}
       >
         <TailwindIndicator />
-        <RedirectHandler deadline="2025-02-24T00:00:00Z" />
         <QueryProvider>
           <CSPostHogProvider>
             {children}
