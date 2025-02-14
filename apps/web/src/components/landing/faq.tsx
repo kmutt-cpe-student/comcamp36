@@ -1,4 +1,4 @@
-import { faqs } from "@/app/faq/page";
+import { faqs } from "@/app/faq/faq";
 import FaqAccordion from "@/components/faq-accordion";
 import FadeObserverDiv from "@/components/landing/fade-div";
 import { TextShimmer } from "@/components/text/text-shimmer";
@@ -39,4 +39,5 @@ function Faq() {
     </FadeObserverDiv>
   );
 }
+
 export default Faq;
