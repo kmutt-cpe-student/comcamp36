@@ -7,15 +7,15 @@ import FadeObserverDiv from "@/components/landing/fade-div";
 
 const requirements = [
   {
-    imageSrc: "/static/image/free-duck.svg",
+    imageSrc: "/static/image/placeholder/main-char.png",
     text: `นักเรียนที่กำลังศึกษาอยู่ในระดับชั้น\nมัธยมศึกษาปีที่ 4-5 หรือเทียบเท่า\nในปีการศึกษา 2567 (GPAX 3.00 ขึ้นไป)`,
   },
   {
-    imageSrc: "/static/image/free-duck.svg",
+    imageSrc: "/static/image/placeholder/frontman-yellow.png",
     text: `ศึกษาเกี่ยวกับสายวิทยาศาสตร์ คณิตศาสตร์ หรือคอมพิวเตอร์\n(หรือสายอื่น ๆ ที่เกี่ยวข้องกับ\nคอมพิวเตอร์และเทคโนโลยี)`,
   },
   {
-    imageSrc: "/static/image/free-duck.svg",
+    imageSrc: "/static/image/placeholder/vip.png",
     text: `มีความสนใจในด้านคอมพิวเตอร์\nหรือภาควิชาคอมพิวเตอร์\nโดยไม่จำเป็นต้องมีพื้นฐาน\nการเขียนโปรแกรม`,
   },
   {
