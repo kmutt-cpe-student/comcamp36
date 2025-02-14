@@ -5,7 +5,7 @@ import Image from "next/image";
 function Hero() {
   return (
     <FadeObserverDiv
-      className="grid h-screen grid-cols-1 place-items-center items-center justify-center bg-[url(/static/image/hero-bg.svg)] 2xl:grid-cols-2 2xl:pt-0"
+      className="grid h-screen grid-cols-1 place-items-center items-center justify-center bg-[linear-gradient(rgba(255,255,255,0.5),rgba(13,13,13,0.05),rgba(13,13,13,0.1),rgba(13,13,13,1)),url('/static/image/hero-bg.svg')] 2xl:grid-cols-2 2xl:pt-0"
       id="hero"
     >
       <div className="mt-30 flex flex-col items-center px-2 sm:mt-0 md:px-0">
