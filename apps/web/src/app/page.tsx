@@ -1,5 +1,5 @@
-import Navbar from "@/components/Navbar";
 import Footer from "@/components/navigate/footer";
+import Navbar from "@/components/navigate/navbar";
 import dynamic from "next/dynamic";
 
 const Hero = dynamic(() => import("../components/landing/hero"));

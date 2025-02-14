@@ -1,5 +1,5 @@
 import FaqAccordion from "@/components/faq-accordion";
-import Navbar from "@/components/Navbar";
+import Navbar from "@/components/navigate/navbar";
 
 import { TextShimmer } from "@/components/text/text-shimmer";
 import { Accordion } from "@/components/ui/accordion";
