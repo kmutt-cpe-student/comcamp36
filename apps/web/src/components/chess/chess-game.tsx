@@ -1,5 +1,9 @@
 "use client";
 
+import Bishop from "@/components/chess/bishop";
+import Board from "@/components/chess/board";
+import Knight from "@/components/chess/knight";
+import Rook from "@/components/chess/rook";
 import { cn } from "@/libs/utils";
 import {
   DndContext,
@@ -13,10 +17,6 @@ import {
   type DragEndEvent,
 } from "@dnd-kit/core";
 import { useCallback, useMemo, useState, type ReactNode } from "react";
-import Bishop from "./Bishop";
-import Board from "./Board";
-import Knight from "./Knight";
-import Rook from "./Rook";
 
 const BOARD_SIZE = 8;
 
