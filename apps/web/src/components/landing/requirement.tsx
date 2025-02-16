@@ -6,19 +6,19 @@ import { InView } from "@/components/animation/in-view";
 
 const requirements = [
   {
-    imageSrc: "/static/image/placeholder/main-char.png",
+    imageSrc: "/static/image/requirement/1.png",
     text: `นักเรียนที่กำลังศึกษาอยู่ในระดับชั้น\nมัธยมศึกษาปีที่ 4-5 หรือเทียบเท่า\nในปีการศึกษา 2567 (GPAX 3.00 ขึ้นไป)`,
   },
   {
-    imageSrc: "/static/image/placeholder/frontman-yellow.png",
+    imageSrc: "/static/image/requirement/2.png",
     text: `ม.ปลาย ศึกษาในสายวิทยาศาสตร์ คณิตศาสตร์ หรือคอมพิวเตอร์,\nปวช. สาขาคอมพิวเตอร์ธุรกิจ,\nสาขาช่างไฟฟ้ากำลัง (อิเล็กทรอนิกส์),\nสาขาเมคคาทรอนิกส์และหุ่นยนต์\n(หรือสายอื่น ๆ ที่เกี่ยวข้องกับคอมพิวเตอร์และเทคโนโลยี)`,
   },
   {
-    imageSrc: "/static/image/placeholder/vip.png",
+    imageSrc: "/static/image/requirement/3.png",
     text: `มีความสนใจในด้านคอมพิวเตอร์\nหรือภาควิชาคอมพิวเตอร์\nโดยไม่จำเป็นต้องมีพื้นฐาน\nการเขียนโปรแกรม`,
   },
   {
-    imageSrc: "/static/image/free-duck.svg",
+    imageSrc: "/static/image/requirement/4.png",
     text: `ผู้ปกครองอนุญาตให้เข้าร่วมกิจกรรม\nและมีความสะดวกที่จะพักค้างคืน\nเป็นระยะเวลา 5 วัน 4 คืน`,
   },
 ];
