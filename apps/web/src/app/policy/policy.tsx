@@ -1,6 +1,6 @@
 function PrivacyPolicy() {
   return (
-    <div className="flex h-full w-full flex-col gap-2">
+    <div className="font-noto-sans-thai-looped flex h-full w-full flex-col gap-2">
       <Header title="นโยบายความเป็นส่วนตัว" index={1} />
       <Article>
         นโยบายความเป็นส่วนตัว โครงการฝึกอบรมเชิงปฏิบัติการคอมพิวเตอร์ ครั้งที่
