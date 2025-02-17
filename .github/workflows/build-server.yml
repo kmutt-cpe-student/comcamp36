@@ -1,10 +1,14 @@
 name: Build Server Docker Image
+
 on:
   push:
+    branches:
+      - main
     paths:
-      - 'apps/server/**/*'
-      - 'packages/**/*'
-      - '.github/workflows/build-server.yml'
+      - "apps/server/**/*"
+      - "packages/**/*"
+      - ".github/workflows/build-server.yml"
+
 env:
   REGISTRY: ghcr.io
   IMAGE_NAME: ${{ github.repository_owner }}/comcamp36-server
@@ -42,7 +46,7 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
-          
+
       - name: Generate artifact attestation
         uses: actions/attest-build-provenance@v1
         with:
