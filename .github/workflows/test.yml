@@ -29,7 +29,7 @@ jobs:
           echo NEXT_PUBLIC_POSTHOG_KEY="NEXT_PUBLIC_POSTHOG_KEY" >> .env.local
           echo NEXT_PUBLIC_POSTHOG_HOST="NEXT_PUBLIC_POSTHOG_HOST" >> .env.local
           echo NEXT_PUBLIC_BETTER_AUTH_SECRET="NEXT_PUBLIC_BETTER_AUTH_SECRET" >> .env.local
-          echo NEXT_PUBLIC_BETTER_AUTH_URL="NEXT_PUBLIC_BETTER_AUTH_URL" >> .env.local
+          echo NEXT_PUBLIC_BETTER_AUTH_URL="http://localhost:3000" >> .env.local
           echo NEXT_PUBLIC_GOOGLE_OAUTH_CLIENT_ID="NEXT_PUBLIC_GOOGLE_OAUTH_CLIENT_ID" >> .env.local
           echo NEXT_PUBLIC_GOOGLE_OAUTH_CLIENT_SECRET="NEXT_PUBLIC_GOOGLE_OAUTH_CLIENT_SECRET" >> .env.local
           echo SERVER_URL="SERVER_URL" >> .env.local
