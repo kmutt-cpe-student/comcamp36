@@ -270,6 +270,7 @@ function DraggablePiece({
         transition: isDragging
           ? "none"
           : "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
+        filter: isDragging ? "drop-shadow(0 3px 3px rgba(0,0,0,0.12))" : "none",
         cursor: isDragging ? "grabbing" : "grab",
       }}
       {...listeners}
@@ -301,8 +302,8 @@ function DroppableSquare({
       ref={setNodeRef}
       onClick={onClick}
       className={cn(
-        "group flex items-center justify-center transition-colors duration-200",
-        isValid && "cursor-pointer",
+        "group flex items-center justify-center transition-all duration-200 opacity-0",
+        isValid && "cursor-pointer opacity-100",
         shouldShowGrayscale && "backdrop-grayscale bg-black/40",
       )}
     >
