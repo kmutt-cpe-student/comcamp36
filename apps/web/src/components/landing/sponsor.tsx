@@ -8,23 +8,13 @@ function Sponsors() {
       </h2>
       <div className="mx-auto mt-8 flex h-[10rem]">
         <Image
-          style={{ width: "100%", height: "140px" }}
-          width={0}
-          height={0}
-          src="/static/image/kmutt-logo.svg"
-          alt="kmutt logo"
+          style={{ width: "284px", height: "160px" }}
+          width={284}
+          height={160}
+          src="/static/image/kmutt-cpe-logo.png"
+          alt="kmutt cpe logo"
           loading="lazy"
         />
-        <div className="flex justify-center">
-          <Image
-            style={{ width: "100%", height: "120px" }}
-            width={0}
-            height={0}
-            src="/static/image/cpe-logo.svg"
-            alt="cpe logo"
-            loading="lazy"
-          />
-        </div>
       </div>
     </div>
   );

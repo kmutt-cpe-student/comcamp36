@@ -45,7 +45,7 @@ export default function Navbar() {
               style={{ width: "100%", height: "auto", objectFit: "cover" }}
               width={550}
               height={288}
-              src="/static/image/logo.svg"
+              src="/static/image/logo.png"
               alt="ComCamp36Logo"
             />
           </Link>

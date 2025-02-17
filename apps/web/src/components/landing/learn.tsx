@@ -14,7 +14,7 @@ interface LearnProps {
 const LEARNS: LearnProps[] = [
   {
     key: "c",
-    img: "/static/image/placeholder/main-char.png",
+    img: "/static/image/learn/c.png",
     title: "เรียนรู้การเขียนโปรแกรมด้วยภาษา C 💻",
     seconday: "C Programming",
     description:
@@ -24,7 +24,7 @@ const LEARNS: LearnProps[] = [
   },
   {
     key: "web",
-    img: "/static/image/placeholder/gong-yoo.png",
+    img: "/static/image/learn/web.png",
     title: "เรียนรู้การพัฒนาเว็บไซต์ 🌐",
     seconday: "Web Development",
     description:
@@ -36,7 +36,7 @@ const LEARNS: LearnProps[] = [
   },
   {
     key: "game",
-    img: "/static/image/placeholder/circle-guard.png",
+    img: "/static/image/learn/game.png",
     title: "เรียนรู้การพัฒนาเกม 🎮",
     seconday: "Game Development",
     description:
@@ -47,7 +47,7 @@ const LEARNS: LearnProps[] = [
   },
   {
     key: "ai",
-    img: "/static/image/placeholder/redlightgreenlightgirl.png",
+    img: "/static/image/learn/ai.png",
     title: "เรียนรู้วิทยาการข้อมูลและปัญญาประดิษฐ์ 🤖",
     seconday: "AI Development",
     description:
@@ -74,13 +74,13 @@ function Learn() {
             <MagicCard className="w-fit max-w-[65rem] md:w-full">
               <div className="grid gap-4 px-4 py-4 md:grid-cols-[1fr_4fr] md:gap-0">
                 <div className="flex h-full w-full items-center justify-center px-4 pt-4 md:p-0">
-                  <div className="aspect-square w-full overflow-hidden rounded-xl bg-[#231f20] p-6 md:h-[12rem] md:w-fit md:px-0">
+                  <div className="flex aspect-square w-full items-center justify-center overflow-hidden rounded-xl p-6 md:w-fit md:px-0">
                     <Image
-                      style={{ width: "100%", height: "auto" }}
                       src={learn.img}
                       alt="mascot"
-                      width={250}
-                      height={250}
+                      width={227}
+                      height={227}
+                      className="object-contain"
                     />
                   </div>
                 </div>

@@ -9,7 +9,7 @@ function Footer() {
             style={{ width: "100%", height: "auto" }}
             width={550}
             height={288}
-            src="/static/image/logo.svg"
+            src="/static/image/logo.png"
             alt="ComCamp36Logo"
             priority
           />
