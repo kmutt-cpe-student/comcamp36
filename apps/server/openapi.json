@@ -1,52 +1,6 @@
 {
   "openapi": "3.0.0",
-  "paths": {
-    "/": {
-      "get": {
-        "operationId": "AppController_getHello",
-        "parameters": [],
-        "responses": {
-          "200": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": { "$ref": "#/components/schemas/GetHelloResponseDto" }
-              }
-            }
-          }
-        },
-        "tags": ["App"]
-      },
-      "post": {
-        "operationId": "AppController_checkTel",
-        "parameters": [],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": { "$ref": "#/components/schemas/CheckTelPayloadDto" }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/CheckTelResponseDto"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "tags": ["App"]
-      }
-    }
-  },
+  "paths": {},
   "info": {
     "title": "Comcamp36 API",
     "description": "Our lovely reference for Comcamp36 Website",
@@ -55,26 +9,5 @@
   },
   "tags": [],
   "servers": [],
-  "components": {
-    "schemas": {
-      "GetHelloResponseDto": {
-        "type": "object",
-        "properties": { "id": { "type": "string" } },
-        "required": ["id"]
-      },
-      "CheckTelPayloadDto": {
-        "type": "object",
-        "properties": { "tel": { "type": "string" } },
-        "required": ["tel"]
-      },
-      "CheckTelResponseDto": {
-        "type": "object",
-        "properties": {
-          "tel": { "type": "string" },
-          "check": { "type": "boolean" }
-        },
-        "required": ["tel", "check"]
-      }
-    }
-  }
+  "components": { "schemas": {} }
 }

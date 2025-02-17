@@ -8,7 +8,7 @@
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "lint-staged": "lint-staged",
     "prepare": "husky",
-    "with-env": "dotenv -e .env.local --",
+    "with-env": "dotenv -e .env --",
     "db:start": "pnpm supabase start",
     "db:stop": "pnpm supabase stop"
   },
