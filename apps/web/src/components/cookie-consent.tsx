@@ -12,7 +12,7 @@ export default function CookieConsent({ demo = false }) {
   const accept = () => {
     setIsOpen(false);
     document.cookie =
-      "cookieConsent=true; expires=Fri, 31 Dec 9999 23:59:59 GMT";
+      "cookie.consent=true; expires=Fri, 31 Dec 9999 23:59:59 GMT";
     setTimeout(() => {
       setHide(true);
     }, 700);
@@ -21,7 +21,7 @@ export default function CookieConsent({ demo = false }) {
   useEffect(() => {
     try {
       setIsOpen(true);
-      if (document.cookie.includes("cookieConsent=true")) {
+      if (document.cookie.includes("cookie.consent=true")) {
         if (!demo) {
           setIsOpen(false);
           setTimeout(() => {

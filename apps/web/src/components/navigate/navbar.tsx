@@ -11,6 +11,7 @@ import {
   DrawerTitle,
   DrawerTrigger,
 } from "@/components/ui/drawer";
+import SignInButton from "../sign-in-button";
 
 const NAVBARITEMS = [
   {
@@ -50,7 +51,7 @@ export default function Navbar() {
             />
           </Link>
         </div>
-        <div className="flex h-full items-center">
+        <div className="flex h-full items-center gap-4">
           <div className="hidden flex-row gap-4 text-xl xl:flex">
             {NAVBARITEMS.map((item) => (
               <a
@@ -90,6 +91,8 @@ export default function Navbar() {
               </div>
             </DrawerContent>
           </Drawer>
+
+          <SignInButton />
         </div>
       </div>
     </div>
