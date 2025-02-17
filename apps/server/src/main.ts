@@ -19,14 +19,16 @@ async function bootstrap() {
 
   fs.writeFileSync('./openapi.json', JSON.stringify(documentFactory()));
 
-  app.use(
-    '/reference',
-    apiReference({
-      spec: {
-        content: documentFactory,
-      },
-    }),
-  );
+  if (process.env.NODE_ENV !== 'production') {
+    app.use(
+      '/reference',
+      apiReference({
+        spec: {
+          content: documentFactory,
+        },
+      }),
+    );
+  }
 
   app.useLogger(app.get(Logger));
 

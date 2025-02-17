@@ -9,5 +9,11 @@ export const auth = betterAuth({
       clientSecret: env.NEXT_PUBLIC_GOOGLE_OAUTH_CLIENT_SECRET,
     },
   },
+  advanced: {
+    crossSubDomainCookies: {
+      enabled: true,
+      domain: "api.comcamp.io",
+    },
+  },
   plugins: [openAPI()],
 });
