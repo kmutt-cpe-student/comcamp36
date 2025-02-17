@@ -36,6 +36,8 @@ export default function PolicyConsent({ demo = false }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  const [check, setCheck] = useState<boolean>(false);
+
   return (
     <div
       className={cn(
@@ -56,13 +58,17 @@ export default function PolicyConsent({ demo = false }) {
 
           <div className="flex h-fit w-full justify-between">
             <div className="flex items-center gap-2">
-              <Checkbox />
+              <Checkbox
+                checked={check}
+                onCheckedChange={(checked) => setCheck(checked === true)}
+              />
               <small>รับทราบและให้ความยินยอมตามนโยบายความเป็นส่วนตัว</small>
             </div>
 
             <button
               onClick={accept}
               className="hover:text-vermilion h-fit w-fit cursor-pointer py-5 transition-colors"
+              disabled={!check}
             >
               ยอมรับ
             </button>
