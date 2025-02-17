@@ -244,7 +244,7 @@ const isEndSquare = (pos: Position) => {
   return END_SQUARES.has(notation);
 };
 
-const DraggablePiece = ({
+function DraggablePiece({
   id,
   position,
   children,
@@ -252,7 +252,7 @@ const DraggablePiece = ({
   id: string;
   position: Position;
   children: ReactNode;
-}) => {
+}) {
   const { attributes, listeners, setNodeRef, transform, isDragging } =
     useDraggable({
       id,
@@ -279,9 +279,9 @@ const DraggablePiece = ({
       {children}
     </div>
   );
-};
+}
 
-const DroppableSquare = ({
+function DroppableSquare({
   id,
   onClick,
   isValid,
@@ -291,7 +291,7 @@ const DroppableSquare = ({
   onClick: () => void;
   isValid: boolean;
   shouldShowGrayscale: boolean;
-}) => {
+}) {
   const { setNodeRef, isOver } = useDroppable({
     id,
   });
@@ -316,9 +316,9 @@ const DroppableSquare = ({
       )}
     </div>
   );
-};
+}
 
-const ChessGame = () => {
+function ChessGame() {
   const initialState = useMemo<GameState>(
     () => ({
       currentPosition: fromChessNotation("b1"),
@@ -571,6 +571,6 @@ const ChessGame = () => {
       </div>
     </DndContext>
   );
-};
+}
 
 export default ChessGame;
