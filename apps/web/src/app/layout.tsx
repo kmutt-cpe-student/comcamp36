@@ -31,7 +31,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${gameOfSquid.variable} ${prompt.className} ${notoSansThaiLooped.className} ${gemunuLibre.className}`}
+        className={`${gameOfSquid.variable} ${prompt.variable} ${notoSansThaiLooped.variable} ${gemunuLibre.variable}`}
       >
         <TailwindIndicator />
         <QueryProvider>
