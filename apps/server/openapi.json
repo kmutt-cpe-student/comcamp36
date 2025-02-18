@@ -1,1 +1,157 @@
-{"openapi":"3.0.0","paths":{"/register":{"get":{"operationId":"RegisterController_register","parameters":[],"responses":{"200":{"description":""}},"tags":["Register"]}},"/register/files":{"post":{"operationId":"RegisterController_registerFile","parameters":[],"requestBody":{"required":true,"content":{"multipart/form-data":{"schema":{"$ref":"#/components/schemas/RegsiterFilesPayloadDto"}}}},"responses":{"200":{"description":""}},"tags":["Register"]}}},"info":{"title":"Comcamp36 API","description":"Our lovely reference for Comcamp36 Website","version":"1.0","contact":{}},"tags":[],"servers":[],"components":{"schemas":{"RegsiterFilesPayloadDto":{"type":"object","properties":{"face_photo":{"type":"string","format":"binary","additionalProperties":false},"thai_nationalid_copy":{"type":"string","format":"binary","additionalProperties":false},"parent_permission":{"type":"string","format":"binary","additionalProperties":false},"p1":{"type":"string","format":"binary","additionalProperties":false},"p7":{"type":"string","format":"binary","additionalProperties":false}},"required":["face_photo","thai_nationalid_copy","parent_permission","p1","p7"]}}}}
+{
+  "openapi": "3.0.0",
+  "paths": {
+    "/register": {
+      "get": {
+        "operationId": "RegisterController_register",
+        "parameters": [],
+        "responses": { "200": { "description": "" } },
+        "tags": ["Register"]
+      }
+    },
+    "/register/info": {
+      "post": {
+        "operationId": "RegisterController_registerInfo",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RegisterInfoPayloadDto"
+              }
+            }
+          }
+        },
+        "responses": { "200": { "description": "" } },
+        "tags": ["Register"]
+      }
+    },
+    "/register/files": {
+      "post": {
+        "operationId": "RegisterController_registerFile",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/RegsiterFilesPayloadDto"
+              }
+            }
+          }
+        },
+        "responses": { "200": { "description": "" } },
+        "tags": ["Register"]
+      }
+    }
+  },
+  "info": {
+    "title": "Comcamp36 API",
+    "description": "Our lovely reference for Comcamp36 Website",
+    "version": "1.0",
+    "contact": {}
+  },
+  "tags": [],
+  "servers": [],
+  "components": {
+    "schemas": {
+      "RegisterInfoPayloadDto": {
+        "type": "object",
+        "properties": {
+          "fullname": { "type": "string" },
+          "age": { "type": "number" },
+          "birth": { "type": "string", "format": "date" },
+          "religion": { "type": "string" },
+          "blood_group": { "type": "string" },
+          "graduation": { "type": "string" },
+          "school": { "type": "string" },
+          "course": { "type": "string" },
+          "telephone": { "type": "string" },
+          "email": { "type": "string" },
+          "medical_coverage": { "type": "string" },
+          "chronic_disease": { "type": "string" },
+          "self_medicine": { "type": "string" },
+          "drug_allergic": { "type": "string" },
+          "food_allergic": { "type": "string" },
+          "prefer_food": { "type": "string" },
+          "address": { "type": "string" },
+          "home_phone_tel": { "type": "string" },
+          "comcamp_attendance": { "type": "boolean" },
+          "size": { "type": "string" },
+          "everyday_attendence": { "type": "boolean" },
+          "has_laptop": { "type": "boolean" },
+          "travel": { "type": "string" },
+          "parent_fullname": { "type": "string" },
+          "parent_relation": { "type": "string" },
+          "parent_phone": { "type": "string" }
+        },
+        "required": [
+          "fullname",
+          "age",
+          "birth",
+          "religion",
+          "blood_group",
+          "graduation",
+          "school",
+          "course",
+          "telephone",
+          "email",
+          "medical_coverage",
+          "chronic_disease",
+          "self_medicine",
+          "drug_allergic",
+          "food_allergic",
+          "prefer_food",
+          "address",
+          "home_phone_tel",
+          "comcamp_attendance",
+          "size",
+          "everyday_attendence",
+          "has_laptop",
+          "travel",
+          "parent_fullname",
+          "parent_relation",
+          "parent_phone"
+        ]
+      },
+      "RegsiterFilesPayloadDto": {
+        "type": "object",
+        "properties": {
+          "face_photo": {
+            "type": "string",
+            "format": "binary",
+            "additionalProperties": false
+          },
+          "thai_nationalid_copy": {
+            "type": "string",
+            "format": "binary",
+            "additionalProperties": false
+          },
+          "parent_permission": {
+            "type": "string",
+            "format": "binary",
+            "additionalProperties": false
+          },
+          "p1": {
+            "type": "string",
+            "format": "binary",
+            "additionalProperties": false
+          },
+          "p7": {
+            "type": "string",
+            "format": "binary",
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "face_photo",
+          "thai_nationalid_copy",
+          "parent_permission",
+          "p1",
+          "p7"
+        ]
+      }
+    }
+  }
+}

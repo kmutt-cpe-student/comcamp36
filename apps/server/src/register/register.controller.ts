@@ -7,13 +7,25 @@ import {
 } from '@nestjs/common';
 import { Get } from '@nestjs/common';
 import { ApiConsumes, ApiResponse } from '@nestjs/swagger';
-import { RegsiterFilesPayloadDto } from './dto/register.dto';
+import {
+  RegisterInfoPayloadDto,
+  RegsiterFilesPayloadDto,
+} from './dto/register.dto';
 import { FileFieldsInterceptor } from '@nestjs/platform-express';
 
 @Controller('register')
 export class RegisterController {
   @Get() register() {
     return 'Register endpoint';
+  }
+
+  @Post('/info')
+  @ApiResponse({
+    status: 200,
+  })
+  async registerInfo(@Body() body: RegisterInfoPayloadDto) {
+    console.log(body);
+    return 'register info endpoint';
   }
 
   @Post('/files')
