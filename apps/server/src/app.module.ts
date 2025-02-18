@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { LoggerModule } from 'nestjs-pino';
+import { RegisterModule } from './register/register.module';
 
 @Module({
   imports: [
@@ -23,6 +24,7 @@ import { LoggerModule } from 'nestjs-pino';
         },
       },
     }),
+    RegisterModule,
   ],
   controllers: [AppController],
   providers: [AppService],
