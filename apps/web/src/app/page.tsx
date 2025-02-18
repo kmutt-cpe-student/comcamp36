@@ -13,7 +13,7 @@ const Sponsors = dynamic(() => import("../components/landing/sponsor"));
 
 export default function Home() {
   return (
-    <div className="bg-charcoal-1 absolute h-fit w-full overflow-x-hidden scroll-smooth">
+    <div className="bg-charcoal-1 absolute h-fit w-full overflow-x-hidden">
       <div className="absolute z-[100]">
         <Navbar />
       </div>
