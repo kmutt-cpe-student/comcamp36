@@ -17,7 +17,7 @@ export class UpdateUserDto {
   fullname?: string;
 
   @ApiProperty({
-    type: 'string',
+    type: 'number',
     required: false,
   })
   @IsNumber()
@@ -25,7 +25,7 @@ export class UpdateUserDto {
   age?: number;
 
   @ApiProperty({
-    type: 'string',
+    type: 'number',
     required: false,
   })
   @IsDate()
@@ -153,7 +153,7 @@ export class UpdateUserDto {
   home_phone_tel?: string;
 
   @ApiProperty({
-    type: 'string',
+    type: 'boolean',
     required: false,
   })
   @IsBoolean()
@@ -169,7 +169,7 @@ export class UpdateUserDto {
   shirt_size?: string;
 
   @ApiProperty({
-    type: 'string',
+    type: 'boolean',
     required: false,
   })
   @IsBoolean()
@@ -177,7 +177,7 @@ export class UpdateUserDto {
   everyday_attendence?: boolean;
 
   @ApiProperty({
-    type: 'string',
+    type: 'boolean',
     required: false,
   })
   @IsBoolean()
@@ -217,7 +217,7 @@ export class UpdateUserDto {
   parent_phone?: string;
 
   @ApiProperty({
-    type: 'string',
+    type: 'boolean',
     required: false,
   })
   @IsBoolean()

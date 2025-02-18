@@ -37,7 +37,7 @@ model User {
   parent_fullname     String?
   parent_relation     String?
   parent_phone        String?
-  has_submit_answer   Boolean?
+  has_submit_answer   Boolean @default(false)
   file                File?
   answer_regis        AnswerRegis?
   answer_academic     AnswerAcademic?
@@ -78,7 +78,7 @@ model AnswerAcademic {
   userId         String @unique
   algo_answer    String?
   chess_notation String?
-  chess_score    String?
+  chess_score    Int?
 
   user User @relation(fields: [userId], references: [id])
 

@@ -15,14 +15,14 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
-  "/register": {
+  "/auth": {
     parameters: {
       query?: never;
       header?: never;
       path?: never;
       cookie?: never;
     };
-    get: operations["RegisterController_register"];
+    get: operations["AuthController_googleAuth"];
     put?: never;
     post?: never;
     delete?: never;
@@ -31,64 +31,16 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
-  "/register/info": {
+  "/auth/google-redirect": {
     parameters: {
       query?: never;
       header?: never;
       path?: never;
       cookie?: never;
     };
-    get?: never;
+    get: operations["AuthController_googleAuthRedirect"];
     put?: never;
-    post: operations["RegisterController_registerInfo"];
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  "/register/files": {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    get?: never;
-    put?: never;
-    post: operations["RegisterController_registerFile"];
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  "/register/regis": {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    get?: never;
-    put?: never;
-    post: operations["RegisterController_registerRegis"];
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  "/register/academic": {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    get?: never;
-    put?: never;
-    post: operations["RegisterController_registerAcademic"];
+    post?: never;
     delete?: never;
     options?: never;
     head?: never;
@@ -127,52 +79,134 @@ export interface paths {
     patch: operations["UsersController_update"];
     trace?: never;
   };
+  "/files/upload": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    post: operations["FilesController_uploadFile"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/answer/regis": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get: operations["AnswerController_findAllRegis"];
+    put?: never;
+    post: operations["AnswerController_createRegis"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/answer/regis{id}": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get: operations["AnswerController_findOneRegis"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch: operations["AnswerController_updateRegis"];
+    trace?: never;
+  };
+  "/answer/academic": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get: operations["AnswerController_findAllAcademic"];
+    put?: never;
+    post: operations["AnswerController_createAcademic"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/answer/academic{id}": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get: operations["AnswerController_findAcademic"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch: operations["AnswerController_updateAcademic"];
+    trace?: never;
+  };
 }
 export type webhooks = Record<string, never>;
 export interface components {
   schemas: {
-    RegisterInfoPayloadDto: {
+    CreateUserDto: {
+      google_id: string;
+      email: string;
+    };
+    UpdateUserDto: {
       fullname?: string;
       age?: number;
-      /** Format: date */
-      birth?: string;
+      birth?: number;
+      gender?: string;
       religion?: string;
       blood_group?: string;
       graduation?: string;
       school?: string;
       course?: string;
       telephone?: string;
-      email?: string;
       medical_coverage?: string;
-      chronic_disease?: string;
+      chronic_diseas?: string;
       self_medicine?: string;
       drug_allergic?: string;
       food_allergic?: string;
-      prefer_food?: string;
+      perfer_food?: string;
       address?: string;
       home_phone_tel?: string;
       comcamp_attendance?: boolean;
-      size?: string;
+      shirt_size?: string;
       everyday_attendence?: boolean;
       has_laptop?: boolean;
       travel?: string;
       parent_fullname?: string;
       parent_relation?: string;
       parent_phone?: string;
+      has_submit_answer?: boolean;
     };
-    RegsiterFilesPayloadDto: {
-      /** Format: binary */
-      face_photo?: File;
-      /** Format: binary */
-      thai_nationalid_copy?: File;
-      /** Format: binary */
-      parent_permission?: File;
-      /** Format: binary */
-      p1?: File;
-      /** Format: binary */
-      p7?: File;
+    CreateAnswerRegisDto: {
+      userId: string;
+      answer1: string;
+      answer2: string;
+      answer3: string;
+      answer4: string;
+      answer5: string;
+      answer6_1: string;
+      answer6_2: string;
     };
-    RegisterRegisPayloadDto: {
+    UpdateAnswerRegisDto: {
       answer1?: string;
       answer2?: string;
       answer3?: string;
@@ -181,44 +215,16 @@ export interface components {
       answer6_1?: string;
       answer6_2?: string;
     };
-    RegisterAcademicPayloadDto: {
+    CreateAnswerAcademicDto: {
+      userId: string;
+      algo_answer: string;
+      chess_notation: string;
+      chess_score: number;
+    };
+    UpdateAnswerAcademicDto: {
       algo_answer?: string;
       chess_notation?: string;
-      chess_score?: string;
-    };
-    CreateUserDto: {
-      google_id: string;
-      email: string;
-    };
-    UpdateUserDto: {
-      fullname: string;
-      age: number;
-      /** Format: date-time */
-      birth: string;
-      gender: string;
-      religion: string;
-      blood_group: string;
-      graduation: string;
-      school: string;
-      course: string;
-      telephone: string;
-      medical_coverage: string;
-      chronic_diseas: string;
-      self_medicine: string;
-      drug_allergic: string;
-      food_allergic: string;
-      perfer_food: string;
-      address: string;
-      home_phone_tel: string;
-      comcamp_attendance: boolean;
-      size: string;
-      everyday_attendence: boolean;
-      has_laptop: boolean;
-      travel: string;
-      parent_fullname: string;
-      parent_relation: string;
-      parent_phone: string;
-      has_submit_answer: boolean;
+      chess_score?: number;
     };
   };
   responses: never;
@@ -246,7 +252,7 @@ export interface operations {
       };
     };
   };
-  RegisterController_register: {
+  AuthController_googleAuth: {
     parameters: {
       query?: never;
       header?: never;
@@ -263,81 +269,14 @@ export interface operations {
       };
     };
   };
-  RegisterController_registerInfo: {
+  AuthController_googleAuthRedirect: {
     parameters: {
       query?: never;
       header?: never;
       path?: never;
       cookie?: never;
     };
-    requestBody: {
-      content: {
-        "application/json": components["schemas"]["RegisterInfoPayloadDto"];
-      };
-    };
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-    };
-  };
-  RegisterController_registerFile: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody: {
-      content: {
-        "multipart/form-data": components["schemas"]["RegsiterFilesPayloadDto"];
-      };
-    };
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-    };
-  };
-  RegisterController_registerRegis: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody: {
-      content: {
-        "application/json": components["schemas"]["RegisterRegisPayloadDto"];
-      };
-    };
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-    };
-  };
-  RegisterController_registerAcademic: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody: {
-      content: {
-        "application/json": components["schemas"]["RegisterAcademicPayloadDto"];
-      };
-    };
+    requestBody?: never;
     responses: {
       200: {
         headers: {
@@ -377,7 +316,7 @@ export interface operations {
       };
     };
     responses: {
-      201: {
+      200: {
         headers: {
           [name: string]: unknown;
         };
@@ -435,6 +374,183 @@ export interface operations {
     requestBody: {
       content: {
         "application/json": components["schemas"]["UpdateUserDto"];
+      };
+    };
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  FilesController_uploadFile: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  AnswerController_findAllRegis: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  AnswerController_createRegis: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody: {
+      content: {
+        "application/json": components["schemas"]["CreateAnswerRegisDto"];
+      };
+    };
+    responses: {
+      201: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  AnswerController_findOneRegis: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        id: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  AnswerController_updateRegis: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        id: string;
+      };
+      cookie?: never;
+    };
+    requestBody: {
+      content: {
+        "application/json": components["schemas"]["UpdateAnswerRegisDto"];
+      };
+    };
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  AnswerController_findAllAcademic: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  AnswerController_createAcademic: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody: {
+      content: {
+        "application/json": components["schemas"]["CreateAnswerAcademicDto"];
+      };
+    };
+    responses: {
+      201: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  AnswerController_findAcademic: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        id: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  AnswerController_updateAcademic: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        id: string;
+      };
+      cookie?: never;
+    };
+    requestBody: {
+      content: {
+        "application/json": components["schemas"]["UpdateAnswerAcademicDto"];
       };
     };
     responses: {
