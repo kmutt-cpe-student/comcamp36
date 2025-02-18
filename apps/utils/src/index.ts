@@ -39,18 +39,14 @@ watcher.on("change", async (path, stats) => {
 
 async function generateType() {
   const ast = await openapiTS(new URL("http://localhost:4000/api-json"), {
-    transform(schemaObject) {
+    transform(schemaObject, _metadata) {
       if (schemaObject.format === "binary") {
         return schemaObject.nullable
           ? ts.factory.createUnionTypeNode([FILE, NULL])
           : FILE;
       }
-      if (schemaObject.format === "date-time") {
-        return schemaObject.nullable
-          ? ts.factory.createUnionTypeNode([DATE, NULL])
-          : DATE;
-      }
     },
+
     additionalProperties: false,
   });
   const contents = astToString(ast);
