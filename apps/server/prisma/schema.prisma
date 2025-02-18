@@ -30,13 +30,14 @@ model User {
   address             String?
   home_phone_tel      String?
   comcamp_attendance  Boolean?
-  size                String?
+  shirt_size                String?
   everyday_attendence Boolean?
   has_laptop          Boolean?
   travel              String?
   parent_fullname     String?
   parent_relation     String?
   parent_phone        String?
+  has_submit_answer   Boolean?
   file                File?
   answer_regis        AnswerRegis?
   answer_academic     AnswerAcademic?

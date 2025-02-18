@@ -1,1 +1,165 @@
-{"openapi":"3.0.0","paths":{"/":{"get":{"operationId":"AppController_getHello","parameters":[],"responses":{"200":{"description":""}},"tags":["App"]}}},"info":{"title":"Comcamp36 API","description":"Our lovely reference for Comcamp36 Website","version":"1.0","contact":{}},"tags":[],"servers":[],"components":{"schemas":{}}}
+{
+  "openapi": "3.0.0",
+  "paths": {
+    "/": {
+      "get": {
+        "operationId": "AppController_getHello",
+        "parameters": [],
+        "responses": { "200": { "description": "" } },
+        "tags": ["App"]
+      }
+    },
+    "/users": {
+      "post": {
+        "operationId": "UsersController_create",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/CreateUserDto" }
+            }
+          }
+        },
+        "responses": { "201": { "description": "" } },
+        "tags": ["Users"]
+      },
+      "get": {
+        "operationId": "UsersController_findAll",
+        "parameters": [],
+        "responses": { "200": { "description": "" } },
+        "tags": ["Users"]
+      }
+    },
+    "/users/{id}": {
+      "get": {
+        "operationId": "UsersController_findOne",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": { "200": { "description": "" } },
+        "tags": ["Users"]
+      },
+      "patch": {
+        "operationId": "UsersController_update",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/UpdateUserDto" }
+            }
+          }
+        },
+        "responses": { "200": { "description": "" } },
+        "tags": ["Users"]
+      },
+      "delete": {
+        "operationId": "UsersController_remove",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": { "200": { "description": "" } },
+        "tags": ["Users"]
+      }
+    }
+  },
+  "info": {
+    "title": "Comcamp36 API",
+    "description": "Our lovely reference for Comcamp36 Website",
+    "version": "1.0",
+    "contact": {}
+  },
+  "tags": [],
+  "servers": [],
+  "components": {
+    "schemas": {
+      "CreateUserDto": {
+        "type": "object",
+        "properties": {
+          "google_id": { "type": "string" },
+          "email": { "type": "string" }
+        },
+        "required": ["google_id", "email"]
+      },
+      "UpdateUserDto": {
+        "type": "object",
+        "properties": {
+          "fullname": { "type": "string" },
+          "age": { "type": "number" },
+          "birth": { "format": "date-time", "type": "string" },
+          "gender": { "type": "string" },
+          "religion": { "type": "string" },
+          "blood_group": { "type": "string" },
+          "graduation": { "type": "string" },
+          "school": { "type": "string" },
+          "course": { "type": "string" },
+          "telephone": { "type": "string" },
+          "medical_coverage": { "type": "string" },
+          "chronic_diseas": { "type": "string" },
+          "self_medicine": { "type": "string" },
+          "drug_allergic": { "type": "string" },
+          "food_allergic": { "type": "string" },
+          "perfer_food": { "type": "string" },
+          "address": { "type": "string" },
+          "home_phone_tel": { "type": "string" },
+          "comcamp_attendance": { "type": "boolean" },
+          "size": { "type": "string" },
+          "everyday_attendence": { "type": "boolean" },
+          "has_laptop": { "type": "boolean" },
+          "travel": { "type": "string" },
+          "parent_fullname": { "type": "string" },
+          "parent_relation": { "type": "string" },
+          "parent_phone": { "type": "string" },
+          "has_submit_answer": { "type": "boolean" }
+        },
+        "required": [
+          "fullname",
+          "age",
+          "birth",
+          "gender",
+          "religion",
+          "blood_group",
+          "graduation",
+          "school",
+          "course",
+          "telephone",
+          "medical_coverage",
+          "chronic_diseas",
+          "self_medicine",
+          "drug_allergic",
+          "food_allergic",
+          "perfer_food",
+          "address",
+          "home_phone_tel",
+          "comcamp_attendance",
+          "size",
+          "everyday_attendence",
+          "has_laptop",
+          "travel",
+          "parent_fullname",
+          "parent_relation",
+          "parent_phone",
+          "has_submit_answer"
+        ]
+      }
+    }
+  }
+}
