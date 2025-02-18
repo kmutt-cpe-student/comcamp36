@@ -2,11 +2,15 @@ import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { LoggerModule } from 'nestjs-pino';
-import { RegisterModule } from './register/register.module';
 import { UsersModule } from './users/users.module';
+import { FilesModule } from './files/files.module';
+import { ConfigModule } from '@nestjs/config';
+import { PrismaModule } from './prisma/prisma.module';
+import { AnswerModule } from './answer/answer.module';
 
 @Module({
   imports: [
+    ConfigModule.forRoot(),
     LoggerModule.forRoot({
       pinoHttp: {
         transport: {
@@ -25,8 +29,10 @@ import { UsersModule } from './users/users.module';
         },
       },
     }),
-    RegisterModule,
+    PrismaModule,
     UsersModule,
+    FilesModule,
+    AnswerModule,
   ],
   controllers: [AppController],
   providers: [AppService],

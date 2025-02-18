@@ -9,86 +9,6 @@
         "tags": ["App"]
       }
     },
-    "/register": {
-      "get": {
-        "operationId": "RegisterController_register",
-        "parameters": [],
-        "responses": { "200": { "description": "" } },
-        "tags": ["Register"]
-      }
-    },
-    "/register/info": {
-      "post": {
-        "operationId": "RegisterController_registerInfo",
-        "parameters": [],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/RegisterInfoPayloadDto"
-              }
-            }
-          }
-        },
-        "responses": { "200": { "description": "" } },
-        "tags": ["Register"]
-      }
-    },
-    "/register/files": {
-      "post": {
-        "operationId": "RegisterController_registerFile",
-        "parameters": [],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "multipart/form-data": {
-              "schema": {
-                "$ref": "#/components/schemas/RegsiterFilesPayloadDto"
-              }
-            }
-          }
-        },
-        "responses": { "200": { "description": "" } },
-        "tags": ["Register"]
-      }
-    },
-    "/register/regis": {
-      "post": {
-        "operationId": "RegisterController_registerRegis",
-        "parameters": [],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/RegisterRegisPayloadDto"
-              }
-            }
-          }
-        },
-        "responses": { "200": { "description": "" } },
-        "tags": ["Register"]
-      }
-    },
-    "/register/academic": {
-      "post": {
-        "operationId": "RegisterController_registerAcademic",
-        "parameters": [],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/RegisterAcademicPayloadDto"
-              }
-            }
-          }
-        },
-        "responses": { "200": { "description": "" } },
-        "tags": ["Register"]
-      }
-    },
     "/users": {
       "post": {
         "operationId": "UsersController_create",
@@ -101,7 +21,7 @@
             }
           }
         },
-        "responses": { "201": { "description": "" } },
+        "responses": { "200": { "description": "" } },
         "tags": ["Users"]
       },
       "get": {
@@ -159,6 +79,14 @@
         "responses": { "200": { "description": "" } },
         "tags": ["Users"]
       }
+    },
+    "/files/upload": {
+      "post": {
+        "operationId": "FilesController_uploadFile",
+        "parameters": [],
+        "responses": { "200": { "description": "" } },
+        "tags": ["Files"]
+      }
     }
   },
   "info": {
@@ -171,87 +99,6 @@
   "servers": [],
   "components": {
     "schemas": {
-      "RegisterInfoPayloadDto": {
-        "type": "object",
-        "properties": {
-          "fullname": { "type": "string" },
-          "age": { "type": "number" },
-          "birth": { "type": "string", "format": "date" },
-          "religion": { "type": "string" },
-          "blood_group": { "type": "string" },
-          "graduation": { "type": "string" },
-          "school": { "type": "string" },
-          "course": { "type": "string" },
-          "telephone": { "type": "string" },
-          "email": { "type": "string" },
-          "medical_coverage": { "type": "string" },
-          "chronic_disease": { "type": "string" },
-          "self_medicine": { "type": "string" },
-          "drug_allergic": { "type": "string" },
-          "food_allergic": { "type": "string" },
-          "prefer_food": { "type": "string" },
-          "address": { "type": "string" },
-          "home_phone_tel": { "type": "string" },
-          "comcamp_attendance": { "type": "boolean" },
-          "size": { "type": "string" },
-          "everyday_attendence": { "type": "boolean" },
-          "has_laptop": { "type": "boolean" },
-          "travel": { "type": "string" },
-          "parent_fullname": { "type": "string" },
-          "parent_relation": { "type": "string" },
-          "parent_phone": { "type": "string" }
-        }
-      },
-      "RegsiterFilesPayloadDto": {
-        "type": "object",
-        "properties": {
-          "face_photo": {
-            "type": "string",
-            "format": "binary",
-            "additionalProperties": false
-          },
-          "thai_nationalid_copy": {
-            "type": "string",
-            "format": "binary",
-            "additionalProperties": false
-          },
-          "parent_permission": {
-            "type": "string",
-            "format": "binary",
-            "additionalProperties": false
-          },
-          "p1": {
-            "type": "string",
-            "format": "binary",
-            "additionalProperties": false
-          },
-          "p7": {
-            "type": "string",
-            "format": "binary",
-            "additionalProperties": false
-          }
-        }
-      },
-      "RegisterRegisPayloadDto": {
-        "type": "object",
-        "properties": {
-          "answer1": { "type": "string" },
-          "answer2": { "type": "string" },
-          "answer3": { "type": "string" },
-          "answer4": { "type": "string" },
-          "answer5": { "type": "string" },
-          "answer6_1": { "type": "string" },
-          "answer6_2": { "type": "string" }
-        }
-      },
-      "RegisterAcademicPayloadDto": {
-        "type": "object",
-        "properties": {
-          "algo_answer": { "type": "string" },
-          "chess_notation": { "type": "string" },
-          "chess_score": { "type": "string" }
-        }
-      },
       "CreateUserDto": {
         "type": "object",
         "properties": {
@@ -264,8 +111,8 @@
         "type": "object",
         "properties": {
           "fullname": { "type": "string" },
-          "age": { "type": "number" },
-          "birth": { "format": "date-time", "type": "string" },
+          "age": { "type": "string" },
+          "birth": { "type": "string" },
           "gender": { "type": "string" },
           "religion": { "type": "string" },
           "blood_group": { "type": "string" },
@@ -281,45 +128,16 @@
           "perfer_food": { "type": "string" },
           "address": { "type": "string" },
           "home_phone_tel": { "type": "string" },
-          "comcamp_attendance": { "type": "boolean" },
-          "size": { "type": "string" },
-          "everyday_attendence": { "type": "boolean" },
-          "has_laptop": { "type": "boolean" },
+          "comcamp_attendance": { "type": "string" },
+          "shirt_size": { "type": "string" },
+          "everyday_attendence": { "type": "string" },
+          "has_laptop": { "type": "string" },
           "travel": { "type": "string" },
           "parent_fullname": { "type": "string" },
           "parent_relation": { "type": "string" },
           "parent_phone": { "type": "string" },
-          "has_submit_answer": { "type": "boolean" }
-        },
-        "required": [
-          "fullname",
-          "age",
-          "birth",
-          "gender",
-          "religion",
-          "blood_group",
-          "graduation",
-          "school",
-          "course",
-          "telephone",
-          "medical_coverage",
-          "chronic_diseas",
-          "self_medicine",
-          "drug_allergic",
-          "food_allergic",
-          "perfer_food",
-          "address",
-          "home_phone_tel",
-          "comcamp_attendance",
-          "size",
-          "everyday_attendence",
-          "has_laptop",
-          "travel",
-          "parent_fullname",
-          "parent_relation",
-          "parent_phone",
-          "has_submit_answer"
-        ]
+          "has_submit_answer": { "type": "string" }
+        }
       }
     }
   }

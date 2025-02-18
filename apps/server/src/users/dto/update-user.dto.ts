@@ -8,138 +8,219 @@ import {
 } from 'class-validator';
 
 export class UpdateUserDto {
-  @ApiProperty()
+  @ApiProperty({
+    type: 'string',
+    required: false,
+  })
   @IsString()
   @IsOptional()
-  fullname: string;
+  fullname?: string;
 
-  @ApiProperty()
+  @ApiProperty({
+    type: 'string',
+    required: false,
+  })
   @IsNumber()
   @IsOptional()
-  age: number;
+  age?: number;
 
-  @ApiProperty()
+  @ApiProperty({
+    type: 'string',
+    required: false,
+  })
   @IsDate()
   @IsOptional()
-  birth: Date;
+  birth?: Date;
 
-  @ApiProperty()
+  @ApiProperty({
+    type: 'string',
+    required: false,
+  })
   @IsString()
   @IsOptional()
-  gender: string;
+  gender?: string;
 
-  @ApiProperty()
+  @ApiProperty({
+    type: 'string',
+    required: false,
+  })
   @IsString()
   @IsOptional()
-  religion: string;
+  religion?: string;
 
-  @ApiProperty()
+  @ApiProperty({
+    type: 'string',
+    required: false,
+  })
   @IsString()
   @IsOptional()
-  blood_group: string;
+  blood_group?: string;
 
-  @ApiProperty()
+  @ApiProperty({
+    type: 'string',
+    required: false,
+  })
   @IsString()
   @IsOptional()
-  graduation: string;
+  graduation?: string;
 
-  @ApiProperty()
+  @ApiProperty({
+    type: 'string',
+    required: false,
+  })
   @IsString()
   @IsOptional()
-  school: string;
+  school?: string;
 
-  @ApiProperty()
+  @ApiProperty({
+    type: 'string',
+    required: false,
+  })
   @IsString()
   @IsOptional()
-  course: string;
+  course?: string;
 
-  @ApiProperty()
+  @ApiProperty({
+    type: 'string',
+    required: false,
+  })
   @IsString()
   @IsOptional()
-  telephone: string;
+  telephone?: string;
 
-  @ApiProperty()
+  @ApiProperty({
+    type: 'string',
+    required: false,
+  })
   @IsString()
   @IsOptional()
-  medical_coverage: string;
+  medical_coverage?: string;
 
-  @ApiProperty()
+  @ApiProperty({
+    type: 'string',
+    required: false,
+  })
   @IsString()
   @IsOptional()
-  chronic_diseas: string;
+  chronic_diseas?: string;
 
-  @ApiProperty()
+  @ApiProperty({
+    type: 'string',
+    required: false,
+  })
   @IsString()
   @IsOptional()
-  self_medicine: string;
+  self_medicine?: string;
 
-  @ApiProperty()
+  @ApiProperty({
+    type: 'string',
+    required: false,
+  })
   @IsString()
   @IsOptional()
-  drug_allergic: string;
+  drug_allergic?: string;
 
-  @ApiProperty()
+  @ApiProperty({
+    type: 'string',
+    required: false,
+  })
   @IsString()
   @IsOptional()
-  food_allergic: string;
+  food_allergic?: string;
 
-  @ApiProperty()
+  @ApiProperty({
+    type: 'string',
+    required: false,
+  })
   @IsString()
   @IsOptional()
-  perfer_food: string;
+  perfer_food?: string;
 
-  @ApiProperty()
+  @ApiProperty({
+    type: 'string',
+    required: false,
+  })
   @IsString()
   @IsOptional()
-  address: string;
+  address?: string;
 
-  @ApiProperty()
+  @ApiProperty({
+    type: 'string',
+    required: false,
+  })
   @IsString()
   @IsOptional()
-  home_phone_tel: string;
+  home_phone_tel?: string;
 
-  @ApiProperty()
+  @ApiProperty({
+    type: 'string',
+    required: false,
+  })
   @IsBoolean()
   @IsOptional()
-  comcamp_attendance: boolean;
+  comcamp_attendance?: boolean;
 
-  @ApiProperty()
+  @ApiProperty({
+    type: 'string',
+    required: false,
+  })
   @IsString()
   @IsOptional()
-  shirt_size: string;
+  shirt_size?: string;
 
-  @ApiProperty()
+  @ApiProperty({
+    type: 'string',
+    required: false,
+  })
   @IsBoolean()
   @IsOptional()
-  everyday_attendence: boolean;
+  everyday_attendence?: boolean;
 
-  @ApiProperty()
+  @ApiProperty({
+    type: 'string',
+    required: false,
+  })
   @IsBoolean()
   @IsOptional()
-  has_laptop: boolean;
+  has_laptop?: boolean;
 
-  @ApiProperty()
+  @ApiProperty({
+    type: 'string',
+    required: false,
+  })
   @IsString()
   @IsOptional()
-  travel: string;
+  travel?: string;
 
-  @ApiProperty()
+  @ApiProperty({
+    type: 'string',
+    required: false,
+  })
   @IsString()
   @IsOptional()
-  parent_fullname: string;
+  parent_fullname?: string;
 
-  @ApiProperty()
+  @ApiProperty({
+    type: 'string',
+    required: false,
+  })
   @IsString()
   @IsOptional()
-  parent_relation: string;
+  parent_relation?: string;
 
-  @ApiProperty()
+  @ApiProperty({
+    type: 'string',
+    required: false,
+  })
   @IsString()
   @IsOptional()
-  parent_phone: string;
+  parent_phone?: string;
 
-  @ApiProperty()
+  @ApiProperty({
+    type: 'string',
+    required: false,
+  })
   @IsBoolean()
   @IsOptional()
-  has_submit_answer: boolean;
+  has_submit_answer?: boolean;
 }
