@@ -1,13 +1,1 @@
-{
-  "openapi": "3.0.0",
-  "paths": {},
-  "info": {
-    "title": "Comcamp36 API",
-    "description": "Our lovely reference for Comcamp36 Website",
-    "version": "1.0",
-    "contact": {}
-  },
-  "tags": [],
-  "servers": [],
-  "components": { "schemas": {} }
-}
+{"openapi":"3.0.0","paths":{"/":{"get":{"operationId":"AppController_getHello","parameters":[],"responses":{"200":{"description":""}},"tags":["App"]}}},"info":{"title":"Comcamp36 API","description":"Our lovely reference for Comcamp36 Website","version":"1.0","contact":{}},"tags":[],"servers":[],"components":{"schemas":{}}}
