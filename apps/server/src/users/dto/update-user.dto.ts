@@ -106,7 +106,7 @@ export class UpdateUserDto {
   @ApiProperty()
   @IsString()
   @IsOptional()
-  size: string; //size เสื้อ
+  shirt_size: string;
 
   @ApiProperty()
   @IsBoolean()

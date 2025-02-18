@@ -30,7 +30,7 @@ model User {
   address             String?
   home_phone_tel      String?
   comcamp_attendance  Boolean?
-  shirt_size                String?
+  shirt_size          String?
   everyday_attendence Boolean?
   has_laptop          Boolean?
   travel              String?
