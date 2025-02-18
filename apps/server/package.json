@@ -26,6 +26,7 @@
     "@nestjs/swagger": "^11.0.2",
     "@prisma/client": "6.3.1",
     "@scalar/nestjs-api-reference": "^0.3.175",
+    "class-validator": "^0.14.1",
     "nestjs-pino": "^4.2.0",
     "pino-http": "^10.4.0",
     "pino-pretty": "^13.0.0",
