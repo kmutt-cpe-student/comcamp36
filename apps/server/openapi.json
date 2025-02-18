@@ -44,6 +44,42 @@
         "responses": { "200": { "description": "" } },
         "tags": ["Register"]
       }
+    },
+    "/register/regis": {
+      "post": {
+        "operationId": "RegisterController_registerRegis",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RegisterRegisPayloadDto"
+              }
+            }
+          }
+        },
+        "responses": { "200": { "description": "" } },
+        "tags": ["Register"]
+      }
+    },
+    "/register/academic": {
+      "post": {
+        "operationId": "RegisterController_registerAcademic",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RegisterAcademicPayloadDto"
+              }
+            }
+          }
+        },
+        "responses": { "200": { "description": "" } },
+        "tags": ["Register"]
+      }
     }
   },
   "info": {
@@ -85,35 +121,7 @@
           "parent_fullname": { "type": "string" },
           "parent_relation": { "type": "string" },
           "parent_phone": { "type": "string" }
-        },
-        "required": [
-          "fullname",
-          "age",
-          "birth",
-          "religion",
-          "blood_group",
-          "graduation",
-          "school",
-          "course",
-          "telephone",
-          "email",
-          "medical_coverage",
-          "chronic_disease",
-          "self_medicine",
-          "drug_allergic",
-          "food_allergic",
-          "prefer_food",
-          "address",
-          "home_phone_tel",
-          "comcamp_attendance",
-          "size",
-          "everyday_attendence",
-          "has_laptop",
-          "travel",
-          "parent_fullname",
-          "parent_relation",
-          "parent_phone"
-        ]
+        }
       },
       "RegsiterFilesPayloadDto": {
         "type": "object",
@@ -143,14 +151,27 @@
             "format": "binary",
             "additionalProperties": false
           }
-        },
-        "required": [
-          "face_photo",
-          "thai_nationalid_copy",
-          "parent_permission",
-          "p1",
-          "p7"
-        ]
+        }
+      },
+      "RegisterRegisPayloadDto": {
+        "type": "object",
+        "properties": {
+          "answer1": { "type": "string" },
+          "answer2": { "type": "string" },
+          "answer3": { "type": "string" },
+          "answer4": { "type": "string" },
+          "answer5": { "type": "string" },
+          "answer6_1": { "type": "string" },
+          "answer6_2": { "type": "string" }
+        }
+      },
+      "RegisterAcademicPayloadDto": {
+        "type": "object",
+        "properties": {
+          "algo_answer": { "type": "string" },
+          "chess_notation": { "type": "string" },
+          "chess_score": { "type": "string" }
+        }
       }
     }
   }

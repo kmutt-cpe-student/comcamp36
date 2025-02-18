@@ -47,50 +47,96 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
+  "/register/regis": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    post: operations["RegisterController_registerRegis"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/register/academic": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    post: operations["RegisterController_registerAcademic"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
 }
 export type webhooks = Record<string, never>;
 export interface components {
   schemas: {
     RegisterInfoPayloadDto: {
-      fullname: string;
-      age: number;
+      fullname?: string;
+      age?: number;
       /** Format: date */
-      birth: string;
-      religion: string;
-      blood_group: string;
-      graduation: string;
-      school: string;
-      course: string;
-      telephone: string;
-      email: string;
-      medical_coverage: string;
-      chronic_disease: string;
-      self_medicine: string;
-      drug_allergic: string;
-      food_allergic: string;
-      prefer_food: string;
-      address: string;
-      home_phone_tel: string;
-      comcamp_attendance: boolean;
-      size: string;
-      everyday_attendence: boolean;
-      has_laptop: boolean;
-      travel: string;
-      parent_fullname: string;
-      parent_relation: string;
-      parent_phone: string;
+      birth?: string;
+      religion?: string;
+      blood_group?: string;
+      graduation?: string;
+      school?: string;
+      course?: string;
+      telephone?: string;
+      email?: string;
+      medical_coverage?: string;
+      chronic_disease?: string;
+      self_medicine?: string;
+      drug_allergic?: string;
+      food_allergic?: string;
+      prefer_food?: string;
+      address?: string;
+      home_phone_tel?: string;
+      comcamp_attendance?: boolean;
+      size?: string;
+      everyday_attendence?: boolean;
+      has_laptop?: boolean;
+      travel?: string;
+      parent_fullname?: string;
+      parent_relation?: string;
+      parent_phone?: string;
     };
     RegsiterFilesPayloadDto: {
       /** Format: binary */
-      face_photo: File;
+      face_photo?: File;
       /** Format: binary */
-      thai_nationalid_copy: File;
+      thai_nationalid_copy?: File;
       /** Format: binary */
-      parent_permission: File;
+      parent_permission?: File;
       /** Format: binary */
-      p1: File;
+      p1?: File;
       /** Format: binary */
-      p7: File;
+      p7?: File;
+    };
+    RegisterRegisPayloadDto: {
+      answer1?: string;
+      answer2?: string;
+      answer3?: string;
+      answer4?: string;
+      answer5?: string;
+      answer6_1?: string;
+      answer6_2?: string;
+    };
+    RegisterAcademicPayloadDto: {
+      algo_answer?: string;
+      chess_notation?: string;
+      chess_score?: string;
     };
   };
   responses: never;
@@ -149,6 +195,48 @@ export interface operations {
     requestBody: {
       content: {
         "multipart/form-data": components["schemas"]["RegsiterFilesPayloadDto"];
+      };
+    };
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  RegisterController_registerRegis: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody: {
+      content: {
+        "application/json": components["schemas"]["RegisterRegisPayloadDto"];
+      };
+    };
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  RegisterController_registerAcademic: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody: {
+      content: {
+        "application/json": components["schemas"]["RegisterAcademicPayloadDto"];
       };
     };
     responses: {

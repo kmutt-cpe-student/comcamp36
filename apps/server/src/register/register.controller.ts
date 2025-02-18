@@ -8,7 +8,9 @@ import {
 import { Get } from '@nestjs/common';
 import { ApiConsumes, ApiResponse } from '@nestjs/swagger';
 import {
+  RegisterAcademicPayloadDto,
   RegisterInfoPayloadDto,
+  RegisterRegisPayloadDto,
   RegsiterFilesPayloadDto,
 } from './dto/register.dto';
 import { FileFieldsInterceptor } from '@nestjs/platform-express';
@@ -40,6 +42,9 @@ export class RegisterController {
         name: 'thai_nationalid_copy',
         maxCount: 1,
       },
+      { name: 'parent_permission', maxCount: 1 },
+      { name: 'p1', maxCount: 1 },
+      { name: 'p7', maxCount: 1 },
     ]),
   )
   async registerFile(
@@ -52,5 +57,23 @@ export class RegisterController {
   ) {
     console.log(files);
     return 'Register endpointd';
+  }
+
+  @Post('/regis')
+  @ApiResponse({
+    status: 200,
+  })
+  async registerRegis(@Body() body: RegisterRegisPayloadDto) {
+    console.log(body);
+    return 'register regis endpoint';
+  }
+
+  @Post('/academic')
+  @ApiResponse({
+    status: 200,
+  })
+  async registerAcademic(@Body() body: RegisterAcademicPayloadDto) {
+    console.log(body);
+    return 'register academic endpoint';
   }
 }
