@@ -1,13 +1,4 @@
-import { FileUploader } from "@/components/files";
-
 function RegisterPage() {
-  return (
-    <div>
-      <FileUploader />
-      <FileUploader />
-      <FileUploader />
-      <FileUploader />
-    </div>
-  );
+  return <div></div>;
 }
 export default RegisterPage;
