@@ -24,12 +24,12 @@ jobs:
 
       - name: "Create env file"
         run: |
-          touch .env.local
-          echo NEXT_PUBLIC_POSTHOG_KEY="NEXT_PUBLIC_POSTHOG_KEY" >> .env.local
-          echo NEXT_PUBLIC_POSTHOG_HOST="NEXT_PUBLIC_POSTHOG_HOST" >> .env.local
-          echo NEXT_PUBLIC_SERVER_URL="NEXT_PUBLIC_SERVER_URL" >> .env.local
-          echo SERVER_URL="SERVER_URL" >> .env.local
-          cat .env.local
+          touch .env
+          echo NEXT_PUBLIC_POSTHOG_KEY="NEXT_PUBLIC_POSTHOG_KEY" >> .env
+          echo NEXT_PUBLIC_POSTHOG_HOST="NEXT_PUBLIC_POSTHOG_HOST" >> .env
+          echo NEXT_PUBLIC_SERVER_URL="NEXT_PUBLIC_SERVER_URL" >> .env
+          echo SERVER_URL="SERVER_URL" >> .env
+          cat .env
 
       - uses: pnpm/action-setup@v4
         name: Install pnpm
