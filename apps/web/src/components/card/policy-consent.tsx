@@ -1,6 +1,5 @@
 "use client";
 
-import PrivacyPolicy from "@/app/policy/policy";
 import { MagicCard } from "@/components/card/magic-card";
 import { cn } from "@/libs/utils";
 import { useEffect, useState } from "react";
@@ -52,9 +51,7 @@ export default function PolicyConsent({ demo = false }) {
         <div className="grid h-full w-full grid-rows-[auto_1fr_auto] gap-4">
           <h4 className="h-fit font-bold">นโยบายข้อมูลส่วนบุคคล</h4>
 
-          <ScrollArea className="bg-charcoal max-h-full rounded-xl p-5">
-            <PrivacyPolicy />
-          </ScrollArea>
+          <ScrollArea className="bg-charcoal max-h-full rounded-xl p-5"></ScrollArea>
 
           <div className="flex h-fit w-full justify-between">
             <div className="flex items-center gap-2">
