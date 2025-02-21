@@ -7,7 +7,7 @@ export default function RegisterLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <div className="bg-charcoal-1 h-screen w-full text-white">
+    <div className="bg-charcoal-1 min-h-screen w-full text-white">
       <PolicyConsent />
       <div className="bg-charcoal-1 absolute h-fit w-full overflow-x-hidden">
         <div className="absolute z-[100]">
