@@ -1,6 +1,8 @@
 import { fetchServer } from "@/libs/server/server";
 import { redirect } from "next/navigation";
 
+export const runtime = "edge";
+
 export default async function page() {
   const { data } = await fetchServer.GET("/auth/me");
 
