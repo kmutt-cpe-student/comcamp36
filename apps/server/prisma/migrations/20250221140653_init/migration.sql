@@ -29,7 +29,7 @@ CREATE TABLE "User" (
     "parent_fullname" TEXT,
     "parent_relation" TEXT,
     "parent_phone" TEXT,
-    "has_submit_answer" BOOLEAN,
+    "has_submit_answer" BOOLEAN NOT NULL DEFAULT false,
 
     CONSTRAINT "User_pkey" PRIMARY KEY ("id")
 );
@@ -68,7 +68,7 @@ CREATE TABLE "AnswerAcademic" (
     "userId" TEXT NOT NULL,
     "algo_answer" TEXT,
     "chess_notation" TEXT,
-    "chess_score" TEXT,
+    "chess_score" INTEGER,
 
     CONSTRAINT "AnswerAcademic_pkey" PRIMARY KEY ("id")
 );

@@ -5,6 +5,7 @@ generator client {
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
 }
 
 model User {
@@ -83,4 +84,10 @@ model AnswerAcademic {
   user User @relation(fields: [userId], references: [id])
 
   @@index([userId])
+}
+
+model Session {
+  sid    String   @id @default(uuid())
+  user_id String
+  expire DateTime @db.Timestamp(6)
 }
