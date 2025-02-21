@@ -1,5 +1,5 @@
 import { fetchServer } from "@/libs/server/server";
-import Logout from "./logout";
+import { redirect } from "next/navigation";
 
 export default async function page() {
   const { data } = await fetchServer.GET("/auth/me");
@@ -7,7 +7,21 @@ export default async function page() {
   return (
     <div className="bg-charcoal-1 flex h-screen w-screen items-center justify-center">
       <p className="text-white">{data?.email}</p>
-      <div>{data && <Logout />}</div>
+      <div>
+        {data && (
+          <div>
+            <button
+              className="cursor-pointer text-white"
+              onClick={() => {
+                fetchServer.POST("/auth/logout");
+                redirect("/authtest");
+              }}
+            >
+              Logout
+            </button>
+          </div>
+        )}
+      </div>
     </div>
   );
 }
