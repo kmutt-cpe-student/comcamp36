@@ -26,7 +26,7 @@ export function FileCard({ file, onRemove }: FileCardProps) {
         </div>
       </div>
       <div className="flex items-center gap-2">
-        <Button onClick={onRemove}>
+        <Button onClick={onRemove} size="icon" variant="ghost">
           <X className="size-4" aria-hidden="true" />
           <span className="sr-only">Remove file</span>
         </Button>
