@@ -168,19 +168,21 @@ export function FileUploader(props: FileUploaderProps) {
           </div>
         )}
       </Dropzone>
-      {files?.length ? (
-        <ScrollArea className="h-fit w-full px-3">
-          <div className="flex max-h-48 flex-col gap-4">
-            {files?.map((file, index) => (
-              <FileCard
-                key={index}
-                file={file}
-                onRemove={() => onRemove(index)}
-              />
-            ))}
-          </div>
-        </ScrollArea>
-      ) : null}
+      <div>
+        {files?.length ? (
+          <ScrollArea className="h-fit w-full px-3">
+            <div className="flex max-h-48 flex-col gap-4">
+              {files?.map((file, index) => (
+                <FileCard
+                  key={index}
+                  file={file}
+                  onRemove={() => onRemove(index)}
+                />
+              ))}
+            </div>
+          </ScrollArea>
+        ) : null}
+      </div>
     </div>
   );
 }

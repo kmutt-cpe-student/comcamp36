@@ -2,6 +2,7 @@
 
 import FormStepper from "@/app/register/form-stepper";
 import DatePicker from "@/components/date-picker";
+import RadioGroupBoolean from "@/components/radio-group-boolean";
 import GenderSelector from "@/components/select/gender-selector";
 import TitleSelector from "@/components/select/title-selector";
 import { TextShimmer } from "@/components/text/text-shimmer";
@@ -432,10 +433,17 @@ function InfoForm(props: InfoFormProps) {
                 <FormField
                   control={form.control}
                   name="comcamp_attendance"
-                  render={() => (
+                  render={({ field }) => (
                     <FormItem>
-                      <FormLabel>เคยเข้าร่วม Comcamp</FormLabel>
-                      <FormControl></FormControl>
+                      <FormLabel>เคยเข้าร่วม ComCamp</FormLabel>
+                      <FormControl>
+                        <RadioGroupBoolean
+                          value={field.value}
+                          onValueChange={field.onChange}
+                          true_label="ไม่เคยเข้าร่วม ComCamp"
+                          false_label="เคยเข้าร่วม ComCamp"
+                        />
+                      </FormControl>
                       <FormMessage />
                     </FormItem>
                   )}
@@ -443,10 +451,17 @@ function InfoForm(props: InfoFormProps) {
                 <FormField
                   control={form.control}
                   name="has_laptop"
-                  render={() => (
+                  render={({ field }) => (
                     <FormItem>
                       <FormLabel>มี Laptop</FormLabel>
-                      <FormControl></FormControl>
+                      <FormControl>
+                        <RadioGroupBoolean
+                          value={field.value}
+                          onValueChange={field.onChange}
+                          true_label="ไม่มี laptop"
+                          false_label="มี laptop"
+                        />
+                      </FormControl>
                       <FormMessage />
                     </FormItem>
                   )}
@@ -454,12 +469,19 @@ function InfoForm(props: InfoFormProps) {
                 <FormField
                   control={form.control}
                   name="everyday_attendance"
-                  render={() => (
+                  render={({ field }) => (
                     <FormItem>
                       <FormLabel>
                         สะดวกเข้าร่วมค่ายทุกวันหรือไม่ (ค้างคืน พักที่หอในมอ)
                       </FormLabel>
-                      <FormControl></FormControl>
+                      <FormControl>
+                        <RadioGroupBoolean
+                          value={field.value}
+                          onValueChange={field.onChange}
+                          true_label="สะดวกเข้าร่วมค่ายทุกวัน"
+                          false_label="ไม่สะดวกเข้าร่วมค่ายทุกวัน"
+                        />
+                      </FormControl>
                       <FormMessage />
                     </FormItem>
                   )}
