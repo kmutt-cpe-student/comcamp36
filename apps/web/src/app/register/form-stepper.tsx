@@ -38,7 +38,7 @@ export default function FormStepper() {
 
   return (
     <div className="flex w-full items-center justify-center py-10">
-      <div className="flex w-full max-w-[80rem] justify-center gap-10 pt-10">
+      <div className="flex w-full max-w-[80rem] flex-col items-center justify-center gap-10 pt-10 md:flex-row">
         <Button
           type="button"
           disabled={pathname.includes(steps[0].href)}
@@ -51,6 +51,7 @@ export default function FormStepper() {
               window.location.href = previousStep.href;
             }
           }}
+          variant="outline"
         >
           ย้อนกลับ
         </Button>

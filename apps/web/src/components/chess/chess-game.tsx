@@ -564,7 +564,7 @@ function ChessGame({ callback }: ChessGameProps) {
         </div>
 
         <div className="flex w-full justify-center">
-          <Card className="h-fit w-full max-w-[50rem] p-0">
+          <Card className="h-fit w-full max-w-[50rem] p-8">
             <CardHeader>
               <p className="mb-2 font-bold text-white">ประวัติการเดิน</p>
             </CardHeader>
