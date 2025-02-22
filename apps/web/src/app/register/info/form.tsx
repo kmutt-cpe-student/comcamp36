@@ -87,7 +87,7 @@ function InfoForm(props: InfoFormProps) {
           <form onSubmit={form.handleSubmit(props.onSubmit)}>
             <div className="font-noto-sans-thai-looped grid gap-4">
               <h5 className="font-bold">ข้อมูลส่วนตัว</h5>
-              <div className="grid w-full grid-cols-[1fr_10fr] gap-6">
+              <div className="grid w-full grid-cols-1 gap-6 md:grid-cols-[1fr_10fr]">
                 <FormField
                   control={form.control}
                   name="title"
@@ -119,7 +119,7 @@ function InfoForm(props: InfoFormProps) {
                   )}
                 />
               </div>
-              <div className="grid grid-cols-4 gap-6">
+              <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
                 <FormField
                   control={form.control}
                   name="age"
@@ -179,7 +179,7 @@ function InfoForm(props: InfoFormProps) {
                   )}
                 />
               </div>
-              <div className="grid grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
                 <FormField
                   control={form.control}
                   name="telephone"
@@ -207,7 +207,7 @@ function InfoForm(props: InfoFormProps) {
                   )}
                 />
               </div>
-              <div className="grid grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
                 <FormField
                   control={form.control}
                   name="address"
@@ -238,7 +238,7 @@ function InfoForm(props: InfoFormProps) {
 
               <h5 className="pt-12 font-bold">ประวัติการศึกษา</h5>
 
-              <div className="grid grid-cols-3 gap-6">
+              <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
                 <FormField
                   control={form.control}
                   name="graduation"
@@ -282,7 +282,7 @@ function InfoForm(props: InfoFormProps) {
 
               <h5 className="pt-12 font-bold">ข้อมูลส่วนตัวทางสุขภาพ</h5>
 
-              <div className="grid grid-cols-3 gap-6">
+              <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
                 <FormField
                   control={form.control}
                   name="blood_group"
@@ -323,7 +323,7 @@ function InfoForm(props: InfoFormProps) {
                   )}
                 />
               </div>
-              <div className="grid grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
                 <FormField
                   control={form.control}
                   name="self_medicine"
@@ -351,7 +351,7 @@ function InfoForm(props: InfoFormProps) {
                   )}
                 />
               </div>
-              <div className="grid grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
                 <FormField
                   control={form.control}
                   name="food_allergic"
@@ -398,7 +398,7 @@ function InfoForm(props: InfoFormProps) {
                 )}
               />
 
-              <div className="grid grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
                 <FormField
                   control={form.control}
                   name="parent_relation"
@@ -428,7 +428,7 @@ function InfoForm(props: InfoFormProps) {
               </div>
 
               <h5 className="pt-12 font-bold">อื่นๆ</h5>
-              <div className="grid grid-cols-3 gap-6">
+              <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
                 <FormField
                   control={form.control}
                   name="comcamp_attendance"
@@ -465,34 +465,19 @@ function InfoForm(props: InfoFormProps) {
                   )}
                 />
               </div>
-              <div className="grid grid-cols-2 gap-6">
-                <FormField
-                  control={form.control}
-                  name="size"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Size เสื้อ</FormLabel>
-                      <FormControl>
-                        <Input {...field} />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-                <FormField
-                  control={form.control}
-                  name="travel"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>วิธีการเดินทางมาค่าย</FormLabel>
-                      <FormControl>
-                        <Input {...field} />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-              </div>
+              <FormField
+                control={form.control}
+                name="travel"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>วิธีการเดินทางมาค่าย</FormLabel>
+                    <FormControl>
+                      <Input {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
               <FormStepper />
             </div>
           </form>
