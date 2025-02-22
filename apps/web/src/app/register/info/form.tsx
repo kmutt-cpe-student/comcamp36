@@ -156,10 +156,12 @@ function InfoForm(props: InfoFormProps) {
                 <FormField
                   control={form.control}
                   name="religion"
-                  render={() => (
+                  render={({ field }) => (
                     <FormItem>
                       <FormLabel>ศาสนา</FormLabel>
-                      <FormControl></FormControl>
+                      <FormControl>
+                        <Input {...field} />
+                      </FormControl>
                       <FormMessage />
                     </FormItem>
                   )}
@@ -414,7 +416,7 @@ function InfoForm(props: InfoFormProps) {
               </div>
 
               <h5 className="pt-12 font-bold">อื่นๆ</h5>
-              <div className="grid grid-cols-2 gap-6">
+              <div className="grid grid-cols-3 gap-6">
                 <FormField
                   control={form.control}
                   name="comcamp_attendance"
@@ -437,21 +439,6 @@ function InfoForm(props: InfoFormProps) {
                     </FormItem>
                   )}
                 />
-              </div>
-              <div className="grid grid-cols-3 gap-6">
-                <FormField
-                  control={form.control}
-                  name="size"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Size เสื้อ</FormLabel>
-                      <FormControl>
-                        <Input {...field} />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
                 <FormField
                   control={form.control}
                   name="everyday_attendance"
@@ -461,6 +448,21 @@ function InfoForm(props: InfoFormProps) {
                         สะดวกเข้าร่วมค่ายทุกวันหรือไม่ (ค้างคืน พักที่หอในมอ)
                       </FormLabel>
                       <FormControl></FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+              </div>
+              <div className="grid grid-cols-2 gap-6">
+                <FormField
+                  control={form.control}
+                  name="size"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Size เสื้อ</FormLabel>
+                      <FormControl>
+                        <Input {...field} />
+                      </FormControl>
                       <FormMessage />
                     </FormItem>
                   )}
