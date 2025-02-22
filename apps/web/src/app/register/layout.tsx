@@ -9,22 +9,19 @@ export default function RegisterLayout({
   return (
     <div className="bg-charcoal-1 min-h-screen w-full text-white">
       <PolicyConsent />
-      <div className="bg-charcoal-1 absolute h-fit w-full overflow-x-hidden">
-        <div className="absolute z-[100]">
-          <Navbar
-            items={[
-              {
-                label: "เนื้อหาที่เรียน",
-                href: "#learn",
-              },
-            ]}
-          />
-        </div>
-        <div className="absolute h-fit bg-cover bg-center bg-no-repeat text-white">
-          {children}
-        </div>
+      <div className="absolute z-[100]">
+        <Navbar
+          items={[
+            {
+              label: "เนื้อหาที่เรียน",
+              href: "#learn",
+            },
+          ]}
+        />
       </div>
-      {children}
+      <div className="font-prompt flex w-full justify-center px-10 pt-36">
+        {children}
+      </div>
     </div>
   );
 }

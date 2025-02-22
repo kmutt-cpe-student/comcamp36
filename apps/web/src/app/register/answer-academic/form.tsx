@@ -37,7 +37,7 @@ function AnswerAcademic(props: AnswerAcademicProps) {
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(props.onSubmit)}>
-        <div className="">
+        <div className="font-noto-sans-thai-looped">
           <FormField
             control={form.control}
             name="algo_answer"
@@ -60,7 +60,7 @@ function AnswerAcademic(props: AnswerAcademicProps) {
                           key={people}
                           className="grid grid-cols-[auto_1fr] gap-2"
                         >
-                          <p>{index}.</p> <p>{people}</p>
+                          <small>{index}.</small> <small>{people}</small>
                         </div>
                       ))}
                     </div>
@@ -114,7 +114,7 @@ function AnswerAcademic(props: AnswerAcademicProps) {
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel>
-                      <small>รูปแบบการเดิน</small>
+                      <p>รูปแบบการเดิน</p>
                     </FormLabel>
                     <FormControl>
                       <Input className="[resize:none]" {...field} disabled />
@@ -128,7 +128,9 @@ function AnswerAcademic(props: AnswerAcademicProps) {
                 name="chess_score"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>คะแนนที่ได้</FormLabel>
+                    <FormLabel>
+                      <p>คะแนนที่ได้</p>
+                    </FormLabel>
                     <FormControl>
                       <Input className="[resize:none]" {...field} disabled />
                     </FormControl>
