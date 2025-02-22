@@ -215,12 +215,4 @@ export class UpdateUserDto {
   @IsString()
   @IsOptional()
   parent_phone?: string;
-
-  @ApiProperty({
-    type: 'boolean',
-    required: false,
-  })
-  @IsBoolean()
-  @IsOptional()
-  has_submit_answer?: boolean;
 }

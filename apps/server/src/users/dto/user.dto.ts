@@ -4,11 +4,6 @@ export class UserResponseDto {
   @ApiProperty({
     type: 'string',
   })
-  id?: string;
-
-  @ApiProperty({
-    type: 'string',
-  })
   email?: string;
 
   @ApiProperty({
@@ -144,5 +139,20 @@ export class UserResponseDto {
   @ApiProperty({
     type: 'boolean',
   })
-  has_submit_answer?: boolean;
+  files_done?: boolean;
+
+  @ApiProperty({
+    type: 'boolean',
+  })
+  academic_done?: boolean;
+
+  @ApiProperty({
+    type: 'boolean',
+  })
+  regis_done?: boolean;
+
+  @ApiProperty({
+    type: 'boolean',
+  })
+  info_done?: boolean;
 }

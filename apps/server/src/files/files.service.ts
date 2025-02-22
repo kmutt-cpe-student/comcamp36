@@ -6,9 +6,12 @@ import {
 } from '@aws-sdk/client-s3';
 import { getSignedUrl } from '@aws-sdk/s3-request-presigner';
 import { UploadFileDto } from './dto/upload-files.dto';
+import { PrismaService } from 'src/prisma/prisma.service';
 
 @Injectable()
 export class FilesService {
+  constructor(private prisma: PrismaService) {}
+
   client = new S3Client({
     forcePathStyle: true,
     region: process.env.S3_REGION,
@@ -23,11 +26,11 @@ export class FilesService {
     const { face_photo, thai_nationalid_copy, parent_permission, p1, p7 } =
       files;
 
-    let face_photo_key = '';
-    let thai_nationalid_copy_key = '';
-    let parent_permission_key = '';
-    let p1_key = '';
-    let p7_key = '';
+    let face_photo_key = undefined;
+    let thai_nationalid_copy_key = undefined;
+    let parent_permission_key = undefined;
+    let p1_key = undefined;
+    let p7_key = undefined;
 
     if (face_photo)
       face_photo_key = await this.uploadToS3(
@@ -49,6 +52,31 @@ export class FilesService {
       );
     if (p1) p1_key = await this.uploadToS3(p1[0], 'p1', userId);
     if (p7) p7_key = await this.uploadToS3(p7[0], 'p7', userId);
+
+    await this.prisma.file.upsert({
+      where: { userId: userId },
+      create: {
+        userId: userId,
+        face_photo_filepath: face_photo_key,
+        thai_nationalid_copy_filepath: thai_nationalid_copy_key,
+        parent_permission_filepath: parent_permission_key,
+        p1_filepath: p1_key,
+        p7_filepath: p7_key,
+      },
+      update: {
+        face_photo_filepath: face_photo_key,
+        thai_nationalid_copy_filepath: thai_nationalid_copy_key,
+        parent_permission_filepath: parent_permission_key,
+        p1_filepath: p1_key,
+        p7_filepath: p7_key,
+      },
+    });
+    await this.prisma.user.update({
+      where: { id: userId },
+      data: {
+        files_done: true,
+      },
+    });
 
     return {
       face_photo_key,

@@ -9,6 +9,10 @@ import {
 } from './dto/update-answer.dto';
 import { PrismaService } from 'src/prisma/prisma.service';
 import { AnswerRegis, AnswerAcademic } from '@prisma/client';
+import {
+  UpsertAnswerAcademicDto,
+  UpsertAnswerRegisDto,
+} from './dto/upsert-answer.dto';
 
 @Injectable()
 export class AnswerService {
@@ -40,6 +44,30 @@ export class AnswerService {
     return this.prisma.answerRegis.findUnique({
       where: { id },
     });
+  }
+
+  findOneRegisWithUser(user_id: string): Promise<AnswerRegis> {
+    return this.prisma.answerRegis.findUnique({
+      where: { userId: user_id },
+    });
+  }
+
+  async upsertRegisWithUser(
+    user_id: string,
+    upsertAnswerRegisDto: UpsertAnswerRegisDto,
+  ): Promise<AnswerRegis> {
+    await this.prisma.user.update({
+      where: { id: user_id },
+      data: {
+        regis_done: true,
+      },
+    });
+    const answerRegis = await this.prisma.answerRegis.upsert({
+      where: { userId: user_id },
+      create: { userId: user_id, ...upsertAnswerRegisDto },
+      update: { ...upsertAnswerRegisDto },
+    });
+    return answerRegis;
   }
 
   updateRegis(
@@ -76,6 +104,30 @@ export class AnswerService {
     return this.prisma.answerAcademic.findUnique({
       where: { id },
     });
+  }
+
+  findOneAcademicWithUser(user_id: string): Promise<AnswerAcademic> {
+    return this.prisma.answerAcademic.findUnique({
+      where: { userId: user_id },
+    });
+  }
+
+  async upsertAcademicWithUser(
+    user_id: string,
+    upsertAnswerAcademicDto: UpsertAnswerAcademicDto,
+  ): Promise<AnswerAcademic> {
+    await this.prisma.user.update({
+      where: { id: user_id },
+      data: {
+        regis_done: true,
+      },
+    });
+    const answerAcademic = await this.prisma.answerAcademic.upsert({
+      where: { userId: user_id },
+      create: { userId: user_id, ...upsertAnswerAcademicDto },
+      update: { ...upsertAnswerAcademicDto },
+    });
+    return answerAcademic;
   }
 
   updateAcademic(

@@ -8,6 +8,7 @@ import {
   HttpException,
   HttpStatus,
   UseGuards,
+  Req,
 } from '@nestjs/common';
 import { AnswerService } from './answer.service';
 import {
@@ -19,6 +20,11 @@ import {
   UpdateAnswerAcademicDto,
 } from './dto/update-answer.dto';
 import { AuthGuard } from 'src/auth/auth.guard';
+import type { Request } from 'express';
+import {
+  UpsertAnswerAcademicDto,
+  UpsertAnswerRegisDto,
+} from './dto/upsert-answer.dto';
 
 @Controller('answer')
 @UseGuards(AuthGuard)
@@ -40,6 +46,14 @@ export class AnswerController {
     return this.answerService.findAllRegis();
   }
 
+  @Get('regis-user')
+  findRegisWithUser(@Req() req: Request) {
+    if (!req['user_id']) {
+      throw new HttpException('UNAUTHORIZED', HttpStatus.UNAUTHORIZED);
+    }
+    return this.answerService.findOneRegisWithUser(req['user_id']);
+  }
+
   @Get('regis:id')
   async findOneRegis(@Param('id') id: string) {
     const answerRegis = await this.answerService.findOneRegis(id);
@@ -59,6 +73,20 @@ export class AnswerController {
       throw new HttpException('Not found', HttpStatus.NOT_FOUND);
     }
     return answerRegis;
+  }
+
+  @Post('regis-user')
+  upsertRegisWithUser(
+    @Req() req: Request,
+    @Body() upsertAnswerRegisDto: UpsertAnswerRegisDto,
+  ) {
+    if (!req['user_id']) {
+      throw new HttpException('UNAUTHORIZED', HttpStatus.UNAUTHORIZED);
+    }
+    return this.answerService.upsertRegisWithUser(
+      req['user_id'],
+      upsertAnswerRegisDto,
+    );
   }
 
   //Academic
@@ -84,6 +112,35 @@ export class AnswerController {
       throw new HttpException('Not found', HttpStatus.NOT_FOUND);
     }
     return answerAcademic;
+  }
+
+  @Get('academic-user')
+  async findAcademicWithUser(@Req() req: Request) {
+    if (!req['user_id']) {
+      throw new HttpException('Not found', HttpStatus.NOT_FOUND);
+    }
+
+    const answerAcademic = await this.answerService.findOneAcademicWithUser(
+      req['user_id'],
+    );
+    if (!answerAcademic) {
+      throw new HttpException('Not found', HttpStatus.NOT_FOUND);
+    }
+    return answerAcademic;
+  }
+
+  @Post('academic-user')
+  upsertAcademicWithUser(
+    @Req() req: Request,
+    @Body() upsertAnswerAcademicDto: UpsertAnswerAcademicDto,
+  ) {
+    if (!req['user_id']) {
+      throw new HttpException('UNAUTHORIZED', HttpStatus.UNAUTHORIZED);
+    }
+    return this.answerService.upsertAcademicWithUser(
+      req['user_id'],
+      upsertAnswerAcademicDto,
+    );
   }
 
   @Patch('academic:id')

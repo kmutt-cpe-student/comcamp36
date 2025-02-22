@@ -121,6 +121,22 @@
         "tags": ["Users"]
       }
     },
+    "/users/info": {
+      "patch": {
+        "operationId": "UsersController_updateRegister",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/UpdateUserDto" }
+            }
+          }
+        },
+        "responses": { "200": { "description": "" } },
+        "tags": ["Users"]
+      }
+    },
     "/files/upload": {
       "post": {
         "operationId": "FilesController_uploadFile",
@@ -163,6 +179,28 @@
         "operationId": "AnswerController_findAllRegis",
         "parameters": [],
         "responses": { "200": { "description": "" } },
+        "tags": ["Answer"]
+      }
+    },
+    "/answer/regis-user": {
+      "get": {
+        "operationId": "AnswerController_findRegisWithUser",
+        "parameters": [],
+        "responses": { "200": { "description": "" } },
+        "tags": ["Answer"]
+      },
+      "post": {
+        "operationId": "AnswerController_upsertRegisWithUser",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/UpsertAnswerRegisDto" }
+            }
+          }
+        },
+        "responses": { "201": { "description": "" } },
         "tags": ["Answer"]
       }
     },
@@ -263,6 +301,30 @@
         "responses": { "200": { "description": "" } },
         "tags": ["Answer"]
       }
+    },
+    "/answer/academic-user": {
+      "get": {
+        "operationId": "AnswerController_findAcademicWithUser",
+        "parameters": [],
+        "responses": { "200": { "description": "" } },
+        "tags": ["Answer"]
+      },
+      "post": {
+        "operationId": "AnswerController_upsertAcademicWithUser",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpsertAnswerAcademicDto"
+              }
+            }
+          }
+        },
+        "responses": { "201": { "description": "" } },
+        "tags": ["Answer"]
+      }
     }
   },
   "info": {
@@ -278,7 +340,6 @@
       "UserResponseDto": {
         "type": "object",
         "properties": {
-          "id": { "type": "string" },
           "email": { "type": "string" },
           "fullname": { "type": "string" },
           "age": { "type": "number" },
@@ -306,10 +367,12 @@
           "parent_fullname": { "type": "string" },
           "parent_relation": { "type": "string" },
           "parent_phone": { "type": "string" },
-          "has_submit_answer": { "type": "boolean" }
+          "files_done": { "type": "boolean" },
+          "academic_done": { "type": "boolean" },
+          "regis_done": { "type": "boolean" },
+          "info_done": { "type": "boolean" }
         },
         "required": [
-          "id",
           "email",
           "fullname",
           "age",
@@ -337,7 +400,10 @@
           "parent_fullname",
           "parent_relation",
           "parent_phone",
-          "has_submit_answer"
+          "files_done",
+          "academic_done",
+          "regis_done",
+          "info_done"
         ]
       },
       "CreateUserDto": {
@@ -376,8 +442,7 @@
           "travel": { "type": "string" },
           "parent_fullname": { "type": "string" },
           "parent_relation": { "type": "string" },
-          "parent_phone": { "type": "string" },
-          "has_submit_answer": { "type": "boolean" }
+          "parent_phone": { "type": "string" }
         }
       },
       "CreateAnswerRegisDto": {
@@ -415,6 +480,27 @@
           "answer6_2": { "type": "string" }
         }
       },
+      "UpsertAnswerRegisDto": {
+        "type": "object",
+        "properties": {
+          "answer1": { "type": "string" },
+          "answer2": { "type": "string" },
+          "answer3": { "type": "string" },
+          "answer4": { "type": "string" },
+          "answer5": { "type": "string" },
+          "answer6_1": { "type": "string" },
+          "answer6_2": { "type": "string" }
+        },
+        "required": [
+          "answer1",
+          "answer2",
+          "answer3",
+          "answer4",
+          "answer5",
+          "answer6_1",
+          "answer6_2"
+        ]
+      },
       "CreateAnswerAcademicDto": {
         "type": "object",
         "properties": {
@@ -424,6 +510,15 @@
           "chess_score": { "type": "number" }
         },
         "required": ["userId", "algo_answer", "chess_notation", "chess_score"]
+      },
+      "UpsertAnswerAcademicDto": {
+        "type": "object",
+        "properties": {
+          "algo_answer": { "type": "string" },
+          "chess_notation": { "type": "string" },
+          "chess_score": { "type": "number" }
+        },
+        "required": ["algo_answer", "chess_notation", "chess_score"]
       },
       "UpdateAnswerAcademicDto": {
         "type": "object",

@@ -38,6 +38,7 @@ export class UsersService {
       where: { id },
       data: {
         ...updateUserDto,
+        info_done: true,
       },
     });
   }
