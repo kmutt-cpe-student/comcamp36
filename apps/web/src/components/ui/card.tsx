@@ -17,6 +17,21 @@ const Card = React.forwardRef<
 ));
 Card.displayName = "Card";
 
+const CardForm = React.forwardRef<
+  HTMLDivElement,
+  React.HTMLAttributes<HTMLDivElement>
+>(({ className, ...props }, ref) => (
+  <div
+    ref={ref}
+    className={cn(
+      "bg-charcoal-1 rounded-xl text-white/80 shadow sm:border sm:border-white/20 sm:px-10 sm:py-12 lg:border lg:border-white/20 lg:px-10 lg:py-12",
+      className,
+    )}
+    {...props}
+  />
+));
+CardForm.displayName = "CardForm";
+
 const CardHeader = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement>
@@ -78,6 +93,7 @@ export {
   CardContent,
   CardDescription,
   CardFooter,
+  CardForm,
   CardHeader,
   CardTitle,
 };

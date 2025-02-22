@@ -2,9 +2,9 @@
 
 import { TextShimmer } from "@/components/text/text-shimmer";
 import {
-  Card,
   CardContent,
   CardDescription,
+  CardForm,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
@@ -17,7 +17,7 @@ function RegisterInfoPage() {
   };
 
   return (
-    <Card className="h-fit w-full max-w-[110rem]">
+    <CardForm className="h-fit w-full max-w-[110rem]">
       <CardHeader>
         <CardTitle>
           <TextShimmer
@@ -45,7 +45,7 @@ function RegisterInfoPage() {
           onSubmit={onSubmit}
         />
       </CardContent>
-    </Card>
+    </CardForm>
   );
 }
 export default RegisterInfoPage;
