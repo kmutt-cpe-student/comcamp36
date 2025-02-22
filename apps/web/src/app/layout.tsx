@@ -1,3 +1,5 @@
+import { Toaster } from "@/components/ui/sonner";
+
 import CookieConsent from "@/components/card/cookie-consent";
 import { CSPostHogProvider } from "@/components/provider/post-hog";
 import QueryProvider from "@/components/provider/query";
@@ -38,6 +40,7 @@ export default function RootLayout({
         <QueryProvider>
           <CSPostHogProvider>
             {children}
+            <Toaster richColors />
             <CookieConsent />
           </CSPostHogProvider>
         </QueryProvider>

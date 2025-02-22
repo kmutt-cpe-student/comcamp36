@@ -1,11 +1,27 @@
 "use client";
 
+import { fetchQuery } from "@/libs/server/client";
 import { z } from "zod";
+import { statusToast } from "../toast";
 import InfoForm, { formSchema } from "./form";
 
 function RegisterInfoPage() {
+  const { mutate } = fetchQuery.useMutation(
+    "patch",
+    "/users/{id}",
+    statusToast,
+  );
+
   const onSubmit = (data: z.infer<typeof formSchema>) => {
-    console.log(data);
+    mutate({
+      params: {
+        path: { id: "1" },
+      },
+      body: {
+        ...data,
+        birth: data.birth.getTime(),
+      },
+    });
   };
 
   return (
