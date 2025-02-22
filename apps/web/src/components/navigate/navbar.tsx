@@ -12,29 +12,6 @@ import {
   DrawerTrigger,
 } from "@/components/ui/drawer";
 
-const NAVBARITEMS = [
-  {
-    label: "เนื้อหาที่เรียน",
-    href: "#learn",
-  },
-  {
-    label: "คุณสมบัติ",
-    href: "#requirements",
-  },
-  {
-    label: "ช่วงเวลา",
-    href: "#timeline",
-  },
-  {
-    label: "คำถามที่พบบ่อย",
-    href: "#faq",
-  },
-  {
-    label: "ติดต่อ",
-    href: "#contact",
-  },
-];
-
 interface NavbarProps {
   items: {
     label: string;
@@ -79,7 +56,7 @@ export default function Navbar({ items }: NavbarProps) {
             <DrawerContent className="bg-charcoal-1/10 backdrop-blur-3xl">
               <DrawerTitle className="sr-only">Navbar</DrawerTitle>
               <div className="mb-10 flex flex-col gap-y-5 overflow-auto p-6">
-                {NAVBARITEMS.map((item) => (
+                {items.map((item) => (
                   <DrawerClose
                     key={item.href}
                     asChild

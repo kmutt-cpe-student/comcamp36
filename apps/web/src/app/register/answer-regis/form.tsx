@@ -1,7 +1,6 @@
 "use client";
 
-import FormStepper from "@/components/navigate/form-stepper";
-import { Button } from "@/components/ui/button";
+import FormStepper from "@/app/register/form-stepper";
 import {
   Form,
   FormControl,
@@ -230,13 +229,7 @@ function AnswerRegis(props: AnswerRegisProps) {
             )}
           />
         </div>
-        <div className="flex w-full items-center justify-center">
-          <div className="flex w-full max-w-[80rem] justify-center gap-10 pt-10">
-            <Button>บันทึก</Button>
-            <FormStepper />
-            <Button>บันทึก</Button>
-          </div>
-        </div>
+        <FormStepper />
       </form>
     </Form>
   );

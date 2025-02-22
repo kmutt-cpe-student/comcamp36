@@ -1,6 +1,9 @@
+"use client";
+
 import PolicyConsent from "@/components/card/policy-consent";
 import Footer from "@/components/navigate/footer";
 import Navbar from "@/components/navigate/navbar";
+import { steps } from "./form-stepper";
 
 export default function RegisterLayout({
   children,
@@ -12,12 +15,10 @@ export default function RegisterLayout({
       <PolicyConsent />
       <div className="absolute z-[100]">
         <Navbar
-          items={[
-            {
-              label: "เนื้อหาที่เรียน",
-              href: "#learn",
-            },
-          ]}
+          items={steps.map((step) => ({
+            label: step.title,
+            href: step.href,
+          }))}
         />
       </div>
       <div className="font-prompt flex min-h-screen w-full justify-center px-10 py-36">

@@ -1,8 +1,7 @@
 "use client";
 
+import FormStepper from "@/app/register/form-stepper";
 import { FileUploader } from "@/components/files";
-import FormStepper from "@/components/navigate/form-stepper";
-import { Button } from "@/components/ui/button";
 import { CardContent, CardFooter } from "@/components/ui/card";
 import {
   Form,
@@ -159,13 +158,7 @@ function FilesForm(props: FilesFormProps) {
           />
         </CardContent>
         <CardFooter>
-          <div className="flex w-full items-center justify-center">
-            <div className="flex w-full max-w-[80rem] justify-center gap-10 pt-10">
-              <Button>บันทึก</Button>
-              <FormStepper />
-              <Button>บันทึก</Button>
-            </div>
-          </div>
+          <FormStepper />
         </CardFooter>
       </form>
     </Form>
