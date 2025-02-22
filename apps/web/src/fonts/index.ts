@@ -14,7 +14,7 @@ export const prompt = Prompt({
 });
 
 export const notoSansThaiLooped = Noto_Sans_Thai_Looped({
-  weight: ["400"],
+  weight: ["600", "500", "400", "300"],
   subsets: ["thai", "latin"],
   variable: "--font-noto-sans-thai-looped",
 });
