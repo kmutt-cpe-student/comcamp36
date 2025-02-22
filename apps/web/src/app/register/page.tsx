@@ -1,21 +1,15 @@
 "use client";
 
-import { steps } from "@/app/register/form-stepper";
 import { Tilt } from "@/components/card/tilt-card";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { TextScramble } from "@/components/ui/text-scramble";
 import { fetchQuery } from "@/libs/server/client";
-import { cn } from "@/libs/utils";
-import { CheckCircle, Mail } from "lucide-react";
+import { Mail } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-
-const stepsMock = steps.map((step, index) => ({
-  ...step,
-  completed: index < 2,
-}));
+import Status from "./status";
 
 function RegisterPage() {
   const { data, isPending, isError } = fetchQuery.useQuery("get", "/auth/me");
@@ -68,44 +62,12 @@ function RegisterPage() {
         </div>
       </div>
 
-      <div className="flex flex-col gap-5 pt-4">
-        <h4 className="font-medium text-white">
-          การกรอกแบบฟอร์ม ({stepsMock.filter((step) => step.completed).length}/
-          {stepsMock.length})
-        </h4>
-        <Separator />
-
-        <div className="flex flex-1 flex-wrap justify-center gap-8">
-          {stepsMock.map((step) => (
-            <Link href={step.href} key={step.step}>
-              <Card
-                className={cn(
-                  "bg-charcoal-1 flex min-w-[15rem] flex-col items-center justify-center rounded-3xl p-6",
-                  step.completed && "bg-vermilion",
-                )}
-              >
-                <div className="relative size-32">
-                  {step.completed && (
-                    <CheckCircle className="z-1 absolute right-0 top-0 size-32 text-white" />
-                  )}
-                  <Image
-                    src="/static/image/learn/ai.png"
-                    alt=""
-                    className="object-cover"
-                    fill
-                  />
-                </div>
-                <p className="mt-4 text-2xl font-medium text-white">
-                  {step.title}
-                </p>
-              </Card>
-            </Link>
-          ))}
-        </div>
-      </div>
+      <Status {...data} />
 
       <div className="font-noto-sans-thai-looped mt-16 flex justify-center">
-        <Button size="lg">กรอกฟอร์มสมัครต่อ</Button>
+        <Link href="/register/info">
+          <Button size="lg">กรอกฟอร์มสมัครต่อ</Button>
+        </Link>
       </div>
     </Card>
   );
