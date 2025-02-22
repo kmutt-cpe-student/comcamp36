@@ -27,33 +27,33 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 
 export const formSchema = z.object({
-  title: z.string(),
-  fullname: z.string(),
-  age: z.number(),
+  title: z.string().min(1),
+  fullname: z.string().min(1),
+  age: z.number().min(1),
   birth: z.date(),
-  gender: z.string(),
-  religion: z.string(),
-  blood_group: z.string(),
-  graduation: z.string(),
-  school: z.string(),
-  course: z.string(),
-  telephone: z.string(),
-  email: z.string(),
-  medical_coverage: z.string(),
-  chronic_disease: z.string(),
-  self_medicine: z.string(),
-  drug_allergic: z.string(),
-  food_allergic: z.string(),
-  prefer_food: z.string(),
-  address: z.string(),
-  home_phone_tel: z.string(),
+  gender: z.string().min(1),
+  religion: z.string().min(1),
+  blood_group: z.string().min(1),
+  graduation: z.string().min(1),
+  school: z.string().min(1),
+  course: z.string().min(1),
+  telephone: z.string().min(1),
+  email: z.string().min(1),
+  medical_coverage: z.string().min(1),
+  chronic_disease: z.string().min(1),
+  self_medicine: z.string().min(1),
+  drug_allergic: z.string().min(1),
+  food_allergic: z.string().min(1),
+  prefer_food: z.string().min(1),
+  address: z.string().min(1),
+  home_phone_tel: z.string().min(1),
   comcamp_attendance: z.boolean(),
   everyday_attendance: z.boolean(),
   has_laptop: z.boolean(),
-  travel: z.string(),
-  parent_fullname: z.string(),
-  parent_relation: z.string(),
-  parent_phone: z.string(),
+  travel: z.string().min(1),
+  parent_fullname: z.string().min(1),
+  parent_relation: z.string().min(1),
+  parent_phone: z.string().min(1),
 });
 
 interface InfoFormProps {
@@ -439,8 +439,8 @@ function InfoForm(props: InfoFormProps) {
                         <RadioGroupBoolean
                           value={field.value}
                           onValueChange={field.onChange}
-                          true_label="ไม่เคยเข้าร่วม ComCamp"
-                          false_label="เคยเข้าร่วม ComCamp"
+                          true_label="เคยเข้าร่วม ComCamp"
+                          false_label="ไม่เคยเข้าร่วม ComCamp"
                         />
                       </FormControl>
                       <FormMessage />
@@ -457,8 +457,8 @@ function InfoForm(props: InfoFormProps) {
                         <RadioGroupBoolean
                           value={field.value}
                           onValueChange={field.onChange}
-                          true_label="ไม่มี laptop"
-                          false_label="มี laptop"
+                          true_label="มี laptop"
+                          false_label="ไม่มี laptop"
                         />
                       </FormControl>
                       <FormMessage />
