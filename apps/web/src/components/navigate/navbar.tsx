@@ -42,7 +42,7 @@ export default function Navbar({ items }: NavbarProps) {
                 href={item.href}
                 className="hover:text-vermilion text-white transition-colors"
               >
-                <p className="text-[1.1rem]">{item.label}</p>
+                <small className="text-[1rem]">{item.label}</small>
               </a>
             ))}
           </div>
