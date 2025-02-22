@@ -110,7 +110,7 @@ function FilesForm(props: FilesFormProps) {
             name="p1"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>เอกสาร ปพ.1</FormLabel>
+                <FormLabel>สำเนาระเบียนแสดงผลการเรียน (ปพ.1)</FormLabel>
                 <FormDescription className="text-white/40">
                   <strong>
                     สามารถใช้เอกสารแสดงผลการเรียนภาคการศึกษาล่าสุดแทนได้
@@ -135,7 +135,7 @@ function FilesForm(props: FilesFormProps) {
             name="p7"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>เอกสาร ปพ.7</FormLabel>
+                <FormLabel>สำเนาใบรับรองผลการศึกษา (ปพ.7)</FormLabel>
                 <FormDescription className="text-white/40">
                   <strong>
                     สามารถใช้เอกสารรับรองการเป็นนักเรียนแทนได้ เช่น
