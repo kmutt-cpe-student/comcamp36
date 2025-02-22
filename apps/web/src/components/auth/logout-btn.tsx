@@ -1,19 +1,21 @@
 "use client";
 
 import { fetchQuery } from "@/libs/server/client";
-import { redirect } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { toast } from "sonner";
 import Spinner from "../spinner";
 import { Button } from "../ui/button";
 
 export default function LogoutBtn() {
+  const router = useRouter();
+
   const { mutate, isPending } = fetchQuery.useMutation("post", "/auth/logout", {
     onSuccess() {
       toast.success("สำเร็จ!");
-      redirect("/");
+      router.replace("/");
     },
     onError() {
-      toast.error("เกิดข้อผิดพลาดบางอย่างในระบบ!");
+      router.replace("/");
     },
   });
 
@@ -22,8 +24,9 @@ export default function LogoutBtn() {
       onClick={() => {
         mutate({});
       }}
+      disabled={isPending}
     >
-      {isPending ? <Spinner /> : "Logout"}
+      {isPending ? <Spinner /> : "ออกจากระบบ"}
     </Button>
   );
 }
