@@ -3,6 +3,12 @@ import { ApiProperty } from '@nestjs/swagger';
 export class UserResponseDto {
   @ApiProperty({
     type: 'string',
+    required: false,
+  })
+  title?: string;
+
+  @ApiProperty({
+    type: 'string',
   })
   email?: string;
 

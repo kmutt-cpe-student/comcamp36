@@ -122,7 +122,7 @@
       }
     },
     "/users/info": {
-      "patch": {
+      "post": {
         "operationId": "UsersController_updateRegister",
         "parameters": [],
         "requestBody": {
@@ -340,6 +340,7 @@
       "UserResponseDto": {
         "type": "object",
         "properties": {
+          "title": { "type": "string" },
           "email": { "type": "string" },
           "fullname": { "type": "string" },
           "age": { "type": "number" },
@@ -417,6 +418,7 @@
       "UpdateUserDto": {
         "type": "object",
         "properties": {
+          "title": { "type": "string" },
           "fullname": { "type": "string" },
           "age": { "type": "number" },
           "birth": { "type": "number" },
@@ -432,11 +434,10 @@
           "self_medicine": { "type": "string" },
           "drug_allergic": { "type": "string" },
           "food_allergic": { "type": "string" },
-          "perfer_food": { "type": "string" },
+          "prefer_food": { "type": "string" },
           "address": { "type": "string" },
           "home_phone_tel": { "type": "string" },
           "comcamp_attendance": { "type": "boolean" },
-          "shirt_size": { "type": "string" },
           "everyday_attendence": { "type": "boolean" },
           "has_laptop": { "type": "boolean" },
           "travel": { "type": "string" },

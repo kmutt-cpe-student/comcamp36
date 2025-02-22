@@ -6,20 +6,13 @@ import { statusToast } from "../toast";
 import InfoForm, { formSchema } from "./form";
 
 function RegisterInfoPage() {
-  const { mutate } = fetchQuery.useMutation(
-    "patch",
-    "/users/{id}",
-    statusToast,
-  );
+  const { mutate } = fetchQuery.useMutation("post", "/users/info", statusToast);
 
   const onSubmit = (data: z.infer<typeof formSchema>) => {
     mutate({
-      params: {
-        path: { id: "1" },
-      },
       body: {
         ...data,
-        birth: data.birth.getTime(),
+        birth: data.birth.getDate(),
       },
     });
   };
@@ -48,7 +41,6 @@ function RegisterInfoPage() {
         address: "",
         home_phone_tel: "",
         comcamp_attendance: true,
-        size: "",
         everyday_attendance: true,
         has_laptop: true,
         travel: "",

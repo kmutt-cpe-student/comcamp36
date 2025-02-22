@@ -73,10 +73,11 @@ export class UsersController {
       throw new HttpException('Not found', HttpStatus.NOT_FOUND);
     }
     delete user.id;
-    return this.usersService.update(id, updateUserDto);
+    const birth = new Date(updateUserDto.birth);
+    return this.usersService.update(id, updateUserDto, birth);
   }
 
-  @Patch('info')
+  @Post('info')
   @ApiResponse({
     status: 200,
   })
@@ -87,7 +88,12 @@ export class UsersController {
     if (!req['user_id']) {
       throw new HttpException('Not found', HttpStatus.NOT_FOUND);
     }
-    const user = await this.usersService.update(req['user_id'], updateUserDto);
+    const birth = new Date(updateUserDto.birth);
+    const user = await this.usersService.update(
+      req['user_id'],
+      updateUserDto,
+      birth,
+    );
     delete user.id;
     return user;
   }

@@ -47,7 +47,6 @@ export const formSchema = z.object({
   address: z.string(),
   home_phone_tel: z.string(),
   comcamp_attendance: z.boolean(),
-  size: z.string(),
   everyday_attendance: z.boolean(),
   has_laptop: z.boolean(),
   travel: z.string(),

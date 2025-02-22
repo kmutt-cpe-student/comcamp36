@@ -14,6 +14,14 @@ export class UpdateUserDto {
   })
   @IsString()
   @IsOptional()
+  title?: string;
+
+  @ApiProperty({
+    type: 'string',
+    required: false,
+  })
+  @IsString()
+  @IsOptional()
   fullname?: string;
 
   @ApiProperty({
@@ -30,7 +38,7 @@ export class UpdateUserDto {
   })
   @IsDate()
   @IsOptional()
-  birth?: Date;
+  birth?: number;
 
   @ApiProperty({
     type: 'string',
@@ -134,7 +142,7 @@ export class UpdateUserDto {
   })
   @IsString()
   @IsOptional()
-  perfer_food?: string;
+  prefer_food?: string;
 
   @ApiProperty({
     type: 'string',
@@ -159,14 +167,6 @@ export class UpdateUserDto {
   @IsBoolean()
   @IsOptional()
   comcamp_attendance?: boolean;
-
-  @ApiProperty({
-    type: 'string',
-    required: false,
-  })
-  @IsString()
-  @IsOptional()
-  shirt_size?: string;
 
   @ApiProperty({
     type: 'boolean',

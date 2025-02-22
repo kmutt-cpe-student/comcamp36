@@ -120,11 +120,11 @@ export interface paths {
     };
     get?: never;
     put?: never;
-    post?: never;
+    post: operations["UsersController_updateRegister"];
     delete?: never;
     options?: never;
     head?: never;
-    patch: operations["UsersController_updateRegister"];
+    patch?: never;
     trace?: never;
   };
   "/files/upload": {
@@ -260,6 +260,7 @@ export type webhooks = Record<string, never>;
 export interface components {
   schemas: {
     UserResponseDto: {
+      title?: string;
       email: string;
       fullname: string;
       age: number;
@@ -297,6 +298,7 @@ export interface components {
       email: string;
     };
     UpdateUserDto: {
+      title?: string;
       fullname?: string;
       age?: number;
       birth?: number;
@@ -312,11 +314,10 @@ export interface components {
       self_medicine?: string;
       drug_allergic?: string;
       food_allergic?: string;
-      perfer_food?: string;
+      prefer_food?: string;
       address?: string;
       home_phone_tel?: string;
       comcamp_attendance?: boolean;
-      shirt_size?: string;
       everyday_attendence?: boolean;
       has_laptop?: boolean;
       travel?: string;
