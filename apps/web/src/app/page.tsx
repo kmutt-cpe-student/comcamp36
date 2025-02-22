@@ -1,6 +1,8 @@
 import Footer from "@/components/navigate/footer";
 import Navbar from "@/components/navigate/navbar";
+import { Button } from "@/components/ui/button";
 import dynamic from "next/dynamic";
+import Link from "next/link";
 
 const Hero = dynamic(() => import("../components/landing/hero"));
 const WhatIs = dynamic(() => import("../components/landing/what-is"));
@@ -38,6 +40,13 @@ export default function Home() {
               href: "#contact",
             },
           ]}
+          extra={
+            new Date() < new Date("2025-02-13T09:00:00") ? (
+              <Link href="/sign-in">
+                <Button>สมัครเลย!</Button>
+              </Link>
+            ) : null
+          }
         />
       </div>
       <div className="font-prompt relative h-fit bg-[#0d0d0d] bg-cover bg-center bg-no-repeat text-white">

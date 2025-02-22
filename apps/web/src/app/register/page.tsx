@@ -5,6 +5,8 @@ import { Tilt } from "@/components/card/tilt-card";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
+import { TextScramble } from "@/components/ui/text-scramble";
+import { fetchQuery } from "@/libs/server/client";
 import { cn } from "@/libs/utils";
 import { CheckCircle, Mail } from "lucide-react";
 import Image from "next/image";
@@ -16,9 +18,19 @@ const stepsMock = steps.map((step, index) => ({
 }));
 
 function RegisterPage() {
+  const { data, isPending, isError } = fetchQuery.useQuery("get", "/auth/me");
+
+  if (isPending) {
+    return null;
+  }
+
+  if (!data || isError) {
+    return null;
+  }
+
   return (
     <Card className="grid gap-4">
-      <div className="grid h-full grid-cols-1 gap-16 md:grid-cols-[320px_1fr]">
+      <div className="grid h-full grid-cols-1 gap-16 lg:grid-cols-[320px_1fr]">
         <Tilt isRevese rotationFactor={5}>
           <div className="relative mx-auto size-60 flex-shrink-0 overflow-hidden rounded-full border-[10px] border-white">
             <Image
@@ -34,18 +46,23 @@ function RegisterPage() {
         <div className="flex h-full flex-col justify-start">
           <div className="flex flex-col gap-4">
             <div className="flex items-baseline justify-between">
-              <p>ข้อมูลส่วนตัว</p>
-              <p>ID: 456</p>
+              <p className="text-[1rem] sm:text-[1.25rem]">ข้อมูลส่วนตัว</p>
+              <TextScramble trigger className="text-[1rem] sm:text-[1.25rem]">
+                {`เหลือเวลาอีก ${Math.ceil(
+                  (new Date("2025-03-13").getTime() - new Date().getTime()) /
+                    (1000 * 60 * 60 * 24),
+                )} วัน`}
+              </TextScramble>
             </div>
             <Separator />
           </div>
           <div className="flex h-full flex-col justify-center p-5">
             <p className="font-bold leading-normal text-white lg:text-[3rem]">
-              นาย ajsdjskadjas ajskdasjdlaksjdklas
+              {!data.fullname ? "[REDACTED]" : data.fullname}
             </p>
             <p className="text-vermilion flex items-center text-[1.25rem] md:text-2xl">
               <Mail className="mr-4 hidden h-6 w-6 sm:block" />
-              GihunLuvGoose@gmail.com
+              {data.email}
             </p>
           </div>
         </div>
