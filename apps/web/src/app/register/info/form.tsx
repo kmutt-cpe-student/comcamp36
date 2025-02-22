@@ -1,6 +1,7 @@
 "use client";
 
 import FormStepper from "@/app/register/form-stepper";
+import DatePicker from "@/components/date-picker";
 import GenderSelector from "@/components/select/gender-selector";
 import TitleSelector from "@/components/select/title-selector";
 import {
@@ -129,10 +130,15 @@ function InfoForm(props: InfoFormProps) {
                 <FormField
                   control={form.control}
                   name="birth"
-                  render={() => (
+                  render={({ field }) => (
                     <FormItem>
                       <FormLabel>วันเกิด</FormLabel>
-                      <FormControl></FormControl>
+                      <FormControl>
+                        <DatePicker
+                          value={field.value}
+                          onValueChange={field.onChange}
+                        />
+                      </FormControl>
                       <FormMessage />
                     </FormItem>
                   )}
