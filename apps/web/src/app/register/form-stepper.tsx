@@ -1,4 +1,5 @@
 "use client";
+
 import { Button } from "@/components/ui/button";
 import {
   Stepper,
@@ -70,7 +71,7 @@ export default function FormStepper() {
                 >
                   <StepperIndicator
                     asChild
-                    className="h-1 w-full bg-zinc-200 dark:bg-zinc-800"
+                    className="data-[state=completed]:bg-vermilion-1 data-[state=active]:bg-vermilion-1 h-1 w-full bg-white"
                   >
                     <span className="sr-only">{step}</span>
                   </StepperIndicator>
