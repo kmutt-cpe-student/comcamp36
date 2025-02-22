@@ -7,6 +7,7 @@ import {
   Param,
   HttpException,
   HttpStatus,
+  UseGuards,
 } from '@nestjs/common';
 import { AnswerService } from './answer.service';
 import {
@@ -17,8 +18,10 @@ import {
   UpdateAnswerRegisDto,
   UpdateAnswerAcademicDto,
 } from './dto/update-answer.dto';
+import { AuthGuard } from 'src/auth/auth.guard';
 
 @Controller('answer')
+@UseGuards(AuthGuard)
 export class AnswerController {
   constructor(private readonly answerService: AnswerService) {}
 

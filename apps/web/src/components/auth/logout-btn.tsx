@@ -10,7 +10,7 @@ export default function LogoutBtn() {
         className="cursor-pointer text-white"
         onClick={() => {
           fetchClient.POST("/auth/logout");
-          redirect("/authtest");
+          redirect("/signin");
         }}
       >
         Logout

@@ -1,4 +1,5 @@
 "use client";
+
 import { Button } from "@/components/ui/button";
 import {
   Stepper,
@@ -14,22 +15,22 @@ export const steps = [
   {
     step: 1,
     title: "ข้อมูลส่วนตัว",
-    href: "info",
+    href: "/register/info",
   },
   {
     step: 2,
     title: "คำถามคัดเลือก 1",
-    href: "answer-regis",
+    href: "/register/answer-regis",
   },
   {
     step: 3,
     title: "คำถามคัดเลือก 2",
-    href: "answer-academic",
+    href: "/register/answer-academic",
   },
   {
     step: 4,
     title: "ไฟล์ที่ต้องอัพโหลด",
-    href: "files",
+    href: "/register/files",
   },
 ];
 
@@ -70,7 +71,7 @@ export default function FormStepper() {
                 >
                   <StepperIndicator
                     asChild
-                    className="h-1 w-full bg-zinc-200 dark:bg-zinc-800"
+                    className="data-[state=completed]:bg-vermilion-1 data-[state=active]:bg-vermilion-1 h-1 w-full bg-white"
                   >
                     <span className="sr-only">{step}</span>
                   </StepperIndicator>

@@ -1,14 +1,14 @@
 import Link from "next/link";
 
-export default async function AuthtestPage() {
+export default function SigninBtn() {
   return (
-    <div className="bg-charcoal-1 flex h-screen w-screen items-center justify-center">
-      <div>
-        <Link
-          href="http://localhost:4000/auth"
-          className="flex cursor-pointer items-center rounded-md bg-white p-2"
-        >
-          Google Login
+    <div>
+      <Link
+        href={`${process.env.NEXT_PUBLIC_SERVER_URL}/auth`}
+        className="flex cursor-pointer items-center justify-center rounded-md bg-white p-2"
+      >
+        Signin With Google
+        <div>
           <div className="ml-2 h-8 w-8">
             <svg
               viewBox="-3 0 262 262"
@@ -42,8 +42,8 @@ export default async function AuthtestPage() {
               </g>
             </svg>
           </div>
-        </Link>
-      </div>
+        </div>
+      </Link>
     </div>
   );
 }
