@@ -1,5 +1,6 @@
 "use client";
 
+import FormStepper from "@/components/navigate/form-stepper";
 import GenderSelector from "@/components/select/gender-selector";
 import TitleSelector from "@/components/select/title-selector";
 import { Button } from "@/components/ui/button";
@@ -481,8 +482,12 @@ function InfoForm(props: InfoFormProps) {
                   )}
                 />
               </div>
-              <div className="flex w-full justify-center pt-10">
-                <Button>บันทึก</Button>
+              <div className="flex w-full items-center justify-center">
+                <div className="flex w-full max-w-[80rem] justify-center gap-10 pt-10">
+                  <Button>บันทึก</Button>
+                  <FormStepper />
+                  <Button>บันทึก</Button>
+                </div>
               </div>
             </div>
           </form>

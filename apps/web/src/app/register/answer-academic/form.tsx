@@ -1,6 +1,7 @@
 "use client";
 
 import ChessGame from "@/components/chess/chess-game";
+import FormStepper from "@/components/navigate/form-stepper";
 import { Button } from "@/components/ui/button";
 import {
   Form,
@@ -142,8 +143,12 @@ function AnswerAcademic(props: AnswerAcademicProps) {
           </div>
         </div>
         <div className="grid gap-20"></div>
-        <div className="flex w-full justify-center pt-4">
-          <Button>บันทึก</Button>
+        <div className="flex w-full items-center justify-center pt-20">
+          <div className="flex w-full max-w-[80rem] justify-center gap-10">
+            <Button>บันทึก</Button>
+            <FormStepper />
+            <Button>บันทึก</Button>
+          </div>
         </div>
       </form>
     </Form>
