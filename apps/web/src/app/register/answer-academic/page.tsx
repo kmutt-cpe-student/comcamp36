@@ -1,5 +1,6 @@
 "use client";
 
+import { TextShimmer } from "@/components/text/text-shimmer";
 import {
   Card,
   CardContent,
@@ -19,7 +20,12 @@ function RegisterInfoPage() {
     <Card className="h-fit w-full max-w-[110rem]">
       <CardHeader className="pb-20">
         <CardTitle>
-          <h4 className="font-bold">คำถามคัดเลือก 2</h4>
+          <TextShimmer
+            duration={2}
+            className="text-4xl font-bold transition-opacity duration-200 [--base-color:var(--color-vermilion)] [--base-gradient-color:var(--color-vermilion-1)] dark:[--base-color:var(--color-vermilion)] dark:[--base-gradient-color:var(--color-vermilion-1)]"
+          >
+            คำถามคัดเลือก 2
+          </TextShimmer>
         </CardTitle>
         <CardDescription hidden>
           <small>Card Description</small>

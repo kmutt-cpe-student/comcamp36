@@ -4,6 +4,7 @@ import FormStepper from "@/app/register/form-stepper";
 import DatePicker from "@/components/date-picker";
 import GenderSelector from "@/components/select/gender-selector";
 import TitleSelector from "@/components/select/title-selector";
+import { TextShimmer } from "@/components/text/text-shimmer";
 import {
   Card,
   CardContent,
@@ -70,7 +71,12 @@ function InfoForm(props: InfoFormProps) {
     <Card className="w-full max-w-[110rem]">
       <CardHeader>
         <CardTitle>
-          <h4 className="font-bold">แบบฟอร์มรับสมัคร</h4>
+          <TextShimmer
+            duration={2}
+            className="text-4xl font-bold transition-opacity duration-200 [--base-color:var(--color-vermilion)] [--base-gradient-color:var(--color-vermilion-1)] dark:[--base-color:var(--color-vermilion)] dark:[--base-gradient-color:var(--color-vermilion-1)]"
+          >
+            แบบฟอร์มรับสมัคร
+          </TextShimmer>
         </CardTitle>
         <CardDescription hidden>
           <small>Card Description</small>
