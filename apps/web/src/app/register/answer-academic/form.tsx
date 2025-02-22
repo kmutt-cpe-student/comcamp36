@@ -113,7 +113,11 @@ function AnswerAcademic(props: AnswerAcademicProps) {
                   <FormItem>
                     <FormLabel>รูปแบบการเดิน</FormLabel>
                     <FormControl>
-                      <Input className="[resize:none]" {...field} disabled />
+                      <Textarea
+                        className="min-h-auto h-12 [resize:none] md:text-base"
+                        {...field}
+                        disabled
+                      />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
