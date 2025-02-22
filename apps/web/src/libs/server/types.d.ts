@@ -127,6 +127,22 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
+  "/files/{filename}": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get: operations["FilesController_getFiles"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
   "/answer/regis": {
     parameters: {
       query?: never;
@@ -489,6 +505,25 @@ export interface operations {
       query?: never;
       header?: never;
       path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  FilesController_getFiles: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        filename: string;
+      };
       cookie?: never;
     };
     requestBody?: never;

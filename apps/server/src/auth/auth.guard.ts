@@ -4,21 +4,12 @@ import {
   Injectable,
   UnauthorizedException,
 } from '@nestjs/common';
-import { SessionService } from 'src/session/session.service';
 
 @Injectable()
 export class AuthGuard implements CanActivate {
-  constructor(private session: SessionService) {}
-
-  async canActivate(context: ExecutionContext): Promise<boolean> {
+  canActivate(context: ExecutionContext) {
     const request = context.switchToHttp().getRequest();
-
-    const session = await this.session.findOneById(request.cookies['sid']);
-    if (session) {
-      const session = await this.session.findOneById(request.cookies['sid']);
-
-      request['session_id'] = session.sid;
-      request['user_id'] = session.user_id;
+    if (request['session_id'] && request['user_id']) {
       return true;
     } else {
       throw new UnauthorizedException();

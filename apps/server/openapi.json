@@ -129,6 +129,21 @@
         "tags": ["Files"]
       }
     },
+    "/files/{filename}": {
+      "get": {
+        "operationId": "FilesController_getFiles",
+        "parameters": [
+          {
+            "name": "filename",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": { "200": { "description": "" } },
+        "tags": ["Files"]
+      }
+    },
     "/answer/regis": {
       "post": {
         "operationId": "AnswerController_createRegis",

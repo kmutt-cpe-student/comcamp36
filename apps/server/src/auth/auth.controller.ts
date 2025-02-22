@@ -50,6 +50,7 @@ export class AuthController {
           secure: false,
           httpOnly: true,
         });
+        return res.redirect(process.env.CLIENT_REDIRECT_AUTH_URL);
       }
       //Not exists
       else {
@@ -64,9 +65,8 @@ export class AuthController {
           secure: false,
           httpOnly: true,
         });
+        return res.redirect(process.env.CLIENT_REDIRECT_AUTH_URL);
       }
-
-      return res.redirect(process.env.CLIENT_REDIRECT_AUTH_URL);
     }
   }
 

@@ -1,11 +1,16 @@
 import PolicyConsent from "@/components/card/policy-consent";
 import Navbar from "@/components/navigate/navbar";
+import { fetchServer } from "@/libs/server/server";
+import { redirect } from "next/navigation";
 
-export default function RegisterLayout({
+export default async function RegisterLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const { data } = await fetchServer.GET("/auth/me");
+  if (!data?.email) return redirect("/signin");
+
   return (
     <div className="bg-charcoal-1 min-h-screen w-full text-white">
       <PolicyConsent />
