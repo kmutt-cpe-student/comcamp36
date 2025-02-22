@@ -17,6 +17,7 @@ import {
   type DragEndEvent,
 } from "@dnd-kit/core";
 import { useCallback, useMemo, useState, type ReactNode } from "react";
+import HowToChess from "../how-to-play";
 import { Button } from "../ui/button";
 import { Card, CardContent, CardHeader } from "../ui/card";
 
@@ -565,8 +566,9 @@ function ChessGame({ callback }: ChessGameProps) {
 
         <div className="flex w-full justify-center">
           <Card className="h-fit w-full max-w-[50rem] p-8">
-            <CardHeader>
+            <CardHeader className="flex flex-row justify-between">
               <p className="mb-2 font-bold text-white">ประวัติการเดิน</p>
+              <HowToChess />
             </CardHeader>
             <CardContent className="">
               <small className="text-wrap uppercase">

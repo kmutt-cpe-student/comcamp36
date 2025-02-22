@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:is(.dark *));
+
 @theme {
   --font-game-of-squid: "GameOfSquid", sans-serif;
   --font-prompt: "Prompt", serif;
