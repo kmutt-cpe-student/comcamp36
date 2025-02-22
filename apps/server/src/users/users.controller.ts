@@ -27,7 +27,7 @@ export class UsersController {
     if (!user) {
       throw new HttpException('Not found', HttpStatus.NOT_FOUND);
     }
-    return this.usersService.create(createUserDto);
+    return 'User created successfully';
   }
 
   @Get()
@@ -67,10 +67,11 @@ export class UsersController {
     status: 200,
   })
   async remove(@Param('id') id: string) {
-    const user = await this.usersService.remove(id);
+    const user = await this.usersService.findOne(id);
     if (!user) {
       throw new HttpException('Not found', HttpStatus.NOT_FOUND);
     }
-    if (user) return { message: 'success removed' };
+    await this.usersService.remove(id);
+    return { message: 'success removed' };
   }
 }

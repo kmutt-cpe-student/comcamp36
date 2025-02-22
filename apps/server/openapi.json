@@ -9,6 +9,23 @@
         "tags": ["App"]
       }
     },
+    "/auth/me": {
+      "get": {
+        "operationId": "AuthController_me",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/UserResponseDto" }
+              }
+            }
+          }
+        },
+        "tags": ["Auth"]
+      }
+    },
     "/auth": {
       "get": {
         "operationId": "AuthController_googleAuth",
@@ -22,6 +39,14 @@
         "operationId": "AuthController_googleAuthRedirect",
         "parameters": [],
         "responses": { "200": { "description": "" } },
+        "tags": ["Auth"]
+      }
+    },
+    "/auth/logout": {
+      "post": {
+        "operationId": "AuthController_logout",
+        "parameters": [],
+        "responses": { "201": { "description": "" } },
         "tags": ["Auth"]
       }
     },
@@ -235,6 +260,71 @@
   "servers": [],
   "components": {
     "schemas": {
+      "UserResponseDto": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string" },
+          "email": { "type": "string" },
+          "fullname": { "type": "string" },
+          "age": { "type": "number" },
+          "birth": { "type": "number" },
+          "gender": { "type": "string" },
+          "religion": { "type": "string" },
+          "blood_group": { "type": "string" },
+          "graduation": { "type": "string" },
+          "school": { "type": "string" },
+          "course": { "type": "string" },
+          "telephone": { "type": "string" },
+          "medical_coverage": { "type": "string" },
+          "chronic_diseas": { "type": "string" },
+          "self_medicine": { "type": "string" },
+          "drug_allergic": { "type": "string" },
+          "food_allergic": { "type": "string" },
+          "perfer_food": { "type": "string" },
+          "address": { "type": "string" },
+          "home_phone_tel": { "type": "string" },
+          "comcamp_attendance": { "type": "boolean" },
+          "shirt_size": { "type": "string" },
+          "everyday_attendence": { "type": "boolean" },
+          "has_laptop": { "type": "boolean" },
+          "travel": { "type": "string" },
+          "parent_fullname": { "type": "string" },
+          "parent_relation": { "type": "string" },
+          "parent_phone": { "type": "string" },
+          "has_submit_answer": { "type": "boolean" }
+        },
+        "required": [
+          "id",
+          "email",
+          "fullname",
+          "age",
+          "birth",
+          "gender",
+          "religion",
+          "blood_group",
+          "graduation",
+          "school",
+          "course",
+          "telephone",
+          "medical_coverage",
+          "chronic_diseas",
+          "self_medicine",
+          "drug_allergic",
+          "food_allergic",
+          "perfer_food",
+          "address",
+          "home_phone_tel",
+          "comcamp_attendance",
+          "shirt_size",
+          "everyday_attendence",
+          "has_laptop",
+          "travel",
+          "parent_fullname",
+          "parent_relation",
+          "parent_phone",
+          "has_submit_answer"
+        ]
+      },
       "CreateUserDto": {
         "type": "object",
         "properties": {
