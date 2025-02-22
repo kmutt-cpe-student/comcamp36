@@ -1,7 +1,7 @@
 "use client";
 
+import FormStepper from "@/app/register/form-stepper";
 import ChessGame from "@/components/chess/chess-game";
-import { Button } from "@/components/ui/button";
 import {
   Form,
   FormControl,
@@ -13,6 +13,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { Label } from "@radix-ui/react-label";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { PEOPLES } from "./var";
@@ -37,35 +38,32 @@ function AnswerAcademic(props: AnswerAcademicProps) {
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(props.onSubmit)}>
-        <div className="font-noto-sans-thai-looped">
+        <div className="font-noto-sans-thai-looped grid gap-20">
           <FormField
             control={form.control}
             name="algo_answer"
             render={({ field }) => (
               <FormItem>
                 <FormLabel>
-                  <div className="flex flex-col gap-4 pb-10">
+                  <div className="flex flex-col gap-4">
                     <p className="font-bold">1. โจทย์หาคน</p>
-                    <small>
+                    <Label>
                       ในภาควิศวกรรมคอมพิวเตอร์ ของมหาวิทยาลัยแห่งหนึ่ง
                       มีนักศึกษาทั้งสิ้น 36 คน โดยในนักศึกษาทั้ง 36 คน
                       มีกลุ่มเล็ก ๆ 10 คนที่เป็นเพื่อนสนิทกัน แต่ในกลุ่ม 10
                       คนนี้จะไม่รู้จักกับนักศึกษาที่เหลือ รู้จักกันแค่ภายในกลุ่ม
                       และเช่นเดียวกัน นักศึกษาที่เหลือก็จะไม่รู้จักกับนักศึกษา
                       10 คนนี้ แต่จะมี 2 คนที่จะคอยโกหกว่ารู้จัก 10 คนนี้
-                    </small>
+                    </Label>
                     <div className="grid grid-cols-2 gap-2 rounded border border-white/20 p-8 sm:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5">
                       {PEOPLES.map((people, index) => (
-                        <div
-                          key={people}
-                          className="grid grid-cols-[auto_1fr] gap-2"
-                        >
-                          <small>{index}.</small> <small>{people}</small>
-                        </div>
+                        <Label key={people}>
+                          {index}. {people}
+                        </Label>
                       ))}
                     </div>
                     <small>
-                      อง ๆ เป็นนักศีกษาใหม่
+                      น้อง ๆ เป็นนักศีกษาใหม่
                       ซึ่งน้องต้องการที่จะทำความรู้จักกับรุ่นพี่ทั้ง 10
                       คนในกลุ่มนี้ โดยน้องสามารถถามรุ่นพี่คนใดจาก 36 คนนี้ก็ได้
                       โดยเลือกมาทีละ 2 คนว่าทั้งสองคนรู้จักกันไหม
@@ -113,9 +111,7 @@ function AnswerAcademic(props: AnswerAcademicProps) {
                 name="chess_notation"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>
-                      <p>รูปแบบการเดิน</p>
-                    </FormLabel>
+                    <FormLabel>รูปแบบการเดิน</FormLabel>
                     <FormControl>
                       <Input className="[resize:none]" {...field} disabled />
                     </FormControl>
@@ -128,9 +124,7 @@ function AnswerAcademic(props: AnswerAcademicProps) {
                 name="chess_score"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>
-                      <p>คะแนนที่ได้</p>
-                    </FormLabel>
+                    <FormLabel>คะแนนที่ได้</FormLabel>
                     <FormControl>
                       <Input className="[resize:none]" {...field} disabled />
                     </FormControl>
@@ -142,9 +136,7 @@ function AnswerAcademic(props: AnswerAcademicProps) {
           </div>
         </div>
         <div className="grid gap-20"></div>
-        <div className="flex w-full justify-center pt-4">
-          <Button>บันทึก</Button>
-        </div>
+        <FormStepper />
       </form>
     </Form>
   );

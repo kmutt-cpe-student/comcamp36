@@ -1,5 +1,6 @@
 "use client";
 
+import { TextShimmer } from "@/components/text/text-shimmer";
 import {
   Card,
   CardContent,
@@ -17,15 +18,20 @@ function RegisterInfoPage() {
 
   return (
     <Card className="h-fit w-full max-w-[110rem]">
-      <CardHeader className="p-10">
+      <CardHeader>
         <CardTitle>
-          <h4 className="text-vermilion font-bold">คำถามคัดเลือก 1</h4>
+          <TextShimmer
+            duration={2}
+            className="text-4xl font-bold transition-opacity duration-200 [--base-color:var(--color-vermilion)] [--base-gradient-color:var(--color-vermilion-1)] dark:[--base-color:var(--color-vermilion)] dark:[--base-gradient-color:var(--color-vermilion-1)]"
+          >
+            คำถามคัดเลือก 1
+          </TextShimmer>
         </CardTitle>
         <CardDescription hidden>
           <small>อย่าลืมกด</small>
         </CardDescription>
       </CardHeader>
-      <CardContent className="h-fit p-10">
+      <CardContent className="h-fit">
         <AnswerRegis
           data={{
             answer1: "",
