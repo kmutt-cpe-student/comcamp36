@@ -134,36 +134,33 @@ export function FileUploader(props: FileUploaderProps) {
               "hover:bg-charcoal-3/10 group relative grid h-full w-full cursor-pointer place-items-center rounded-lg border-2 border-dashed border-white/10 px-5 py-2.5 text-center transition",
               "ring-offset-charcoal focus-visible:ring-vermilion focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2",
               isDragActive && "border-charcoal-4",
-              isDisabled && "pointer-events-none opacity-60",
+              isDisabled && "pointer-events-none cursor-not-allowed opacity-40",
               className,
             )}
             {...dropzoneProps}
           >
             <input {...getInputProps()} />
             {isDragActive ? (
-              <div className="flex flex-col items-center justify-center gap-4 sm:px-5">
+              <div className="flex flex-col items-center justify-center gap-4 py-4 sm:px-5">
                 <div className="border-charcoal-4 rounded-full border border-dashed p-3">
                   <Upload
                     className="text-dimgray-1 size-7"
                     aria-hidden="true"
                   />
                 </div>
-                <p className="text-dimgray-1 font-medium">
-                  Drop the files here
-                </p>
+                <p className="text-dimgray-1 font-medium">ลากไฟล์ไว้ตรงนี้</p>
               </div>
             ) : (
               <div className="flex flex-col items-center justify-center gap-4 sm:px-5">
                 <div className="flex flex-col gap-px">
                   <p className="text-dimgray-1 font-medium">
-                    Drag {`'n'`} drop files here, or click to select files
+                    ลากและวาง หรือ คลิกตรงนี้เพื่ออัพโหลดไฟล์
                   </p>
                   <p className="text-dimgray-1 text-sm">
-                    You can upload
                     {maxFileCount > 1
                       ? ` ${maxFileCount === Infinity ? "multiple" : maxFileCount}
                       files (up to ${formatBytes(maxSize)} each)`
-                      : ` a file with ${formatBytes(maxSize)}`}
+                      : ` ไฟล์มีขนาดใหญ่ที่สุด ${formatBytes(maxSize)}`}
                   </p>
                 </div>
               </div>

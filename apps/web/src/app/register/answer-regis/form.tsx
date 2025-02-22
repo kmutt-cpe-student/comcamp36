@@ -1,6 +1,6 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
+import FormStepper from "@/app/register/form-stepper";
 import {
   Form,
   FormControl,
@@ -9,6 +9,7 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
+import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
@@ -47,9 +48,7 @@ function AnswerRegis(props: AnswerRegisProps) {
             name="answer1"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>
-                  <p>1. น้องคาดหวังอะไรจากค่าย ComCamp36</p>
-                </FormLabel>
+                <FormLabel>1. น้องคาดหวังอะไรจากค่าย ComCamp36</FormLabel>
                 <FormControl>
                   <Textarea className="[resize:none]" {...field} />
                 </FormControl>
@@ -64,11 +63,9 @@ function AnswerRegis(props: AnswerRegisProps) {
             render={({ field }) => (
               <FormItem>
                 <FormLabel>
-                  <p>
-                    2. ในยุคที่ AI และหุ่นยนต์สามารถทำงานแทนมนุษย์ได้มากขึ้น
-                    น้องคิดว่าวิศวกรคอมพิวเตอร์ยังมีความสำคัญหรือไม่?
-                    และเพราะเหตุใด?
-                  </p>
+                  2. ในยุคที่ AI และหุ่นยนต์สามารถทำงานแทนมนุษย์ได้มากขึ้น
+                  น้องคิดว่าวิศวกรคอมพิวเตอร์ยังมีความสำคัญหรือไม่?
+                  และเพราะเหตุใด?
                 </FormLabel>
                 <FormControl>
                   <Textarea className="[resize:none]" {...field} />
@@ -85,7 +82,7 @@ function AnswerRegis(props: AnswerRegisProps) {
               <FormItem>
                 <FormLabel>
                   <div className="flex flex-col">
-                    <p>
+                    <Label>
                       3. หากน้องและทีมจำนวน 5 คน
                       กำลังอยู่บนยานอวกาศที่ติดอยู่ในวงโคจรของดาวเคราะห์ดวงหนึ่ง
                       ยานน้องได้รับความเสียหายจากอุกกาบาตที่ชนเข้ามา ระบบอื่น ๆ
@@ -93,7 +90,7 @@ function AnswerRegis(props: AnswerRegisProps) {
                       แต่ระบบกรองน้ำของยานเสียหายมาก น้ำสะอาดที่เหลือมีเพียง 40
                       ลิตร ทีมของคุณต้องอยู่รอดให้ได้อีก 60
                       วันก่อนที่ทีมกู้ภัยจากโลกจะมาถึง
-                    </p>
+                    </Label>
                     <div className="p-4">
                       <div className="grid w-full grid-cols-[auto_1fr] gap-4 divide-amber-100 border border-white/10 p-2">
                         <small>วิศวกร</small>
@@ -123,10 +120,10 @@ function AnswerRegis(props: AnswerRegisProps) {
                         </small>
                       </div>
                     </div>
-                    <p>
+                    <Label>
                       จงระบุปัญหาทั้งหมดที่เกิดขึ้น
                       พร้อมเสนอแนวทางการแก้ปัญหาและอธิบายหลักการมาพอสังเขป
-                    </p>
+                    </Label>
                   </div>
                 </FormLabel>
                 <FormControl>
@@ -143,13 +140,9 @@ function AnswerRegis(props: AnswerRegisProps) {
             render={({ field }) => (
               <FormItem>
                 <FormLabel>
-                  <div className="flex flex-col">
-                    <p>
-                      4. หากในค่ายมี Group Project
-                      แล้วน้องได้อยู่ในกลุ่มที่มีคนไม่ค่อยทำงาน นิ่งเฉย
-                      หรือทิ้งงาน น้องจะจัดการกับปัญหานี้อย่างไร?
-                    </p>
-                  </div>
+                  4. หากในค่ายมี Group Project
+                  แล้วน้องได้อยู่ในกลุ่มที่มีคนไม่ค่อยทำงาน นิ่งเฉย หรือทิ้งงาน
+                  น้องจะจัดการกับปัญหานี้อย่างไร?
                 </FormLabel>
                 <FormControl>
                   <Textarea className="[resize:none]" {...field} />
@@ -165,12 +158,8 @@ function AnswerRegis(props: AnswerRegisProps) {
             render={({ field }) => (
               <FormItem>
                 <FormLabel>
-                  <div className="flex flex-col">
-                    <p>
-                      5. ถ้าต้องสอนเด็ก 7 ขวบให้เข้าใจว่า &quot;Algorithm&quot;
-                      คืออะไร โดยห้ามใช้คำศัพท์เทคนิค จะอธิบายอย่างไร?
-                    </p>
-                  </div>
+                  5. ถ้าต้องสอนเด็ก 7 ขวบให้เข้าใจว่า &quot;Algorithm&quot;
+                  คืออะไร โดยห้ามใช้คำศัพท์เทคนิค จะอธิบายอย่างไร?
                 </FormLabel>
                 <FormControl>
                   <Textarea className="[resize:none]" {...field} />
@@ -181,16 +170,16 @@ function AnswerRegis(props: AnswerRegisProps) {
           />
 
           <div className="flex flex-col gap-4">
-            <h5>
+            <p>
               6.
               น้องได้รับมอบหมายให้พัฒนานวัตกรรมที่ช่วยให้การดูแลผู้สูงอายุในชุมชนมีประสิทธิภาพและทั่วถึงมากขึ้น
               ภายในระยะเวลา 2 ปี
-            </h5>
-            <p className="text-white/60">
+            </p>
+            <small className="text-white/60">
               <strong>รายละเอียดปัญหา: </strong>
               การติดตามสุขภาพผู้สูงอายุไม่ทั่วถึง
               ทำให้หลายคนไม่ได้รับการดูแลที่เหมาะสม
-            </p>
+            </small>
           </div>
 
           <FormField
@@ -199,11 +188,9 @@ function AnswerRegis(props: AnswerRegisProps) {
             render={({ field }) => (
               <FormItem>
                 <FormLabel>
-                  <p>
-                    6.1
-                    หากน้องสามารถพัฒนานวัตกรรมเพื่อช่วยแก้ปัญหาสังคมเหล่านี้ได้หนึ่งอย่าง
-                    น้องจะเลือกพัฒนาอะไร?
-                  </p>
+                  6.1
+                  หากน้องสามารถพัฒนานวัตกรรมเพื่อช่วยแก้ปัญหาสังคมเหล่านี้ได้หนึ่งอย่าง
+                  น้องจะเลือกพัฒนาอะไร?
                 </FormLabel>
                 <FormControl>
                   <Textarea className="[resize:none]" {...field} />
@@ -218,9 +205,7 @@ function AnswerRegis(props: AnswerRegisProps) {
             name="answer6_2"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>
-                  <p>6.2 จงอธิบายการทำงานของนวัตกรรมนี้</p>
-                </FormLabel>
+                <FormLabel>6.2 จงอธิบายการทำงานของนวัตกรรมนี้</FormLabel>
                 <FormControl>
                   <Textarea className="[resize:none]" {...field} />
                 </FormControl>
@@ -229,9 +214,7 @@ function AnswerRegis(props: AnswerRegisProps) {
             )}
           />
         </div>
-        <div className="flex w-full justify-center pt-4">
-          <Button>บันทึก</Button>
-        </div>
+        <FormStepper />
       </form>
     </Form>
   );
