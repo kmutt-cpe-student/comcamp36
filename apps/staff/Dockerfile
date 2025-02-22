@@ -33,8 +33,9 @@ WORKDIR /app
 RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 nextjs
 USER nextjs
+RUN mkdir -p /app/sqlite && chown nextjs:nodejs /app/sqlite
 COPY --from=installer --chown=nextjs:nodejs /app/apps/staff/.next/standalone ./
-COPY --from=installer --chown=nextjs:nodejs /app/apps/staff/.next/static ./apps/staff/.next/static
-COPY --from=installer --chown=nextjs:nodejs /app/apps/staff/public ./apps/staff/public
+COPY --from=installer --chown=nextjs:nodejs /app/apps/staff/.next/static ./.next/static
+COPY --from=installer --chown=nextjs:nodejs /app/apps/staff/public ./public
 
 CMD node apps/staff/server.js

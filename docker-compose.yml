@@ -51,7 +51,12 @@ services:
     restart: always
     networks:
       - main
+    volumes:
+      - sqlite_data:/app/sqlite
 
 networks:
   main:
     driver: bridge
+
+volumes:
+  sqlite_data:
