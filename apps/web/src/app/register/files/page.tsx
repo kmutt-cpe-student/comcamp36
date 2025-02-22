@@ -2,7 +2,6 @@
 
 import {
   Card,
-  CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
@@ -25,18 +24,16 @@ function RegisterInfoPage() {
           <small>Card Description</small>
         </CardDescription>
       </CardHeader>
-      <CardContent>
-        <FilesForm
-          data={{
-            face_photo: [],
-            p1: [],
-            p7: [],
-            parent_permission: [],
-            thai_nationalid_copy: [],
-          }}
-          onSubmit={onSubmit}
-        />
-      </CardContent>
+      <FilesForm
+        data={{
+          face_photo: [],
+          p1: [],
+          p7: [],
+          parent_permission: [],
+          thai_nationalid_copy: [],
+        }}
+        onSubmit={onSubmit}
+      />
     </Card>
   );
 }

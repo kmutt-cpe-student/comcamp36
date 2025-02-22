@@ -2,9 +2,11 @@
 
 import { FileUploader } from "@/components/files";
 import { Button } from "@/components/ui/button";
+import { CardContent, CardFooter } from "@/components/ui/card";
 import {
   Form,
   FormControl,
+  FormDescription,
   FormField,
   FormItem,
   FormLabel,
@@ -36,13 +38,16 @@ function FilesForm(props: FilesFormProps) {
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(props.onSubmit)}>
-        <div className="font-noto-sans-thai-looped grid grid-cols-2 gap-4">
+        <CardContent className="font-noto-sans-thai-looped grid grid-cols-1 gap-10 lg:grid-cols-2">
           <FormField
             control={form.control}
             name="face_photo"
             render={({ field }) => (
               <FormItem>
                 <FormLabel>รูปใบหน้าชัดเจน</FormLabel>
+                <FormDescription className="text-white/40">
+                  <strong>เห็นใบหน้าชัดเจน</strong>
+                </FormDescription>
                 <FormControl>
                   <FileUploader
                     value={field.value}
@@ -61,6 +66,10 @@ function FilesForm(props: FilesFormProps) {
             render={({ field }) => (
               <FormItem>
                 <FormLabel>สำเนาบัตรประชาชน</FormLabel>
+                <FormDescription className="text-white/40">
+                  <strong>สามารถใช้สำเนาบัตรนักเรียนแทนได้</strong>{" "}
+                  (เซ็นสำเนาถูกต้อง)
+                </FormDescription>
                 <FormControl>
                   <FileUploader
                     maxFileCount={1}
@@ -80,6 +89,9 @@ function FilesForm(props: FilesFormProps) {
             render={({ field }) => (
               <FormItem>
                 <FormLabel>หนังสือยินยอมผู้ปกครอง</FormLabel>
+                <FormDescription className="text-white/40">
+                  <strong>ดาวโหลดไฟล์หนังสือยินยอมผู้ปกครอง</strong>
+                </FormDescription>
                 <FormControl>
                   <FileUploader
                     maxFileCount={1}
@@ -98,7 +110,13 @@ function FilesForm(props: FilesFormProps) {
             name="p1"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>เอกสาร P1</FormLabel>
+                <FormLabel>เอกสาร ปพ.1</FormLabel>
+                <FormDescription className="text-white/40">
+                  <strong>
+                    สามารถใช้เอกสารแสดงผลการเรียนภาคการศึกษาล่าสุดแทนได้
+                  </strong>{" "}
+                  (เซ็นสำเนาถูกต้อง)
+                </FormDescription>
                 <FormControl>
                   <FileUploader
                     maxFileCount={1}
@@ -117,7 +135,14 @@ function FilesForm(props: FilesFormProps) {
             name="p7"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>เอกสาร P7</FormLabel>
+                <FormLabel>เอกสาร ปพ.7</FormLabel>
+                <FormDescription className="text-white/40">
+                  <strong>
+                    สามารถใช้เอกสารรับรองการเป็นนักเรียนแทนได้ เช่น
+                    สำเนาบัตรนักเรียน
+                  </strong>{" "}
+                  (เซ็นสำเนาถูกต้อง)
+                </FormDescription>
                 <FormControl>
                   <FileUploader
                     maxFileCount={1}
@@ -131,10 +156,12 @@ function FilesForm(props: FilesFormProps) {
               </FormItem>
             )}
           />
-        </div>
-        <div className="flex w-full justify-center">
-          <Button>บันทึก</Button>
-        </div>
+        </CardContent>
+        <CardFooter>
+          <div className="flex w-full justify-center pt-10">
+            <Button>บันทึก</Button>
+          </div>
+        </CardFooter>
       </form>
     </Form>
   );

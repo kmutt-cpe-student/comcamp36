@@ -20,7 +20,7 @@ export default function RegisterLayout({
           ]}
         />
       </div>
-      <div className="font-prompt flex w-full justify-center px-10 py-36">
+      <div className="font-prompt flex min-h-screen w-full justify-center px-10 py-36">
         {children}
       </div>
       <Footer />
