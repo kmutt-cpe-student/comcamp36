@@ -20,7 +20,7 @@ export default function RegisterLayout({
             ]}
           />
         </div>
-        <div className="font-prompt relative h-fit bg-cover bg-center bg-no-repeat text-white">
+        <div className="absolute h-fit bg-cover bg-center bg-no-repeat text-white">
           {children}
         </div>
       </div>

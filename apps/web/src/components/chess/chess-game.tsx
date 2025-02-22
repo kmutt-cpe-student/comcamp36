@@ -17,6 +17,7 @@ import {
   type DragEndEvent,
 } from "@dnd-kit/core";
 import { useCallback, useMemo, useState, type ReactNode } from "react";
+import { Button } from "../ui/button";
 
 const BOARD_SIZE = 8;
 
@@ -302,15 +303,15 @@ function DroppableSquare({
       ref={setNodeRef}
       onClick={onClick}
       className={cn(
-        "group flex items-center justify-center transition-all duration-200 opacity-0",
+        "group flex items-center justify-center opacity-0 transition-all duration-200",
         isValid && "cursor-pointer opacity-100",
-        shouldShowGrayscale && "backdrop-grayscale bg-black/40",
+        shouldShowGrayscale && "bg-black/40 backdrop-grayscale",
       )}
     >
       {isValid && (
         <div
           className={cn(
-            "bg-black/10 rounded-full size-[90%] transition-all duration-200 group-hover:bg-black/20 group-active:bg-black/30 group-active:scale-95",
+            "size-[90%] rounded-full bg-black/10 transition-all duration-200 group-hover:bg-black/20 group-active:scale-95 group-active:bg-black/30",
             isOver && "bg-black/20",
           )}
         />
@@ -319,7 +320,11 @@ function DroppableSquare({
   );
 }
 
-function ChessGame() {
+interface ChessGameProps {
+  callback: (score: number, notation: string) => void;
+}
+
+function ChessGame({ callback }: ChessGameProps) {
   const initialState = useMemo<GameState>(
     () => ({
       currentPosition: fromChessNotation("b1"),
@@ -453,9 +458,8 @@ function ChessGame() {
 
   const handleSubmit = useCallback(() => {
     if (!canSubmit) return;
-    alert(
-      `Game completed!\nMoves: ${gameState.moveHistory.join("-")}\nFinal Score: ${gameState.score}`,
-    );
+    callback(gameState.score, gameState.moveHistory.join(" "));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [canSubmit, gameState.moveHistory, gameState.score]);
 
   const validMoves = getValidMoves(
@@ -491,8 +495,8 @@ function ChessGame() {
 
   return (
     <DndContext onDragEnd={handleDragEnd} sensors={sensors}>
-      <div className="relative">
-        <div className="relative w-full max-w-[800px] mx-auto aspect-square">
+      <div className="font-prompt relative">
+        <div className="relative mx-auto aspect-square w-full max-w-[800px]">
           <div className="relative size-full">
             <Board className="size-full" />
 
@@ -503,7 +507,7 @@ function ChessGame() {
               <PieceComponent className="size-full" />
             </DraggablePiece>
 
-            <div className="absolute top-0 left-0 w-full h-full grid grid-cols-8 grid-rows-8">
+            <div className="absolute left-0 top-0 grid h-full w-full grid-cols-8 grid-rows-8">
               {Array.from({ length: BOARD_SIZE * BOARD_SIZE }).map((_, i) => {
                 const x = i % BOARD_SIZE;
                 const y = Math.floor(i / BOARD_SIZE);
@@ -522,13 +526,13 @@ function ChessGame() {
           </div>
         </div>
 
-        <div className="mt-4 text-xl font-bold text-center">
+        <div className="mt-4 text-center text-xl font-bold">
           Current Piece:{" "}
           {gameState.currentPiece.charAt(0).toUpperCase() +
             gameState.currentPiece.slice(1)}
         </div>
 
-        <div className="mt-2 text-xl font-bold text-center">
+        <div className="mt-2 text-center text-xl font-bold">
           Score: {gameState.score}
           {gameState.noDeductionMoves > 0 && (
             <span className="ml-2 text-blue-500">
@@ -542,32 +546,27 @@ function ChessGame() {
           )}
         </div>
 
-        <div className="mt-4 flex gap-4 justify-center">
-          <button
-            className="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600"
-            onClick={handleReset}
-          >
+        <div className="mt-4 flex justify-center gap-4">
+          <Button type="button" onClick={handleReset} variant="destructive">
             Reset Game
-          </button>
-          <button
-            className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 disabled:opacity-50 disabled:cursor-not-allowed"
+          </Button>
+          <Button
+            type="button"
             onClick={handleUndo}
             disabled={gameState.prevStates.length === 0}
           >
             Undo
-          </button>
-          <button
-            className="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600 disabled:opacity-50 disabled:cursor-not-allowed"
-            onClick={handleSubmit}
-            disabled={!canSubmit}
-          >
+          </Button>
+          <Button type="button" onClick={handleSubmit} disabled={!canSubmit}>
             Submit
-          </button>
+          </Button>
         </div>
 
-        <div className="mt-4 p-4 bg-gray-100 rounded w-full max-w-[800px] mx-auto">
-          <h3 className="font-bold mb-2">Move History:</h3>
-          <p className="text-wrap">{gameState.moveHistory.join(" > ")}</p>
+        <div className="mx-auto mt-4 w-full max-w-[800px] rounded-xl border border-white/20 p-4 text-white/80">
+          <p className="mb-2 font-bold text-white">Move History:</p>
+          <small className="text-wrap">
+            {gameState.moveHistory.join(" > ")}
+          </small>
         </div>
       </div>
     </DndContext>
