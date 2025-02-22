@@ -35,7 +35,14 @@ const NAVBARITEMS = [
   },
 ];
 
-export default function Navbar() {
+interface NavbarProps {
+  items: {
+    label: string;
+    href: string;
+  }[];
+}
+
+export default function Navbar({ items }: NavbarProps) {
   return (
     <div className="font-prompt fixed left-0 top-0 w-full px-5 py-5">
       <div className="backdrop-blur-xs h-18 flex items-center justify-between rounded-[20px] border-[1px] border-[#424242] bg-[#292929]/50 px-5 lg:px-9">
@@ -52,7 +59,7 @@ export default function Navbar() {
         </div>
         <div className="flex h-full items-center">
           <div className="hidden flex-row gap-4 text-xl xl:flex">
-            {NAVBARITEMS.map((item) => (
+            {items.map((item) => (
               <a
                 key={item.href}
                 href={item.href}

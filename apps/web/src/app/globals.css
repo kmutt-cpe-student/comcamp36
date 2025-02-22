@@ -92,12 +92,12 @@
   }
   p {
     font-size: 1.25rem;
-    line-height: auto;
+    line-height: 1.6rem;
     font-weight: 400;
   }
   small {
     font-size: 1rem;
-    line-height: auto;
+    line-height: 1.25rem;
     font-weight: 400;
   }
 }

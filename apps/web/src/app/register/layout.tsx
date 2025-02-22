@@ -1,4 +1,5 @@
 import PolicyConsent from "@/components/card/policy-consent";
+import Navbar from "@/components/navigate/navbar";
 
 export default function RegisterLayout({
   children,
@@ -6,9 +7,21 @@ export default function RegisterLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <div className="bg-charcoal-1 h-screen w-full text-white">
+    <div className="bg-charcoal-1 min-h-screen w-full text-white">
       <PolicyConsent />
-      {children}
+      <div className="absolute z-[100]">
+        <Navbar
+          items={[
+            {
+              label: "เนื้อหาที่เรียน",
+              href: "#learn",
+            },
+          ]}
+        />
+      </div>
+      <div className="font-prompt flex w-full justify-center px-10 pt-36">
+        {children}
+      </div>
     </div>
   );
 }

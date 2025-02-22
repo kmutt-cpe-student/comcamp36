@@ -15,7 +15,30 @@ export default function Home() {
   return (
     <div className="bg-charcoal-1 absolute h-fit w-full overflow-x-hidden">
       <div className="absolute z-[100]">
-        <Navbar />
+        <Navbar
+          items={[
+            {
+              label: "เนื้อหาที่เรียน",
+              href: "#learn",
+            },
+            {
+              label: "คุณสมบัติ",
+              href: "#requirements",
+            },
+            {
+              label: "ช่วงเวลา",
+              href: "#timeline",
+            },
+            {
+              label: "คำถามที่พบบ่อย",
+              href: "#faq",
+            },
+            {
+              label: "ติดต่อ",
+              href: "#contact",
+            },
+          ]}
+        />
       </div>
       <div className="font-prompt relative h-fit bg-[#0d0d0d] bg-cover bg-center bg-no-repeat text-white">
         <Hero />
