@@ -17,7 +17,7 @@ function RegisterInfoPage() {
 
   return (
     <Card className="h-fit w-full max-w-[110rem]">
-      <CardHeader className="p-10">
+      <CardHeader className="pb-20">
         <CardTitle>
           <h4 className="font-bold">คำถามคัดเลือก 2</h4>
         </CardTitle>
@@ -25,7 +25,7 @@ function RegisterInfoPage() {
           <small>Card Description</small>
         </CardDescription>
       </CardHeader>
-      <CardContent className="h-fit p-10">
+      <CardContent className="h-fit">
         <AnswerAcademic
           data={{
             chess_notation: "",

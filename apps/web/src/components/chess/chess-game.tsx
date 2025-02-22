@@ -18,6 +18,7 @@ import {
 } from "@dnd-kit/core";
 import { useCallback, useMemo, useState, type ReactNode } from "react";
 import { Button } from "../ui/button";
+import { Card, CardContent, CardHeader } from "../ui/card";
 
 const BOARD_SIZE = 8;
 
@@ -527,13 +528,13 @@ function ChessGame({ callback }: ChessGameProps) {
         </div>
 
         <div className="mt-4 text-center text-xl font-bold">
-          Current Piece:{" "}
+          หมากตัวปัจจุบัน:{" "}
           {gameState.currentPiece.charAt(0).toUpperCase() +
             gameState.currentPiece.slice(1)}
         </div>
 
-        <div className="mt-2 text-center text-xl font-bold">
-          Score: {gameState.score}
+        <div className="text-center text-xl font-bold">
+          คะแนน: {gameState.score}
           {gameState.noDeductionMoves > 0 && (
             <span className="ml-2 text-blue-500">
               (No deduction: {gameState.noDeductionMoves} moves)
@@ -546,27 +547,33 @@ function ChessGame({ callback }: ChessGameProps) {
           )}
         </div>
 
-        <div className="mt-4 flex justify-center gap-4">
+        <div className="my-4 flex justify-center gap-4">
           <Button type="button" onClick={handleReset} variant="destructive">
-            Reset Game
+            เรื่มใหม่
           </Button>
           <Button
             type="button"
             onClick={handleUndo}
             disabled={gameState.prevStates.length === 0}
           >
-            Undo
+            ย้อนกลับ
           </Button>
           <Button type="button" onClick={handleSubmit} disabled={!canSubmit}>
-            Submit
+            บันทึกผลการเล่น
           </Button>
         </div>
 
-        <div className="mx-auto mt-4 w-full max-w-[800px] rounded-xl border border-white/20 p-4 text-white/80">
-          <p className="mb-2 font-bold text-white">Move History:</p>
-          <small className="text-wrap">
-            {gameState.moveHistory.join(" > ")}
-          </small>
+        <div className="flex w-full justify-center">
+          <Card className="h-fit w-full max-w-[50rem] p-0">
+            <CardHeader>
+              <p className="mb-2 font-bold text-white">ประวัติการเดิน</p>
+            </CardHeader>
+            <CardContent className="">
+              <small className="text-wrap uppercase">
+                {gameState.moveHistory.join(" > ")}
+              </small>
+            </CardContent>
+          </Card>
         </div>
       </div>
     </DndContext>
