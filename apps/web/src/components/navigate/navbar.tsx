@@ -37,13 +37,13 @@ export default function Navbar({ items }: NavbarProps) {
         <div className="flex h-full items-center">
           <div className="hidden flex-row gap-4 text-xl xl:flex">
             {items.map((item) => (
-              <a
+              <Link
                 key={item.href}
                 href={item.href}
                 className="hover:text-vermilion text-white transition-colors"
               >
                 <small className="text-[1rem]">{item.label}</small>
-              </a>
+              </Link>
             ))}
           </div>
 

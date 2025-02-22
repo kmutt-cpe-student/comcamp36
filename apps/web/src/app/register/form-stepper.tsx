@@ -14,22 +14,22 @@ export const steps = [
   {
     step: 1,
     title: "ข้อมูลส่วนตัว",
-    href: "info",
+    href: "/register/info",
   },
   {
     step: 2,
     title: "คำถามคัดเลือก 1",
-    href: "answer-regis",
+    href: "/register/answer-regis",
   },
   {
     step: 3,
     title: "คำถามคัดเลือก 2",
-    href: "answer-academic",
+    href: "/register/answer-academic",
   },
   {
     step: 4,
     title: "ไฟล์ที่ต้องอัพโหลด",
-    href: "files",
+    href: "/register/files",
   },
 ];
 
