@@ -15,6 +15,22 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
+  "/auth/me": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get: operations["AuthController_me"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
   "/auth": {
     parameters: {
       query?: never;
@@ -41,6 +57,22 @@ export interface paths {
     get: operations["AuthController_googleAuthRedirect"];
     put?: never;
     post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/auth/logout": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    post: operations["AuthController_logout"];
     delete?: never;
     options?: never;
     head?: never;
@@ -163,6 +195,37 @@ export interface paths {
 export type webhooks = Record<string, never>;
 export interface components {
   schemas: {
+    UserResponseDto: {
+      id: string;
+      email: string;
+      fullname: string;
+      age: number;
+      birth: number;
+      gender: string;
+      religion: string;
+      blood_group: string;
+      graduation: string;
+      school: string;
+      course: string;
+      telephone: string;
+      medical_coverage: string;
+      chronic_diseas: string;
+      self_medicine: string;
+      drug_allergic: string;
+      food_allergic: string;
+      perfer_food: string;
+      address: string;
+      home_phone_tel: string;
+      comcamp_attendance: boolean;
+      shirt_size: string;
+      everyday_attendence: boolean;
+      has_laptop: boolean;
+      travel: string;
+      parent_fullname: string;
+      parent_relation: string;
+      parent_phone: string;
+      has_submit_answer: boolean;
+    };
     CreateUserDto: {
       google_id: string;
       email: string;
@@ -252,6 +315,25 @@ export interface operations {
       };
     };
   };
+  AuthController_me: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["UserResponseDto"];
+        };
+      };
+    };
+  };
   AuthController_googleAuth: {
     parameters: {
       query?: never;
@@ -279,6 +361,23 @@ export interface operations {
     requestBody?: never;
     responses: {
       200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  AuthController_logout: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      201: {
         headers: {
           [name: string]: unknown;
         };
