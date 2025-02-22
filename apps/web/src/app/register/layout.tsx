@@ -22,7 +22,6 @@ export default function RegisterLayout({
       const { data } = await fetchClient.GET("/auth/me");
       if (data?.email) {
         setHaveUser(true);
-        return redirect("/register");
       } else {
         return redirect("/signin");
       }

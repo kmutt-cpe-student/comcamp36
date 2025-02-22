@@ -7,6 +7,8 @@ import {
 import { getSignedUrl } from '@aws-sdk/s3-request-presigner';
 import { UploadFileDto } from './dto/upload-files.dto';
 import { PrismaService } from 'src/prisma/prisma.service';
+import { GetUrlFileInputDto } from './dto/geturl-file-input.dto';
+import { Readable } from 'stream';
 
 @Injectable()
 export class FilesService {
@@ -111,7 +113,64 @@ export class FilesService {
     }
   };
 
-  async getFile(filename: string) {
+  async getFile(urls: GetUrlFileInputDto) {
+    let face_photo_filepath = '';
+    let thai_nationalid_filepath = '';
+    let parent_permission_filepath = '';
+    let p1_filepath = '';
+    let p7_filepath = '';
+
+    if (urls.face_photo_key)
+      face_photo_filepath = await this.getUrl(urls.face_photo_key);
+    if (urls.thai_nationalid_copy_key)
+      thai_nationalid_filepath = await this.getUrl(
+        urls.thai_nationalid_copy_key,
+      );
+    if (urls.parent_permission_key)
+      parent_permission_filepath = await this.getUrl(
+        urls.parent_permission_key,
+      );
+    if (urls.p1_key) p1_filepath = await this.getUrl(urls.p1_key);
+    if (urls.p7_key) p7_filepath = await this.getUrl(urls.p7_key);
+
+    return {
+      face_photo_filepath,
+      thai_nationalid_filepath,
+      parent_permission_filepath,
+      p1_filepath,
+      p7_filepath,
+    };
+  }
+
+  async getBlobs(urls: GetUrlFileInputDto) {
+    const blobPromises = Object.entries(urls).map(async ([filename, key]) => {
+      const getObjectParams = { Bucket: process.env.S3_BUCKET, Key: key };
+      const { Body } = await this.client.send(
+        new GetObjectCommand(getObjectParams),
+      );
+
+      if (!Body || !(Body instanceof Readable)) {
+        throw new Error(`Invalid body received for key: ${key}`);
+      }
+
+      const buffer = await this.streamToBuffer(Body);
+      return [filename, buffer.toString('base64')]; // Convert to base64
+    });
+
+    const blobs = Object.fromEntries(await Promise.all(blobPromises));
+    return blobs;
+  }
+
+  streamToBuffer = async (readableStream: Readable): Promise<Buffer> => {
+    return new Promise((resolve, reject) => {
+      const chunks: Uint8Array[] = [];
+      readableStream.on('data', (chunk) => chunks.push(chunk));
+      readableStream.on('end', () => resolve(Buffer.concat(chunks)));
+      readableStream.on('error', reject);
+    });
+  };
+
+  async getUrl(filename: string) {
     const command = new GetObjectCommand({
       Bucket: process.env.S3_BUCKET,
       Key: filename,
@@ -121,6 +180,10 @@ export class FilesService {
       expiresIn: 3600,
     });
     return signedUrl;
+  }
+
+  async getUserFiles(userId: string) {
+    return this.prisma.file.findUnique({ where: { userId: userId } });
   }
 
   private generateFilename(filename: string, userId: string, fileType: string) {

@@ -16,13 +16,13 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 
 export const formSchema = z.object({
-  answer1: z.string().optional(),
-  answer2: z.string().optional(),
-  answer3: z.string().optional(),
-  answer4: z.string().optional(),
-  answer5: z.string().optional(),
-  answer6_1: z.string().optional(),
-  answer6_2: z.string().optional(),
+  answer1: z.string().min(1),
+  answer2: z.string().min(1),
+  answer3: z.string().min(1),
+  answer4: z.string().min(1),
+  answer5: z.string().min(1),
+  answer6_1: z.string().min(1),
+  answer6_2: z.string().min(1),
 });
 
 interface AnswerRegisProps {

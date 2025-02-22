@@ -133,7 +133,16 @@
             }
           }
         },
-        "responses": { "200": { "description": "" } },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/UserResponseDto" }
+              }
+            }
+          }
+        },
         "tags": ["Users"]
       }
     },
@@ -141,22 +150,100 @@
       "post": {
         "operationId": "FilesController_uploadFile",
         "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "face_photo": { "type": "string", "format": "binary" },
+                  "thai_nationalid_copy": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "parent_permission": { "type": "string", "format": "binary" },
+                  "p1": { "type": "string", "format": "binary" },
+                  "p7": { "type": "string", "format": "binary" }
+                }
+              }
+            }
+          }
+        },
         "responses": { "200": { "description": "" } },
         "tags": ["Files"]
       }
     },
-    "/files/{filename}": {
-      "get": {
-        "operationId": "FilesController_getFiles",
-        "parameters": [
-          {
-            "name": "filename",
-            "required": true,
-            "in": "path",
-            "schema": { "type": "string" }
+    "/files/getblobs": {
+      "post": {
+        "operationId": "FilesController_getBlobs",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/GetUrlFileInputDto" }
+            }
           }
-        ],
-        "responses": { "200": { "description": "" } },
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserFilesResponseDto"
+                }
+              }
+            }
+          }
+        },
+        "tags": ["Files"]
+      }
+    },
+    "/files/geturl": {
+      "post": {
+        "operationId": "FilesController_getFiles",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/GetUrlFileInputDto" }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserFilesResponseDto"
+                }
+              }
+            }
+          }
+        },
+        "tags": ["Files"]
+      }
+    },
+    "/files/user-files": {
+      "get": {
+        "operationId": "FilesController_getUserFiles",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserFilesResponseDto"
+                }
+              }
+            }
+          }
+        },
         "tags": ["Files"]
       }
     },
@@ -182,11 +269,22 @@
         "tags": ["Answer"]
       }
     },
-    "/answer/regis-user": {
+    "/answer/user-regis": {
       "get": {
         "operationId": "AnswerController_findRegisWithUser",
         "parameters": [],
-        "responses": { "200": { "description": "" } },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AnswerRegisResponseDto"
+                }
+              }
+            }
+          }
+        },
         "tags": ["Answer"]
       },
       "post": {
@@ -200,11 +298,22 @@
             }
           }
         },
-        "responses": { "201": { "description": "" } },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AnswerRegisResponseDto"
+                }
+              }
+            }
+          }
+        },
         "tags": ["Answer"]
       }
     },
-    "/answer/regis{id}": {
+    "/answer/regis/{id}": {
       "get": {
         "operationId": "AnswerController_findOneRegis",
         "parameters": [
@@ -264,7 +373,7 @@
         "tags": ["Answer"]
       }
     },
-    "/answer/academic{id}": {
+    "/answer/academic/{id}": {
       "get": {
         "operationId": "AnswerController_findAcademic",
         "parameters": [
@@ -302,11 +411,22 @@
         "tags": ["Answer"]
       }
     },
-    "/answer/academic-user": {
+    "/answer/user-academic": {
       "get": {
         "operationId": "AnswerController_findAcademicWithUser",
         "parameters": [],
-        "responses": { "200": { "description": "" } },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AnswerAcademicResponseDto"
+                }
+              }
+            }
+          }
+        },
         "tags": ["Answer"]
       },
       "post": {
@@ -322,7 +442,18 @@
             }
           }
         },
-        "responses": { "201": { "description": "" } },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AnswerAcademicResponseDto"
+                }
+              }
+            }
+          }
+        },
         "tags": ["Answer"]
       }
     }
@@ -340,6 +471,7 @@
       "UserResponseDto": {
         "type": "object",
         "properties": {
+          "id": { "type": "string" },
           "title": { "type": "string" },
           "email": { "type": "string" },
           "fullname": { "type": "string" },
@@ -374,6 +506,8 @@
           "info_done": { "type": "boolean" }
         },
         "required": [
+          "id",
+          "title",
           "email",
           "fullname",
           "age",
@@ -446,6 +580,35 @@
           "parent_phone": { "type": "string" }
         }
       },
+      "GetUrlFileInputDto": {
+        "type": "object",
+        "properties": {
+          "face_photo_key": { "type": "string" },
+          "thai_nationalid_copy_key": { "type": "string" },
+          "parent_permission_key": { "type": "string" },
+          "p1_key": { "type": "string" },
+          "p7_key": { "type": "string" }
+        }
+      },
+      "UserFilesResponseDto": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string" },
+          "face_photo_filepath": { "type": "string" },
+          "thai_nationalid_copy_filepath": { "type": "string" },
+          "parent_permission_filepath": { "type": "string" },
+          "p1_filepath": { "type": "string" },
+          "p7_filepath": { "type": "string" }
+        },
+        "required": [
+          "id",
+          "face_photo_filepath",
+          "thai_nationalid_copy_filepath",
+          "parent_permission_filepath",
+          "p1_filepath",
+          "p7_filepath"
+        ]
+      },
       "CreateAnswerRegisDto": {
         "type": "object",
         "properties": {
@@ -460,6 +623,29 @@
         },
         "required": [
           "userId",
+          "answer1",
+          "answer2",
+          "answer3",
+          "answer4",
+          "answer5",
+          "answer6_1",
+          "answer6_2"
+        ]
+      },
+      "AnswerRegisResponseDto": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string" },
+          "answer1": { "type": "string" },
+          "answer2": { "type": "string" },
+          "answer3": { "type": "string" },
+          "answer4": { "type": "string" },
+          "answer5": { "type": "string" },
+          "answer6_1": { "type": "string" },
+          "answer6_2": { "type": "string" }
+        },
+        "required": [
+          "id",
           "answer1",
           "answer2",
           "answer3",
@@ -511,6 +697,16 @@
           "chess_score": { "type": "number" }
         },
         "required": ["userId", "algo_answer", "chess_notation", "chess_score"]
+      },
+      "AnswerAcademicResponseDto": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string" },
+          "algo_answer": { "type": "string" },
+          "chess_notation": { "type": "string" },
+          "chess_score": { "type": "number" }
+        },
+        "required": ["id", "algo_answer", "chess_notation", "chess_score"]
       },
       "UpsertAnswerAcademicDto": {
         "type": "object",

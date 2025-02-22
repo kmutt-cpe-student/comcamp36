@@ -17,6 +17,7 @@ import { UpdateUserDto } from './dto/update-user.dto';
 import { ApiResponse } from '@nestjs/swagger';
 import { AuthGuard } from 'src/auth/auth.guard';
 import type { Request } from 'express';
+import { UserResponseDto } from './dto/user.dto';
 
 @Controller('users')
 @UseGuards(AuthGuard)
@@ -32,7 +33,6 @@ export class UsersController {
     if (!user) {
       throw new HttpException('Not found', HttpStatus.NOT_FOUND);
     }
-    delete user.id;
     return 'User created successfully';
   }
 
@@ -42,12 +42,7 @@ export class UsersController {
   })
   async findAll() {
     const users = await this.usersService.findAll();
-    const allUsers = users.map((user) => {
-      const modifyUser = user;
-      delete modifyUser.id;
-      return modifyUser;
-    });
-    return allUsers;
+    return users;
   }
 
   @Get(':id')
@@ -59,7 +54,6 @@ export class UsersController {
     if (!user) {
       throw new HttpException('Not found', HttpStatus.NOT_FOUND);
     }
-    delete user.id;
     return user;
   }
 
@@ -72,7 +66,6 @@ export class UsersController {
     if (!user) {
       throw new HttpException('Not found', HttpStatus.NOT_FOUND);
     }
-    delete user.id;
     const birth = new Date(updateUserDto.birth);
     return this.usersService.update(id, updateUserDto, birth);
   }
@@ -80,6 +73,7 @@ export class UsersController {
   @Post('info')
   @ApiResponse({
     status: 200,
+    type: UserResponseDto,
   })
   async updateRegister(
     @Req() req: Request,
@@ -94,7 +88,6 @@ export class UsersController {
       updateUserDto,
       birth,
     );
-    delete user.id;
     return user;
   }
 

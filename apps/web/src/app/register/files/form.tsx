@@ -17,11 +17,11 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 
 export const formSchema = z.object({
-  face_photo: z.array(z.instanceof(File)).optional(),
-  thai_nationalid_copy: z.array(z.instanceof(File)).optional(),
-  parent_permission: z.array(z.instanceof(File)).optional(),
-  p1: z.array(z.instanceof(File)).optional(),
-  p7: z.array(z.instanceof(File)).optional(),
+  face_photo: z.array(z.instanceof(File)).min(1),
+  thai_nationalid_copy: z.array(z.instanceof(File)).min(1),
+  parent_permission: z.array(z.instanceof(File)).min(1),
+  p1: z.array(z.instanceof(File)).min(1),
+  p7: z.array(z.instanceof(File)).min(1),
 });
 
 interface FilesFormProps {

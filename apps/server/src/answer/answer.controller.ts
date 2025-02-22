@@ -25,6 +25,11 @@ import {
   UpsertAnswerAcademicDto,
   UpsertAnswerRegisDto,
 } from './dto/upsert-answer.dto';
+import { ApiResponse } from '@nestjs/swagger';
+import {
+  AnswerAcademicResponseDto,
+  AnswerRegisResponseDto,
+} from './dto/answer-response.dto';
 
 @Controller('answer')
 @UseGuards(AuthGuard)
@@ -46,7 +51,8 @@ export class AnswerController {
     return this.answerService.findAllRegis();
   }
 
-  @Get('regis-user')
+  @Get('user-regis')
+  @ApiResponse({ status: 200, type: AnswerRegisResponseDto })
   findRegisWithUser(@Req() req: Request) {
     if (!req['user_id']) {
       throw new HttpException('UNAUTHORIZED', HttpStatus.UNAUTHORIZED);
@@ -54,7 +60,7 @@ export class AnswerController {
     return this.answerService.findOneRegisWithUser(req['user_id']);
   }
 
-  @Get('regis:id')
+  @Get('regis/:id')
   async findOneRegis(@Param('id') id: string) {
     const answerRegis = await this.answerService.findOneRegis(id);
     if (!answerRegis) {
@@ -63,7 +69,7 @@ export class AnswerController {
     return answerRegis;
   }
 
-  @Patch('regis:id')
+  @Patch('regis/:id')
   updateRegis(
     @Param('id') id: string,
     @Body() updateAnswerDto: UpdateAnswerRegisDto,
@@ -75,7 +81,8 @@ export class AnswerController {
     return answerRegis;
   }
 
-  @Post('regis-user')
+  @Post('user-regis')
+  @ApiResponse({ status: 200, type: AnswerRegisResponseDto })
   upsertRegisWithUser(
     @Req() req: Request,
     @Body() upsertAnswerRegisDto: UpsertAnswerRegisDto,
@@ -105,7 +112,7 @@ export class AnswerController {
     return this.answerService.findAllAcademic();
   }
 
-  @Get('academic:id')
+  @Get('academic/:id')
   async findAcademic(@Param('id') id: string) {
     const answerAcademic = await this.answerService.findOneAcademic(id);
     if (!answerAcademic) {
@@ -114,22 +121,17 @@ export class AnswerController {
     return answerAcademic;
   }
 
-  @Get('academic-user')
-  async findAcademicWithUser(@Req() req: Request) {
+  @Get('user-academic')
+  @ApiResponse({ status: 200, type: AnswerAcademicResponseDto })
+  findAcademicWithUser(@Req() req: Request) {
     if (!req['user_id']) {
-      throw new HttpException('Not found', HttpStatus.NOT_FOUND);
+      throw new HttpException('UNAUTHORIZED', HttpStatus.UNAUTHORIZED);
     }
-
-    const answerAcademic = await this.answerService.findOneAcademicWithUser(
-      req['user_id'],
-    );
-    if (!answerAcademic) {
-      throw new HttpException('Not found', HttpStatus.NOT_FOUND);
-    }
-    return answerAcademic;
+    return this.answerService.findOneAcademicWithUser(req['user_id']);
   }
 
-  @Post('academic-user')
+  @Post('user-academic')
+  @ApiResponse({ status: 200, type: AnswerAcademicResponseDto })
   upsertAcademicWithUser(
     @Req() req: Request,
     @Body() upsertAnswerAcademicDto: UpsertAnswerAcademicDto,
@@ -143,7 +145,7 @@ export class AnswerController {
     );
   }
 
-  @Patch('academic:id')
+  @Patch('academic/:id')
   async updateAcademic(
     @Param('id') id: string,
     @Body() updateAnswerDto: UpdateAnswerAcademicDto,

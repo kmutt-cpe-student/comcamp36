@@ -3,7 +3,11 @@ import { ApiProperty } from '@nestjs/swagger';
 export class UserResponseDto {
   @ApiProperty({
     type: 'string',
-    required: false,
+  })
+  id?: string;
+
+  @ApiProperty({
+    type: 'string',
   })
   title?: string;
 
