@@ -13,33 +13,7 @@ export interface Sponsor {
   image_path: string;
 }
 
-const SponsorList: Sponsor[] = [
-  {
-    name: "kmutt1",
-    tier: SponsorTiers.diamond,
-    image_path: "/static/image/sponsors/kmutt-cpe-logo.png",
-  },
-  {
-    name: "vip",
-    tier: SponsorTiers.diamond,
-    image_path: "/static/image/placeholder/vip.png",
-  },
-  {
-    name: "fm",
-    tier: SponsorTiers.diamond,
-    image_path: "/static/image/placeholder/frontman-yellow.png",
-  },
-  {
-    name: "selfsponsor",
-    tier: SponsorTiers.platinum,
-    image_path: "/static/image/logo.png",
-  },
-  {
-    name: "gong yoo",
-    tier: SponsorTiers.gold,
-    image_path: "/static/image/placeholder/gong-yoo.png",
-  },
-];
+const SponsorList: Sponsor[] = [];
 
 function Sponsors() {
   return (
@@ -57,14 +31,18 @@ function Sponsors() {
           loading="lazy"
         />
       </div>
-      <h2 className="font-game-of-squid text-vermilion-1 text-center capitalize">
-        Sponsored By
-      </h2>
-      <div className="mt-6 grid w-full place-content-center content-center gap-y-4">
-        <SponsorSubgrid data={SponsorList} tier={SponsorTiers.diamond} />
-        <SponsorSubgrid data={SponsorList} tier={SponsorTiers.platinum} />
-        <SponsorSubgrid data={SponsorList} tier={SponsorTiers.gold} />
-      </div>
+      {SponsorList.length > 0 && (
+        <>
+          <h2 className="font-game-of-squid text-vermilion-1 text-center capitalize">
+            Sponsored By
+          </h2>
+          <div className="mt-6 grid w-full place-content-center content-center gap-y-4">
+            <SponsorSubgrid data={SponsorList} tier={SponsorTiers.diamond} />
+            <SponsorSubgrid data={SponsorList} tier={SponsorTiers.platinum} />
+            <SponsorSubgrid data={SponsorList} tier={SponsorTiers.gold} />
+          </div>
+        </>
+      )}
     </div>
   );
 }
