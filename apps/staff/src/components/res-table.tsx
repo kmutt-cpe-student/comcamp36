@@ -3,7 +3,6 @@
 import * as React from "react"
 import {
   ColumnDef,
-  /* ColumnFiltersState, */
   SortingState,
   VisibilityState,
   flexRender,
@@ -13,15 +12,8 @@ import {
   getSortedRowModel,
   useReactTable,
 } from "@tanstack/react-table"
-import { ChevronDown } from "lucide-react"
  
 import { Button } from "@/components/ui/button"
-import {
-  DropdownMenu,
-  DropdownMenuCheckboxItem,
-  DropdownMenuContent,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
 import { Input } from "@/components/ui/input"
 import {
   Table,
@@ -31,108 +23,67 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table"
-import { ActionCell } from "./actioncell"
 import { redirect, RedirectType } from "next/navigation"
-import { courseName } from "@/lib/const"
 
-export interface YookbeerColumn {
-    stdid: string,
-    course: number,
-    nameth: string | null,
-    nameen: string,
-    nickth: string | null,
-    nicken: string,
-    phone: string,
-    emailper: string | null,
-    emailuni: string | null,
-    emerphone: string | null,
-    facebook: string | null,
-    lineid: string | null,
-    instagram: string | null,
-    discord: string | null,
-    img: string | null,
+export interface ResColumn {
+    id: string,
+    fullname: string | null,
+    gender: string | null,
+    /* nick: string, */
+    phone: string | null,
+    email: string,
 }
 
-interface YookbeerTableProps {
-    data: YookbeerColumn[],
-    isAdmin: boolean
+interface ResTableProps {
+    data: ResColumn[],
 }
 
 
-const filterKeys: Array<keyof YookbeerColumn> = [
-    "stdid",
-    "nameth",
-    "nameen",
-    "nickth",
-    "nicken",
+const filterKeys: Array<keyof ResColumn> = [
+    "id",
+    "gender",
+    "fullname",
+    /* "nick", */
     "phone",
-    "instagram",
-    "discord",
+    "email",
 ]
  
 
-export function YookbeerTable({ data, isAdmin }: YookbeerTableProps){
+export function ResTable({ data }: ResTableProps){
     const [sorting, setSorting] = React.useState<SortingState>([])
     /* const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
         []
     ) */
     const [globalFilter, setGlobalFilter] = React.useState<string>("")
-    const [columnVisibility, setColumnVisibility] =
-        React.useState<VisibilityState>({ 'emailper': false, 'discord': false, 'lineid': false, 'facebook': false,  })
+    const [columnVisibility, setColumnVisibility] = React.useState<VisibilityState>({ id: false })
     const [rowSelection, setRowSelection] = React.useState({})
 
-    const columns: ColumnDef<YookbeerColumn>[] = [
-      {
-          accessorKey: "stdid",
-          header: "ID",
-          cell: ({ row }) => {
-              const shrt = (row.getValue("stdid") as string).substring(7)
-              return (
-                  <div>{shrt}</div>
-              )
-          },
+    const columns: ColumnDef<ResColumn>[] = [
+        {
+            accessorKey: "fullname",
+            header: "Name",
+            cell: ({ row }) => {
+                const x = (row.getValue("fullname")) as string
+                return (
+                    <div>{x}</div>
+                )
+            },
       },
-      {
-          accessorKey: "course",
-          header: "Course",
-          cell: ({ row }) => (
-              <div>{courseName[row.getValue("course") as number]}</div>
-          ),
-      },
-      {
-          accessorKey: "nameth",
-          header: "Name (TH)",
-          cell: ({ row }) => {
-              const x = (row.getValue("nameth") || "-") as string
-              return (
-                  <div>{x}</div>
-              )
-          },
-      },
-      {
-          accessorKey: "nameen",
-          header: "Name",
-          cell: ({ row }) => (
-              <div>{row.getValue("nameen")}</div>
-          ),
-      },
-      {
-          accessorKey: "nickth",
-          header: "Nick (TH)",
-          cell: ({ row }) => {
-              const x = (row.getValue("nickth") || "-") as string
-              return (
-                  <div>{x}</div>
-              )
-          },
-      },
-      {
-          accessorKey: "nicken",
-          header: "Nick",
-          cell: ({ row }) => (
-              <div>{row.getValue("nicken")}</div>
-          ),
-      },
+      /* {
+            accessorKey: "nick",
+            header: "Nick",
+            cell: ({ row }) => (
+                <div>{row.getValue("nick")}</div>
+            ),
+        }, */
+        {
+            accessorKey: "gender",
+            header: "Gender",
+            cell: ({ row }) => (
+                <div>{row.getValue("gender")}</div>
+            ),
+        },
+      
       {
           accessorKey: "phone",
           header: "Phone",
@@ -141,59 +92,9 @@ export function YookbeerTable({ data, isAdmin }: YookbeerTableProps){
           ),
       },
       {
-          accessorKey: "emailper",
-          header: "Email (per)",
-          cell: ({ row }) => <div className="lowercase">{row.getValue("emailper")}</div>,
-      },
-      {
-          accessorKey: "emailuni",
-          header: "Email (uni)",
-          cell: ({ row }) => <div className="lowercase">{row.getValue("emailuni")}</div>,
-      },
-      {
-          accessorKey: "facebook",
-          header: "FB",
-          cell: ({ row }) => {
-              const x = (row.getValue("facebook") || "-") as string
-              return (
-                  <div>{x}</div>
-              )
-          },
-      },
-      {
-          accessorKey: "lineid",
-          header: "LINE",
-          cell: ({ row }) => {
-              const x = (row.getValue("lineid") || "-") as string
-              return (
-                  <div>{x}</div>
-              )
-          },
-      },
-      {
-          accessorKey: "instagram",
-          header: "IG",
-          cell: ({ row }) => {
-              const x = (row.getValue("instagram") || "-") as string
-              return (
-                  <div>{x}</div>
-              )
-          },
-      },
-      {
-          accessorKey: "discord",
-          header: "Discord",
-          cell: ({ row }) => {
-              const x = (row.getValue("discord") || "-") as string
-              return (
-                  <div>{x}</div>
-              )
-          },
-      },
-      {
-          accessorKey: "action",
-          header: "Action",
-          cell: ({ row }) => ActionCell(row, isAdmin),
+          accessorKey: "email",
+          header: "Email",
+          cell: ({ row }) => <div className="lowercase">{row.getValue("email")}</div>,
       },
   ]
     
@@ -201,14 +102,6 @@ export function YookbeerTable({ data, isAdmin }: YookbeerTableProps){
         data,
         columns,
         onSortingChange: setSorting,
-        initialState: {
-            sorting: [
-                {
-                    id: 'stdid',
-                    desc: false
-                }
-            ]
-        },
         /* onColumnFiltersChange: setColumnFilters, */
         getCoreRowModel: getCoreRowModel(),
         getPaginationRowModel: getPaginationRowModel(),
@@ -243,32 +136,6 @@ export function YookbeerTable({ data, isAdmin }: YookbeerTableProps){
                 }
                 className="max-w-[10rem] lg:max-w-sm"
             />
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <Button variant="outline" className="ml-auto">
-                  Columns <ChevronDown />
-                </Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent align="end" className="bg-neutral-100">
-                {table
-                  .getAllColumns()
-                  .filter((column) => column.getCanHide())
-                  .map((column) => {
-                    return (
-                      <DropdownMenuCheckboxItem
-                        key={column.id}
-                        className="capitalize"
-                        checked={column.getIsVisible()}
-                        onCheckedChange={(value) =>
-                          column.toggleVisibility(!!value)
-                        }
-                      >
-                        {column.id}
-                      </DropdownMenuCheckboxItem>
-                    )
-                  })}
-              </DropdownMenuContent>
-            </DropdownMenu>
           </div>
           <div className="rounded-md border">
             <Table>
@@ -305,7 +172,7 @@ export function YookbeerTable({ data, isAdmin }: YookbeerTableProps){
                           onClick={() => {
                             if (cell.column.id !== "action"){
                               redirect(
-                                `/std/${row.original.stdid}`,
+                                `/nong/${row.original.id}`,
                                 RedirectType.push
                               )
                             }

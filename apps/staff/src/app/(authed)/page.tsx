@@ -1,23 +1,14 @@
-import localFont from "next/font/local"
 
-import { auth } from "@/auth"
-import { YookbeerTable } from "@/components/yookbeer-table"
+import { ResTable } from "@/components/res-table"
 import { db } from "@/db"
-import { thirtyeight } from "@/db/schema"
+import { users } from "@/db/schema"
 
-const geistMono = localFont({
-  src: "../fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-})
 
 export default async function Home() {
-  const data = await db.select().from(thirtyeight).orderBy(thirtyeight.stdid)
-  const session = await auth()
-  const isAdmin = (session?.user.role === 'admin')
+  const data = await db.select({ id: users.id, fullname: users.fullname, gender: users.gender, phone: users.telephone, email: users.email }).from(users)
   return (
-    <div className={`flex flex-col w-screen ${geistMono.className}`}>
-      <YookbeerTable data={data} isAdmin={isAdmin} />
+    <div className={`flex flex-col w-screen font-geist-mono`}>
+      <ResTable data={data.filter((u) => (u.fullname !== null && u.email !== null && u.gender !== null && u.phone !== null))} />
     </div>
   )
 }

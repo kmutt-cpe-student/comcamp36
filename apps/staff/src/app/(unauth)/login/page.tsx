@@ -8,13 +8,14 @@ import { useSearchParams } from "next/navigation"
 import { useState } from "react"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
-import { staffSignIn } from "./actions"
 import { Input } from "@/components/ui/input"
 import { Alert, AlertTitle, AlertDescription } from "@/components/ui/alert"
 import { AlertCircle } from "lucide-react"
+import { authClient } from "@/lib/auth-client"
+import { useRouter } from 'next/navigation'
 
 const formSchema = z.object({
-    user: z.string().email(),
+    user: z.string().min(1),
     password: z.string().min(1),
 })
 
@@ -28,11 +29,18 @@ export default function StaffLogin(){
         resolver: zodResolver(formSchema),
     })
 
+    const router = useRouter()
+
     const onSubmit = async (values: z.infer<typeof formSchema>) => {
         setStatus('loading')
-        const res = await staffSignIn(values, callbackUrl)
-        if (res){
+        const res = await authClient.signIn.username({
+            username: values.user,
+            password: values.password,
+        })
+        console.log(res)
+        if (res.data){
             setStatus('success')
+            router.push(callbackUrl || "/")
         }
         else {
             setStatus('failed')
@@ -43,7 +51,7 @@ export default function StaffLogin(){
             <div className="flex flex-col gap-y-12 mt-[25vh]">
                 <h1 className="text-5xl text-center text-black prompt-bold">Staff Login</h1>
                 <Form {...loginForm}>
-                    <form onSubmit={loginForm.handleSubmit(onSubmit)} className="flex flex-col gap-y-2 w-[70vw] lg:w-[30vw]">
+                    <form onSubmit={loginForm.handleSubmit(onSubmit)} className="flex flex-col mx-auto gap-y-2 w-[70vw] lg:w-[30vw]">
                         <FormField
                             control={loginForm.control}
                             name="user"
