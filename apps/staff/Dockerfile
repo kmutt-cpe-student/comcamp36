@@ -1,3 +1,6 @@
+ARG CI=false
+ENV CI=$CI
+
 FROM node:20-alpine AS base
 RUN apk update && apk add --no-cache curl
 RUN npm i -g corepack@latest
