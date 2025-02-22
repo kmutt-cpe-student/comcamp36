@@ -3,10 +3,9 @@ import { Sponsor, SponsorTiers } from "../sponsor";
 
 interface SponsorLogoRendererProps {
   data: Sponsor;
-  key: string;
 }
 
-const SponsorLogoRenderer = ({ data: s, key }: SponsorLogoRendererProps) => {
+const SponsorLogoRenderer = ({ data: s }: SponsorLogoRendererProps) => {
   let h = 60;
 
   if (s.tier === SponsorTiers.diamond) {
@@ -16,10 +15,7 @@ const SponsorLogoRenderer = ({ data: s, key }: SponsorLogoRendererProps) => {
   }
 
   return (
-    <MagicCard
-      className="flex w-full justify-center border-white/20 px-6 py-2"
-      key={key}
-    >
+    <MagicCard className="flex w-full justify-center border-white/20 px-6 py-2">
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         style={{ width: "auto", height: `${h}px` }}

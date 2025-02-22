@@ -16,7 +16,7 @@ export default function SponsorSubgrid({ data, tier }: SponsorSubgridProps) {
         : "md:grid-cols-3";
 
   return (
-    <div className={`grid grid-cols-1 ${gridClass} gap-x-4`}>
+    <div className={`grid grid-cols-1 ${gridClass} gap-x-4 gap-y-4`}>
       {data
         .filter((sp) => sp.tier === tier)
         .map((sp) => (
