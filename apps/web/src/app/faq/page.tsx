@@ -9,7 +9,7 @@ function FAQsPage() {
   return (
     <div className="bg-charcoal-1 absolute h-fit w-full overflow-x-hidden scroll-smooth">
       <div className="absolute z-[100]">
-        <Navbar />
+        <Navbar items={[{ label: "หน้าหลัก", href: "/" }]} />
       </div>
       <div className="font-prompt relative flex h-fit w-screen flex-col items-center bg-[#0d0d0d] bg-cover bg-center bg-no-repeat py-[8rem] text-white">
         <TextShimmer
