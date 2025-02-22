@@ -8,6 +8,9 @@ on:
 env:
   REGISTRY: ghcr.io
   IMAGE_NAME: ${{ github.repository_owner }}/comcamp36-staff
+  CI: true
+
+  
 jobs:
   publish-docker-image:
     runs-on: ubuntu-latest
