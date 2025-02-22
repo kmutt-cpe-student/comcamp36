@@ -1,4 +1,5 @@
 import PolicyConsent from "@/components/card/policy-consent";
+import Footer from "@/components/navigate/footer";
 import Navbar from "@/components/navigate/navbar";
 
 export default function RegisterLayout({
@@ -19,9 +20,10 @@ export default function RegisterLayout({
           ]}
         />
       </div>
-      <div className="font-prompt flex w-full justify-center px-10 pt-36">
+      <div className="font-prompt flex w-full justify-center px-10 py-36">
         {children}
       </div>
+      <Footer />
     </div>
   );
 }
