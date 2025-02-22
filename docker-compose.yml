@@ -13,7 +13,7 @@ services:
     command:
       - "--providers.docker"
       - "--providers.docker.exposedbydefault=false"
-      - "--entrypoints.web.address=:80"
+      - "--entrypoints.server.address=:80"
     ports:
       - "7642:80"
     depends_on:
@@ -26,8 +26,8 @@ services:
     image: ghcr.io/kmutt-cpe-student/comcamp36-server:main
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.ub.rule=Host(`api.comcamp.io`)"
-      - "traefik.http.services.ub.loadbalancer.server.port=4000"
+      - "traefik.http.routers.server.rule=Host(`api.comcamp.io`)"
+      - "traefik.http.services.server.loadbalancer.server.port=4000"
       - "com.centurylinklabs.watchtower.enable=true"
     env_file: ".env"
     deploy:
