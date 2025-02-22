@@ -1,7 +1,6 @@
+FROM node:20-alpine AS base
 ARG CI=false
 ENV CI=$CI
-
-FROM node:20-alpine AS base
 RUN apk update && apk add --no-cache curl
 RUN npm i -g corepack@latest
 RUN corepack enable pnpm
@@ -9,6 +8,8 @@ ENV PNPM_HOME="/pnpm"
 ENV PATH="$PNPM_HOME:$PATH"
 
 FROM base AS builder
+ARG CI=false
+ENV CI=$CI
 RUN apk update
 RUN apk add --no-cache libc6-compat
 WORKDIR /app
@@ -17,6 +18,8 @@ COPY . .
 RUN turbo prune staff --docker
 
 FROM base AS installer
+ARG CI=false
+ENV CI=$CI
 RUN apk update
 RUN apk add --no-cache libc6-compat
 WORKDIR /app
