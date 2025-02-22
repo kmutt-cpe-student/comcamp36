@@ -118,7 +118,7 @@ export function FileUploader(props: FileUploaderProps) {
   const isDisabled = disabled || (files?.length ?? 0) >= maxFileCount;
 
   return (
-    <div className="font-noto-sans-thai-looped relative flex min-h-[10rem] flex-col gap-6 overflow-hidden">
+    <div className="font-noto-sans-thai-looped relative flex flex-col gap-6 overflow-hidden">
       <Dropzone
         onDrop={onDrop}
         accept={accept}

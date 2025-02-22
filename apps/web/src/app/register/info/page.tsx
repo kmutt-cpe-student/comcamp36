@@ -16,8 +16,8 @@ function RegisterInfoPage() {
   };
 
   return (
-    <div className="flex h-screen w-full items-center justify-center">
-      <Card className="w-full max-w-[110rem]">
+    <div className="font-prompt flex h-screen w-full items-center justify-center">
+      <Card className="w-full max-w-[110rem] p-4">
         <CardHeader>
           <CardTitle>
             <h4 className="font-bold">ข้อมูลส่วนตัว</h4>

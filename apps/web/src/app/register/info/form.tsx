@@ -61,7 +61,7 @@ function InfoForm(props: InfoFormProps) {
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(props.onSubmit)}>
-        <div className="grid grid-cols-4 gap-4">
+        <div className="font-noto-sans-thai-looped grid grid-cols-4 gap-4">
           <FormField
             control={form.control}
             name="title"

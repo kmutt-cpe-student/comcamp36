@@ -16,7 +16,7 @@ function RegisterInfoPage() {
   };
 
   return (
-    <div className="flex h-screen justify-center pt-32">
+    <div className="font-prompt flex h-screen justify-center pt-32">
       <Card className="h-fit w-full max-w-[110rem]">
         <CardHeader>
           <CardTitle>

@@ -16,14 +16,14 @@ function RegisterInfoPage() {
   };
 
   return (
-    <div className="flex h-full justify-center px-10 pt-32">
+    <div className="font-prompt flex h-full justify-center px-10 pt-32">
       <Card className="h-fit w-full max-w-[110rem]">
         <CardHeader className="p-10">
           <CardTitle>
-            <h4 className="font-bold">d</h4>
+            <h4 className="text-vermilion font-bold">คำถามคัดเลือก 1</h4>
           </CardTitle>
           <CardDescription hidden>
-            <small>Card Description</small>
+            <small>อย่าลืมกด</small>
           </CardDescription>
         </CardHeader>
         <CardContent className="h-fit p-10">
