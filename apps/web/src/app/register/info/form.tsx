@@ -90,19 +90,6 @@ function InfoForm(props: InfoFormProps) {
           />
           <FormField
             control={form.control}
-            name="fullname"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>ชื่อเต็ม</FormLabel>
-                <FormControl>
-                  <Input placeholder="ชื่อเต็ม" {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          <FormField
-            control={form.control}
             name="age"
             render={({ field }) => (
               <FormItem>
