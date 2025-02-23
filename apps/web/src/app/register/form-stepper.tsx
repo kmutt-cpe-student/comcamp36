@@ -30,7 +30,7 @@ export const steps = [
   },
   {
     step: 4,
-    title: "คำถามคัดเลือก 2",
+    title: "ปริศนาสถาบันวิศวะ",
     href: "/register/answer-academic",
   },
   {

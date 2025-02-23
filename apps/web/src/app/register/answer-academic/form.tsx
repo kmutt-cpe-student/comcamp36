@@ -49,7 +49,7 @@ function AnswerAcademic(props: AnswerAcademicProps) {
               <FormItem>
                 <FormLabel>
                   <div className="flex flex-col gap-4">
-                    <p className="font-bold">1. โจทย์หาคน</p>
+                    <p className="font-bold">1. 10 สหายในเงามืด</p>
                     <Label>
                       ในภาควิศวกรรมคอมพิวเตอร์ ของมหาวิทยาลัยแห่งหนึ่ง
                       มีนักศึกษาทั้งสิ้น 36 คน โดยในนักศึกษาทั้ง 36 คน
@@ -99,7 +99,7 @@ function AnswerAcademic(props: AnswerAcademicProps) {
           />
           <div className="flex flex-col gap-2 pt-10">
             <div className="flex flex-col gap-4 pb-10">
-              <p className="font-bold">2. หมากรุก</p>
+              <p className="font-bold">2. อัศวินห่านห้าวหาญนักล่าแต้ม</p>
               <ChessGame
                 callback={(score, notation) => {
                   form.setValue("chess_score", score);

@@ -58,7 +58,7 @@ function RegisterInfoPage() {
             duration={2}
             className="text-4xl font-bold transition-opacity duration-200 [--base-color:var(--color-vermilion)] [--base-gradient-color:var(--color-vermilion-1)] dark:[--base-color:var(--color-vermilion)] dark:[--base-gradient-color:var(--color-vermilion-1)]"
           >
-            คำถามคัดเลือก 2
+            ปริศนาสถาบันวิศวะ
           </TextShimmer>
         </CardTitle>
         <CardDescription hidden>
