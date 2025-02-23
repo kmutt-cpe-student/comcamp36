@@ -41,14 +41,11 @@ export default function Home() {
             },
           ]}
           extra={
-            // new Date() < new Date("2025-02-13T09:00:00") ? (
-            //   <Link href="/sign-in">
-            //     <Button>สมัครเลย!</Button>
-            //   </Link>
-            // ) : null
-            <Link href="/sign-in">
-              <Button>สมัครเลย!</Button>
-            </Link>
+            new Date() < new Date("2025-02-13T09:00:00") ? (
+              <Link href="/sign-in">
+                <Button>สมัครเลย!</Button>
+              </Link>
+            ) : undefined
           }
         />
       </div>
