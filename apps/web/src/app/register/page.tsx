@@ -71,7 +71,10 @@ function RegisterPage() {
         </Link>
       </div>
       <div className="font-noto-sans-thai-looped flex justify-center">
-        {<SubmitAnswerBtn />}
+        {data.info_done &&
+          data.regis_done &&
+          data.academic_done &&
+          data.files_done && <SubmitAnswerBtn />}
       </div>
     </Card>
   );
