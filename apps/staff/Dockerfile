@@ -23,6 +23,10 @@ ENV CI=$CI
 RUN apk update
 RUN apk add --no-cache libc6-compat
 WORKDIR /app
+
+# Create SQLite directory before build
+RUN mkdir -p /app/sqlite
+
 COPY --from=builder /app/out/json/ .
 RUN pnpm i
 COPY --from=builder /app/out/full/ .
