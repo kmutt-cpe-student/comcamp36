@@ -306,7 +306,8 @@ function DroppableSquare({
       onClick={onClick}
       className={cn(
         "group flex items-center justify-center opacity-0 transition-all duration-200",
-        isValid && "cursor-pointer opacity-100",
+        (isValid || shouldShowGrayscale) && "opacity-100",
+        isValid && "cursor-pointer",
         shouldShowGrayscale && "bg-black/40 backdrop-grayscale",
       )}
     >
@@ -513,13 +514,12 @@ function ChessGame({ callback }: ChessGameProps) {
               {Array.from({ length: BOARD_SIZE * BOARD_SIZE }).map((_, i) => {
                 const x = i % BOARD_SIZE;
                 const y = Math.floor(i / BOARD_SIZE);
-                const isValid = isValidMoveSquare({ x, y });
                 return (
                   <DroppableSquare
                     key={i}
                     id={toChessNotation({ x, y })}
                     onClick={() => handleClick({ x, y })}
-                    isValid={isValid}
+                    isValid={isValidMoveSquare({ x, y })}
                     shouldShowGrayscale={shouldShowGrayscale({ x, y })}
                   />
                 );

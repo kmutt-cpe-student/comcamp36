@@ -1,20 +1,14 @@
 "use client";
 
-import { TextShimmer } from "@/components/text/text-shimmer";
-import {
-  Card,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import FilesForm, { formSchema } from "@/app/register/files/form";
+import Wrapper from "@/app/register/files/wrapper";
+import FormCard from "@/app/register/form-card";
+import RegisterFormSkeleton from "@/app/register/skeleton";
 import { formatThaiBuddhist } from "@/libs/date";
 import JsonToFormData from "@/libs/server/body-serializer";
 import { fetchQuery } from "@/libs/server/client";
 import { toast } from "sonner";
 import { z } from "zod";
-import RegisterFormSkeleton from "../skeleton";
-import FilesForm, { formSchema } from "./form";
-import Wrapper from "./wrapper";
 
 function RegisterInfoPage() {
   const { mutate, isPending } = fetchQuery.useMutation(
@@ -46,6 +40,10 @@ function RegisterInfoPage() {
   const { data, isPending: isGetFilesPending } = fetchQuery.useQuery(
     "get",
     "/files/user-files",
+    undefined,
+    {
+      refetchOnWindowFocus: false,
+    },
   );
 
   if (isGetFilesPending) {
@@ -53,20 +51,7 @@ function RegisterInfoPage() {
   }
 
   return (
-    <Card className="w-full max-w-[110rem]">
-      <CardHeader>
-        <CardTitle>
-          <TextShimmer
-            duration={2}
-            className="text-4xl font-bold transition-opacity duration-200 [--base-color:var(--color-vermilion)] [--base-gradient-color:var(--color-vermilion-1)] dark:[--base-color:var(--color-vermilion)] dark:[--base-gradient-color:var(--color-vermilion-1)]"
-          >
-            ไฟล์ที่ต้องอับโหลด
-          </TextShimmer>
-        </CardTitle>
-        <CardDescription hidden>
-          <small>Card Description</small>
-        </CardDescription>
-      </CardHeader>
+    <FormCard title="ไฟล์ที่ต้องอับโหลด">
       {data ? (
         <Wrapper
           data={{
@@ -101,7 +86,7 @@ function RegisterInfoPage() {
           isPending={isPending}
         />
       )}
-    </Card>
+    </FormCard>
   );
 }
 export default RegisterInfoPage;

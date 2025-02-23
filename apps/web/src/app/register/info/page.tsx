@@ -14,6 +14,10 @@ function RegisterInfoPage() {
   const { data, isPending: isUserDataPending } = fetchQuery.useQuery(
     "get",
     "/auth/me",
+    undefined,
+    {
+      refetchOnWindowFocus: false,
+    },
   );
 
   const { mutate, isPending } = fetchQuery.useMutation("post", "/users/info", {
