@@ -3,22 +3,12 @@ import {
   Get,
   Post,
   Body,
-  Patch,
-  Param,
   HttpException,
   HttpStatus,
   UseGuards,
   Req,
 } from '@nestjs/common';
 import { AnswerService } from './answer.service';
-import {
-  CreateAnswerRegisDto,
-  CreateAnswerAcademicDto,
-} from './dto/create-answer.dto';
-import {
-  UpdateAnswerRegisDto,
-  UpdateAnswerAcademicDto,
-} from './dto/update-answer.dto';
 import { AuthGuard } from 'src/auth/auth.guard';
 import type { Request } from 'express';
 import {
@@ -37,19 +27,19 @@ export class AnswerController {
   constructor(private readonly answerService: AnswerService) {}
 
   //Regis
-  @Post('regis')
-  async createRegis(@Body() createAnswerDto: CreateAnswerRegisDto) {
-    const answerRegis = await this.answerService.createRegis(createAnswerDto);
-    if (!answerRegis) {
-      throw new HttpException('Not found', HttpStatus.NOT_FOUND);
-    }
-    return answerRegis;
-  }
+  // @Post('regis')
+  // async createRegis(@Body() createAnswerDto: CreateAnswerRegisDto) {
+  //   const answerRegis = await this.answerService.createRegis(createAnswerDto);
+  //   if (!answerRegis) {
+  //     throw new HttpException('Not found', HttpStatus.NOT_FOUND);
+  //   }
+  //   return answerRegis;
+  // }
 
-  @Get('regis')
-  findAllRegis() {
-    return this.answerService.findAllRegis();
-  }
+  // @Get('regis')
+  // findAllRegis() {
+  //   return this.answerService.findAllRegis();
+  // }
 
   @Get('user-regis')
   @ApiResponse({ status: 200, type: AnswerRegisResponseDto })
@@ -60,26 +50,26 @@ export class AnswerController {
     return this.answerService.findOneRegisWithUser(req['user_id']);
   }
 
-  @Get('regis/:id')
-  async findOneRegis(@Param('id') id: string) {
-    const answerRegis = await this.answerService.findOneRegis(id);
-    if (!answerRegis) {
-      throw new HttpException('Not found', HttpStatus.NOT_FOUND);
-    }
-    return answerRegis;
-  }
+  // @Get('regis/:id')
+  // async findOneRegis(@Param('id') id: string) {
+  //   const answerRegis = await this.answerService.findOneRegis(id);
+  //   if (!answerRegis) {
+  //     throw new HttpException('Not found', HttpStatus.NOT_FOUND);
+  //   }
+  //   return answerRegis;
+  // }
 
-  @Patch('regis/:id')
-  updateRegis(
-    @Param('id') id: string,
-    @Body() updateAnswerDto: UpdateAnswerRegisDto,
-  ) {
-    const answerRegis = this.answerService.updateRegis(id, updateAnswerDto);
-    if (!answerRegis) {
-      throw new HttpException('Not found', HttpStatus.NOT_FOUND);
-    }
-    return answerRegis;
-  }
+  // @Patch('regis/:id')
+  // updateRegis(
+  //   @Param('id') id: string,
+  //   @Body() updateAnswerDto: UpdateAnswerRegisDto,
+  // ) {
+  //   const answerRegis = this.answerService.updateRegis(id, updateAnswerDto);
+  //   if (!answerRegis) {
+  //     throw new HttpException('Not found', HttpStatus.NOT_FOUND);
+  //   }
+  //   return answerRegis;
+  // }
 
   @Post('user-regis')
   @ApiResponse({ status: 200, type: AnswerRegisResponseDto })
@@ -97,29 +87,29 @@ export class AnswerController {
   }
 
   //Academic
-  @Post('academic')
-  async createAcademic(@Body() createAnswerDto: CreateAnswerAcademicDto) {
-    const answerAcademic =
-      await this.answerService.createAcademic(createAnswerDto);
-    if (!answerAcademic) {
-      throw new HttpException('Not found', HttpStatus.NOT_FOUND);
-    }
-    return answerAcademic;
-  }
+  // @Post('academic')
+  // async createAcademic(@Body() createAnswerDto: CreateAnswerAcademicDto) {
+  //   const answerAcademic =
+  //     await this.answerService.createAcademic(createAnswerDto);
+  //   if (!answerAcademic) {
+  //     throw new HttpException('Not found', HttpStatus.NOT_FOUND);
+  //   }
+  //   return answerAcademic;
+  // }
 
-  @Get('academic')
-  findAllAcademic() {
-    return this.answerService.findAllAcademic();
-  }
+  // @Get('academic')
+  // findAllAcademic() {
+  //   return this.answerService.findAllAcademic();
+  // }
 
-  @Get('academic/:id')
-  async findAcademic(@Param('id') id: string) {
-    const answerAcademic = await this.answerService.findOneAcademic(id);
-    if (!answerAcademic) {
-      throw new HttpException('Not found', HttpStatus.NOT_FOUND);
-    }
-    return answerAcademic;
-  }
+  // @Get('academic/:id')
+  // async findAcademic(@Param('id') id: string) {
+  //   const answerAcademic = await this.answerService.findOneAcademic(id);
+  //   if (!answerAcademic) {
+  //     throw new HttpException('Not found', HttpStatus.NOT_FOUND);
+  //   }
+  //   return answerAcademic;
+  // }
 
   @Get('user-academic')
   @ApiResponse({ status: 200, type: AnswerAcademicResponseDto })
@@ -145,18 +135,18 @@ export class AnswerController {
     );
   }
 
-  @Patch('academic/:id')
-  async updateAcademic(
-    @Param('id') id: string,
-    @Body() updateAnswerDto: UpdateAnswerAcademicDto,
-  ) {
-    const answerAcademic = await this.answerService.updateAcademic(
-      id,
-      updateAnswerDto,
-    );
-    if (!answerAcademic) {
-      throw new HttpException('Not found', HttpStatus.NOT_FOUND);
-    }
-    return answerAcademic;
-  }
+  // @Patch('academic/:id')
+  // async updateAcademic(
+  //   @Param('id') id: string,
+  //   @Body() updateAnswerDto: UpdateAnswerAcademicDto,
+  // ) {
+  //   const answerAcademic = await this.answerService.updateAcademic(
+  //     id,
+  //     updateAnswerDto,
+  //   );
+  //   if (!answerAcademic) {
+  //     throw new HttpException('Not found', HttpStatus.NOT_FOUND);
+  //   }
+  //   return answerAcademic;
+  // }
 }

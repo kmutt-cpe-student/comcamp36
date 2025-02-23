@@ -50,77 +50,6 @@
         "tags": ["Auth"]
       }
     },
-    "/users": {
-      "post": {
-        "operationId": "UsersController_create",
-        "parameters": [],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": { "$ref": "#/components/schemas/CreateUserDto" }
-            }
-          }
-        },
-        "responses": { "200": { "description": "" } },
-        "tags": ["Users"]
-      },
-      "get": {
-        "operationId": "UsersController_findAll",
-        "parameters": [],
-        "responses": { "200": { "description": "" } },
-        "tags": ["Users"]
-      }
-    },
-    "/users/{id}": {
-      "get": {
-        "operationId": "UsersController_findOne",
-        "parameters": [
-          {
-            "name": "id",
-            "required": true,
-            "in": "path",
-            "schema": { "type": "string" }
-          }
-        ],
-        "responses": { "200": { "description": "" } },
-        "tags": ["Users"]
-      },
-      "patch": {
-        "operationId": "UsersController_update",
-        "parameters": [
-          {
-            "name": "id",
-            "required": true,
-            "in": "path",
-            "schema": { "type": "string" }
-          }
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": { "$ref": "#/components/schemas/UpdateUserDto" }
-            }
-          }
-        },
-        "responses": { "200": { "description": "" } },
-        "tags": ["Users"]
-      },
-      "delete": {
-        "operationId": "UsersController_remove",
-        "parameters": [
-          {
-            "name": "id",
-            "required": true,
-            "in": "path",
-            "schema": { "type": "string" }
-          }
-        ],
-        "responses": { "200": { "description": "" } },
-        "tags": ["Users"]
-      }
-    },
     "/users/info": {
       "post": {
         "operationId": "UsersController_updateRegister",
@@ -247,28 +176,6 @@
         "tags": ["Files"]
       }
     },
-    "/answer/regis": {
-      "post": {
-        "operationId": "AnswerController_createRegis",
-        "parameters": [],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": { "$ref": "#/components/schemas/CreateAnswerRegisDto" }
-            }
-          }
-        },
-        "responses": { "201": { "description": "" } },
-        "tags": ["Answer"]
-      },
-      "get": {
-        "operationId": "AnswerController_findAllRegis",
-        "parameters": [],
-        "responses": { "200": { "description": "" } },
-        "tags": ["Answer"]
-      }
-    },
     "/answer/user-regis": {
       "get": {
         "operationId": "AnswerController_findRegisWithUser",
@@ -310,104 +217,6 @@
             }
           }
         },
-        "tags": ["Answer"]
-      }
-    },
-    "/answer/regis/{id}": {
-      "get": {
-        "operationId": "AnswerController_findOneRegis",
-        "parameters": [
-          {
-            "name": "id",
-            "required": true,
-            "in": "path",
-            "schema": { "type": "string" }
-          }
-        ],
-        "responses": { "200": { "description": "" } },
-        "tags": ["Answer"]
-      },
-      "patch": {
-        "operationId": "AnswerController_updateRegis",
-        "parameters": [
-          {
-            "name": "id",
-            "required": true,
-            "in": "path",
-            "schema": { "type": "string" }
-          }
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": { "$ref": "#/components/schemas/UpdateAnswerRegisDto" }
-            }
-          }
-        },
-        "responses": { "200": { "description": "" } },
-        "tags": ["Answer"]
-      }
-    },
-    "/answer/academic": {
-      "post": {
-        "operationId": "AnswerController_createAcademic",
-        "parameters": [],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/CreateAnswerAcademicDto"
-              }
-            }
-          }
-        },
-        "responses": { "201": { "description": "" } },
-        "tags": ["Answer"]
-      },
-      "get": {
-        "operationId": "AnswerController_findAllAcademic",
-        "parameters": [],
-        "responses": { "200": { "description": "" } },
-        "tags": ["Answer"]
-      }
-    },
-    "/answer/academic/{id}": {
-      "get": {
-        "operationId": "AnswerController_findAcademic",
-        "parameters": [
-          {
-            "name": "id",
-            "required": true,
-            "in": "path",
-            "schema": { "type": "string" }
-          }
-        ],
-        "responses": { "200": { "description": "" } },
-        "tags": ["Answer"]
-      },
-      "patch": {
-        "operationId": "AnswerController_updateAcademic",
-        "parameters": [
-          {
-            "name": "id",
-            "required": true,
-            "in": "path",
-            "schema": { "type": "string" }
-          }
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/UpdateAnswerAcademicDto"
-              }
-            }
-          }
-        },
-        "responses": { "200": { "description": "" } },
         "tags": ["Answer"]
       }
     },
@@ -541,14 +350,6 @@
           "info_done"
         ]
       },
-      "CreateUserDto": {
-        "type": "object",
-        "properties": {
-          "google_id": { "type": "string" },
-          "email": { "type": "string" }
-        },
-        "required": ["google_id", "email"]
-      },
       "UpdateUserDto": {
         "type": "object",
         "properties": {
@@ -609,29 +410,6 @@
           "p7_filepath"
         ]
       },
-      "CreateAnswerRegisDto": {
-        "type": "object",
-        "properties": {
-          "userId": { "type": "string" },
-          "answer1": { "type": "string" },
-          "answer2": { "type": "string" },
-          "answer3": { "type": "string" },
-          "answer4": { "type": "string" },
-          "answer5": { "type": "string" },
-          "answer6_1": { "type": "string" },
-          "answer6_2": { "type": "string" }
-        },
-        "required": [
-          "userId",
-          "answer1",
-          "answer2",
-          "answer3",
-          "answer4",
-          "answer5",
-          "answer6_1",
-          "answer6_2"
-        ]
-      },
       "AnswerRegisResponseDto": {
         "type": "object",
         "properties": {
@@ -655,18 +433,6 @@
           "answer6_2"
         ]
       },
-      "UpdateAnswerRegisDto": {
-        "type": "object",
-        "properties": {
-          "answer1": { "type": "string" },
-          "answer2": { "type": "string" },
-          "answer3": { "type": "string" },
-          "answer4": { "type": "string" },
-          "answer5": { "type": "string" },
-          "answer6_1": { "type": "string" },
-          "answer6_2": { "type": "string" }
-        }
-      },
       "UpsertAnswerRegisDto": {
         "type": "object",
         "properties": {
@@ -688,16 +454,6 @@
           "answer6_2"
         ]
       },
-      "CreateAnswerAcademicDto": {
-        "type": "object",
-        "properties": {
-          "userId": { "type": "string" },
-          "algo_answer": { "type": "string" },
-          "chess_notation": { "type": "string" },
-          "chess_score": { "type": "number" }
-        },
-        "required": ["userId", "algo_answer", "chess_notation", "chess_score"]
-      },
       "AnswerAcademicResponseDto": {
         "type": "object",
         "properties": {
@@ -716,14 +472,6 @@
           "chess_score": { "type": "number" }
         },
         "required": ["algo_answer", "chess_notation", "chess_score"]
-      },
-      "UpdateAnswerAcademicDto": {
-        "type": "object",
-        "properties": {
-          "algo_answer": { "type": "string" },
-          "chess_notation": { "type": "string" },
-          "chess_score": { "type": "number" }
-        }
       }
     }
   }

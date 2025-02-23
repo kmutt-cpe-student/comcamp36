@@ -79,38 +79,6 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
-  "/users": {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    get: operations["UsersController_findAll"];
-    put?: never;
-    post: operations["UsersController_create"];
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  "/users/{id}": {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    get: operations["UsersController_findOne"];
-    put?: never;
-    post?: never;
-    delete: operations["UsersController_remove"];
-    options?: never;
-    head?: never;
-    patch: operations["UsersController_update"];
-    trace?: never;
-  };
   "/users/info": {
     parameters: {
       query?: never;
@@ -191,22 +159,6 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
-  "/answer/regis": {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    get: operations["AnswerController_findAllRegis"];
-    put?: never;
-    post: operations["AnswerController_createRegis"];
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
   "/answer/user-regis": {
     parameters: {
       query?: never;
@@ -221,54 +173,6 @@ export interface paths {
     options?: never;
     head?: never;
     patch?: never;
-    trace?: never;
-  };
-  "/answer/regis/{id}": {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    get: operations["AnswerController_findOneRegis"];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch: operations["AnswerController_updateRegis"];
-    trace?: never;
-  };
-  "/answer/academic": {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    get: operations["AnswerController_findAllAcademic"];
-    put?: never;
-    post: operations["AnswerController_createAcademic"];
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  "/answer/academic/{id}": {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    get: operations["AnswerController_findAcademic"];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch: operations["AnswerController_updateAcademic"];
     trace?: never;
   };
   "/answer/user-academic": {
@@ -326,10 +230,6 @@ export interface components {
       regis_done: boolean;
       info_done: boolean;
     };
-    CreateUserDto: {
-      google_id: string;
-      email: string;
-    };
     UpdateUserDto: {
       title?: string;
       fullname?: string;
@@ -373,16 +273,6 @@ export interface components {
       p1_filepath: string;
       p7_filepath: string;
     };
-    CreateAnswerRegisDto: {
-      userId: string;
-      answer1: string;
-      answer2: string;
-      answer3: string;
-      answer4: string;
-      answer5: string;
-      answer6_1: string;
-      answer6_2: string;
-    };
     AnswerRegisResponseDto: {
       id: string;
       answer1: string;
@@ -393,15 +283,6 @@ export interface components {
       answer6_1: string;
       answer6_2: string;
     };
-    UpdateAnswerRegisDto: {
-      answer1?: string;
-      answer2?: string;
-      answer3?: string;
-      answer4?: string;
-      answer5?: string;
-      answer6_1?: string;
-      answer6_2?: string;
-    };
     UpsertAnswerRegisDto: {
       answer1: string;
       answer2: string;
@@ -410,12 +291,6 @@ export interface components {
       answer5: string;
       answer6_1: string;
       answer6_2: string;
-    };
-    CreateAnswerAcademicDto: {
-      userId: string;
-      algo_answer: string;
-      chess_notation: string;
-      chess_score: number;
     };
     AnswerAcademicResponseDto: {
       id: string;
@@ -427,11 +302,6 @@ export interface components {
       algo_answer: string;
       chess_notation: string;
       chess_score: number;
-    };
-    UpdateAnswerAcademicDto: {
-      algo_answer?: string;
-      chess_notation?: string;
-      chess_score?: number;
     };
   };
   responses: never;
@@ -522,105 +392,6 @@ export interface operations {
     requestBody?: never;
     responses: {
       201: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-    };
-  };
-  UsersController_findAll: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-    };
-  };
-  UsersController_create: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody: {
-      content: {
-        "application/json": components["schemas"]["CreateUserDto"];
-      };
-    };
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-    };
-  };
-  UsersController_findOne: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        id: string;
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-    };
-  };
-  UsersController_remove: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        id: string;
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-    };
-  };
-  UsersController_update: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        id: string;
-      };
-      cookie?: never;
-    };
-    requestBody: {
-      content: {
-        "application/json": components["schemas"]["UpdateUserDto"];
-      };
-    };
-    responses: {
-      200: {
         headers: {
           [name: string]: unknown;
         };
@@ -748,44 +519,6 @@ export interface operations {
       };
     };
   };
-  AnswerController_findAllRegis: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-    };
-  };
-  AnswerController_createRegis: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody: {
-      content: {
-        "application/json": components["schemas"]["CreateAnswerRegisDto"];
-      };
-    };
-    responses: {
-      201: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-    };
-  };
   AnswerController_findRegisWithUser: {
     parameters: {
       query?: never;
@@ -825,128 +558,6 @@ export interface operations {
         content: {
           "application/json": components["schemas"]["AnswerRegisResponseDto"];
         };
-      };
-    };
-  };
-  AnswerController_findOneRegis: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        id: string;
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-    };
-  };
-  AnswerController_updateRegis: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        id: string;
-      };
-      cookie?: never;
-    };
-    requestBody: {
-      content: {
-        "application/json": components["schemas"]["UpdateAnswerRegisDto"];
-      };
-    };
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-    };
-  };
-  AnswerController_findAllAcademic: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-    };
-  };
-  AnswerController_createAcademic: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody: {
-      content: {
-        "application/json": components["schemas"]["CreateAnswerAcademicDto"];
-      };
-    };
-    responses: {
-      201: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-    };
-  };
-  AnswerController_findAcademic: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        id: string;
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-    };
-  };
-  AnswerController_updateAcademic: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        id: string;
-      };
-      cookie?: never;
-    };
-    requestBody: {
-      content: {
-        "application/json": components["schemas"]["UpdateAnswerAcademicDto"];
-      };
-    };
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
       };
     };
   };
