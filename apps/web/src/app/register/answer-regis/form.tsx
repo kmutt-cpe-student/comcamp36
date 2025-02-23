@@ -1,6 +1,8 @@
 "use client";
 
 import FormStepper from "@/app/register/form-stepper";
+import Spinner from "@/components/spinner";
+import { Button } from "@/components/ui/button";
 import {
   Form,
   FormControl,
@@ -28,6 +30,7 @@ export const formSchema = z.object({
 interface AnswerRegisProps {
   data: z.infer<typeof formSchema>;
   onSubmit: (data: z.infer<typeof formSchema>) => void;
+  isPending?: boolean;
 }
 
 function AnswerRegis(props: AnswerRegisProps) {
@@ -265,6 +268,14 @@ function AnswerRegis(props: AnswerRegisProps) {
               </FormItem>
             )}
           />
+        </div>
+        <div className="flex w-full justify-center pt-16">
+          <Button
+            type="submit"
+            disabled={props.isPending || !form.formState.isDirty}
+          >
+            {props.isPending ? <Spinner /> : "บันทึกคำถามคัดเลือก 1"}
+          </Button>
         </div>
         <FormStepper />
       </form>

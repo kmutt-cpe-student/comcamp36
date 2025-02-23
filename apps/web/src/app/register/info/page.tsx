@@ -16,7 +16,7 @@ function RegisterInfoPage() {
     "/auth/me",
   );
 
-  const { mutate } = fetchQuery.useMutation("post", "/users/info", {
+  const { mutate, isPending } = fetchQuery.useMutation("post", "/users/info", {
     onSuccess: (mutateData) => {
       queryClient.setQueryData(["auth", { id: mutateData.id }], mutateData);
       toast.success("บันทึกสำเร็จ!", {
@@ -77,6 +77,7 @@ function RegisterInfoPage() {
         parent_phone: data?.parent_phone ? data.parent_phone : "",
       }}
       onSubmit={onSubmit}
+      isPending={isPending}
     />
   );
 }

@@ -5,7 +5,9 @@ import DatePicker from "@/components/date-picker";
 import RadioGroupBoolean from "@/components/radio-group-boolean";
 import GenderSelector from "@/components/select/gender-selector";
 import TitleSelector from "@/components/select/title-selector";
+import Spinner from "@/components/spinner";
 import { TextShimmer } from "@/components/text/text-shimmer";
+import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
@@ -63,6 +65,7 @@ export const formSchema = z.object({
 interface InfoFormProps {
   data: z.infer<typeof formSchema>;
   onSubmit: (data: z.infer<typeof formSchema>) => void;
+  isPending?: boolean;
 }
 
 function InfoForm(props: InfoFormProps) {
@@ -510,6 +513,16 @@ function InfoForm(props: InfoFormProps) {
                   </FormItem>
                 )}
               />
+
+              <div className="flex w-full justify-center pt-16">
+                <Button
+                  type="submit"
+                  disabled={props.isPending || !form.formState.isDirty}
+                >
+                  {props.isPending ? <Spinner /> : "บันทักข้อมูลส่วนตัว"}
+                </Button>
+              </div>
+
               <FormStepper />
             </div>
           </form>

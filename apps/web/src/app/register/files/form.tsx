@@ -2,6 +2,8 @@
 
 import FormStepper from "@/app/register/form-stepper";
 import { FileUploader } from "@/components/files";
+import Spinner from "@/components/spinner";
+import { Button } from "@/components/ui/button";
 import { CardContent, CardFooter } from "@/components/ui/card";
 import {
   Form,
@@ -37,6 +39,7 @@ export const formSchema = z.object({
 interface FilesFormProps {
   data: z.infer<typeof formSchema>;
   onSubmit: (data: z.infer<typeof formSchema>) => void;
+  isPending?: boolean;
 }
 
 function FilesForm(props: FilesFormProps) {
@@ -167,6 +170,14 @@ function FilesForm(props: FilesFormProps) {
             )}
           />
         </CardContent>
+        <div className="flex w-full justify-center pt-16">
+          <Button
+            type="submit"
+            disabled={props.isPending || !form.formState.isDirty}
+          >
+            {props.isPending ? <Spinner /> : "อัพโหลดไฟล์"}
+          </Button>
+        </div>
         <CardFooter>
           <FormStepper />
         </CardFooter>
