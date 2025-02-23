@@ -48,35 +48,36 @@ export default function Navbar({ items, extra }: NavbarProps) {
           ))}
         </div>
 
-        <Drawer>
-          <DrawerTrigger asChild>
-            <button className="block text-xl xl:hidden">
-              <MenuIcon color="#d1d5dc" />
-            </button>
-          </DrawerTrigger>
-          <DrawerContent className="bg-charcoal-1/10 backdrop-blur-3xl">
-            <DrawerTitle className="sr-only">Navbar</DrawerTitle>
-            <div className="mb-10 flex flex-col gap-y-5 overflow-auto p-6">
-              {items.map((item) => (
-                <DrawerClose
-                  key={item.href}
-                  asChild
-                  className="flex items-center justify-center"
-                >
-                  <Link href={item.href}>
-                    <button className="hover:text-vermilion cursor-pointer text-white transition-colors">
-                      <span className="font-prompt text-[1.3rem] font-bold">
-                        {item.label}
-                      </span>
-                    </button>
-                  </Link>
-                </DrawerClose>
-              ))}
-            </div>
-          </DrawerContent>
-        </Drawer>
-
-        {extra}
+        <div className="flex gap-x-4">
+          {extra}
+          <Drawer>
+            <DrawerTrigger asChild>
+              <button className="block text-xl xl:hidden">
+                <MenuIcon color="#d1d5dc" />
+              </button>
+            </DrawerTrigger>
+            <DrawerContent className="bg-charcoal-1/10 backdrop-blur-3xl">
+              <DrawerTitle className="sr-only">Navbar</DrawerTitle>
+              <div className="mb-10 flex flex-col gap-y-5 overflow-auto p-6">
+                {items.map((item) => (
+                  <DrawerClose
+                    key={item.href}
+                    asChild
+                    className="flex items-center justify-center"
+                  >
+                    <Link href={item.href}>
+                      <button className="hover:text-vermilion cursor-pointer text-white transition-colors">
+                        <span className="font-prompt text-[1.3rem] font-bold">
+                          {item.label}
+                        </span>
+                      </button>
+                    </Link>
+                  </DrawerClose>
+                ))}
+              </div>
+            </DrawerContent>
+          </Drawer>
+        </div>
       </div>
     </div>
   );
