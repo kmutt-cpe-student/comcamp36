@@ -16,7 +16,7 @@ function PolicyPage() {
       <div className="max-w-[70rem]">
         <PrivacyPolicy />
       </div>
-      <Link href="..">
+      <Link href="/register">
         <TextShimmer
           duration={1.5}
           className="cursor-pointer text-xl font-medium transition-colors [--base-color:var(--color-white)] [--base-gradient-color:var(--color-white)] hover:[--base-color:var(--color-vermilion)] hover:[--base-gradient-color:var(--color-vermilion-1)] dark:[--base-color:var(--color-white)] dark:[--base-gradient-color:var(--color-white)]"
