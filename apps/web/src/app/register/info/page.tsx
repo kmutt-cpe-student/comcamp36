@@ -20,7 +20,7 @@ function RegisterInfoPage() {
     onSuccess: (mutateData) => {
       queryClient.setQueryData(["auth", { id: mutateData.id }], mutateData);
       toast.success("บันทึกสำเร็จ!", {
-        description: `บันทึกสำเร็จ ณ​ เวลา ${formatThaiBuddhist(new Date())} กดปุ่มถัดไป เพื่อไปหน้าถัดไป`,
+        description: `บันทึกสำเร็จ ณ​ ${formatThaiBuddhist(new Date())} กดปุ่มถัดไป เพื่อไปหน้าถัดไป`,
       });
     },
     onError: () => toast.error("เกิดข้อผิดพลาดบางอย่างในระบบ!"),
