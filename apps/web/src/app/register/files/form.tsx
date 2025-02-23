@@ -43,7 +43,7 @@ function FilesForm(props: FilesFormProps) {
             control={form.control}
             name="face_photo"
             render={({ field }) => (
-              <FormItem className="h-fit">
+              <FormItem>
                 <FormLabel>รูปใบหน้าชัดเจน</FormLabel>
                 <FormDescription className="text-white/40">
                   <strong>เห็นใบหน้าชัดเจน</strong>
@@ -64,7 +64,7 @@ function FilesForm(props: FilesFormProps) {
             control={form.control}
             name="thai_nationalid_copy"
             render={({ field }) => (
-              <FormItem className="h-fit">
+              <FormItem>
                 <FormLabel>สำเนาบัตรประชาชน</FormLabel>
                 <FormDescription className="text-white/40">
                   <strong>สามารถใช้สำเนาบัตรนักเรียนแทนได้</strong>{" "}
@@ -87,7 +87,7 @@ function FilesForm(props: FilesFormProps) {
             control={form.control}
             name="parent_permission"
             render={({ field }) => (
-              <FormItem className="h-fit">
+              <FormItem>
                 <FormLabel>หนังสือยินยอมผู้ปกครอง</FormLabel>
                 <FormDescription className="text-white/40">
                   <strong>ดาวโหลดไฟล์หนังสือยินยอมผู้ปกครอง</strong>
@@ -109,7 +109,7 @@ function FilesForm(props: FilesFormProps) {
             control={form.control}
             name="p1"
             render={({ field }) => (
-              <FormItem className="h-fit">
+              <FormItem>
                 <FormLabel>สำเนาระเบียนแสดงผลการเรียน (ปพ.1)</FormLabel>
                 <FormDescription className="text-white/40">
                   <strong>
@@ -134,7 +134,7 @@ function FilesForm(props: FilesFormProps) {
             control={form.control}
             name="p7"
             render={({ field }) => (
-              <FormItem className="h-fit">
+              <FormItem>
                 <FormLabel>สำเนาใบรับรองผลการศึกษา (ปพ.7)</FormLabel>
                 <FormDescription className="text-white/40">
                   <strong>
