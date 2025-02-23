@@ -39,17 +39,17 @@ async function bootstrap() {
       methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE', 'OPTIONS'],
       credentials: true,
     });
-  } else {
-    app.enableCors({
-      origin: [
-        'https://reg-dev.comcamp.io',
-        'https://comcamp.io/',
-        'https://www.comcamp.io/',
-      ],
-      methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE', 'OPTIONS'],
-      credentials: true,
-    });
   }
+
+  app.enableCors({
+    origin: [
+      'https://reg-dev.comcamp.io',
+      'https://comcamp.io/',
+      'https://www.comcamp.io/',
+    ],
+    methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE', 'OPTIONS'],
+    credentials: true,
+  });
 
   await app.listen(process.env.PORT ?? 4000);
 }
