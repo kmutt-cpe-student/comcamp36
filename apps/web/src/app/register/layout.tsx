@@ -53,7 +53,7 @@ export default function RegisterLayout({
   }
 
   return (
-    <div className="min-h-screen w-full bg-[#0d0d0d] text-white">
+    <div className="max-w-screen min-h-screen bg-[#0d0d0d] text-white">
       <PolicyConsent />
       <div className="absolute z-[100]">
         <Navbar
