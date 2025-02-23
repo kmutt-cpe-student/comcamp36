@@ -6,9 +6,10 @@ import Image from "next/image";
 interface FileCardProps {
   file: File;
   onRemove: () => void;
+  disabled?: boolean;
 }
 
-export function FileCard({ file, onRemove }: FileCardProps) {
+export function FileCard({ file, onRemove, disabled }: FileCardProps) {
   return (
     <div className="relative flex items-center gap-2.5">
       <div className="flex flex-1 gap-2.5">
@@ -30,7 +31,12 @@ export function FileCard({ file, onRemove }: FileCardProps) {
         </div>
       </div>
       <div className="flex items-center gap-2">
-        <Button onClick={onRemove} size="icon" variant="ghost">
+        <Button
+          onClick={onRemove}
+          size="icon"
+          variant="ghost"
+          disabled={disabled}
+        >
           <X className="size-4" aria-hidden="true" />
           <span className="sr-only">Remove file</span>
         </Button>

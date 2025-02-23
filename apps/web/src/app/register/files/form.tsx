@@ -72,6 +72,7 @@ function FilesForm(props: FilesFormProps) {
                     onValueChange={field.onChange}
                     maxFileCount={1}
                     maxSize={4 * 1024 * 1024}
+                    disabled={props.hasSubmit}
                   />
                 </FormControl>
                 <FormMessage />
@@ -96,6 +97,7 @@ function FilesForm(props: FilesFormProps) {
                     value={field.value}
                     onValueChange={field.onChange}
                     accept={{ "image/*": [], "application/pdf": [] }}
+                    disabled={props.hasSubmit}
                   />
                 </FormControl>
                 <FormMessage />
@@ -127,6 +129,7 @@ function FilesForm(props: FilesFormProps) {
                     value={field.value}
                     onValueChange={field.onChange}
                     accept={{ "image/*": [], "application/pdf": [] }}
+                    disabled={props.hasSubmit}
                   />
                 </FormControl>
                 <FormMessage />
@@ -153,6 +156,7 @@ function FilesForm(props: FilesFormProps) {
                     value={field.value}
                     onValueChange={field.onChange}
                     accept={{ "image/*": [], "application/pdf": [] }}
+                    disabled={props.hasSubmit}
                   />
                 </FormControl>
                 <FormMessage />
@@ -180,6 +184,7 @@ function FilesForm(props: FilesFormProps) {
                     value={field.value}
                     onValueChange={field.onChange}
                     accept={{ "image/*": [], "application/pdf": [] }}
+                    disabled={props.hasSubmit}
                   />
                 </FormControl>
                 <FormMessage />

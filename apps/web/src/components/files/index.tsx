@@ -177,6 +177,7 @@ export function FileUploader(props: FileUploaderProps) {
                   key={index}
                   file={file}
                   onRemove={() => onRemove(index)}
+                  disabled={disabled}
                 />
               ))}
             </div>
