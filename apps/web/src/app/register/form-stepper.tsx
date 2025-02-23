@@ -8,27 +8,33 @@ import {
   StepperTitle,
   StepperTrigger,
 } from "@/components/ui/stepper";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 export const steps = [
   {
     step: 1,
+    title: "หน้าหลัก",
+    href: "/register",
+  },
+  {
+    step: 2,
     title: "ข้อมูลส่วนตัว",
     href: "/register/info",
   },
   {
-    step: 2,
+    step: 3,
     title: "คำถามคัดเลือก 1",
     href: "/register/answer-regis",
   },
   {
-    step: 3,
+    step: 4,
     title: "คำถามคัดเลือก 2",
     href: "/register/answer-academic",
   },
   {
-    step: 4,
+    step: 5,
     title: "ไฟล์ที่ต้องอัพโหลด",
     href: "/register/files",
   },
@@ -40,26 +46,17 @@ export default function FormStepper() {
   return (
     <div className="flex w-full items-center justify-center py-10">
       <div className="flex w-full max-w-[80rem] flex-col items-center justify-center gap-10 pt-10 md:flex-row">
-        <Button
-          type="button"
-          disabled={pathname.includes(steps[0].href)}
-          onClick={() => {
-            const currentStepIndex = steps.findIndex((step) =>
-              pathname.includes(step.href),
-            );
-            if (currentStepIndex > 0) {
-              const previousStep = steps[currentStepIndex - 1];
-              window.location.href = previousStep.href;
-            }
-          }}
-          variant="outline"
-        >
-          ย้อนกลับ
-        </Button>
-        <Stepper
-          defaultValue={
-            steps.findIndex((step) => pathname.includes(step.href)) + 1
+        <Link
+          href={
+            steps[steps.findIndex((step) => step.href === pathname) - 1].href
           }
+        >
+          <Button type="button" className="size-10" variant="outline">
+            <ChevronLeft />
+          </Button>
+        </Link>
+        <Stepper
+          defaultValue={steps.findIndex((step) => step.href === pathname) + 1}
           className="items-start gap-4"
         >
           {steps.map(({ step, title, href }) => (
@@ -83,7 +80,18 @@ export default function FormStepper() {
             </StepperItem>
           ))}
         </Stepper>
-        <Button>บันทึก</Button>
+        <Link
+          href={
+            steps[
+              (steps.findIndex((step) => step.href === pathname) + 1) %
+                steps.length
+            ].href
+          }
+        >
+          <Button type="button" className="size-10">
+            <ChevronRight className="size-5" />
+          </Button>
+        </Link>
       </div>
     </div>
   );

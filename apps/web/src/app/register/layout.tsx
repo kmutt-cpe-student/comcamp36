@@ -42,13 +42,7 @@ export default function RegisterLayout({
       <PolicyConsent />
       <div className="absolute z-[100]">
         <Navbar
-          items={[
-            {
-              title: "หน้าหลัก",
-              href: "/register",
-            },
-            ...steps,
-          ].map((step) => ({
+          items={steps.map((step) => ({
             label: step.title,
             href: step.href,
           }))}
