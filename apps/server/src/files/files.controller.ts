@@ -22,7 +22,10 @@ import { UsersService } from 'src/users/users.service';
 @Controller('files')
 @UseGuards(AuthGuard)
 export class FilesController {
-  constructor(private filesService: FilesService, private usersService: UsersService) {}
+  constructor(
+    private filesService: FilesService,
+    private usersService: UsersService,
+  ) {}
 
   @ApiConsumes('multipart/form-data')
   @ApiResponse({

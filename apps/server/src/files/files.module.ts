@@ -4,9 +4,7 @@ import { FilesService } from './files.service';
 import { UsersModule } from 'src/users/users.module';
 
 @Module({
-  imports: [
-    UsersModule
-  ],
+  imports: [UsersModule],
   providers: [FilesService],
   controllers: [FilesController],
 })
