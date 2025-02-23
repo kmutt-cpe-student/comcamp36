@@ -119,7 +119,7 @@ export class AnswerService {
     await this.prisma.user.update({
       where: { id: user_id },
       data: {
-        regis_done: true,
+        academic_done: true,
       },
     });
     const answerAcademic = await this.prisma.answerAcademic.upsert({
