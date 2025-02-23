@@ -87,6 +87,7 @@ function InfoForm(props: InfoFormProps) {
                         value={field.value}
                         placeholder="คำนำหน้า"
                         onValueChange={field.onChange}
+                        disabled={props.hasSubmit}
                       />
                     </FormControl>
                     <FormMessage />
@@ -140,6 +141,7 @@ function InfoForm(props: InfoFormProps) {
                       <DatePicker
                         value={field.value}
                         onValueChange={field.onChange}
+                        disabled={props.hasSubmit}
                       />
                     </FormControl>
                     <FormMessage />
@@ -157,6 +159,7 @@ function InfoForm(props: InfoFormProps) {
                       <GenderSelector
                         value={field.value}
                         onValueChange={field.onChange}
+                        disabled={props.hasSubmit}
                       />
                     </FormControl>
                     <FormMessage />
@@ -463,6 +466,7 @@ function InfoForm(props: InfoFormProps) {
                         onValueChange={field.onChange}
                         true_label="เคยเข้าร่วม ComCamp"
                         false_label="ไม่เคยเข้าร่วม ComCamp"
+                        disabled={props.hasSubmit}
                       />
                     </FormControl>
                     <FormMessage />
@@ -482,6 +486,7 @@ function InfoForm(props: InfoFormProps) {
                         onValueChange={field.onChange}
                         true_label="มี laptop"
                         false_label="ไม่มี laptop"
+                        disabled={props.hasSubmit}
                       />
                     </FormControl>
                     <FormMessage />
@@ -503,6 +508,7 @@ function InfoForm(props: InfoFormProps) {
                         onValueChange={field.onChange}
                         true_label="สะดวกเข้าร่วมค่ายทุกวัน"
                         false_label="ไม่สะดวกเข้าร่วมค่ายทุกวัน"
+                        disabled={props.hasSubmit}
                       />
                     </FormControl>
                     <FormMessage />

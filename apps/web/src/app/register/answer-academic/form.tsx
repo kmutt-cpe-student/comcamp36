@@ -138,6 +138,7 @@ function AnswerAcademic(props: AnswerAcademicProps) {
                   form.setValue("chess_score", score);
                   form.setValue("chess_notation", notation);
                 }}
+                disabled={props.hasSubmit}
               />
             </div>
             <p className="font-bold">ผลการเล่นที่บันทึกแล้ว</p>

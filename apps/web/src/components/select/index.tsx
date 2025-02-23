@@ -18,6 +18,7 @@ export interface SelectProps {
   includeFilter?: string[];
   excludeFilter?: string[];
   allowDeselect?: boolean;
+  disabled?: boolean;
 }
 
 interface CustomSelectProps {
@@ -34,6 +35,7 @@ const CustomSelect = ({
   excludeFilter,
   allowDeselect,
   options,
+  disabled,
 }: SelectProps & CustomSelectProps) => {
   const [data = "", setData] = useControllableState<string | undefined>({
     prop: value,
@@ -58,6 +60,7 @@ const CustomSelect = ({
     <Select
       value={value}
       onValueChange={(value) => setData(value === "undefine" ? "" : value)}
+      disabled={disabled}
     >
       <SelectTrigger>
         <SelectValue placeholder={placeholder}>

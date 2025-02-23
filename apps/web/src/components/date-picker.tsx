@@ -25,9 +25,10 @@ import { DropdownNavProps, DropdownProps } from "react-day-picker";
 interface DatePickerProps {
   value: Date;
   onValueChange?: (data: Date) => void;
+  disabled?: boolean;
 }
 
-function DatePicker({ value, onValueChange }: DatePickerProps) {
+function DatePicker({ value, onValueChange, disabled }: DatePickerProps) {
   const [data, setData] = useControllableState({
     prop: value,
     defaultProp: value,
@@ -48,7 +49,7 @@ function DatePicker({ value, onValueChange }: DatePickerProps) {
 
   return (
     <Popover>
-      <PopoverTrigger asChild>
+      <PopoverTrigger asChild disabled={disabled}>
         <FormControl>
           <Button
             variant={"outline"}

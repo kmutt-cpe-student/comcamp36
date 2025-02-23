@@ -8,6 +8,7 @@ interface RadioGroupBooleanProps {
   false_label: string;
   value: boolean;
   onValueChange?: (data: boolean) => void;
+  disabled?: boolean;
 }
 
 function RadioGroupBoolean(props: RadioGroupBooleanProps) {
@@ -19,7 +20,7 @@ function RadioGroupBoolean(props: RadioGroupBooleanProps) {
   const id = useId();
 
   return (
-    <RadioGroup defaultValue={data ? "1" : "2"}>
+    <RadioGroup defaultValue={data ? "1" : "2"} disabled={props.disabled}>
       <div className="flex items-center gap-2" onClick={() => setData(true)}>
         <RadioGroupItem
           value="1"

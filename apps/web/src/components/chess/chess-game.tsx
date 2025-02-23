@@ -325,9 +325,10 @@ function DroppableSquare({
 
 interface ChessGameProps {
   callback: (score: number, notation: string) => void;
+  disabled?: boolean;
 }
 
-function ChessGame({ callback }: ChessGameProps) {
+function ChessGame({ callback, disabled }: ChessGameProps) {
   const initialState = useMemo<GameState>(
     () => ({
       currentPosition: fromChessNotation("b1"),
@@ -565,7 +566,11 @@ function ChessGame({ callback }: ChessGameProps) {
           >
             ย้อนกลับ
           </Button>
-          <Button type="button" onClick={handleSubmit} disabled={!canSubmit}>
+          <Button
+            type="button"
+            onClick={handleSubmit}
+            disabled={!canSubmit || disabled}
+          >
             บันทึกผลการเล่น
           </Button>
         </div>
