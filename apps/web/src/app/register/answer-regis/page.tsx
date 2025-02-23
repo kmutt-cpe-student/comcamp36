@@ -47,7 +47,7 @@ function RegisterInfoPage() {
   }
 
   return (
-    <FormCard title="คำถามคัดเลือก 1">
+    <FormCard title="ปริศนาปัญญาชน">
       <AnswerRegis
         data={{
           answer1: data?.answer1 ? data.answer1 : "",
