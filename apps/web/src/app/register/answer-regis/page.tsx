@@ -3,8 +3,6 @@
 import AnswerRegis, { formSchema } from "@/app/register/answer-regis/form";
 import FormCard from "@/app/register/form-card";
 import RegisterFormSkeleton from "@/app/register/skeleton";
-import { TextShimmer } from "@/components/text/text-shimmer";
-import { CardForm, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
 import { formatThaiBuddhist } from "@/libs/date";
 import { fetchQuery } from "@/libs/server/client";
 import { useQueryClient } from "@tanstack/react-query";
@@ -12,10 +10,9 @@ import { toast } from "sonner";
 import { z } from "zod";
 
 function RegisterInfoPage() {
-  const { data: userData } = fetchQuery.useQuery(
-    "get",
-    "/auth/me",
-  );
+  const { data: userData } = fetchQuery.useQuery("get", "/auth/me", {
+    refetchOnWindowFocus: false,
+  });
   const queryClient = useQueryClient();
   const { data, isPending: isUserDataPending } = fetchQuery.useQuery(
     "get",
@@ -53,37 +50,24 @@ function RegisterInfoPage() {
   }
 
   return (
-    <CardForm className="h-fit w-full max-w-[110rem]">
-      <CardHeader>
-        <CardTitle>
-          <TextShimmer
-            duration={2}
-            className="text-4xl font-bold transition-opacity duration-200 [--base-color:var(--color-vermilion)] [--base-gradient-color:var(--color-vermilion-1)] dark:[--base-color:var(--color-vermilion)] dark:[--base-gradient-color:var(--color-vermilion-1)]"
-          >
-            คำถามคัดเลือก 1
-          </TextShimmer>
-        </CardTitle>
-        <CardDescription hidden>
-          <small>อย่าลืมกด</small>
-        </CardDescription>
-      </CardHeader>
-      <CardContent className="h-fit">
-        <AnswerRegis
-          data={{
-            answer1: data?.answer1 ? data.answer1 : "",
-            answer2: data?.answer2 ? data.answer2 : "",
-            answer3: data?.answer3 ? data.answer3 : "",
-            answer4: data?.answer4 ? data.answer4 : "",
-            answer5: data?.answer5 ? data.answer5 : "",
-            answer6_1: data?.answer6_1 ? data.answer6_1 : "",
-            answer6_2: data?.answer6_2 ? data.answer6_2 : "",
-          }}
-          onSubmit={onSubmit}
-          isPending={isPending} 
-          hasSubmit={userData?.has_submit_answer ? userData.has_submit_answer : false}        
-        />
-      </CardContent>
-    </CardForm>
+    <FormCard title="ปริศนาปัญญาชน">
+      <AnswerRegis
+        data={{
+          answer1: data?.answer1 ? data.answer1 : "",
+          answer2: data?.answer2 ? data.answer2 : "",
+          answer3: data?.answer3 ? data.answer3 : "",
+          answer4: data?.answer4 ? data.answer4 : "",
+          answer5: data?.answer5 ? data.answer5 : "",
+          answer6_1: data?.answer6_1 ? data.answer6_1 : "",
+          answer6_2: data?.answer6_2 ? data.answer6_2 : "",
+        }}
+        onSubmit={onSubmit}
+        isPending={isPending}
+        hasSubmit={
+          userData?.has_submit_answer ? userData.has_submit_answer : false
+        }
+      />
+    </FormCard>
   );
 }
 export default RegisterInfoPage;

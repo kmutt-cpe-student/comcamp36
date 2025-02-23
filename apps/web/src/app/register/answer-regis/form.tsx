@@ -282,7 +282,7 @@ function AnswerRegis(props: AnswerRegisProps) {
         <div className="flex w-full justify-center pt-16">
           <Button
             type="submit"
-            disabled={props.isPending || !form.formState.isDirty || props.hasSubmit}
+            disabled={props.isPending || !form.formState.isDirty}
           >
             {props.isPending ? <Spinner /> : "บันทึกคำถามคัดเลือก 1"}
           </Button>

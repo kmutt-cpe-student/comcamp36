@@ -1,5 +1,452 @@
-<<<<<<< HEAD
-{"openapi":"3.0.0","paths":{"/":{"get":{"operationId":"AppController_getHello","parameters":[],"responses":{"200":{"description":""}},"tags":["App"]}},"/auth/me":{"get":{"operationId":"AuthController_me","parameters":[],"responses":{"200":{"description":"","content":{"application/json":{"schema":{"$ref":"#/components/schemas/UserResponseDto"}}}}},"tags":["Auth"]}},"/auth":{"get":{"operationId":"AuthController_googleAuth","parameters":[],"responses":{"200":{"description":""}},"tags":["Auth"]}},"/auth/google-redirect":{"get":{"operationId":"AuthController_googleAuthRedirect","parameters":[],"responses":{"200":{"description":""}},"tags":["Auth"]}},"/auth/logout":{"post":{"operationId":"AuthController_logout","parameters":[],"responses":{"201":{"description":""}},"tags":["Auth"]}},"/users/info":{"post":{"operationId":"UsersController_updateRegister","parameters":[],"requestBody":{"required":true,"content":{"application/json":{"schema":{"$ref":"#/components/schemas/UpdateUserDto"}}}},"responses":{"200":{"description":"","content":{"application/json":{"schema":{"$ref":"#/components/schemas/UserResponseDto"}}}}},"tags":["Users"]}},"/files/upload":{"post":{"operationId":"FilesController_uploadFile","parameters":[],"requestBody":{"required":true,"content":{"multipart/form-data":{"schema":{"type":"object","properties":{"face_photo":{"type":"string","format":"binary"},"thai_nationalid_copy":{"type":"string","format":"binary"},"parent_permission":{"type":"string","format":"binary"},"p1":{"type":"string","format":"binary"},"p7":{"type":"string","format":"binary"}}}}}},"responses":{"200":{"description":""}},"tags":["Files"]}},"/files/user-files":{"get":{"operationId":"FilesController_getUserFiles","parameters":[],"responses":{"200":{"description":"","content":{"application/json":{"schema":{"$ref":"#/components/schemas/UserFilesResponseDto"}}}}},"tags":["Files"]}},"/answer/submit-answer":{"post":{"operationId":"AnswerController_submitAnswer","parameters":[],"responses":{"201":{"description":""}},"tags":["Answer"]}},"/answer/user-regis":{"get":{"operationId":"AnswerController_findRegisWithUser","parameters":[],"responses":{"200":{"description":"","content":{"application/json":{"schema":{"$ref":"#/components/schemas/AnswerRegisResponseDto"}}}}},"tags":["Answer"]},"post":{"operationId":"AnswerController_upsertRegisWithUser","parameters":[],"requestBody":{"required":true,"content":{"application/json":{"schema":{"$ref":"#/components/schemas/UpsertAnswerRegisDto"}}}},"responses":{"200":{"description":"","content":{"application/json":{"schema":{"$ref":"#/components/schemas/AnswerRegisResponseDto"}}}}},"tags":["Answer"]}},"/answer/user-academic":{"get":{"operationId":"AnswerController_findAcademicWithUser","parameters":[],"responses":{"200":{"description":"","content":{"application/json":{"schema":{"$ref":"#/components/schemas/AnswerAcademicResponseDto"}}}}},"tags":["Answer"]},"post":{"operationId":"AnswerController_upsertAcademicWithUser","parameters":[],"requestBody":{"required":true,"content":{"application/json":{"schema":{"$ref":"#/components/schemas/UpsertAnswerAcademicDto"}}}},"responses":{"200":{"description":"","content":{"application/json":{"schema":{"$ref":"#/components/schemas/AnswerAcademicResponseDto"}}}}},"tags":["Answer"]}}},"info":{"title":"Comcamp36 API","description":"Our lovely reference for Comcamp36 Website","version":"1.0","contact":{}},"tags":[],"servers":[],"components":{"schemas":{"UserResponseDto":{"type":"object","properties":{"id":{"type":"string"},"title":{"type":"string"},"email":{"type":"string"},"fullname":{"type":"string"},"age":{"type":"number"},"birth":{"type":"string"},"gender":{"type":"string"},"religion":{"type":"string"},"blood_group":{"type":"string"},"graduation":{"type":"string"},"school":{"type":"string"},"course":{"type":"string"},"telephone":{"type":"string"},"medical_coverage":{"type":"string"},"chronic_disease":{"type":"string"},"self_medicine":{"type":"string"},"drug_allergic":{"type":"string"},"food_allergic":{"type":"string"},"prefer_food":{"type":"string"},"address":{"type":"string"},"home_phone_tel":{"type":"string"},"comcamp_attendance":{"type":"boolean"},"shirt_size":{"type":"string"},"everyday_attendence":{"type":"boolean"},"has_laptop":{"type":"boolean"},"travel":{"type":"string"},"parent_fullname":{"type":"string"},"parent_relation":{"type":"string"},"parent_phone":{"type":"string"},"files_done":{"type":"boolean"},"academic_done":{"type":"boolean"},"regis_done":{"type":"boolean"},"info_done":{"type":"boolean"},"has_submit_answer":{"type":"boolean"}},"required":["id","title","email","fullname","age","birth","gender","religion","blood_group","graduation","school","course","telephone","medical_coverage","chronic_disease","self_medicine","drug_allergic","food_allergic","prefer_food","address","home_phone_tel","comcamp_attendance","shirt_size","everyday_attendence","has_laptop","travel","parent_fullname","parent_relation","parent_phone","files_done","academic_done","regis_done","info_done","has_submit_answer"]},"UpdateUserDto":{"type":"object","properties":{"title":{"type":"string"},"fullname":{"type":"string"},"age":{"type":"number"},"birth":{"type":"string"},"gender":{"type":"string"},"religion":{"type":"string"},"blood_group":{"type":"string"},"graduation":{"type":"string"},"school":{"type":"string"},"course":{"type":"string"},"telephone":{"type":"string"},"medical_coverage":{"type":"string"},"chronic_diseas":{"type":"string"},"self_medicine":{"type":"string"},"drug_allergic":{"type":"string"},"food_allergic":{"type":"string"},"prefer_food":{"type":"string"},"address":{"type":"string"},"home_phone_tel":{"type":"string"},"comcamp_attendance":{"type":"boolean"},"everyday_attendence":{"type":"boolean"},"has_laptop":{"type":"boolean"},"travel":{"type":"string"},"parent_fullname":{"type":"string"},"parent_relation":{"type":"string"},"parent_phone":{"type":"string"}}},"UserFilesResponseDto":{"type":"object","properties":{"face_photo":{"type":"object","properties":{"name":{"type":"string"},"url":{"type":"string"}}},"thai_nationalid_copy":{"type":"object","properties":{"name":{"type":"string"},"url":{"type":"string"}}},"parent_permission":{"type":"object","properties":{"name":{"type":"string"},"url":{"type":"string"}}},"p1":{"type":"object","properties":{"name":{"type":"string"},"url":{"type":"string"}}},"p7":{"type":"object","properties":{"name":{"type":"string"},"url":{"type":"string"}}}},"required":["face_photo","thai_nationalid_copy","parent_permission","p1","p7"]},"AnswerRegisResponseDto":{"type":"object","properties":{"id":{"type":"string"},"answer1":{"type":"string"},"answer2":{"type":"string"},"answer3":{"type":"string"},"answer4":{"type":"string"},"answer5":{"type":"string"},"answer6_1":{"type":"string"},"answer6_2":{"type":"string"}},"required":["id","answer1","answer2","answer3","answer4","answer5","answer6_1","answer6_2"]},"UpsertAnswerRegisDto":{"type":"object","properties":{"answer1":{"type":"string"},"answer2":{"type":"string"},"answer3":{"type":"string"},"answer4":{"type":"string"},"answer5":{"type":"string"},"answer6_1":{"type":"string"},"answer6_2":{"type":"string"}},"required":["answer1","answer2","answer3","answer4","answer5","answer6_1","answer6_2"]},"AnswerAcademicResponseDto":{"type":"object","properties":{"id":{"type":"string"},"algo_answer":{"type":"string"},"chess_notation":{"type":"string"},"chess_score":{"type":"number"}},"required":["id","algo_answer","chess_notation","chess_score"]},"UpsertAnswerAcademicDto":{"type":"object","properties":{"algo_answer":{"type":"string"},"chess_notation":{"type":"string"},"chess_score":{"type":"number"}},"required":["algo_answer","chess_notation","chess_score"]}}}}
-=======
-{"openapi":"3.0.0","paths":{"/":{"get":{"operationId":"AppController_getHello","parameters":[],"responses":{"200":{"description":""}},"tags":["App"]}},"/auth/me":{"get":{"operationId":"AuthController_me","parameters":[],"responses":{"200":{"description":"","content":{"application/json":{"schema":{"$ref":"#/components/schemas/UserResponseDto"}}}}},"tags":["Auth"]}},"/auth":{"get":{"operationId":"AuthController_googleAuth","parameters":[],"responses":{"200":{"description":""}},"tags":["Auth"]}},"/auth/google-redirect":{"get":{"operationId":"AuthController_googleAuthRedirect","parameters":[],"responses":{"200":{"description":""}},"tags":["Auth"]}},"/auth/logout":{"post":{"operationId":"AuthController_logout","parameters":[],"responses":{"201":{"description":""}},"tags":["Auth"]}},"/users/info":{"post":{"operationId":"UsersController_updateRegister","parameters":[],"requestBody":{"required":true,"content":{"application/json":{"schema":{"$ref":"#/components/schemas/UpdateUserDto"}}}},"responses":{"200":{"description":"","content":{"application/json":{"schema":{"$ref":"#/components/schemas/UserResponseDto"}}}}},"tags":["Users"]}},"/files/upload":{"post":{"operationId":"FilesController_uploadFile","parameters":[],"requestBody":{"required":true,"content":{"multipart/form-data":{"schema":{"type":"object","properties":{"face_photo":{"type":"string","format":"binary"},"thai_nationalid_copy":{"type":"string","format":"binary"},"parent_permission":{"type":"string","format":"binary"},"p1":{"type":"string","format":"binary"},"p7":{"type":"string","format":"binary"}}}}}},"responses":{"200":{"description":""}},"tags":["Files"]}},"/files/user-files":{"get":{"operationId":"FilesController_getUserFiles","parameters":[],"responses":{"200":{"description":"","content":{"application/json":{"schema":{"$ref":"#/components/schemas/UserFilesResponseDto"}}}}},"tags":["Files"]}},"/answer/submit-answer":{"post":{"operationId":"AnswerController_submitAnswer","parameters":[],"responses":{"201":{"description":""}},"tags":["Answer"]}},"/answer/user-regis":{"get":{"operationId":"AnswerController_findRegisWithUser","parameters":[],"responses":{"200":{"description":"","content":{"application/json":{"schema":{"$ref":"#/components/schemas/AnswerRegisResponseDto"}}}}},"tags":["Answer"]},"post":{"operationId":"AnswerController_upsertRegisWithUser","parameters":[],"requestBody":{"required":true,"content":{"application/json":{"schema":{"$ref":"#/components/schemas/UpsertAnswerRegisDto"}}}},"responses":{"200":{"description":"","content":{"application/json":{"schema":{"$ref":"#/components/schemas/AnswerRegisResponseDto"}}}}},"tags":["Answer"]}},"/answer/user-academic":{"get":{"operationId":"AnswerController_findAcademicWithUser","parameters":[],"responses":{"200":{"description":"","content":{"application/json":{"schema":{"$ref":"#/components/schemas/AnswerAcademicResponseDto"}}}}},"tags":["Answer"]},"post":{"operationId":"AnswerController_upsertAcademicWithUser","parameters":[],"requestBody":{"required":true,"content":{"application/json":{"schema":{"$ref":"#/components/schemas/UpsertAnswerAcademicDto"}}}},"responses":{"200":{"description":"","content":{"application/json":{"schema":{"$ref":"#/components/schemas/AnswerAcademicResponseDto"}}}}},"tags":["Answer"]}}},"info":{"title":"Comcamp36 API","description":"Our lovely reference for Comcamp36 Website","version":"1.0","contact":{}},"tags":[],"servers":[],"components":{"schemas":{"UserResponseDto":{"type":"object","properties":{"id":{"type":"string"},"title":{"type":"string"},"email":{"type":"string"},"fullname":{"type":"string"},"age":{"type":"number"},"birth":{"type":"string"},"gender":{"type":"string"},"religion":{"type":"string"},"blood_group":{"type":"string"},"graduation":{"type":"string"},"school":{"type":"string"},"course":{"type":"string"},"telephone":{"type":"string"},"medical_coverage":{"type":"string"},"chronic_disease":{"type":"string"},"self_medicine":{"type":"string"},"drug_allergic":{"type":"string"},"food_allergic":{"type":"string"},"prefer_food":{"type":"string"},"address":{"type":"string"},"home_phone_tel":{"type":"string"},"comcamp_attendance":{"type":"boolean"},"shirt_size":{"type":"string"},"everyday_attendence":{"type":"boolean"},"has_laptop":{"type":"boolean"},"travel":{"type":"string"},"parent_fullname":{"type":"string"},"parent_relation":{"type":"string"},"parent_phone":{"type":"string"},"files_done":{"type":"boolean"},"academic_done":{"type":"boolean"},"regis_done":{"type":"boolean"},"info_done":{"type":"boolean"}},"required":["id","title","email","fullname","age","birth","gender","religion","blood_group","graduation","school","course","telephone","medical_coverage","chronic_disease","self_medicine","drug_allergic","food_allergic","prefer_food","address","home_phone_tel","comcamp_attendance","shirt_size","everyday_attendence","has_laptop","travel","parent_fullname","parent_relation","parent_phone","files_done","academic_done","regis_done","info_done"]},"UpdateUserDto":{"type":"object","properties":{"title":{"type":"string"},"fullname":{"type":"string"},"age":{"type":"number"},"birth":{"type":"string"},"gender":{"type":"string"},"religion":{"type":"string"},"blood_group":{"type":"string"},"graduation":{"type":"string"},"school":{"type":"string"},"course":{"type":"string"},"telephone":{"type":"string"},"medical_coverage":{"type":"string"},"chronic_diseas":{"type":"string"},"self_medicine":{"type":"string"},"drug_allergic":{"type":"string"},"food_allergic":{"type":"string"},"prefer_food":{"type":"string"},"address":{"type":"string"},"home_phone_tel":{"type":"string"},"comcamp_attendance":{"type":"boolean"},"everyday_attendence":{"type":"boolean"},"has_laptop":{"type":"boolean"},"travel":{"type":"string"},"parent_fullname":{"type":"string"},"parent_relation":{"type":"string"},"parent_phone":{"type":"string"}}},"UserFilesResponseDto":{"type":"object","properties":{"face_photo":{"type":"object","properties":{"name":{"type":"string"},"url":{"type":"string"}}},"thai_nationalid_copy":{"type":"object","properties":{"name":{"type":"string"},"url":{"type":"string"}}},"parent_permission":{"type":"object","properties":{"name":{"type":"string"},"url":{"type":"string"}}},"p1":{"type":"object","properties":{"name":{"type":"string"},"url":{"type":"string"}}},"p7":{"type":"object","properties":{"name":{"type":"string"},"url":{"type":"string"}}}},"required":["face_photo","thai_nationalid_copy","parent_permission","p1","p7"]},"AnswerRegisResponseDto":{"type":"object","properties":{"id":{"type":"string"},"answer1":{"type":"string"},"answer2":{"type":"string"},"answer3":{"type":"string"},"answer4":{"type":"string"},"answer5":{"type":"string"},"answer6_1":{"type":"string"},"answer6_2":{"type":"string"}},"required":["id","answer1","answer2","answer3","answer4","answer5","answer6_1","answer6_2"]},"UpsertAnswerRegisDto":{"type":"object","properties":{"answer1":{"type":"string"},"answer2":{"type":"string"},"answer3":{"type":"string"},"answer4":{"type":"string"},"answer5":{"type":"string"},"answer6_1":{"type":"string"},"answer6_2":{"type":"string"}},"required":["answer1","answer2","answer3","answer4","answer5","answer6_1","answer6_2"]},"AnswerAcademicResponseDto":{"type":"object","properties":{"id":{"type":"string"},"algo_answer":{"type":"string"},"chess_notation":{"type":"string"},"chess_score":{"type":"number"}},"required":["id","algo_answer","chess_notation","chess_score"]},"UpsertAnswerAcademicDto":{"type":"object","properties":{"algo_answer":{"type":"string"},"chess_notation":{"type":"string"},"chess_score":{"type":"number"}},"required":["algo_answer","chess_notation","chess_score"]}}}}
->>>>>>> cd8aa1e7c5cf5daeb78fe682cbd54771450a8c9f
+{
+  "openapi": "3.0.0",
+  "paths": {
+    "/": {
+      "get": {
+        "operationId": "AppController_getHello",
+        "parameters": [],
+        "responses": { "200": { "description": "" } },
+        "tags": ["App"]
+      }
+    },
+    "/auth/me": {
+      "get": {
+        "operationId": "AuthController_me",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/UserResponseDto" }
+              }
+            }
+          }
+        },
+        "tags": ["Auth"]
+      }
+    },
+    "/auth": {
+      "get": {
+        "operationId": "AuthController_googleAuth",
+        "parameters": [],
+        "responses": { "200": { "description": "" } },
+        "tags": ["Auth"]
+      }
+    },
+    "/auth/google-redirect": {
+      "get": {
+        "operationId": "AuthController_googleAuthRedirect",
+        "parameters": [],
+        "responses": { "200": { "description": "" } },
+        "tags": ["Auth"]
+      }
+    },
+    "/auth/logout": {
+      "post": {
+        "operationId": "AuthController_logout",
+        "parameters": [],
+        "responses": { "201": { "description": "" } },
+        "tags": ["Auth"]
+      }
+    },
+    "/users/info": {
+      "post": {
+        "operationId": "UsersController_updateRegister",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/UpdateUserDto" }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/UserResponseDto" }
+              }
+            }
+          }
+        },
+        "tags": ["Users"]
+      }
+    },
+    "/files/upload": {
+      "post": {
+        "operationId": "FilesController_uploadFile",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "face_photo": { "type": "string", "format": "binary" },
+                  "thai_nationalid_copy": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "parent_permission": { "type": "string", "format": "binary" },
+                  "p1": { "type": "string", "format": "binary" },
+                  "p7": { "type": "string", "format": "binary" }
+                }
+              }
+            }
+          }
+        },
+        "responses": { "200": { "description": "" } },
+        "tags": ["Files"]
+      }
+    },
+    "/files/user-files": {
+      "get": {
+        "operationId": "FilesController_getUserFiles",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserFilesResponseDto"
+                }
+              }
+            }
+          }
+        },
+        "tags": ["Files"]
+      }
+    },
+    "/answer/submit-answer": {
+      "post": {
+        "operationId": "AnswerController_submitAnswer",
+        "parameters": [],
+        "responses": { "201": { "description": "" } },
+        "tags": ["Answer"]
+      }
+    },
+    "/answer/user-regis": {
+      "get": {
+        "operationId": "AnswerController_findRegisWithUser",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AnswerRegisResponseDto"
+                }
+              }
+            }
+          }
+        },
+        "tags": ["Answer"]
+      },
+      "post": {
+        "operationId": "AnswerController_upsertRegisWithUser",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/UpsertAnswerRegisDto" }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AnswerRegisResponseDto"
+                }
+              }
+            }
+          }
+        },
+        "tags": ["Answer"]
+      }
+    },
+    "/answer/user-academic": {
+      "get": {
+        "operationId": "AnswerController_findAcademicWithUser",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AnswerAcademicResponseDto"
+                }
+              }
+            }
+          }
+        },
+        "tags": ["Answer"]
+      },
+      "post": {
+        "operationId": "AnswerController_upsertAcademicWithUser",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpsertAnswerAcademicDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AnswerAcademicResponseDto"
+                }
+              }
+            }
+          }
+        },
+        "tags": ["Answer"]
+      }
+    }
+  },
+  "info": {
+    "title": "Comcamp36 API",
+    "description": "Our lovely reference for Comcamp36 Website",
+    "version": "1.0",
+    "contact": {}
+  },
+  "tags": [],
+  "servers": [],
+  "components": {
+    "schemas": {
+      "UserResponseDto": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string" },
+          "title": { "type": "string" },
+          "email": { "type": "string" },
+          "fullname": { "type": "string" },
+          "age": { "type": "number" },
+          "birth": { "type": "string" },
+          "gender": { "type": "string" },
+          "religion": { "type": "string" },
+          "blood_group": { "type": "string" },
+          "graduation": { "type": "string" },
+          "school": { "type": "string" },
+          "course": { "type": "string" },
+          "telephone": { "type": "string" },
+          "medical_coverage": { "type": "string" },
+          "chronic_disease": { "type": "string" },
+          "self_medicine": { "type": "string" },
+          "drug_allergic": { "type": "string" },
+          "food_allergic": { "type": "string" },
+          "prefer_food": { "type": "string" },
+          "address": { "type": "string" },
+          "home_phone_tel": { "type": "string" },
+          "comcamp_attendance": { "type": "boolean" },
+          "shirt_size": { "type": "string" },
+          "everyday_attendence": { "type": "boolean" },
+          "has_laptop": { "type": "boolean" },
+          "travel": { "type": "string" },
+          "parent_fullname": { "type": "string" },
+          "parent_relation": { "type": "string" },
+          "parent_phone": { "type": "string" },
+          "files_done": { "type": "boolean" },
+          "academic_done": { "type": "boolean" },
+          "regis_done": { "type": "boolean" },
+          "info_done": { "type": "boolean" },
+          "has_submit_answer": { "type": "boolean" }
+        },
+        "required": [
+          "id",
+          "title",
+          "email",
+          "fullname",
+          "age",
+          "birth",
+          "gender",
+          "religion",
+          "blood_group",
+          "graduation",
+          "school",
+          "course",
+          "telephone",
+          "medical_coverage",
+          "chronic_disease",
+          "self_medicine",
+          "drug_allergic",
+          "food_allergic",
+          "prefer_food",
+          "address",
+          "home_phone_tel",
+          "comcamp_attendance",
+          "shirt_size",
+          "everyday_attendence",
+          "has_laptop",
+          "travel",
+          "parent_fullname",
+          "parent_relation",
+          "parent_phone",
+          "files_done",
+          "academic_done",
+          "regis_done",
+          "info_done",
+          "has_submit_answer"
+        ]
+      },
+      "UpdateUserDto": {
+        "type": "object",
+        "properties": {
+          "title": { "type": "string" },
+          "fullname": { "type": "string" },
+          "age": { "type": "number" },
+          "birth": { "type": "string" },
+          "gender": { "type": "string" },
+          "religion": { "type": "string" },
+          "blood_group": { "type": "string" },
+          "graduation": { "type": "string" },
+          "school": { "type": "string" },
+          "course": { "type": "string" },
+          "telephone": { "type": "string" },
+          "medical_coverage": { "type": "string" },
+          "chronic_diseas": { "type": "string" },
+          "self_medicine": { "type": "string" },
+          "drug_allergic": { "type": "string" },
+          "food_allergic": { "type": "string" },
+          "prefer_food": { "type": "string" },
+          "address": { "type": "string" },
+          "home_phone_tel": { "type": "string" },
+          "comcamp_attendance": { "type": "boolean" },
+          "everyday_attendence": { "type": "boolean" },
+          "has_laptop": { "type": "boolean" },
+          "travel": { "type": "string" },
+          "parent_fullname": { "type": "string" },
+          "parent_relation": { "type": "string" },
+          "parent_phone": { "type": "string" }
+        }
+      },
+      "UserFilesResponseDto": {
+        "type": "object",
+        "properties": {
+          "face_photo": {
+            "type": "object",
+            "properties": {
+              "name": { "type": "string" },
+              "url": { "type": "string" }
+            }
+          },
+          "thai_nationalid_copy": {
+            "type": "object",
+            "properties": {
+              "name": { "type": "string" },
+              "url": { "type": "string" }
+            }
+          },
+          "parent_permission": {
+            "type": "object",
+            "properties": {
+              "name": { "type": "string" },
+              "url": { "type": "string" }
+            }
+          },
+          "p1": {
+            "type": "object",
+            "properties": {
+              "name": { "type": "string" },
+              "url": { "type": "string" }
+            }
+          },
+          "p7": {
+            "type": "object",
+            "properties": {
+              "name": { "type": "string" },
+              "url": { "type": "string" }
+            }
+          }
+        },
+        "required": [
+          "face_photo",
+          "thai_nationalid_copy",
+          "parent_permission",
+          "p1",
+          "p7"
+        ]
+      },
+      "AnswerRegisResponseDto": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string" },
+          "answer1": { "type": "string" },
+          "answer2": { "type": "string" },
+          "answer3": { "type": "string" },
+          "answer4": { "type": "string" },
+          "answer5": { "type": "string" },
+          "answer6_1": { "type": "string" },
+          "answer6_2": { "type": "string" }
+        },
+        "required": [
+          "id",
+          "answer1",
+          "answer2",
+          "answer3",
+          "answer4",
+          "answer5",
+          "answer6_1",
+          "answer6_2"
+        ]
+      },
+      "UpsertAnswerRegisDto": {
+        "type": "object",
+        "properties": {
+          "answer1": { "type": "string" },
+          "answer2": { "type": "string" },
+          "answer3": { "type": "string" },
+          "answer4": { "type": "string" },
+          "answer5": { "type": "string" },
+          "answer6_1": { "type": "string" },
+          "answer6_2": { "type": "string" }
+        },
+        "required": [
+          "answer1",
+          "answer2",
+          "answer3",
+          "answer4",
+          "answer5",
+          "answer6_1",
+          "answer6_2"
+        ]
+      },
+      "AnswerAcademicResponseDto": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string" },
+          "algo_answer": { "type": "string" },
+          "chess_notation": { "type": "string" },
+          "chess_score": { "type": "number" }
+        },
+        "required": ["id", "algo_answer", "chess_notation", "chess_score"]
+      },
+      "UpsertAnswerAcademicDto": {
+        "type": "object",
+        "properties": {
+          "algo_answer": { "type": "string" },
+          "chess_notation": { "type": "string" },
+          "chess_score": { "type": "number" }
+        },
+        "required": ["algo_answer", "chess_notation", "chess_score"]
+      }
+    }
+  }
+}

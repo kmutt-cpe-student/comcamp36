@@ -73,6 +73,7 @@ function AnswerAcademic(props: AnswerAcademicProps) {
               </small>
             </div>
             <FormField
+              disabled={props.hasSubmit}
               control={form.control}
               name="algo_answer1"
               render={({ field }) => (
@@ -91,6 +92,7 @@ function AnswerAcademic(props: AnswerAcademicProps) {
               )}
             />
             <FormField
+              disabled={props.hasSubmit}
               control={form.control}
               name="algo_answer2"
               render={({ field }) => (
@@ -109,6 +111,7 @@ function AnswerAcademic(props: AnswerAcademicProps) {
               )}
             />
             <FormField
+              disabled={props.hasSubmit}
               control={form.control}
               name="algo_answer3"
               render={({ field }) => (
@@ -140,6 +143,7 @@ function AnswerAcademic(props: AnswerAcademicProps) {
             <p className="font-bold">ผลการเล่นที่บันทึกแล้ว</p>
             <div className="grid grid-cols-2 gap-4">
               <FormField
+                disabled={props.hasSubmit}
                 control={form.control}
                 name="chess_notation"
                 render={({ field }) => (
@@ -157,6 +161,7 @@ function AnswerAcademic(props: AnswerAcademicProps) {
                 )}
               />
               <FormField
+                disabled={props.hasSubmit}
                 control={form.control}
                 name="chess_score"
                 render={({ field }) => (
