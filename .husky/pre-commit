@@ -1,1 +1,6 @@
+while IFS= read -r line
+do
+  echo -e "\e[38;5;$((RANDOM%256))m$line\e[0m"
+done < "$(dirname "$0")/icon.txt"
+
 pnpm lint-staged
