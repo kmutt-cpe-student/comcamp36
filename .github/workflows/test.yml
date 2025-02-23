@@ -28,6 +28,7 @@ jobs:
           echo NEXT_PUBLIC_POSTHOG_KEY="NEXT_PUBLIC_POSTHOG_KEY" >> .env
           echo NEXT_PUBLIC_POSTHOG_HOST="NEXT_PUBLIC_POSTHOG_HOST" >> .env
           echo NEXT_PUBLIC_SERVER_URL="NEXT_PUBLIC_SERVER_URL" >> .env
+          echo NEXT_PUBLIC_IMAGE_HOST="NEXT_PUBLIC_IMAGE_HOST" >> .env
           echo SERVER_URL="SERVER_URL" >> .env
           cat .env
 
