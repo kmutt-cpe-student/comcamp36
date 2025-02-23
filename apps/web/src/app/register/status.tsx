@@ -13,10 +13,15 @@ interface StatusProps {
 }
 
 function Status(props: StatusProps) {
+  let done = 0;
+  if (props.info_done) done++;
+  if (props.regis_done) done++;
+  if (props.academic_done) done++;
+  if (props.files_done) done++;
   return (
     <div className="flex w-full flex-col gap-5 pt-4">
       <h4 className="w-full text-center font-medium text-white lg:text-start">
-        การกรอกแบบฟอร์ม (1/4)
+        การกรอกแบบฟอร์ม ({done}/4)
       </h4>
       <Separator />
 
