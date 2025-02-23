@@ -19,10 +19,15 @@ export default function RegisterLayout({
 
   useEffect(() => {
     async function checkUser() {
-      const { data } = await fetchClient.GET("/auth/me");
-      if (data?.email) {
-        setHaveUser(true);
-      } else {
+      try {
+        const { data } = await fetchClient.GET("/auth/me");
+        if (data?.email) {
+          setHaveUser(true);
+        } else {
+          return redirect("/signin");
+        }
+      } catch (error) {
+        console.error(error);
         return redirect("/signin");
       }
     }
