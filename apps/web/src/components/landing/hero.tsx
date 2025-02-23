@@ -57,7 +57,7 @@ function Hero() {
             </Link>
           ) : (
             <div className="w-fit pt-6">
-              <Timer deadline="February, 24, 2025 09:00 AM" />
+              <Timer deadline="February, 24, 2025 12:00 PM" />
             </div>
           )}
         </div>

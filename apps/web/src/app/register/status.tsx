@@ -22,13 +22,13 @@ const steps = [
   {
     image: "/static/image/learn/c.png",
     href: "/register/answer-regis",
-    label: "คำถามคัดเลือก 1",
+    label: "ปริศนาปัญญาชน",
     doneKey: "regis_done",
   },
   {
     image: "/static/image/learn/game.png",
     href: "/register/answer-academic",
-    label: "คำถามคัดเลือก 2",
+    label: "ปริศนาสถาบันวิศวะ",
     doneKey: "academic_done",
   },
   {
