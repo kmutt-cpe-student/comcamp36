@@ -41,7 +41,11 @@ async function bootstrap() {
     });
   } else {
     app.enableCors({
-      origin: 'https://reg-dev.comcamp.io',
+      origin: [
+        'https://reg-dev.comcamp.io',
+        'https://comcamp.io/',
+        'https://www.comcamp.io/',
+      ],
       methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE', 'OPTIONS'],
       credentials: true,
     });
