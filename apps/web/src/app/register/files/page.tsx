@@ -43,6 +43,7 @@ function RegisterInfoPage() {
     undefined,
     {
       refetchOnWindowFocus: false,
+      retry: 0,
     },
   );
 
