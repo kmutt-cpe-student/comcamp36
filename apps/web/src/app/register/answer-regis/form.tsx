@@ -16,13 +16,13 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 
 export const formSchema = z.object({
-  answer1: z.string().min(1),
-  answer2: z.string().min(1),
-  answer3: z.string().min(1),
-  answer4: z.string().min(1),
-  answer5: z.string().min(1),
-  answer6_1: z.string().min(1),
-  answer6_2: z.string().min(1),
+  answer1: z.string().min(1, "จำเป็นต้องตอบคำถามนี้อย่างน้อย 1 ตัวอักษร"),
+  answer2: z.string().min(1, "จำเป็นต้องตอบคำถามนี้อย่างน้อย 1 ตัวอักษร"),
+  answer3: z.string().min(1, "จำเป็นต้องตอบคำถามนี้อย่างน้อย 1 ตัวอักษร"),
+  answer4: z.string().min(1, "จำเป็นต้องตอบคำถามนี้อย่างน้อย 1 ตัวอักษร"),
+  answer5: z.string().min(1, "จำเป็นต้องตอบคำถามนี้อย่างน้อย 1 ตัวอักษร"),
+  answer6_1: z.string().min(1, "จำเป็นต้องตอบคำถามนี้อย่างน้อย 1 ตัวอักษร"),
+  answer6_2: z.string().min(1, "จำเป็นต้องตอบคำถามนี้อย่างน้อย 1 ตัวอักษร"),
 });
 
 interface AnswerRegisProps {

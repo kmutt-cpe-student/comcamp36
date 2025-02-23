@@ -17,11 +17,21 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 
 export const formSchema = z.object({
-  face_photo: z.array(z.instanceof(File)).min(1),
-  thai_nationalid_copy: z.array(z.instanceof(File)).min(1),
-  parent_permission: z.array(z.instanceof(File)).min(1),
-  p1: z.array(z.instanceof(File)).min(1),
-  p7: z.array(z.instanceof(File)).min(1),
+  face_photo: z
+    .array(z.instanceof(File))
+    .min(1, "จำเป็นต้องอัพโหลดรูปใบหน้าตรง"),
+  thai_nationalid_copy: z
+    .array(z.instanceof(File))
+    .min(1, "จำเป็นต้องอัพโหลดสำเนาบัตรประชาชน"),
+  parent_permission: z
+    .array(z.instanceof(File))
+    .min(1, "จำเป็นต้องอัพโหลดหนังสือยินยอมผู้ปกครอง"),
+  p1: z
+    .array(z.instanceof(File))
+    .min(1, "จำเป็นต้องอัพโหลดสำเนาระเบียนแสดงผลการเรียน (ปพ.1)"),
+  p7: z
+    .array(z.instanceof(File))
+    .min(1, "จำเป็นต้องอัพโหลดสำเนาใบรับรองผลการศึกษา (ปพ.7)"),
 });
 
 interface FilesFormProps {
@@ -44,9 +54,9 @@ function FilesForm(props: FilesFormProps) {
             name="face_photo"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>รูปใบหน้าชัดเจน</FormLabel>
+                <FormLabel>รูปใบหน้าตรง</FormLabel>
                 <FormDescription className="text-white/40">
-                  <strong>เห็นใบหน้าชัดเจน</strong>
+                  <strong>เป็นไฟล์รูปภาพที่เห็นใบหน้าชัดเจน</strong>
                 </FormDescription>
                 <FormControl>
                   <FileUploader

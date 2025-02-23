@@ -19,9 +19,9 @@ import { z } from "zod";
 import { PEOPLES } from "./var";
 
 export const formSchema = z.object({
-  algo_answer: z.string().min(1),
-  chess_notation: z.string().min(1),
-  chess_score: z.number().min(1),
+  algo_answer: z.string().min(1, "จำเป็นต้องตอบคำถามนี้อย่างน้อย 1 ตัวอักษร"),
+  chess_notation: z.string().min(1, "จำเป็นต้องบันทึกผลการเล่นที่สมบูรณ์"),
+  chess_score: z.number().min(1, "จำเป็นต้องบันทึกผลการเล่นที่สมบูรณ์"),
 });
 
 interface AnswerAcademicProps {
