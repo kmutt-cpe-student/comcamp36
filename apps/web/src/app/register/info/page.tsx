@@ -5,11 +5,17 @@ import { fetchQuery } from "@/libs/server/client";
 import { useQueryClient } from "@tanstack/react-query";
 import { toast } from "sonner";
 import { z } from "zod";
+import RegisterFormSkeleton from "../skeleton";
 import InfoForm, { formSchema } from "./form";
 
 function RegisterInfoPage() {
   const queryClient = useQueryClient();
-  const { data } = fetchQuery.useQuery("get", "/auth/me");
+
+  const { data, isPending: isUserDataPending } = fetchQuery.useQuery(
+    "get",
+    "/auth/me",
+  );
+
   const { mutate } = fetchQuery.useMutation("post", "/users/info", {
     onSuccess: (mutateData) => {
       queryClient.setQueryData(["auth", { id: mutateData.id }], mutateData);
@@ -28,6 +34,10 @@ function RegisterInfoPage() {
       },
     });
   };
+
+  if (isUserDataPending) {
+    return <RegisterFormSkeleton />;
+  }
 
   return (
     <InfoForm

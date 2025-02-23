@@ -13,11 +13,17 @@ import { fetchQuery } from "@/libs/server/client";
 import { useQueryClient } from "@tanstack/react-query";
 import { toast } from "sonner";
 import { z } from "zod";
+import RegisterFormSkeleton from "../skeleton";
 import AnswerAcademic, { formSchema } from "./form";
 
 function RegisterInfoPage() {
   const queryClient = useQueryClient();
-  const { data } = fetchQuery.useQuery("get", "/answer/user-academic");
+
+  const { data, isPending: isUserDataPending } = fetchQuery.useQuery(
+    "get",
+    "/answer/user-academic",
+  );
+
   const { mutate } = fetchQuery.useMutation("post", "/answer/user-academic", {
     onSuccess: (mutateData) => {
       queryClient.setQueryData(["answer", { id: mutateData.id }], mutateData);
@@ -35,6 +41,10 @@ function RegisterInfoPage() {
       },
     });
   };
+
+  if (isUserDataPending) {
+    return <RegisterFormSkeleton />;
+  }
 
   return (
     <Card className="h-fit w-full max-w-[110rem]">
