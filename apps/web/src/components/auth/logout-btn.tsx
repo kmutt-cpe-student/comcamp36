@@ -1,6 +1,7 @@
 "use client";
 
 import { fetchQuery } from "@/libs/server/client";
+import { LogOutIcon } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { toast } from "sonner";
 import Spinner from "../spinner";
@@ -20,13 +21,19 @@ export default function LogoutBtn() {
   });
 
   return (
-    <Button
-      onClick={() => {
-        mutate({});
-      }}
-      disabled={isPending}
-    >
-      {isPending ? <Spinner /> : "ออกจากระบบ"}
-    </Button>
+    <div>
+      <Button
+        onClick={() => {
+          mutate({});
+        }}
+        disabled={isPending}
+        className="hidden md:block"
+      >
+        {isPending ? <Spinner /> : <div>ออกจากระบบ</div>}
+      </Button>
+      <Button className="flex md:hidden" size="icon">
+        {isPending ? <Spinner /> : <LogOutIcon />}
+      </Button>
+    </div>
   );
 }
