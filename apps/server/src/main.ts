@@ -42,7 +42,7 @@ async function bootstrap() {
   }
 
   app.enableCors({
-    origin: 'https://register.comcamp36.pages.dev/',
+    origin: 'https://register.comcamp36.pages.dev',
     methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE', 'OPTIONS'],
     credentials: true,
   });
