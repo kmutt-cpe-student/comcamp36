@@ -41,7 +41,7 @@ async function bootstrap() {
     });
   } else {
     app.enableCors({
-      origin: 'https://register.comcamp36.pages.dev',
+      origin: 'https://reg-dev.comcamp.io',
       methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE', 'OPTIONS'],
       credentials: true,
     });
