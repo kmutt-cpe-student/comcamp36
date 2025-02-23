@@ -13,9 +13,11 @@ services:
     command:
       - "--providers.docker"
       - "--providers.docker.exposedbydefault=false"
-      - "--entrypoints.server.address=:80"
+      - "--entrypoints.server.address=:7642"
+      - "--entrypoints.staff.address=:3037"
     ports:
-      - "7642:80"
+      - "7642:7642"
+      - "3037:3037"
     depends_on:
       - server
     networks:
@@ -35,7 +37,26 @@ services:
       replicas: 2
     networks:
       - main
+  staff:
+    image: ghcr.io/kmutt-cpe-student/comcamp36-staff:main
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.staff.rule=Host(`cornflower.comcamp.io`)"
+      - "traefik.http.services.staff.loadbalancer.server.port=3000"
+      - "com.centurylinklabs.watchtower.enable=true"
+    env_file: ".env"
+    deploy:
+      mode: replicated
+      replicas: 2
+    restart: always
+    networks:
+      - main
+    volumes:
+      - sqlite_data:/app/sqlite
 
 networks:
   main:
     driver: bridge
+
+volumes:
+  sqlite_data:

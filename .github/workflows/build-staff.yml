@@ -1,14 +1,15 @@
-name: Build Server Docker Image
+name: Build Staff App Docker Image
 on:
   push:
     paths:
-      - 'apps/server/**/*'
+      - 'apps/staff/**/*'
       - 'packages/**/*'
-      - '.github/workflows/build-server.yml'
+      - '.github/workflows/build-staff.yml'
 env:
   REGISTRY: ghcr.io
-  IMAGE_NAME: ${{ github.repository_owner }}/comcamp36-server
+  IMAGE_NAME: ${{ github.repository_owner }}/comcamp36-staff
   CI: true
+
 
 jobs:
   publish-docker-image:
@@ -40,7 +41,9 @@ jobs:
         uses: docker/build-push-action@f2a1d5e99d037542a71f64918e516c093c6f3fc4
         with:
           context: .
-          file: apps/server/Dockerfile
+          file: apps/staff/Dockerfile
+          build-args: |
+            - CI=true
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
