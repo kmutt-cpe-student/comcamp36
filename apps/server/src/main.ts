@@ -35,13 +35,13 @@ async function bootstrap() {
 
   if (process.env.NODE_ENV != 'production') {
     app.enableCors({
-      origin: ['http://localhost:3000', 'https://register.comcamp36.pages.dev'],
+      origin: 'http://localhost:3000',
       methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE', 'OPTIONS'],
       credentials: true,
     });
   } else {
     app.enableCors({
-      origin: 'https://comcamp.io',
+      origin: 'https://register.comcamp36.pages.dev',
       methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE', 'OPTIONS'],
       credentials: true,
     });
