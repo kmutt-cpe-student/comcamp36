@@ -5,31 +5,44 @@ import { nextCookies } from "better-auth/next-js";
 import { mkdir } from "fs/promises"
 import { existsSync } from "fs"
 
-const dbPath = () => {
-    if (process.env.CI === "true" || process.env.NODE_ENV === "test") {
-        return ":memory:"
-    }
-    
-    const path = process.env.NODE_ENV === "production" 
-        ? "./app/sqlite/sqlite.db" 
-        : "./staff.db"
+let db: Database.Database | null = null;
 
-    // Ensure directory exists for production database
-    if (process.env.NODE_ENV === "production" && !existsSync("./app/sqlite")) {
-        try {
-            mkdir("./app/sqlite", { recursive: true })
-        } catch (error) {
-            console.warn("Failed to create SQLite directory:", error)
-            // Fallback to memory database if directory creation fails
+const getDatabase = () => {
+    if (db) return db;
+
+    const path = (() => {
+        if (process.env.CI === "true" || process.env.NODE_ENV === "test") {
             return ":memory:"
         }
-    }
+        
+        if (process.env.NODE_ENV === "production") {
+            const dbPath = "./app/sqlite/sqlite.db"
+            if (!existsSync("./app/sqlite")) {
+                try {
+                    mkdir("./app/sqlite", { recursive: true })
+                } catch (error) {
+                    console.warn("Failed to create SQLite directory:", error)
+                    return ":memory:"
+                }
+            }
+            return dbPath
+        }
 
-    return path
+        return "./staff.db"
+    })()
+
+    try {
+        db = new Database(path)
+        return db
+    } catch (error) {
+        console.warn("Failed to open database:", error)
+        db = new Database(":memory:")
+        return db
+    }
 }
 
 export const auth = betterAuth({
-    database: new Database(dbPath()),
+    database: getDatabase(),
     emailAndPassword: {
         enabled: true,
     },

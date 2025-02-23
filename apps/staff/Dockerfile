@@ -24,19 +24,27 @@ RUN apk update
 RUN apk add --no-cache libc6-compat
 WORKDIR /app
 
-# Create SQLite directory before build
-RUN mkdir -p /app/sqlite
+# Set up the SQLite directory with proper permissions
+RUN mkdir -p /app/sqlite && \
+    chown -R node:node /app/sqlite && \
+    chmod 755 /app/sqlite
 
 COPY --from=builder /app/out/json/ .
 RUN pnpm i
 COPY --from=builder /app/out/full/ .
+USER node
 RUN pnpm turbo build
 
 FROM base AS runner
 WORKDIR /app
 RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 nextjs
-RUN mkdir -p /app/sqlite && chown nextjs:nodejs /app/sqlite
+
+# Set up the SQLite directory with proper permissions
+RUN mkdir -p /app/sqlite && \
+    chown nextjs:nodejs /app/sqlite && \
+    chmod 755 /app/sqlite
+
 USER nextjs
 COPY --from=installer --chown=nextjs:nodejs /app/apps/staff/.next/standalone ./
 COPY --from=installer --chown=nextjs:nodejs /app/apps/staff/.next/static ./.next/static
