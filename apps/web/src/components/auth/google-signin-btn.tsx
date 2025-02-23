@@ -8,7 +8,7 @@ export default function SigninBtn() {
     <Link href={`${env.NEXT_PUBLIC_SERVER_URL}/auth`}>
       <Button className="w-fit p-6 font-bold">
         <Google />
-        เข้าสู่ด้วย Google
+        เข้าสู่ระบบด้วย Google
       </Button>
     </Link>
   );
