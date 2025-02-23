@@ -13,20 +13,29 @@ import { fetchQuery } from "@/libs/server/client";
 import { useQueryClient } from "@tanstack/react-query";
 import { toast } from "sonner";
 import { z } from "zod";
+import RegisterFormSkeleton from "../skeleton";
 import AnswerRegis, { formSchema } from "./form";
 
 function RegisterInfoPage() {
   const queryClient = useQueryClient();
-  const { data } = fetchQuery.useQuery("get", "/answer/user-regis");
-  const { mutate } = fetchQuery.useMutation("post", "/answer/user-regis", {
-    onSuccess: (mutateData) => {
-      queryClient.setQueryData(["answer", { id: mutateData.id }], mutateData);
-      toast.success("บันทึกสำเร็จ!", {
-        description: `บันทึกสำเร็จ ณ​ เวลา ${formatThaiBuddhist(new Date())} กดปุ่มถัดไป เพื่อไปหน้าถัดไป`,
-      });
+  const { data, isPending: isUserDataPending } = fetchQuery.useQuery(
+    "get",
+    "/answer/user-regis",
+  );
+
+  const { mutate, isPending } = fetchQuery.useMutation(
+    "post",
+    "/answer/user-regis",
+    {
+      onSuccess: (mutateData) => {
+        queryClient.setQueryData(["answer", { id: mutateData.id }], mutateData);
+        toast.success("บันทึกสำเร็จ!", {
+          description: `บันทึกสำเร็จ ณ​ เวลา ${formatThaiBuddhist(new Date())} กดปุ่มถัดไป เพื่อไปหน้าถัดไป`,
+        });
+      },
+      onError: () => toast.error("เกิดข้อผิดพลาดบางอย่างในระบบ!"),
     },
-    onError: () => toast.error("เกิดข้อผิดพลาดบางอย่างในระบบ!"),
-  });
+  );
 
   const onSubmit = (data: z.infer<typeof formSchema>) => {
     mutate({
@@ -35,6 +44,10 @@ function RegisterInfoPage() {
       },
     });
   };
+
+  if (isUserDataPending) {
+    return <RegisterFormSkeleton />;
+  }
 
   return (
     <CardForm className="h-fit w-full max-w-[110rem]">
@@ -63,6 +76,7 @@ function RegisterInfoPage() {
             answer6_2: data?.answer6_2 ? data.answer6_2 : "",
           }}
           onSubmit={onSubmit}
+          isPending={isPending}
         />
       </CardContent>
     </CardForm>

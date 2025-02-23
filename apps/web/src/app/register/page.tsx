@@ -66,7 +66,7 @@ function RegisterPage() {
 
       <div className="font-noto-sans-thai-looped mt-16 flex justify-center">
         <Link href="/register/info">
-          <Button size="lg">กรอกฟอร์มสมัครต่อ</Button>
+          <Button size="lg">กรอกฟอร์มสมัคร</Button>
         </Link>
       </div>
     </Card>

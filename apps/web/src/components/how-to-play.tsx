@@ -177,25 +177,29 @@ export default function HowToChess() {
           วิธีการเล่น!
         </Button>
       </DialogTrigger>
-      <DialogContent className="gap-0 p-0 sm:max-w-[40rem] [&>button:last-child]:text-white">
-        <div className="flex justify-center p-6">
-          {stepContent[step - 1].imageSrc && (
+      <DialogContent className="gap-0 p-0 pt-6 sm:max-w-[40rem] [&>button:last-child]:text-white">
+        {stepContent[step - 1].imageSrc && (
+          <div className="flex justify-center px-6">
             <Image
               src={stepContent[step - 1].imageSrc ?? "/"}
               alt={stepContent[step - 1].title}
               width={300}
               height={300}
             />
-          )}
-        </div>
+          </div>
+        )}
         <div className="space-y-6 px-6 pb-6 pt-3">
           <DialogHeader>
             <DialogTitle>{stepContent[step - 1].title}</DialogTitle>
-            <DialogDescription className="pt-4 text-start text-white/70">
-              {stepContent[step - 1].description}
-            </DialogDescription>
+            {typeof stepContent[step - 1].description === "string" ? (
+              <DialogDescription className="pt-4 text-start text-white/70">
+                <small>{stepContent[step - 1].description}</small>
+              </DialogDescription>
+            ) : (
+              stepContent[step - 1].description
+            )}
           </DialogHeader>
-          <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-center">
+          <div className="flex flex-col-reverse justify-between gap-6 sm:flex-row sm:items-center sm:gap-4">
             <div className="flex justify-center gap-2 max-sm:order-1">
               {[...Array(totalSteps)].map((_, index) => (
                 <Button
@@ -203,14 +207,14 @@ export default function HowToChess() {
                   size="icon"
                   key={index}
                   className={cn(
-                    "size-2",
+                    "hover:text-vermilion size-2 transition-colors",
                     index + 1 === step ? "text-white" : "opacity-20",
                   )}
                   onClick={() => setStep(index + 1)}
                 />
               ))}
             </div>
-            <DialogFooter className="flex w-full flex-row-reverse">
+            <DialogFooter className="flex w-full flex-row items-center justify-center sm:flex-row-reverse sm:justify-start">
               <DialogClose asChild>
                 <Button type="button" variant="ghost">
                   ข้าม

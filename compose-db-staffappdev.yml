@@ -1,0 +1,21 @@
+services:
+  db:
+    image: postgres
+    restart: always
+    user: postgres
+    env_file: ".env"
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_PASSWORD=${STAFFAPP_POSTGRES_PASSWORD}
+      - POSTGRES_LOG_STATEMENT=all
+      - POSTGRES_LOG_CONNECTIONS=true
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: [ "CMD", "pg_isready" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+volumes:
+  db-data:

@@ -1,0 +1,6 @@
+apps/web/**
+**/node_modules/
+.husky
+.turbo
+supabase
+.git

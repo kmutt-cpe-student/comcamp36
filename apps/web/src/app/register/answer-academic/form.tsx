@@ -2,6 +2,8 @@
 
 import FormStepper from "@/app/register/form-stepper";
 import ChessGame from "@/components/chess/chess-game";
+import Spinner from "@/components/spinner";
+import { Button } from "@/components/ui/button";
 import {
   Form,
   FormControl,
@@ -19,14 +21,15 @@ import { z } from "zod";
 import { PEOPLES } from "./var";
 
 export const formSchema = z.object({
-  algo_answer: z.string().min(1),
-  chess_notation: z.string().min(1),
-  chess_score: z.number().min(1),
+  algo_answer: z.string().min(1, "จำเป็นต้องตอบคำถามนี้อย่างน้อย 1 ตัวอักษร"),
+  chess_notation: z.string().min(1, "จำเป็นต้องบันทึกผลการเล่นที่สมบูรณ์"),
+  chess_score: z.number().min(1, "จำเป็นต้องบันทึกผลการเล่นที่สมบูรณ์"),
 });
 
 interface AnswerAcademicProps {
   data: z.infer<typeof formSchema>;
   onSubmit: (data: z.infer<typeof formSchema>) => void;
+  isPending?: boolean;
 }
 
 function AnswerAcademic(props: AnswerAcademicProps) {
@@ -139,7 +142,11 @@ function AnswerAcademic(props: AnswerAcademicProps) {
             </div>
           </div>
         </div>
-        <div className="grid gap-20"></div>
+        <div className="flex w-full justify-center pt-16">
+          <Button type="submit" disabled={props.isPending}>
+            {props.isPending ? <Spinner /> : "บันทึกคำถามคัดเลือก 2"}
+          </Button>
+        </div>
         <FormStepper />
       </form>
     </Form>
