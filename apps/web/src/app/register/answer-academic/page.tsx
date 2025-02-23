@@ -12,10 +12,7 @@ import { z } from "zod";
 import FormCard from "../form-card";
 
 function RegisterInfoPage() {
-  const { data: userData } = fetchQuery.useQuery(
-    "get",
-    "/auth/me",
-  );
+  const { data: userData } = fetchQuery.useQuery("get", "/auth/me");
 
   const queryClient = useQueryClient();
 
@@ -45,7 +42,13 @@ function RegisterInfoPage() {
   const onSubmit = (data: z.infer<typeof formSchema>) => {
     mutate({
       body: {
-        ...data,
+        chess_notation: data.chess_notation,
+        chess_score: data.chess_score,
+        algo_answer: [
+          data.algo_answer1,
+          data.algo_answer2,
+          data.algo_answer3,
+        ].join("\n\n"),
       },
     });
   };
@@ -60,11 +63,15 @@ function RegisterInfoPage() {
         data={{
           chess_notation: data?.chess_notation ? data.chess_notation : "",
           chess_score: data?.chess_score ? data.chess_score : 0,
-          algo_answer: data?.algo_answer ? data.algo_answer : "",
+          algo_answer1: data?.algo_answer?.split("\n")[0] || "",
+          algo_answer2: data?.algo_answer?.split("\n")[2] || "",
+          algo_answer3: data?.algo_answer?.split("\n")[4] || "",
         }}
         onSubmit={onSubmit}
-        isPending={isPending} 
-        hasSubmit={userData?.has_submit_answer ? userData.has_submit_answer : false}      
+        isPending={isPending}
+        hasSubmit={
+          userData?.has_submit_answer ? userData.has_submit_answer : false
+        }
       />
     </FormCard>
   );
