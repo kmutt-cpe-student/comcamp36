@@ -24,16 +24,16 @@ RUN apk update
 RUN apk add --no-cache libc6-compat
 WORKDIR /app
 
-# Set up the SQLite directory with proper permissions
-RUN mkdir -p /app/sqlite && \
-    chown -R node:node /app/sqlite && \
-    chmod 755 /app/sqlite
+# Create necessary directories
+RUN mkdir -p /app/sqlite /app/.turbo
 
 COPY --from=builder /app/out/json/ .
 RUN pnpm i
 COPY --from=builder /app/out/full/ .
-USER node
 RUN pnpm turbo build
+
+# Set permissions after build
+RUN chown -R node:node /app/sqlite /app/.turbo
 
 FROM base AS runner
 WORKDIR /app
