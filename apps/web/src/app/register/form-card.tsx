@@ -20,7 +20,7 @@ function FormCard({ title, children }: FormCardProps) {
           </TextShimmer>
         </CardTitle>
       </CardHeader>
-      <CardContent>{children}</CardContent>
+      <CardContent className="pt-8">{children}</CardContent>
     </Card>
   );
 }
