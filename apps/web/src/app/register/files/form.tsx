@@ -2,6 +2,8 @@
 
 import FormStepper from "@/app/register/form-stepper";
 import { FileUploader } from "@/components/files";
+import Spinner from "@/components/spinner";
+import { Button } from "@/components/ui/button";
 import { CardContent, CardFooter } from "@/components/ui/card";
 import {
   Form,
@@ -17,16 +19,27 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 
 export const formSchema = z.object({
-  face_photo: z.array(z.instanceof(File)).min(1),
-  thai_nationalid_copy: z.array(z.instanceof(File)).min(1),
-  parent_permission: z.array(z.instanceof(File)).min(1),
-  p1: z.array(z.instanceof(File)).min(1),
-  p7: z.array(z.instanceof(File)).min(1),
+  face_photo: z
+    .array(z.instanceof(File))
+    .min(1, "จำเป็นต้องอัพโหลดรูปใบหน้าตรง"),
+  thai_nationalid_copy: z
+    .array(z.instanceof(File))
+    .min(1, "จำเป็นต้องอัพโหลดสำเนาบัตรประชาชน"),
+  parent_permission: z
+    .array(z.instanceof(File))
+    .min(1, "จำเป็นต้องอัพโหลดหนังสือยินยอมผู้ปกครอง"),
+  p1: z
+    .array(z.instanceof(File))
+    .min(1, "จำเป็นต้องอัพโหลดสำเนาระเบียนแสดงผลการเรียน (ปพ.1)"),
+  p7: z
+    .array(z.instanceof(File))
+    .min(1, "จำเป็นต้องอัพโหลดสำเนาใบรับรองผลการศึกษา (ปพ.7)"),
 });
 
 interface FilesFormProps {
   data: z.infer<typeof formSchema>;
   onSubmit: (data: z.infer<typeof formSchema>) => void;
+  isPending?: boolean;
 }
 
 function FilesForm(props: FilesFormProps) {
@@ -43,10 +56,10 @@ function FilesForm(props: FilesFormProps) {
             control={form.control}
             name="face_photo"
             render={({ field }) => (
-              <FormItem className="h-fit">
-                <FormLabel>รูปใบหน้าชัดเจน</FormLabel>
+              <FormItem>
+                <FormLabel>รูปใบหน้าตรง</FormLabel>
                 <FormDescription className="text-white/40">
-                  <strong>เห็นใบหน้าชัดเจน</strong>
+                  <strong>เป็นไฟล์รูปภาพที่เห็นใบหน้าชัดเจน</strong>
                 </FormDescription>
                 <FormControl>
                   <FileUploader
@@ -64,7 +77,7 @@ function FilesForm(props: FilesFormProps) {
             control={form.control}
             name="thai_nationalid_copy"
             render={({ field }) => (
-              <FormItem className="h-fit">
+              <FormItem>
                 <FormLabel>สำเนาบัตรประชาชน</FormLabel>
                 <FormDescription className="text-white/40">
                   <strong>สามารถใช้สำเนาบัตรนักเรียนแทนได้</strong>{" "}
@@ -87,7 +100,7 @@ function FilesForm(props: FilesFormProps) {
             control={form.control}
             name="parent_permission"
             render={({ field }) => (
-              <FormItem className="h-fit">
+              <FormItem>
                 <FormLabel>หนังสือยินยอมผู้ปกครอง</FormLabel>
                 <FormDescription className="text-white/40">
                   <strong>ดาวโหลดไฟล์หนังสือยินยอมผู้ปกครอง</strong>
@@ -109,7 +122,7 @@ function FilesForm(props: FilesFormProps) {
             control={form.control}
             name="p1"
             render={({ field }) => (
-              <FormItem className="h-fit">
+              <FormItem>
                 <FormLabel>สำเนาระเบียนแสดงผลการเรียน (ปพ.1)</FormLabel>
                 <FormDescription className="text-white/40">
                   <strong>
@@ -134,7 +147,7 @@ function FilesForm(props: FilesFormProps) {
             control={form.control}
             name="p7"
             render={({ field }) => (
-              <FormItem className="h-fit">
+              <FormItem>
                 <FormLabel>สำเนาใบรับรองผลการศึกษา (ปพ.7)</FormLabel>
                 <FormDescription className="text-white/40">
                   <strong>
@@ -157,6 +170,14 @@ function FilesForm(props: FilesFormProps) {
             )}
           />
         </CardContent>
+        <div className="flex w-full justify-center pt-16">
+          <Button
+            type="submit"
+            disabled={props.isPending || !form.formState.isDirty}
+          >
+            {props.isPending ? <Spinner /> : "อัพโหลดไฟล์"}
+          </Button>
+        </div>
         <CardFooter>
           <FormStepper />
         </CardFooter>

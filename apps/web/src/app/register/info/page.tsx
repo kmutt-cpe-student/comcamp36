@@ -5,12 +5,18 @@ import { fetchQuery } from "@/libs/server/client";
 import { useQueryClient } from "@tanstack/react-query";
 import { toast } from "sonner";
 import { z } from "zod";
+import RegisterFormSkeleton from "../skeleton";
 import InfoForm, { formSchema } from "./form";
 
 function RegisterInfoPage() {
   const queryClient = useQueryClient();
-  const { data } = fetchQuery.useQuery("get", "/auth/me");
-  const { mutate } = fetchQuery.useMutation("post", "/users/info", {
+
+  const { data, isPending: isUserDataPending } = fetchQuery.useQuery(
+    "get",
+    "/auth/me",
+  );
+
+  const { mutate, isPending } = fetchQuery.useMutation("post", "/users/info", {
     onSuccess: (mutateData) => {
       queryClient.setQueryData(["auth", { id: mutateData.id }], mutateData);
       toast.success("บันทึกสำเร็จ!", {
@@ -24,10 +30,16 @@ function RegisterInfoPage() {
     mutate({
       body: {
         ...data,
+        chronic_diseas: data.chronic_disease,
+        everyday_attendence: data.everyday_attendance,
         birth: data.birth.getDate(),
       },
     });
   };
+
+  if (isUserDataPending) {
+    return <RegisterFormSkeleton />;
+  }
 
   return (
     <InfoForm
@@ -45,11 +57,11 @@ function RegisterInfoPage() {
         telephone: data?.telephone ? data.telephone : "",
         email: data?.email ? data.email : "",
         medical_coverage: data?.medical_coverage ? data.medical_coverage : "",
-        chronic_disease: data?.chronic_diseas ? data.chronic_diseas : "",
+        chronic_disease: data?.chronic_disease ? data.chronic_disease : "",
         self_medicine: data?.self_medicine ? data.self_medicine : "",
         drug_allergic: data?.drug_allergic ? data.drug_allergic : "",
         food_allergic: data?.food_allergic ? data.food_allergic : "",
-        prefer_food: data?.perfer_food ? data.perfer_food : "",
+        prefer_food: data?.prefer_food ? data.prefer_food : "",
         address: data?.address ? data.address : "",
         home_phone_tel: data?.home_phone_tel ? data.home_phone_tel : "",
         comcamp_attendance: data?.comcamp_attendance
@@ -65,6 +77,7 @@ function RegisterInfoPage() {
         parent_phone: data?.parent_phone ? data.parent_phone : "",
       }}
       onSubmit={onSubmit}
+      isPending={isPending}
     />
   );
 }

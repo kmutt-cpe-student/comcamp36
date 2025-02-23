@@ -5,7 +5,9 @@ import DatePicker from "@/components/date-picker";
 import RadioGroupBoolean from "@/components/radio-group-boolean";
 import GenderSelector from "@/components/select/gender-selector";
 import TitleSelector from "@/components/select/title-selector";
+import Spinner from "@/components/spinner";
 import { TextShimmer } from "@/components/text/text-shimmer";
+import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
@@ -16,6 +18,7 @@ import {
 import {
   Form,
   FormControl,
+  FormDescription,
   FormField,
   FormItem,
   FormLabel,
@@ -27,38 +30,42 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 
 export const formSchema = z.object({
-  title: z.string().min(1),
-  fullname: z.string().min(1),
-  age: z.number().min(1),
+  title: z.string().min(1, "จำเป็นต้องระบุคำนำหน้า"),
+  fullname: z.string().min(1, "จำเป็นต้องระบุชื่อเต็ม"),
+  age: z.number().min(15, "อายุต้องมากกว่า 15 ปี ณ วันสมัคร"),
   birth: z.date(),
-  gender: z.string().min(1),
-  religion: z.string().min(1),
-  blood_group: z.string().min(1),
-  graduation: z.string().min(1),
-  school: z.string().min(1),
-  course: z.string().min(1),
-  telephone: z.string().min(1),
-  email: z.string().min(1),
-  medical_coverage: z.string().min(1),
-  chronic_disease: z.string().min(1),
-  self_medicine: z.string().min(1),
-  drug_allergic: z.string().min(1),
-  food_allergic: z.string().min(1),
-  prefer_food: z.string().min(1),
-  address: z.string().min(1),
-  home_phone_tel: z.string().min(1),
+  gender: z.string().min(1, "จำเป็นต้องระบุเพศ"),
+  religion: z.string().min(1, "จำเป็นต้องระบุศาสนา"),
+  blood_group: z.string().min(1, "จำเป็นต้องระบุกลุ่มเลือด"),
+  graduation: z.string().min(1, "จำเป็นต้องระบุระดับชั้นการศึกษา"),
+  school: z.string().min(1, "จำเป็นต้องระบุสถานศึกษา"),
+  course: z.string().min(1, "จำเป็นต้องระบุสายการเรียน"),
+  telephone: z
+    .string()
+    .min(10, "เบอร์โทรศัพท์ต้องมี 10 หลัก")
+    .max(10, "เบอร์โทรศัพท์ต้องมี 10 หลัก"),
+  email: z.string().min(1, "จำเป็นต้องระบุอีเมล").email(),
+  medical_coverage: z.string().min(1, "จำเป็นต้องระบุสิทธิการรักษาพยาบาล"),
+  chronic_disease: z.string().min(1, "จำเป็นต้องระบุโรคประจำตัว"),
+  self_medicine: z.string().min(1, "จำเป็นต้องระบุยาประจำตัว"),
+  drug_allergic: z.string().min(1, "จำเป็นต้องระบุยาที่แพ้"),
+  food_allergic: z.string().min(1, "จำเป็นต้องระบุอาหารที่แพ้"),
+  prefer_food: z.string().min(1, "จำเป็นต้องระบุอาหารที่รับประทาน"),
+  address: z.string().min(1, "จำเป็นต้องระบุที่อยู่"),
+  home_phone_tel: z.string().min(1, "จำเป็นต้องระบุเบอร์โทรศัพท์บ้าน"),
   comcamp_attendance: z.boolean(),
   everyday_attendance: z.boolean(),
   has_laptop: z.boolean(),
-  travel: z.string().min(1),
-  parent_fullname: z.string().min(1),
-  parent_relation: z.string().min(1),
-  parent_phone: z.string().min(1),
+  travel: z.string().min(1, "จำเป็นต้องระบุวิธีการเดินทางมาค่าย"),
+  parent_fullname: z.string().min(1, "จำเป็นต้องระบุชื่อเต็มผู้ปกครอง"),
+  parent_relation: z.string().min(1, "จำเป็นต้องระบุความสัมพันธ์กับผู้ปกครอง"),
+  parent_phone: z.string().min(1, "จำเป็นต้องระบุเบอร์โทรศัพท์ผู้ปกครอง"),
 });
 
 interface InfoFormProps {
   data: z.infer<typeof formSchema>;
   onSubmit: (data: z.infer<typeof formSchema>) => void;
+  isPending?: boolean;
 }
 
 function InfoForm(props: InfoFormProps) {
@@ -230,6 +237,7 @@ function InfoForm(props: InfoFormProps) {
                       <FormControl>
                         <Input {...field} />
                       </FormControl>
+                      <FormDescription>หากไม่มีให้ใส่ - </FormDescription>
                       <FormMessage />
                     </FormItem>
                   )}
@@ -305,6 +313,7 @@ function InfoForm(props: InfoFormProps) {
                       <FormControl>
                         <Input {...field} />
                       </FormControl>
+                      <FormDescription>ไม่มีให้ใส่ - </FormDescription>
                       <FormMessage />
                     </FormItem>
                   )}
@@ -318,6 +327,7 @@ function InfoForm(props: InfoFormProps) {
                       <FormControl>
                         <Input {...field} />
                       </FormControl>
+                      <FormDescription>ไม่มีให้ใส่ - </FormDescription>
                       <FormMessage />
                     </FormItem>
                   )}
@@ -333,6 +343,7 @@ function InfoForm(props: InfoFormProps) {
                       <FormControl>
                         <Input {...field} />
                       </FormControl>
+                      <FormDescription>ไม่มีให้ใส่ - </FormDescription>
                       <FormMessage />
                     </FormItem>
                   )}
@@ -346,6 +357,7 @@ function InfoForm(props: InfoFormProps) {
                       <FormControl>
                         <Input {...field} />
                       </FormControl>
+                      <FormDescription>ไม่มีให้ใส่ - </FormDescription>
                       <FormMessage />
                     </FormItem>
                   )}
@@ -361,6 +373,7 @@ function InfoForm(props: InfoFormProps) {
                       <FormControl>
                         <Input {...field} />
                       </FormControl>
+                      <FormDescription>ไม่มีให้ใส่ - </FormDescription>
                       <FormMessage />
                     </FormItem>
                   )}
@@ -377,6 +390,7 @@ function InfoForm(props: InfoFormProps) {
                       <FormControl>
                         <Input {...field} />
                       </FormControl>
+                      <FormDescription>ไม่มีให้ใส่ - </FormDescription>
                       <FormMessage />
                     </FormItem>
                   )}
@@ -499,6 +513,16 @@ function InfoForm(props: InfoFormProps) {
                   </FormItem>
                 )}
               />
+
+              <div className="flex w-full justify-center pt-16">
+                <Button
+                  type="submit"
+                  disabled={props.isPending || !form.formState.isDirty}
+                >
+                  {props.isPending ? <Spinner /> : "บันทักข้อมูลส่วนตัว"}
+                </Button>
+              </div>
+
               <FormStepper />
             </div>
           </form>
