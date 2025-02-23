@@ -59,6 +59,7 @@ interface InfoFormProps {
   data: z.infer<typeof formSchema>;
   onSubmit: (data: z.infer<typeof formSchema>) => void;
   isPending?: boolean;
+  hasSubmit: boolean;
 }
 
 function InfoForm(props: InfoFormProps) {
@@ -75,6 +76,7 @@ function InfoForm(props: InfoFormProps) {
             <h5 className="font-bold">ข้อมูลส่วนตัว</h5>
             <div className="grid w-full grid-cols-1 gap-6 md:grid-cols-[1fr_10fr]">
               <FormField
+                disabled={props.hasSubmit}
                 control={form.control}
                 name="title"
                 render={({ field }) => (
@@ -92,6 +94,7 @@ function InfoForm(props: InfoFormProps) {
                 )}
               />
               <FormField
+                disabled={props.hasSubmit}
                 control={form.control}
                 name="fullname"
                 render={({ field }) => (
@@ -107,6 +110,7 @@ function InfoForm(props: InfoFormProps) {
             </div>
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
               <FormField
+                disabled={props.hasSubmit}
                 control={form.control}
                 name="age"
                 render={({ field }) => (
@@ -126,6 +130,7 @@ function InfoForm(props: InfoFormProps) {
                 )}
               />
               <FormField
+                disabled={props.hasSubmit}
                 control={form.control}
                 name="birth"
                 render={({ field }) => (
@@ -142,6 +147,7 @@ function InfoForm(props: InfoFormProps) {
                 )}
               />
               <FormField
+                disabled={props.hasSubmit}
                 control={form.control}
                 name="gender"
                 render={({ field }) => (
@@ -158,6 +164,7 @@ function InfoForm(props: InfoFormProps) {
                 )}
               />
               <FormField
+                disabled={props.hasSubmit}
                 control={form.control}
                 name="religion"
                 render={({ field }) => (
@@ -173,6 +180,7 @@ function InfoForm(props: InfoFormProps) {
             </div>
             <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
               <FormField
+                disabled={props.hasSubmit}
                 control={form.control}
                 name="telephone"
                 render={({ field }) => (
@@ -186,6 +194,7 @@ function InfoForm(props: InfoFormProps) {
                 )}
               />
               <FormField
+                disabled={true}
                 control={form.control}
                 name="email"
                 render={({ field }) => (
@@ -201,6 +210,7 @@ function InfoForm(props: InfoFormProps) {
             </div>
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
               <FormField
+                disabled={props.hasSubmit}
                 control={form.control}
                 name="address"
                 render={({ field }) => (
@@ -214,6 +224,7 @@ function InfoForm(props: InfoFormProps) {
                 )}
               />
               <FormField
+                disabled={props.hasSubmit}
                 control={form.control}
                 name="home_phone_tel"
                 render={({ field }) => (
@@ -233,6 +244,7 @@ function InfoForm(props: InfoFormProps) {
 
             <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
               <FormField
+                disabled={props.hasSubmit}
                 control={form.control}
                 name="graduation"
                 render={({ field }) => (
@@ -246,6 +258,7 @@ function InfoForm(props: InfoFormProps) {
                 )}
               />
               <FormField
+                disabled={props.hasSubmit}
                 control={form.control}
                 name="school"
                 render={({ field }) => (
@@ -259,6 +272,7 @@ function InfoForm(props: InfoFormProps) {
                 )}
               />
               <FormField
+                disabled={props.hasSubmit}
                 control={form.control}
                 name="course"
                 render={({ field }) => (
@@ -277,6 +291,7 @@ function InfoForm(props: InfoFormProps) {
 
             <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
               <FormField
+                disabled={props.hasSubmit}
                 control={form.control}
                 name="blood_group"
                 render={({ field }) => (
@@ -290,6 +305,7 @@ function InfoForm(props: InfoFormProps) {
                 )}
               />
               <FormField
+                disabled={props.hasSubmit}
                 control={form.control}
                 name="medical_coverage"
                 render={({ field }) => (
@@ -304,6 +320,7 @@ function InfoForm(props: InfoFormProps) {
                 )}
               />
               <FormField
+                disabled={props.hasSubmit}
                 control={form.control}
                 name="chronic_disease"
                 render={({ field }) => (
@@ -320,6 +337,7 @@ function InfoForm(props: InfoFormProps) {
             </div>
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
               <FormField
+                disabled={props.hasSubmit}
                 control={form.control}
                 name="self_medicine"
                 render={({ field }) => (
@@ -334,6 +352,7 @@ function InfoForm(props: InfoFormProps) {
                 )}
               />
               <FormField
+                disabled={props.hasSubmit}
                 control={form.control}
                 name="drug_allergic"
                 render={({ field }) => (
@@ -350,6 +369,7 @@ function InfoForm(props: InfoFormProps) {
             </div>
             <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
               <FormField
+                disabled={props.hasSubmit}
                 control={form.control}
                 name="food_allergic"
                 render={({ field }) => (
@@ -364,6 +384,7 @@ function InfoForm(props: InfoFormProps) {
                 )}
               />
               <FormField
+                disabled={props.hasSubmit}
                 control={form.control}
                 name="prefer_food"
                 render={({ field }) => (
@@ -382,6 +403,7 @@ function InfoForm(props: InfoFormProps) {
 
             <h5 className="pt-12 font-bold">ข้อมูลผู้ปกครองที่ติดต่อได้</h5>
             <FormField
+              disabled={props.hasSubmit}
               control={form.control}
               name="parent_fullname"
               render={({ field }) => (
@@ -397,6 +419,7 @@ function InfoForm(props: InfoFormProps) {
 
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
               <FormField
+                disabled={props.hasSubmit}
                 control={form.control}
                 name="parent_relation"
                 render={({ field }) => (
@@ -410,6 +433,7 @@ function InfoForm(props: InfoFormProps) {
                 )}
               />
               <FormField
+                disabled={props.hasSubmit}
                 control={form.control}
                 name="parent_phone"
                 render={({ field }) => (
@@ -427,6 +451,7 @@ function InfoForm(props: InfoFormProps) {
             <h5 className="pt-12 font-bold">อื่นๆ</h5>
             <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
               <FormField
+                disabled={props.hasSubmit}
                 control={form.control}
                 name="comcamp_attendance"
                 render={({ field }) => (
@@ -445,6 +470,7 @@ function InfoForm(props: InfoFormProps) {
                 )}
               />
               <FormField
+                disabled={props.hasSubmit}
                 control={form.control}
                 name="has_laptop"
                 render={({ field }) => (
@@ -463,6 +489,7 @@ function InfoForm(props: InfoFormProps) {
                 )}
               />
               <FormField
+                disabled={props.hasSubmit}
                 control={form.control}
                 name="everyday_attendance"
                 render={({ field }) => (
@@ -484,6 +511,7 @@ function InfoForm(props: InfoFormProps) {
               />
             </div>
             <FormField
+              disabled={props.hasSubmit}
               control={form.control}
               name="travel"
               render={({ field }) => (
@@ -500,7 +528,9 @@ function InfoForm(props: InfoFormProps) {
             <div className="flex w-full justify-center pt-16">
               <Button
                 type="submit"
-                disabled={props.isPending || !form.formState.isDirty}
+                disabled={
+                  props.isPending || !form.formState.isDirty || props.hasSubmit
+                }
               >
                 {props.isPending ? <Spinner /> : "บันทึกข้อมูลส่วนตัว"}
               </Button>

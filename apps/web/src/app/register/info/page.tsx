@@ -83,6 +83,7 @@ function RegisterInfoPage() {
       }}
       onSubmit={onSubmit}
       isPending={isPending}
+      hasSubmit={data?.has_submit_answer ? data.has_submit_answer : false}
     />
   );
 }

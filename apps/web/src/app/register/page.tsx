@@ -15,6 +15,7 @@ import Status from "./status";
 
 function RegisterPage() {
   const { data, isPending, isError } = fetchQuery.useQuery("get", "/auth/me");
+  const { data: filesData } = fetchQuery.useQuery("get", "/files/user-files");
 
   if (isPending) {
     return (
@@ -51,7 +52,11 @@ function RegisterPage() {
         <Tilt isRevese rotationFactor={5}>
           <div className="relative mx-auto size-60 flex-shrink-0 overflow-hidden rounded-full border-[10px] border-white">
             <Image
-              src="/static/image/placeholder/main-char.png"
+              src={
+                filesData?.face_photo.url
+                  ? filesData.face_photo.url
+                  : "/static/image/placeholder/main-char.png"
+              }
               alt="Profile"
               className="object-cover"
               fill
