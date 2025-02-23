@@ -88,7 +88,7 @@ export default function FormStepper() {
             ].href
           }
         >
-          <Button type="button" className="size-10">
+          <Button type="button" className="size-10" variant="outline">
             <ChevronRight className="size-5" />
           </Button>
         </Link>
