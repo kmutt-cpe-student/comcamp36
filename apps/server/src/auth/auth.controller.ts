@@ -63,7 +63,7 @@ export class AuthController {
         res.cookie('sid', session.sid, {
           maxAge: 1000 * 60 * 60 * 24 * 7, // 1 days
           sameSite: true,
-          secure: false,
+          secure: true,
           httpOnly: true,
         });
         return res.redirect(process.env.CLIENT_REDIRECT_AUTH_URL);
