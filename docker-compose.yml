@@ -35,6 +35,23 @@ services:
       replicas: 2
     networks:
       - main
+  staff:
+    image: ghcr.io/kmutt-cpe-student/comcamp36-staff:main
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.staff.rule=Host(`cornflower.comcamp.io`)"
+      - "traefik.http.services.staff.loadbalancer.server.port=3000"
+      - "com.centurylinklabs.watchtower.enable=true"
+    env_file: ".env"
+    deploy:
+      mode: replicated
+      replicas: 2
+    restart: always
+    networks:
+      - main
+    volumes:
+      - /var/lib/comcamp/sqlite:/app/sqlite
+    user: "1001:1001"
 
 networks:
   main:
