@@ -42,11 +42,7 @@ async function bootstrap() {
   }
 
   app.enableCors({
-    origin: [
-      'https://reg-dev.comcamp.io',
-      'https://comcamp.io/',
-      'https://www.comcamp.io/',
-    ],
+    origin: 'https://comcamp.io',
     methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE', 'OPTIONS'],
     credentials: true,
   });
