@@ -38,6 +38,7 @@ export default function TimelineBox({
         borderTopColor: backgroundColor,
         borderBottomColor: backgroundColor,
       }}
+      whileHover={{ scale: 1.05 }}
     >
       <div className="mt-[8%] h-auto max-h-[87%] w-[87%] md:mt-[3%] lg:mt-[8%]">
         <Image width={300} height={300} src={imageSrc} alt="Timeline Icon" />
