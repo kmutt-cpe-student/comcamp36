@@ -20,11 +20,23 @@ import {
   AnswerAcademicResponseDto,
   AnswerRegisResponseDto,
 } from './dto/answer-response.dto';
+import { UsersService } from 'src/users/users.service';
 
 @Controller('answer')
 @UseGuards(AuthGuard)
 export class AnswerController {
-  constructor(private readonly answerService: AnswerService) {}
+  constructor(
+    private readonly answerService: AnswerService,
+    private userService: UsersService,
+  ) {}
+
+  @Post('submit-answer')
+  submitAnswer(@Req() req: Request) {
+    if (!req['user_id']) {
+      throw new HttpException('UNAUTHORIZED', HttpStatus.UNAUTHORIZED);
+    }
+    return this.answerService.submitAnswer(req['user_id']);
+  }
 
   //Regis
   // @Post('regis')
@@ -73,13 +85,18 @@ export class AnswerController {
 
   @Post('user-regis')
   @ApiResponse({ status: 200, type: AnswerRegisResponseDto })
-  upsertRegisWithUser(
+  async upsertRegisWithUser(
     @Req() req: Request,
     @Body() upsertAnswerRegisDto: UpsertAnswerRegisDto,
   ) {
     if (!req['user_id']) {
       throw new HttpException('UNAUTHORIZED', HttpStatus.UNAUTHORIZED);
     }
+    const user = await this.userService.findOne(req['user_id']);
+    if (user.has_submit_answer) {
+      throw new HttpException('UNAUTHORIZED', HttpStatus.UNAUTHORIZED);
+    }
+
     return this.answerService.upsertRegisWithUser(
       req['user_id'],
       upsertAnswerRegisDto,
@@ -122,11 +139,15 @@ export class AnswerController {
 
   @Post('user-academic')
   @ApiResponse({ status: 200, type: AnswerAcademicResponseDto })
-  upsertAcademicWithUser(
+  async upsertAcademicWithUser(
     @Req() req: Request,
     @Body() upsertAnswerAcademicDto: UpsertAnswerAcademicDto,
   ) {
     if (!req['user_id']) {
+      throw new HttpException('UNAUTHORIZED', HttpStatus.UNAUTHORIZED);
+    }
+    const user = await this.userService.findOne(req['user_id']);
+    if (user.has_submit_answer) {
       throw new HttpException('UNAUTHORIZED', HttpStatus.UNAUTHORIZED);
     }
     return this.answerService.upsertAcademicWithUser(

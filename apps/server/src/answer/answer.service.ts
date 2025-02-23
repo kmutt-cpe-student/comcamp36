@@ -18,6 +18,17 @@ import {
 export class AnswerService {
   constructor(private prisma: PrismaService) {}
 
+  submitAnswer(userId: string) {
+    return this.prisma.user.update({
+      where: {
+        id: userId,
+      },
+      data: {
+        has_submit_answer: true,
+      },
+    });
+  }
+
   //Regis
   createRegis(
     createAnswerRegisDto: CreateAnswerRegisDto,

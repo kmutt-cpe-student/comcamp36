@@ -1,6 +1,7 @@
 "use client";
 
 import { Tilt } from "@/components/card/tilt-card";
+import SubmitAnswerBtn from "@/components/register/submit-answer-btn";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
@@ -68,6 +69,9 @@ function RegisterPage() {
         <Link href="/register/info">
           <Button size="lg">กรอกฟอร์มสมัคร</Button>
         </Link>
+      </div>
+      <div className="font-noto-sans-thai-looped flex justify-center">
+        {<SubmitAnswerBtn />}
       </div>
     </Card>
   );

@@ -39,7 +39,7 @@ export class UsersService {
       data: {
         title: updateUserDto.title,
         fullname: updateUserDto.fullname,
-        age: 16,
+        age: updateUserDto.age,
         birth: birth,
         gender: updateUserDto.gender,
         religion: updateUserDto.religion,

@@ -159,6 +159,22 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
+  "/answer/submit-answer": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    post: operations["AnswerController_submitAnswer"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
   "/answer/user-regis": {
     parameters: {
       query?: never;
@@ -516,6 +532,23 @@ export interface operations {
         content: {
           "application/json": components["schemas"]["UserFilesResponseDto"];
         };
+      };
+    };
+  };
+  AnswerController_submitAnswer: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      201: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
       };
     };
   };

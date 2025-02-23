@@ -39,6 +39,7 @@ model User {
   parent_fullname     String?
   parent_relation     String?
   parent_phone        String?
+  has_submit_answer   Boolean @default(false)
   academic_done       Boolean @default(false)
   files_done          Boolean @default(false)
   info_done           Boolean @default(false) 

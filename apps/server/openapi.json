@@ -176,6 +176,14 @@
         "tags": ["Files"]
       }
     },
+    "/answer/submit-answer": {
+      "post": {
+        "operationId": "AnswerController_submitAnswer",
+        "parameters": [],
+        "responses": { "201": { "description": "" } },
+        "tags": ["Answer"]
+      }
+    },
     "/answer/user-regis": {
       "get": {
         "operationId": "AnswerController_findRegisWithUser",
