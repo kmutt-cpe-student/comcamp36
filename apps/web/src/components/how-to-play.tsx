@@ -191,9 +191,13 @@ export default function HowToChess() {
         <div className="space-y-6 px-6 pb-6 pt-3">
           <DialogHeader>
             <DialogTitle>{stepContent[step - 1].title}</DialogTitle>
-            <DialogDescription className="pt-4 text-start text-white/70">
-              <small>{stepContent[step - 1].description}</small>
-            </DialogDescription>
+            {typeof stepContent[step - 1].description === "string" ? (
+              <DialogDescription className="pt-4 text-start text-white/70">
+                <small>{stepContent[step - 1].description}</small>
+              </DialogDescription>
+            ) : (
+              stepContent[step - 1].description
+            )}
           </DialogHeader>
           <div className="flex flex-col-reverse justify-between gap-6 sm:flex-row sm:items-center sm:gap-4">
             <div className="flex justify-center gap-2 max-sm:order-1">
