@@ -52,7 +52,10 @@ export const formSchema = z.object({
   travel: z.string().min(1, "จำเป็นต้องระบุวิธีการเดินทางมาค่าย"),
   parent_fullname: z.string().min(1, "จำเป็นต้องระบุชื่อเต็มผู้ปกครอง"),
   parent_relation: z.string().min(1, "จำเป็นต้องระบุความสัมพันธ์กับผู้ปกครอง"),
-  parent_phone: z.string().min(1, "จำเป็นต้องระบุเบอร์โทรศัพท์ผู้ปกครอง"),
+  parent_phone: z
+    .string()
+    .min(10, "เบอร์โทรศัพท์ต้องมี 10 หลัก")
+    .max(10, "เบอร์โทรศัพท์ต้องมี 10 หลัก"),
 });
 
 interface InfoFormProps {
