@@ -30,9 +30,10 @@ function RegisterInfoPage() {
     mutate({
       body: {
         ...data,
+        age: data.age,
         chronic_diseas: data.chronic_disease,
         everyday_attendence: data.everyday_attendance,
-        birth: data.birth.getDate(),
+        birth: data.birth.toISOString(),
       },
     });
   };
@@ -46,8 +47,8 @@ function RegisterInfoPage() {
       data={{
         title: data?.title ? data?.title : "",
         fullname: data?.fullname ? data.fullname : "",
-        age: 16,
-        birth: new Date(),
+        age: data?.age ?? 0,
+        birth: data?.birth ? new Date(data.birth) : new Date(),
         gender: data?.gender ? data.gender : "",
         religion: data?.religion ? data.religion : "",
         blood_group: data?.blood_group ? data.blood_group : "",

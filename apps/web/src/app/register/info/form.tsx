@@ -134,7 +134,13 @@ function InfoForm(props: InfoFormProps) {
                     <FormItem>
                       <FormLabel>อายุ</FormLabel>
                       <FormControl>
-                        <Input {...field} />
+                        <Input
+                          {...field}
+                          type="number"
+                          onChange={(e) =>
+                            field.onChange(parseInt(e.target.value, 10))
+                          }
+                        />
                       </FormControl>
                       <FormMessage />
                     </FormItem>

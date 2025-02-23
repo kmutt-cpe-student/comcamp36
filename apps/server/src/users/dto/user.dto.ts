@@ -27,7 +27,7 @@ export class UserResponseDto {
   age?: number;
 
   @ApiProperty({
-    type: 'number',
+    type: 'string',
   })
   birth?: Date;
 

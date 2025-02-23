@@ -297,7 +297,7 @@ export interface components {
       email: string;
       fullname: string;
       age: number;
-      birth: number;
+      birth: string;
       gender: string;
       religion: string;
       blood_group: string;
@@ -334,7 +334,7 @@ export interface components {
       title?: string;
       fullname?: string;
       age?: number;
-      birth?: number;
+      birth?: string;
       gender?: string;
       religion?: string;
       blood_group?: string;

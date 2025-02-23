@@ -33,12 +33,12 @@ export class UpdateUserDto {
   age?: number;
 
   @ApiProperty({
-    type: 'number',
+    type: 'string',
     required: false,
   })
   @IsDate()
   @IsOptional()
-  birth?: number;
+  birth?: string;
 
   @ApiProperty({
     type: 'string',
