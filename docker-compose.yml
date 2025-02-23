@@ -78,4 +78,4 @@ networks:
     driver: bridge
 
 volumes:
-  sqlite_data:
+  db-data:
