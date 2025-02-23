@@ -1,48 +1,12 @@
 import { betterAuth } from "better-auth";
-import Database from "better-sqlite3";
 import { admin, username } from "better-auth/plugins"
 import { nextCookies } from "better-auth/next-js";
-import { mkdir } from "fs/promises"
-import { existsSync } from "fs"
-
-let db: Database.Database | null = null;
-
-const getDatabase = () => {
-    if (db) return db;
-
-    const path = (() => {
-        if (process.env.CI === "true" || process.env.NODE_ENV === "test") {
-            return ":memory:"
-        }
-        
-        if (process.env.NODE_ENV === "production") {
-            const dbPath = "./app/sqlite/sqlite.db"
-            if (!existsSync("./app/sqlite")) {
-                try {
-                    mkdir("./app/sqlite", { recursive: true })
-                } catch (error) {
-                    console.warn("Failed to create SQLite directory:", error)
-                    return ":memory:"
-                }
-            }
-            return dbPath
-        }
-
-        return "./staff.db"
-    })()
-
-    try {
-        db = new Database(path)
-        return db
-    } catch (error) {
-        console.warn("Failed to open database:", error)
-        db = new Database(":memory:")
-        return db
-    }
-}
+import { Pool } from "pg";
 
 export const auth = betterAuth({
-    database: getDatabase(),
+    database: new Pool({
+        connectionString: `postgresql://postgres:${process.env.STAFFAPP_POSTGRES_PASSWORD}@${process.env.STAFFAPP_POSTGRES_HOST}:5432/postgres`
+    }),
     emailAndPassword: {
         enabled: true,
     },
