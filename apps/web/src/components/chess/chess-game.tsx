@@ -499,7 +499,7 @@ function ChessGame({ callback }: ChessGameProps) {
   return (
     <DndContext onDragEnd={handleDragEnd} sensors={sensors}>
       <div className="font-prompt relative">
-        <div className="relative mx-auto aspect-square w-full max-w-[800px]">
+        <div className="relative mx-auto aspect-square w-full max-w-[min(100vw-2rem,800px)]">
           <div className="relative size-full">
             <Board className="size-full" />
 
@@ -528,13 +528,13 @@ function ChessGame({ callback }: ChessGameProps) {
           </div>
         </div>
 
-        <div className="mt-4 text-center text-xl font-bold">
+        <div className="mt-4 break-words text-center text-base font-bold sm:text-xl">
           หมากตัวปัจจุบัน:{" "}
           {gameState.currentPiece.charAt(0).toUpperCase() +
             gameState.currentPiece.slice(1)}
         </div>
 
-        <div className="text-center text-xl font-bold">
+        <div className="break-words text-center text-base font-bold sm:text-xl">
           คะแนน: {gameState.score}
           {gameState.noDeductionMoves > 0 && (
             <span className="ml-2 text-blue-500">
@@ -548,13 +548,19 @@ function ChessGame({ callback }: ChessGameProps) {
           )}
         </div>
 
-        <div className="my-4 flex justify-center gap-4">
-          <Button type="button" onClick={handleReset} variant="destructive">
+        <div className="my-4 flex flex-wrap justify-center gap-2 px-2 sm:gap-4">
+          <Button
+            type="button"
+            onClick={handleReset}
+            variant="destructive"
+            className="text-sm sm:text-base"
+          >
             เรื่มใหม่
           </Button>
           <Button
             type="button"
             onClick={handleUndo}
+            className="text-sm sm:text-base"
             disabled={gameState.prevStates.length === 0}
           >
             ย้อนกลับ
@@ -565,13 +571,13 @@ function ChessGame({ callback }: ChessGameProps) {
         </div>
 
         <div className="flex w-full justify-center">
-          <Card className="h-fit w-full max-w-[50rem] p-8">
+          <Card className="h-fit w-full max-w-[50rem] p-4 sm:p-8">
             <CardHeader className="flex flex-row justify-between">
               <p className="mb-2 font-bold text-white">ประวัติการเดิน</p>
               <HowToChess />
             </CardHeader>
             <CardContent className="">
-              <small className="text-wrap uppercase">
+              <small className="break-words text-xs uppercase sm:text-sm">
                 {gameState.moveHistory.join(" > ")}
               </small>
             </CardContent>

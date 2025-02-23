@@ -44,9 +44,9 @@ function AnswerAcademic(props: AnswerAcademicProps) {
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(props.onSubmit)}>
-        <div className="font-noto-sans-thai-looped gap-30 grid">
-          <div className="grid gap-10">
-            <div className="flex flex-col gap-4">
+        <div className="font-noto-sans-thai-looped grid gap-8 md:gap-12">
+          <div className="grid gap-6 md:gap-10">
+            <div className="flex flex-col gap-3 md:gap-4">
               <p className="font-bold">1. 10 สหายในเงามืด</p>
               <Label>
                 ในภาควิศวกรรมคอมพิวเตอร์ ของมหาวิทยาลัยแห่งหนึ่ง
@@ -56,7 +56,7 @@ function AnswerAcademic(props: AnswerAcademicProps) {
                 และเช่นเดียวกัน นักศึกษาที่เหลือก็จะไม่รู้จักกับนักศึกษา 10
                 คนนี้ แต่จะมี 2 คนที่จะคอยโกหกว่ารู้จัก 10 คนนี้
               </Label>
-              <div className="grid grid-cols-2 gap-2 rounded border border-white/20 p-8 sm:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5">
+              <div className="grid grid-cols-2 gap-2 rounded border border-white/20 p-4 sm:grid-cols-3 md:p-8 lg:grid-cols-4 2xl:grid-cols-5">
                 {PEOPLES.map((people, index) => (
                   <Label key={people}>
                     {index}. {people}
@@ -130,8 +130,8 @@ function AnswerAcademic(props: AnswerAcademicProps) {
               )}
             />
           </div>
-          <div className="flex flex-col gap-2 pt-10">
-            <div className="flex flex-col gap-4 pb-10">
+          <div className="flex flex-col gap-2 pt-6 md:pt-10">
+            <div className="flex flex-col gap-4 pb-6 md:pb-10">
               <p className="font-bold">2. อัศวินห่านห้าวหาญนักล่าแต้ม</p>
               <ChessGame
                 callback={(score, notation) => {
@@ -141,7 +141,7 @@ function AnswerAcademic(props: AnswerAcademicProps) {
               />
             </div>
             <p className="font-bold">ผลการเล่นที่บันทึกแล้ว</p>
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
               <FormField
                 disabled={props.hasSubmit}
                 control={form.control}
@@ -177,7 +177,7 @@ function AnswerAcademic(props: AnswerAcademicProps) {
             </div>
           </div>
         </div>
-        <div className="flex w-full justify-center pt-16">
+        <div className="flex w-full justify-center pt-8 md:pt-16">
           <Button type="submit" disabled={props.isPending || props.hasSubmit}>
             {props.isPending ? <Spinner /> : "บันทึกคำถามคัดเลือก 2"}
           </Button>

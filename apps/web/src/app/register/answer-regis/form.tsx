@@ -46,7 +46,7 @@ function AnswerRegis(props: AnswerRegisProps) {
         onSubmit={form.handleSubmit(props.onSubmit)}
         className="font-noto-sans-thai-looped"
       >
-        <div className="grid gap-20">
+        <div className="grid gap-8 md:gap-20">
           <FormField
             disabled={props.hasSubmit}
             control={form.control}
@@ -99,40 +99,50 @@ function AnswerRegis(props: AnswerRegisProps) {
                     </Label>
                     <div className="flex w-full justify-center py-4">
                       <div className="font-noto-sans-thai-looped border-vermilion-1/30 focus-visible:ring-vermilion/60 inline-flex rounded-md border bg-transparent px-3 py-2 text-base shadow-sm focus-visible:outline-none focus-visible:ring-1 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm">
-                        <div className="lg:divide-vermilion-1/30 hidden lg:grid lg:w-full lg:grid-cols-[auto_1fr] lg:gap-4 lg:divide-x lg:p-2">
-                          <div className="flex flex-col space-y-4 pr-4">
-                            <small>วิศวกร</small>
-                            <small>แพทย์</small>
-                            <small>นักวิทยาศาสตร์</small>
-                            <small>นักบิน</small>
-                            <small>ตัวคุณ</small>
+                        <div className="lg:divide-vermilion-1/30 hidden w-full lg:grid lg:grid-cols-[auto_1fr] lg:gap-4 lg:divide-x lg:p-2">
+                          <div className="flex flex-col space-y-3 pr-4 md:space-y-4">
+                            <small className="text-sm md:text-base">
+                              วิศวกร
+                            </small>
+                            <small className="text-sm md:text-base">
+                              แพทย์
+                            </small>
+                            <small className="text-sm md:text-base">
+                              นักวิทยาศาสตร์
+                            </small>
+                            <small className="text-sm md:text-base">
+                              นักบิน
+                            </small>
+                            <small className="text-sm md:text-base">
+                              ตัวคุณ
+                            </small>
                           </div>
-                          <div className="flex flex-col space-y-4 pl-4">
-                            <small>
+                          <div className="flex flex-col space-y-3 pl-4 md:space-y-4">
+                            <small className="text-sm md:text-base">
                               ผู้เชี่ยวชาญในการซ่อมระบบต่าง ๆ
                               แต่เกิดความวิตกกังวลจนขาดสมาธิและสติ
                             </small>
-                            <small>
+                            <small className="text-sm md:text-base">
                               มีความสามารถในการรักษาสุขภาพกายและใจ
                               แต่กำลังเริ่มสูญเสียความมั่นใจ
                             </small>
-                            <small>
+                            <small className="text-sm md:text-base">
                               ชำนาญในการคิดวิเคราะห์และการพัฒนาทรัพยากรใหม่
                               แต่มีปัญหาในการทำงานร่วมกับคนอื่น
                             </small>
-                            <small>
+                            <small className="text-sm md:text-base">
                               เชี่ยวชาญการควบคุมยาน
                               แต่เริ่มแสดงพฤติกรรมต่อต้านเนื่องจากสงสัยในความสามารถของทีม
                             </small>
-                            <small>
+                            <small className="text-sm md:text-base">
                               ผู้นำทีมที่ต้องจัดการความขัดแย้ง ควบคุมสถานการณ์
                               และตัดสินใจที่ส่งผลต่อความอยู่รอด
                             </small>
                           </div>
                         </div>
 
-                        <div className="divide-vermilion-1/30 flex w-full flex-col divide-y lg:hidden">
-                          <div className="space-y-2 py-3">
+                        <div className="divide-vermilion-1/30 flex w-full flex-col divide-y px-2 lg:hidden">
+                          <div className="space-y-2 py-2 md:py-3">
                             <small className="block font-semibold">
                               วิศวกร
                             </small>
@@ -141,14 +151,14 @@ function AnswerRegis(props: AnswerRegisProps) {
                               แต่เกิดความวิตกกังวลจนขาดสมาธิและสติ
                             </small>
                           </div>
-                          <div className="space-y-2 py-3">
+                          <div className="space-y-2 py-2 md:py-3">
                             <small className="block font-semibold">แพทย์</small>
                             <small className="block">
                               มีความสามารถในการรักษาสุขภาพกายและใจ
                               แต่กำลังเริ่มสูญเสียความมั่นใจ
                             </small>
                           </div>
-                          <div className="space-y-2 py-3">
+                          <div className="space-y-2 py-2 md:py-3">
                             <small className="block font-semibold">
                               นักวิทยาศาสตร์
                             </small>
@@ -157,7 +167,7 @@ function AnswerRegis(props: AnswerRegisProps) {
                               แต่มีปัญหาในการทำงานร่วมกับคนอื่น
                             </small>
                           </div>
-                          <div className="space-y-2 py-3">
+                          <div className="space-y-2 py-2 md:py-3">
                             <small className="block font-semibold">
                               นักบิน
                             </small>
@@ -166,7 +176,7 @@ function AnswerRegis(props: AnswerRegisProps) {
                               แต่เริ่มแสดงพฤติกรรมต่อต้านเนื่องจากสงสัยในความสามารถของทีม
                             </small>
                           </div>
-                          <div className="space-y-2 py-3">
+                          <div className="space-y-2 py-2 md:py-3">
                             <small className="block font-semibold">
                               ตัวคุณ
                             </small>
@@ -229,7 +239,7 @@ function AnswerRegis(props: AnswerRegisProps) {
             )}
           />
 
-          <div className="flex flex-col gap-4">
+          <div className="flex flex-col gap-3 md:gap-4">
             <small>
               6. สถานการณ์ :
               ในฐานะนักวิศวกรคอมพิวเตอร์ที่มีความเชี่ยวชาญในด้านเทคโนโลยีสารสนเทศ
@@ -238,7 +248,7 @@ function AnswerRegis(props: AnswerRegisProps) {
               ซึ่งทำให้หลายคนไม่ได้รับการดูแลที่เหมาะสม
               ส่งผลให้เกิดความเสี่ยงต่อสุขภาพและชีวิต
             </small>
-            <small className="pl-4">
+            <small className="pl-2 md:pl-4">
               -
               น้องได้รับมอบหมายให้พัฒนานวัตกรรมที่ช่วยให้การดูแลผู้สูงอายุในชุมชนมีประสิทธิภาพและทั่วถึงมากขึ้น
               ภายในระยะเวลา 2 ปี
@@ -279,7 +289,7 @@ function AnswerRegis(props: AnswerRegisProps) {
             )}
           />
         </div>
-        <div className="flex w-full justify-center pt-16">
+        <div className="flex w-full justify-center pt-8 md:pt-16">
           <Button
             type="submit"
             disabled={
