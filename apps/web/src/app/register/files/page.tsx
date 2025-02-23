@@ -8,8 +8,10 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { env } from "@/env";
+import { formatThaiBuddhist } from "@/libs/date";
 import { fetchClient, fetchQuery } from "@/libs/server/client";
 import { useEffect, useState } from "react";
+import { toast } from "sonner";
 import { z } from "zod";
 import FilesForm, { formSchema } from "./form";
 
@@ -71,6 +73,9 @@ function RegisterInfoPage() {
       credentials: "include",
     });
     setIsUploading(false);
+    toast.success("บันทึกสำเร็จ!", {
+      description: `บันทึกสำเร็จ ณ​ เวลา ${formatThaiBuddhist(new Date())} กดปุ่มถัดไป เพื่อไปหน้าถัดไป`,
+    });
   };
 
   console.log(isUploading);
