@@ -19,9 +19,9 @@ import { z } from "zod";
 import { PEOPLES } from "./var";
 
 export const formSchema = z.object({
-  algo_answer: z.string().optional(),
-  chess_notation: z.string().optional(),
-  chess_score: z.number().optional(),
+  algo_answer: z.string().min(1),
+  chess_notation: z.string().min(1),
+  chess_score: z.number().min(1),
 });
 
 interface AnswerAcademicProps {
@@ -113,7 +113,11 @@ function AnswerAcademic(props: AnswerAcademicProps) {
                   <FormItem>
                     <FormLabel>รูปแบบการเดิน</FormLabel>
                     <FormControl>
-                      <Input className="[resize:none]" {...field} disabled />
+                      <Textarea
+                        className="min-h-auto h-12 [resize:none] md:text-base"
+                        {...field}
+                        disabled
+                      />
                     </FormControl>
                     <FormMessage />
                   </FormItem>

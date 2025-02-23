@@ -3,7 +3,7 @@
   "private": true,
   "scripts": {
     "build": "pnpm with-env turbo build",
-    "dev": "pnpm with-env dotenv -- turbo dev",
+    "dev": "pnpm with-env turbo dev --env-mode=loose",
     "lint": "turbo lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "lint-staged": "lint-staged",

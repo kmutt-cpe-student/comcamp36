@@ -111,6 +111,22 @@ export interface paths {
     patch: operations["UsersController_update"];
     trace?: never;
   };
+  "/users/info": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    post: operations["UsersController_updateRegister"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
   "/files/upload": {
     parameters: {
       query?: never;
@@ -127,14 +143,46 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
-  "/files/{filename}": {
+  "/files/getblobs": {
     parameters: {
       query?: never;
       header?: never;
       path?: never;
       cookie?: never;
     };
-    get: operations["FilesController_getFiles"];
+    get?: never;
+    put?: never;
+    post: operations["FilesController_getBlobs"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/files/geturl": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    post: operations["FilesController_getFiles"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/files/user-files": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get: operations["FilesController_getUserFiles"];
     put?: never;
     post?: never;
     delete?: never;
@@ -159,7 +207,23 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
-  "/answer/regis{id}": {
+  "/answer/user-regis": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get: operations["AnswerController_findRegisWithUser"];
+    put?: never;
+    post: operations["AnswerController_upsertRegisWithUser"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/answer/regis/{id}": {
     parameters: {
       query?: never;
       header?: never;
@@ -191,7 +255,7 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
-  "/answer/academic{id}": {
+  "/answer/academic/{id}": {
     parameters: {
       query?: never;
       header?: never;
@@ -207,12 +271,29 @@ export interface paths {
     patch: operations["AnswerController_updateAcademic"];
     trace?: never;
   };
+  "/answer/user-academic": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get: operations["AnswerController_findAcademicWithUser"];
+    put?: never;
+    post: operations["AnswerController_upsertAcademicWithUser"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
 }
 export type webhooks = Record<string, never>;
 export interface components {
   schemas: {
     UserResponseDto: {
       id: string;
+      title: string;
       email: string;
       fullname: string;
       age: number;
@@ -240,13 +321,17 @@ export interface components {
       parent_fullname: string;
       parent_relation: string;
       parent_phone: string;
-      has_submit_answer: boolean;
+      files_done: boolean;
+      academic_done: boolean;
+      regis_done: boolean;
+      info_done: boolean;
     };
     CreateUserDto: {
       google_id: string;
       email: string;
     };
     UpdateUserDto: {
+      title?: string;
       fullname?: string;
       age?: number;
       birth?: number;
@@ -262,21 +347,44 @@ export interface components {
       self_medicine?: string;
       drug_allergic?: string;
       food_allergic?: string;
-      perfer_food?: string;
+      prefer_food?: string;
       address?: string;
       home_phone_tel?: string;
       comcamp_attendance?: boolean;
-      shirt_size?: string;
       everyday_attendence?: boolean;
       has_laptop?: boolean;
       travel?: string;
       parent_fullname?: string;
       parent_relation?: string;
       parent_phone?: string;
-      has_submit_answer?: boolean;
+    };
+    GetUrlFileInputDto: {
+      face_photo_key?: string;
+      thai_nationalid_copy_key?: string;
+      parent_permission_key?: string;
+      p1_key?: string;
+      p7_key?: string;
+    };
+    UserFilesResponseDto: {
+      id: string;
+      face_photo_filepath: string;
+      thai_nationalid_copy_filepath: string;
+      parent_permission_filepath: string;
+      p1_filepath: string;
+      p7_filepath: string;
     };
     CreateAnswerRegisDto: {
       userId: string;
+      answer1: string;
+      answer2: string;
+      answer3: string;
+      answer4: string;
+      answer5: string;
+      answer6_1: string;
+      answer6_2: string;
+    };
+    AnswerRegisResponseDto: {
+      id: string;
       answer1: string;
       answer2: string;
       answer3: string;
@@ -294,8 +402,28 @@ export interface components {
       answer6_1?: string;
       answer6_2?: string;
     };
+    UpsertAnswerRegisDto: {
+      answer1: string;
+      answer2: string;
+      answer3: string;
+      answer4: string;
+      answer5: string;
+      answer6_1: string;
+      answer6_2: string;
+    };
     CreateAnswerAcademicDto: {
       userId: string;
+      algo_answer: string;
+      chess_notation: string;
+      chess_score: number;
+    };
+    AnswerAcademicResponseDto: {
+      id: string;
+      algo_answer: string;
+      chess_notation: string;
+      chess_score: number;
+    };
+    UpsertAnswerAcademicDto: {
       algo_answer: string;
       chess_notation: string;
       chess_score: number;
@@ -500,7 +628,108 @@ export interface operations {
       };
     };
   };
+  UsersController_updateRegister: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody: {
+      content: {
+        "application/json": components["schemas"]["UpdateUserDto"];
+      };
+    };
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["UserResponseDto"];
+        };
+      };
+    };
+  };
   FilesController_uploadFile: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody: {
+      content: {
+        "multipart/form-data": {
+          /** Format: binary */
+          face_photo?: File;
+          /** Format: binary */
+          thai_nationalid_copy?: File;
+          /** Format: binary */
+          parent_permission?: File;
+          /** Format: binary */
+          p1?: File;
+          /** Format: binary */
+          p7?: File;
+        };
+      };
+    };
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  FilesController_getBlobs: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody: {
+      content: {
+        "application/json": components["schemas"]["GetUrlFileInputDto"];
+      };
+    };
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["UserFilesResponseDto"];
+        };
+      };
+    };
+  };
+  FilesController_getFiles: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody: {
+      content: {
+        "application/json": components["schemas"]["GetUrlFileInputDto"];
+      };
+    };
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["UserFilesResponseDto"];
+        };
+      };
+    };
+  };
+  FilesController_getUserFiles: {
     parameters: {
       query?: never;
       header?: never;
@@ -513,26 +742,9 @@ export interface operations {
         headers: {
           [name: string]: unknown;
         };
-        content?: never;
-      };
-    };
-  };
-  FilesController_getFiles: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        filename: string;
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
+        content: {
+          "application/json": components["schemas"]["UserFilesResponseDto"];
         };
-        content?: never;
       };
     };
   };
@@ -571,6 +783,48 @@ export interface operations {
           [name: string]: unknown;
         };
         content?: never;
+      };
+    };
+  };
+  AnswerController_findRegisWithUser: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["AnswerRegisResponseDto"];
+        };
+      };
+    };
+  };
+  AnswerController_upsertRegisWithUser: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody: {
+      content: {
+        "application/json": components["schemas"]["UpsertAnswerRegisDto"];
+      };
+    };
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["AnswerRegisResponseDto"];
+        };
       };
     };
   };
@@ -693,6 +947,48 @@ export interface operations {
           [name: string]: unknown;
         };
         content?: never;
+      };
+    };
+  };
+  AnswerController_findAcademicWithUser: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["AnswerAcademicResponseDto"];
+        };
+      };
+    };
+  };
+  AnswerController_upsertAcademicWithUser: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody: {
+      content: {
+        "application/json": components["schemas"]["UpsertAnswerAcademicDto"];
+      };
+    };
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["AnswerAcademicResponseDto"];
+        };
       };
     };
   };

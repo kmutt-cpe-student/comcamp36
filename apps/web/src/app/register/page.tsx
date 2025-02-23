@@ -1,102 +1,75 @@
 "use client";
 
-import { steps } from "@/app/register/form-stepper";
+import { Tilt } from "@/components/card/tilt-card";
 import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
-import { cn } from "@/libs/utils";
-import { CheckCircle, Mail, Phone } from "lucide-react";
+import { TextScramble } from "@/components/ui/text-scramble";
+import { fetchQuery } from "@/libs/server/client";
+import { Mail } from "lucide-react";
 import Image from "next/image";
-
-const stepsMock = steps.map((step, index) => ({
-  ...step,
-  completed: index < 2,
-}));
+import Link from "next/link";
+import Status from "./status";
 
 function RegisterPage() {
+  const { data, isPending, isError } = fetchQuery.useQuery("get", "/auth/me");
+
+  if (isPending) {
+    return null;
+  }
+
+  if (!data || isError) {
+    return null;
+  }
+
   return (
-    <div className="bg-charcoal-1 mx-8 w-full rounded-[30px] border-[5px] border-white p-16">
-      <div className="grid grid-cols-[320px_1fr] gap-16">
-        <div className="relative mx-auto h-80 w-80 flex-shrink-0 overflow-hidden rounded-full border-[15px] border-white">
-          <Image
-            src="/static/image/placeholder/main-char.png"
-            alt="Profile"
-            className="object-cover"
-            fill
-            priority
-          />
-        </div>
+    <Card className="grid gap-4">
+      <div className="grid h-full grid-cols-1 gap-16 lg:grid-cols-[320px_1fr]">
+        <Tilt isRevese rotationFactor={5}>
+          <div className="relative mx-auto size-60 flex-shrink-0 overflow-hidden rounded-full border-[10px] border-white">
+            <Image
+              src="/static/image/placeholder/main-char.png"
+              alt="Profile"
+              className="object-cover"
+              fill
+              priority
+            />
+          </div>
+        </Tilt>
 
-        <div className="flex h-full flex-col justify-between">
-          <div className="flex items-baseline justify-between">
-            <h2 className="text-5xl font-medium text-white">ข้อมูลส่วนตัว</h2>
-            <div className="text-right">
-              <span className="text-5xl font-semibold text-white">
-                ID : 456
-              </span>
+        <div className="flex h-full flex-col justify-start">
+          <div className="flex flex-col gap-4">
+            <div className="flex items-baseline justify-between">
+              <p className="text-[1rem] sm:text-[1.25rem]">ข้อมูลส่วนตัว</p>
+              <TextScramble trigger className="text-[1rem] sm:text-[1.25rem]">
+                {`เหลือเวลาอีก ${Math.ceil(
+                  (new Date("2025-03-13").getTime() - new Date().getTime()) /
+                    (1000 * 60 * 60 * 24),
+                )} วัน`}
+              </TextScramble>
             </div>
+            <Separator />
           </div>
-          <Separator />
-          <div className="space-y-6">
-            <h1 className="text-6xl font-bold text-white">นาย ซอง กีฮุน</h1>
-            <p className="text-charcoal-4 text-4xl">Seong Gi-hun</p>
-          </div>
-          <div className="space-y-4">
-            <p className="text-vermilion flex items-center text-2xl">
-              <Mail className="mr-4 h-6 w-6" />
-              GihunLuvGoose@gmail.com
+          <div className="flex h-full flex-col justify-center p-5">
+            <p className="font-bold leading-normal text-white lg:text-[3rem]">
+              {!data.fullname ? "[REDACTED]" : data.fullname}
             </p>
-            <p className="text-vermilion flex items-center text-2xl">
-              <Phone className="mr-4 h-6 w-6" />
-              012-345-6789
+            <p className="text-vermilion flex items-center text-[1.25rem] md:text-2xl">
+              <Mail className="mr-4 hidden h-6 w-6 sm:block" />
+              {data.email}
             </p>
           </div>
         </div>
       </div>
 
-      <div className="mt-16">
-        <h3 className="text-5xl font-medium text-white">
-          การกรอกแบบฟอร์ม ({stepsMock.filter((step) => step.completed).length}/
-          {stepsMock.length})
-        </h3>
-        <Separator className="my-8" />
+      <Status {...data} />
 
-        <div className="grid grid-cols-4 gap-8">
-          {stepsMock.map((step) => (
-            <div
-              key={step.step}
-              className={cn(
-                "flex flex-col items-center justify-center rounded-3xl border-2 border-white bg-[#372C28] p-6",
-                step.completed && "bg-vermilion",
-              )}
-            >
-              <div className="relative size-32">
-                {step.completed && (
-                  <CheckCircle className="z-1 absolute right-0 top-0 size-32 text-white" />
-                )}
-                <Image
-                  src="/static/image/learn/ai.png"
-                  alt=""
-                  className="object-cover"
-                  fill
-                />
-              </div>
-              <p className="mt-4 text-2xl font-medium text-white">
-                {step.title}
-              </p>
-            </div>
-          ))}
-        </div>
+      <div className="font-noto-sans-thai-looped mt-16 flex justify-center">
+        <Link href="/register/info">
+          <Button size="lg">กรอกฟอร์มสมัครต่อ</Button>
+        </Link>
       </div>
-
-      <div className="mt-16 flex justify-center">
-        <Button
-          className="bg-vermilion hover:bg-vermilion-3 active:bg-vermilion-1 w-full px-8 py-6 text-xl font-semibold text-white md:w-auto"
-          size="lg"
-        >
-          กรอกฟอร์มสมัครต่อ
-        </Button>
-      </div>
-    </div>
+    </Card>
   );
 }
 export default RegisterPage;

@@ -11,6 +11,7 @@ datasource db {
 model User {
   id                  String           @id @default(uuid())
   google_id           String           @unique
+  title               String?
   fullname            String?
   age                 Int?
   birth               DateTime?
@@ -27,18 +28,21 @@ model User {
   self_medicine       String?
   drug_allergic       String?
   food_allergic       String?
-  perfer_food         String?
+  prefer_food         String?
   address             String?
   home_phone_tel      String?
   comcamp_attendance  Boolean?
   shirt_size          String?
-  everyday_attendence Boolean?
+  everyday_attendance Boolean?
   has_laptop          Boolean?
   travel              String?
   parent_fullname     String?
   parent_relation     String?
   parent_phone        String?
-  has_submit_answer   Boolean @default(false)
+  academic_done       Boolean @default(false)
+  files_done          Boolean @default(false)
+  info_done           Boolean @default(false) 
+  regis_done          Boolean @default(false)
   file                File?
   answer_regis        AnswerRegis?
   answer_academic     AnswerAcademic?

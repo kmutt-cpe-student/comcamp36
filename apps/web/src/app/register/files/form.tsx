@@ -17,11 +17,11 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 
 export const formSchema = z.object({
-  face_photo: z.array(z.instanceof(File)).optional(),
-  thai_nationalid_copy: z.array(z.instanceof(File)).optional(),
-  parent_permission: z.array(z.instanceof(File)).optional(),
-  p1: z.array(z.instanceof(File)).optional(),
-  p7: z.array(z.instanceof(File)).optional(),
+  face_photo: z.array(z.instanceof(File)).min(1),
+  thai_nationalid_copy: z.array(z.instanceof(File)).min(1),
+  parent_permission: z.array(z.instanceof(File)).min(1),
+  p1: z.array(z.instanceof(File)).min(1),
+  p7: z.array(z.instanceof(File)).min(1),
 });
 
 interface FilesFormProps {
@@ -38,12 +38,12 @@ function FilesForm(props: FilesFormProps) {
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(props.onSubmit)}>
-        <CardContent className="font-noto-sans-thai-looped grid grid-cols-1 gap-10 lg:grid-cols-2">
+        <CardContent className="font-noto-sans-thai-looped grid grid-cols-1 justify-start gap-10 lg:grid-cols-2">
           <FormField
             control={form.control}
             name="face_photo"
             render={({ field }) => (
-              <FormItem>
+              <FormItem className="h-fit">
                 <FormLabel>รูปใบหน้าชัดเจน</FormLabel>
                 <FormDescription className="text-white/40">
                   <strong>เห็นใบหน้าชัดเจน</strong>
@@ -64,7 +64,7 @@ function FilesForm(props: FilesFormProps) {
             control={form.control}
             name="thai_nationalid_copy"
             render={({ field }) => (
-              <FormItem>
+              <FormItem className="h-fit">
                 <FormLabel>สำเนาบัตรประชาชน</FormLabel>
                 <FormDescription className="text-white/40">
                   <strong>สามารถใช้สำเนาบัตรนักเรียนแทนได้</strong>{" "}
@@ -87,7 +87,7 @@ function FilesForm(props: FilesFormProps) {
             control={form.control}
             name="parent_permission"
             render={({ field }) => (
-              <FormItem>
+              <FormItem className="h-fit">
                 <FormLabel>หนังสือยินยอมผู้ปกครอง</FormLabel>
                 <FormDescription className="text-white/40">
                   <strong>ดาวโหลดไฟล์หนังสือยินยอมผู้ปกครอง</strong>
@@ -109,7 +109,7 @@ function FilesForm(props: FilesFormProps) {
             control={form.control}
             name="p1"
             render={({ field }) => (
-              <FormItem>
+              <FormItem className="h-fit">
                 <FormLabel>สำเนาระเบียนแสดงผลการเรียน (ปพ.1)</FormLabel>
                 <FormDescription className="text-white/40">
                   <strong>
@@ -134,7 +134,7 @@ function FilesForm(props: FilesFormProps) {
             control={form.control}
             name="p7"
             render={({ field }) => (
-              <FormItem>
+              <FormItem className="h-fit">
                 <FormLabel>สำเนาใบรับรองผลการศึกษา (ปพ.7)</FormLabel>
                 <FormDescription className="text-white/40">
                   <strong>

@@ -16,13 +16,13 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 
 export const formSchema = z.object({
-  answer1: z.string().optional(),
-  answer2: z.string().optional(),
-  answer3: z.string().optional(),
-  answer4: z.string().optional(),
-  answer5: z.string().optional(),
-  answer6_1: z.string().optional(),
-  answer6_2: z.string().optional(),
+  answer1: z.string().min(1),
+  answer2: z.string().min(1),
+  answer3: z.string().min(1),
+  answer4: z.string().min(1),
+  answer5: z.string().min(1),
+  answer6_1: z.string().min(1),
+  answer6_2: z.string().min(1),
 });
 
 interface AnswerRegisProps {
@@ -91,33 +91,85 @@ function AnswerRegis(props: AnswerRegisProps) {
                       ลิตร ทีมของคุณต้องอยู่รอดให้ได้อีก 60
                       วันก่อนที่ทีมกู้ภัยจากโลกจะมาถึง
                     </Label>
-                    <div className="p-4">
-                      <div className="grid w-full grid-cols-[auto_1fr] gap-4 divide-amber-100 border border-white/10 p-2">
-                        <small>วิศวกร</small>
-                        <small>
-                          ผู้เชี่ยวชาญในการซ่อมระบบต่าง ๆ
-                          แต่เกิดความวิตกกังวลจนขาดสมาธิและสติ
-                        </small>
-                        <small>แพทย์</small>
-                        <small>
-                          มีความสามารถในการรักษาสุขภาพกายและใจ
-                          แต่กำลังเริ่มสูญเสียความมั่นใจ
-                        </small>
-                        <small>นักวิทยาศาสตร์</small>
-                        <small>
-                          ชำนาญในการคิดวิเคราะห์และการพัฒนาทรัพยากรใหม่
-                          แต่มีปัญหาในการทำงานร่วมกับคนอื่น
-                        </small>
-                        <small>นักบิน</small>
-                        <small>
-                          เชี่ยวชาญการควบคุมยาน
-                          แต่เริ่มแสดงพฤติกรรมต่อต้านเนื่องจากสงสัยในความสามารถของทีม
-                        </small>
-                        <small>ตัวคุณ</small>
-                        <small>
-                          ผู้นำทีมที่ต้องจัดการความขัดแย้ง ควบคุมสถานการณ์
-                          และตัดสินใจที่ส่งผลต่อความอยู่รอด
-                        </small>
+                    <div className="flex w-full justify-center py-4">
+                      <div className="font-noto-sans-thai-looped border-vermilion-1/30 focus-visible:ring-vermilion/60 inline-flex rounded-md border bg-transparent px-3 py-2 text-base shadow-sm focus-visible:outline-none focus-visible:ring-1 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm">
+                        <div className="lg:divide-vermilion-1/30 hidden lg:grid lg:w-full lg:grid-cols-[auto_1fr] lg:gap-4 lg:divide-x lg:p-2">
+                          <div className="flex flex-col space-y-4 pr-4">
+                            <small>วิศวกร</small>
+                            <small>แพทย์</small>
+                            <small>นักวิทยาศาสตร์</small>
+                            <small>นักบิน</small>
+                            <small>ตัวคุณ</small>
+                          </div>
+                          <div className="flex flex-col space-y-4 pl-4">
+                            <small>
+                              ผู้เชี่ยวชาญในการซ่อมระบบต่าง ๆ
+                              แต่เกิดความวิตกกังวลจนขาดสมาธิและสติ
+                            </small>
+                            <small>
+                              มีความสามารถในการรักษาสุขภาพกายและใจ
+                              แต่กำลังเริ่มสูญเสียความมั่นใจ
+                            </small>
+                            <small>
+                              ชำนาญในการคิดวิเคราะห์และการพัฒนาทรัพยากรใหม่
+                              แต่มีปัญหาในการทำงานร่วมกับคนอื่น
+                            </small>
+                            <small>
+                              เชี่ยวชาญการควบคุมยาน
+                              แต่เริ่มแสดงพฤติกรรมต่อต้านเนื่องจากสงสัยในความสามารถของทีม
+                            </small>
+                            <small>
+                              ผู้นำทีมที่ต้องจัดการความขัดแย้ง ควบคุมสถานการณ์
+                              และตัดสินใจที่ส่งผลต่อความอยู่รอด
+                            </small>
+                          </div>
+                        </div>
+
+                        <div className="divide-vermilion-1/30 flex w-full flex-col divide-y lg:hidden">
+                          <div className="space-y-2 py-3">
+                            <small className="block font-semibold">
+                              วิศวกร
+                            </small>
+                            <small className="block">
+                              ผู้เชี่ยวชาญในการซ่อมระบบต่าง ๆ
+                              แต่เกิดความวิตกกังวลจนขาดสมาธิและสติ
+                            </small>
+                          </div>
+                          <div className="space-y-2 py-3">
+                            <small className="block font-semibold">แพทย์</small>
+                            <small className="block">
+                              มีความสามารถในการรักษาสุขภาพกายและใจ
+                              แต่กำลังเริ่มสูญเสียความมั่นใจ
+                            </small>
+                          </div>
+                          <div className="space-y-2 py-3">
+                            <small className="block font-semibold">
+                              นักวิทยาศาสตร์
+                            </small>
+                            <small className="block">
+                              ชำนาญในการคิดวิเคราะห์และการพัฒนาทรัพยากรใหม่
+                              แต่มีปัญหาในการทำงานร่วมกับคนอื่น
+                            </small>
+                          </div>
+                          <div className="space-y-2 py-3">
+                            <small className="block font-semibold">
+                              นักบิน
+                            </small>
+                            <small className="block">
+                              เชี่ยวชาญการควบคุมยาน
+                              แต่เริ่มแสดงพฤติกรรมต่อต้านเนื่องจากสงสัยในความสามารถของทีม
+                            </small>
+                          </div>
+                          <div className="space-y-2 py-3">
+                            <small className="block font-semibold">
+                              ตัวคุณ
+                            </small>
+                            <small className="block">
+                              ผู้นำทีมที่ต้องจัดการความขัดแย้ง ควบคุมสถานการณ์
+                              และตัดสินใจที่ส่งผลต่อความอยู่รอด
+                            </small>
+                          </div>
+                        </div>
                       </div>
                     </div>
                     <Label>

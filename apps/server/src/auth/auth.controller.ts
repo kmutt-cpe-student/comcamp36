@@ -27,6 +27,7 @@ export class AuthController {
   @ApiResponse({ status: 200, type: UserResponseDto })
   async me(@Req() req: Request) {
     const user = await this.userService.findOne(req['user_id']);
+    delete user.id;
     return user;
   }
 

@@ -2,6 +2,7 @@
 
 import FormStepper from "@/app/register/form-stepper";
 import DatePicker from "@/components/date-picker";
+import RadioGroupBoolean from "@/components/radio-group-boolean";
 import GenderSelector from "@/components/select/gender-selector";
 import TitleSelector from "@/components/select/title-selector";
 import { TextShimmer } from "@/components/text/text-shimmer";
@@ -26,34 +27,33 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 
 export const formSchema = z.object({
-  title: z.string(),
-  fullname: z.string(),
-  age: z.number(),
+  title: z.string().min(1),
+  fullname: z.string().min(1),
+  age: z.number().min(1),
   birth: z.date(),
-  gender: z.string(),
-  religion: z.string(),
-  blood_group: z.string(),
-  graduation: z.string(),
-  school: z.string(),
-  course: z.string(),
-  telephone: z.string(),
-  email: z.string(),
-  medical_coverage: z.string(),
-  chronic_disease: z.string(),
-  self_medicine: z.string(),
-  drug_allergic: z.string(),
-  food_allergic: z.string(),
-  prefer_food: z.string(),
-  address: z.string(),
-  home_phone_tel: z.string(),
+  gender: z.string().min(1),
+  religion: z.string().min(1),
+  blood_group: z.string().min(1),
+  graduation: z.string().min(1),
+  school: z.string().min(1),
+  course: z.string().min(1),
+  telephone: z.string().min(1),
+  email: z.string().min(1),
+  medical_coverage: z.string().min(1),
+  chronic_disease: z.string().min(1),
+  self_medicine: z.string().min(1),
+  drug_allergic: z.string().min(1),
+  food_allergic: z.string().min(1),
+  prefer_food: z.string().min(1),
+  address: z.string().min(1),
+  home_phone_tel: z.string().min(1),
   comcamp_attendance: z.boolean(),
-  size: z.string(),
   everyday_attendance: z.boolean(),
   has_laptop: z.boolean(),
-  travel: z.string(),
-  parent_fullname: z.string(),
-  parent_relation: z.string(),
-  parent_phone: z.string(),
+  travel: z.string().min(1),
+  parent_fullname: z.string().min(1),
+  parent_relation: z.string().min(1),
+  parent_phone: z.string().min(1),
 });
 
 interface InfoFormProps {
@@ -432,10 +432,17 @@ function InfoForm(props: InfoFormProps) {
                 <FormField
                   control={form.control}
                   name="comcamp_attendance"
-                  render={() => (
+                  render={({ field }) => (
                     <FormItem>
-                      <FormLabel>เคยเข้าร่วม Comcamp</FormLabel>
-                      <FormControl></FormControl>
+                      <FormLabel>เคยเข้าร่วม ComCamp</FormLabel>
+                      <FormControl>
+                        <RadioGroupBoolean
+                          value={field.value}
+                          onValueChange={field.onChange}
+                          true_label="เคยเข้าร่วม ComCamp"
+                          false_label="ไม่เคยเข้าร่วม ComCamp"
+                        />
+                      </FormControl>
                       <FormMessage />
                     </FormItem>
                   )}
@@ -443,10 +450,17 @@ function InfoForm(props: InfoFormProps) {
                 <FormField
                   control={form.control}
                   name="has_laptop"
-                  render={() => (
+                  render={({ field }) => (
                     <FormItem>
                       <FormLabel>มี Laptop</FormLabel>
-                      <FormControl></FormControl>
+                      <FormControl>
+                        <RadioGroupBoolean
+                          value={field.value}
+                          onValueChange={field.onChange}
+                          true_label="มี laptop"
+                          false_label="ไม่มี laptop"
+                        />
+                      </FormControl>
                       <FormMessage />
                     </FormItem>
                   )}
@@ -454,12 +468,19 @@ function InfoForm(props: InfoFormProps) {
                 <FormField
                   control={form.control}
                   name="everyday_attendance"
-                  render={() => (
+                  render={({ field }) => (
                     <FormItem>
                       <FormLabel>
                         สะดวกเข้าร่วมค่ายทุกวันหรือไม่ (ค้างคืน พักที่หอในมอ)
                       </FormLabel>
-                      <FormControl></FormControl>
+                      <FormControl>
+                        <RadioGroupBoolean
+                          value={field.value}
+                          onValueChange={field.onChange}
+                          true_label="สะดวกเข้าร่วมค่ายทุกวัน"
+                          false_label="ไม่สะดวกเข้าร่วมค่ายทุกวัน"
+                        />
+                      </FormControl>
                       <FormMessage />
                     </FormItem>
                   )}
