@@ -396,7 +396,6 @@ function InfoForm(props: InfoFormProps) {
                       <FormControl>
                         <Input {...field} />
                       </FormControl>
-                      <FormDescription>ไม่มีให้ใส่ - </FormDescription>
                       <FormMessage />
                     </FormItem>
                   )}
@@ -525,7 +524,7 @@ function InfoForm(props: InfoFormProps) {
                   type="submit"
                   disabled={props.isPending || !form.formState.isDirty}
                 >
-                  {props.isPending ? <Spinner /> : "บันทักข้อมูลส่วนตัว"}
+                  {props.isPending ? <Spinner /> : "บันทึกข้อมูลส่วนตัว"}
                 </Button>
               </div>
 

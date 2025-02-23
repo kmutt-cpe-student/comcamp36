@@ -3,11 +3,11 @@ import CustomSelect, { SelectProps } from ".";
 function GenderSelector(props: SelectProps) {
   const options = [
     {
-      value: "mr",
+      value: "woman",
       label: "หญิง",
     },
     {
-      value: "mrs",
+      value: "man",
       label: "ชาย",
     },
   ];
