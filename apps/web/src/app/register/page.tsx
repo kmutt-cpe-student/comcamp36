@@ -5,6 +5,7 @@ import SubmitAnswerBtn from "@/components/register/submit-answer-btn";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
+import { Skeleton } from "@/components/ui/skeleton";
 import { TextScramble } from "@/components/ui/text-scramble";
 import { fetchQuery } from "@/libs/server/client";
 import { Mail } from "lucide-react";
@@ -16,7 +17,28 @@ function RegisterPage() {
   const { data, isPending, isError } = fetchQuery.useQuery("get", "/auth/me");
 
   if (isPending) {
-    return null;
+    return (
+      <Card className="grid w-full max-w-[72rem] gap-4">
+        <div className="grid h-full grid-cols-1 gap-16 lg:grid-cols-[320px_1fr]">
+          <Skeleton className="relative mx-auto size-60 flex-shrink-0 overflow-hidden rounded-full border-[10px] border-white" />
+          <div className="flex h-full flex-col justify-start">
+            <div className="flex flex-col gap-4">
+              <div className="flex items-baseline justify-between">
+                <Skeleton className="h-6 w-32" />
+                <Skeleton className="h-6 w-32" />
+              </div>
+              <Separator />
+            </div>
+            <div className="flex h-full flex-col justify-center p-5">
+              <Skeleton className="h-10 w-48" />
+              <Skeleton className="mt-4 h-6 w-64" />
+            </div>
+          </div>
+        </div>
+        <Skeleton className="mt-16 h-10 w-full" />
+        <Skeleton className="mt-4 h-10 w-full" />
+      </Card>
+    );
   }
 
   if (!data || isError) {

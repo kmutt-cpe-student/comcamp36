@@ -54,7 +54,7 @@ export default function RegisterLayout({
           extra={<LogoutBtn />}
         />
       </div>
-      <div className="font-prompt flex min-h-screen w-full justify-center py-36">
+      <div className="font-prompt py-30 flex min-h-screen w-full justify-center">
         {children}
       </div>
       <Footer />
