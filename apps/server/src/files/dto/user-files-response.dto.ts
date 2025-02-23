@@ -2,32 +2,82 @@ import { ApiProperty } from '@nestjs/swagger';
 
 export class UserFilesResponseDto {
   @ApiProperty({
-    type: 'string',
+    type: 'object',
+    properties: {
+      name: {
+        type: 'string',
+      },
+      url: {
+        type: 'string',
+      },
+    },
   })
-  id: string;
+  face_photo: {
+    name: string;
+    url: string;
+  };
 
   @ApiProperty({
-    type: 'string',
+    type: 'object',
+    properties: {
+      name: {
+        type: 'string',
+      },
+      url: {
+        type: 'string',
+      },
+    },
   })
-  face_photo_filepath: string;
+  thai_nationalid_copy: {
+    name: string;
+    url: string;
+  };
 
   @ApiProperty({
-    type: 'string',
+    type: 'object',
+    properties: {
+      name: {
+        type: 'string',
+      },
+      url: {
+        type: 'string',
+      },
+    },
   })
-  thai_nationalid_copy_filepath: string;
+  parent_permission: {
+    name: string;
+    url: string;
+  };
 
   @ApiProperty({
-    type: 'string',
+    type: 'object',
+    properties: {
+      name: {
+        type: 'string',
+      },
+      url: {
+        type: 'string',
+      },
+    },
   })
-  parent_permission_filepath: string;
+  p1: {
+    name: string;
+    url: string;
+  };
 
   @ApiProperty({
-    type: 'string',
+    type: 'object',
+    properties: {
+      name: {
+        type: 'string',
+      },
+      url: {
+        type: 'string',
+      },
+    },
   })
-  p1_filepath: string;
-
-  @ApiProperty({
-    type: 'string',
-  })
-  p7_filepath: string;
+  p7: {
+    name: string;
+    url: string;
+  };
 }

@@ -103,60 +103,6 @@
         "tags": ["Files"]
       }
     },
-    "/files/getblobs": {
-      "post": {
-        "operationId": "FilesController_getBlobs",
-        "parameters": [],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": { "$ref": "#/components/schemas/GetUrlFileInputDto" }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/UserFilesResponseDto"
-                }
-              }
-            }
-          }
-        },
-        "tags": ["Files"]
-      }
-    },
-    "/files/geturl": {
-      "post": {
-        "operationId": "FilesController_getFiles",
-        "parameters": [],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": { "$ref": "#/components/schemas/GetUrlFileInputDto" }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/UserFilesResponseDto"
-                }
-              }
-            }
-          }
-        },
-        "tags": ["Files"]
-      }
-    },
     "/files/user-files": {
       "get": {
         "operationId": "FilesController_getUserFiles",
@@ -389,33 +335,51 @@
           "parent_phone": { "type": "string" }
         }
       },
-      "GetUrlFileInputDto": {
-        "type": "object",
-        "properties": {
-          "face_photo_key": { "type": "string" },
-          "thai_nationalid_copy_key": { "type": "string" },
-          "parent_permission_key": { "type": "string" },
-          "p1_key": { "type": "string" },
-          "p7_key": { "type": "string" }
-        }
-      },
       "UserFilesResponseDto": {
         "type": "object",
         "properties": {
-          "id": { "type": "string" },
-          "face_photo_filepath": { "type": "string" },
-          "thai_nationalid_copy_filepath": { "type": "string" },
-          "parent_permission_filepath": { "type": "string" },
-          "p1_filepath": { "type": "string" },
-          "p7_filepath": { "type": "string" }
+          "face_photo": {
+            "type": "object",
+            "properties": {
+              "name": { "type": "string" },
+              "url": { "type": "string" }
+            }
+          },
+          "thai_nationalid_copy": {
+            "type": "object",
+            "properties": {
+              "name": { "type": "string" },
+              "url": { "type": "string" }
+            }
+          },
+          "parent_permission": {
+            "type": "object",
+            "properties": {
+              "name": { "type": "string" },
+              "url": { "type": "string" }
+            }
+          },
+          "p1": {
+            "type": "object",
+            "properties": {
+              "name": { "type": "string" },
+              "url": { "type": "string" }
+            }
+          },
+          "p7": {
+            "type": "object",
+            "properties": {
+              "name": { "type": "string" },
+              "url": { "type": "string" }
+            }
+          }
         },
         "required": [
-          "id",
-          "face_photo_filepath",
-          "thai_nationalid_copy_filepath",
-          "parent_permission_filepath",
-          "p1_filepath",
-          "p7_filepath"
+          "face_photo",
+          "thai_nationalid_copy",
+          "parent_permission",
+          "p1",
+          "p7"
         ]
       },
       "AnswerRegisResponseDto": {

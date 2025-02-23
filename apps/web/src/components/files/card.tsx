@@ -1,4 +1,3 @@
-import { isFileWithPreview } from "@/components/files";
 import { Button } from "@/components/ui/button";
 import { formatBytes } from "@/libs/utils";
 import { FileText, X } from "lucide-react";
@@ -13,12 +12,17 @@ export function FileCard({ file, onRemove }: FileCardProps) {
   return (
     <div className="relative flex items-center gap-2.5">
       <div className="flex flex-1 gap-2.5">
-        {isFileWithPreview(file) ? <FilePreview file={file} /> : null}
+        <FilePreview file={file} />
         <div className="flex w-full flex-col gap-2">
           <div className="flex flex-col gap-px">
-            <p className="text-charcoal-special line-clamp-1 text-sm font-medium">
+            <a
+              onClick={() => {
+                window.open(URL.createObjectURL(file), "_blank");
+              }}
+              className="text-charcoal-special line-clamp-1 cursor-pointer text-sm font-medium hover:underline"
+            >
               {file.name}
-            </p>
+            </a>
             <p className="text-dimgray-special text-xs">
               {formatBytes(file.size)}
             </p>
@@ -36,14 +40,14 @@ export function FileCard({ file, onRemove }: FileCardProps) {
 }
 
 interface FilePreviewProps {
-  file: File & { preview: string };
+  file: File;
 }
 
 export function FilePreview({ file }: FilePreviewProps) {
   if (file.type.startsWith("image/")) {
     return (
       <Image
-        src={file.preview}
+        src={URL.createObjectURL(file)}
         alt={file.name}
         width={48}
         height={48}
