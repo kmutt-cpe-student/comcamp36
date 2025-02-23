@@ -11,6 +11,9 @@ import { toast } from "sonner";
 import { z } from "zod";
 
 function RegisterInfoPage() {
+  const { data: userData } = fetchQuery.useQuery("get", "/auth/me", {
+    refetchOnWindowFocus: false,
+  });
   const { mutate, isPending } = fetchQuery.useMutation(
     "post",
     "/files/upload",
@@ -73,6 +76,9 @@ function RegisterInfoPage() {
           }}
           onSubmit={onSubmit}
           isPending={isPending}
+          hasSubmit={
+            userData?.has_submit_answer ? userData.has_submit_answer : false
+          }
         />
       ) : (
         <FilesForm
@@ -85,6 +91,9 @@ function RegisterInfoPage() {
           }}
           onSubmit={onSubmit}
           isPending={isPending}
+          hasSubmit={
+            userData?.has_submit_answer ? userData.has_submit_answer : false
+          }
         />
       )}
     </FormCard>

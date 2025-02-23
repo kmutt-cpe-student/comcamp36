@@ -51,9 +51,10 @@ interface WrapperProps {
   };
   onSubmit: (data: z.infer<typeof formSchema>) => void;
   isPending?: boolean;
+  hasSubmit: boolean;
 }
 
-function Wrapper({ data, onSubmit, isPending }: WrapperProps) {
+function Wrapper({ data, onSubmit, isPending, hasSubmit }: WrapperProps) {
   const [files, setFiles] = useState<FileItems | undefined>(undefined);
 
   useEffect(() => {
@@ -97,6 +98,7 @@ function Wrapper({ data, onSubmit, isPending }: WrapperProps) {
       }}
       onSubmit={onSubmit}
       isPending={isPending}
+      hasSubmit={hasSubmit}
     />
   );
 }
