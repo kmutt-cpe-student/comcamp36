@@ -7,7 +7,7 @@ import Navbar from "@/components/navigate/navbar";
 import Spinner from "@/components/spinner";
 import { Button } from "@/components/ui/button";
 import { fetchClient } from "@/libs/server/client";
-import { redirect, useRouter } from "next/navigation";
+import { notFound, redirect, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { steps } from "./form-stepper";
 
@@ -21,6 +21,11 @@ export default function RegisterLayout({
   const router = useRouter();
 
   useEffect(() => {
+    const deadline = new Date("2025-02-24T12:00:00");
+    if (new Date() <= deadline) {
+      return notFound();
+    }
+
     async function checkUser() {
       try {
         const { data } = await fetchClient.GET("/auth/me");
