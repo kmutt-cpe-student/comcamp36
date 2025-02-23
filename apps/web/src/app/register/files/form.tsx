@@ -18,6 +18,8 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 
+const PARENT_FORM_URL = "https://axizqhrfmehmjjbztewj.supabase.co/storage/v1/object/public/comcamp36-public-files/comcamp36-parent-consent.pdf"
+
 export const formSchema = z.object({
   face_photo: z
     .array(z.instanceof(File))
@@ -102,8 +104,8 @@ function FilesForm(props: FilesFormProps) {
             render={({ field }) => (
               <FormItem>
                 <FormLabel>หนังสือยินยอมผู้ปกครอง</FormLabel>
-                <FormDescription className="text-white/40">
-                  <strong>ดาวโหลดไฟล์หนังสือยินยอมผู้ปกครอง</strong>
+                <FormDescription className="text-white/40 hover:text-vermilion hover:underline">
+                  <strong><a href={PARENT_FORM_URL} target="_blank" rel="noopener noreferrer">คลิกที่นี่เพื่อดาวน์โหลดไฟล์หนังสือยินยอมผู้ปกครอง</a></strong>
                 </FormDescription>
                 <FormControl>
                   <FileUploader
