@@ -4,6 +4,7 @@ import PrivacyPolicy from "@/app/privacy/policy";
 import { MagicCard } from "@/components/card/magic-card";
 import { cn } from "@/libs/utils";
 import { useEffect, useState } from "react";
+import { Button } from "../ui/button";
 import { Checkbox } from "../ui/checkbox";
 import { ScrollArea } from "../ui/scroll-area";
 
@@ -65,13 +66,9 @@ export default function PolicyConsent({ demo = false }) {
               <small>รับทราบและให้ความยินยอมตามนโยบายความเป็นส่วนตัว</small>
             </div>
 
-            <button
-              onClick={accept}
-              className="hover:text-vermilion h-fit w-fit cursor-pointer py-5 transition-colors"
-              disabled={!check}
-            >
+            <Button onClick={accept} disabled={!check}>
               ยอมรับ
-            </button>
+            </Button>
           </div>
         </div>
       </MagicCard>
