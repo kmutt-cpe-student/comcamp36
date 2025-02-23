@@ -165,4 +165,9 @@ export class UserResponseDto {
     type: 'boolean',
   })
   info_done?: boolean;
+
+  @ApiProperty({
+    type: 'boolean',
+  })
+  has_submit_answer?: boolean;
 }

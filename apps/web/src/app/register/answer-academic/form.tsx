@@ -30,6 +30,7 @@ interface AnswerAcademicProps {
   data: z.infer<typeof formSchema>;
   onSubmit: (data: z.infer<typeof formSchema>) => void;
   isPending?: boolean;
+  hasSubmit: boolean;
 }
 
 function AnswerAcademic(props: AnswerAcademicProps) {
@@ -43,6 +44,7 @@ function AnswerAcademic(props: AnswerAcademicProps) {
       <form onSubmit={form.handleSubmit(props.onSubmit)}>
         <div className="font-noto-sans-thai-looped grid gap-20">
           <FormField
+            disabled={props.hasSubmit}
             control={form.control}
             name="algo_answer"
             render={({ field }) => (
@@ -143,7 +145,7 @@ function AnswerAcademic(props: AnswerAcademicProps) {
           </div>
         </div>
         <div className="flex w-full justify-center pt-16">
-          <Button type="submit" disabled={props.isPending}>
+          <Button type="submit" disabled={props.isPending || props.hasSubmit}>
             {props.isPending ? <Spinner /> : "บันทึกคำถามคัดเลือก 2"}
           </Button>
         </div>

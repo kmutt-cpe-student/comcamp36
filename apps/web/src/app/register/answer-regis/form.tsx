@@ -31,6 +31,7 @@ interface AnswerRegisProps {
   data: z.infer<typeof formSchema>;
   onSubmit: (data: z.infer<typeof formSchema>) => void;
   isPending?: boolean;
+  hasSubmit: boolean;
 }
 
 function AnswerRegis(props: AnswerRegisProps) {
@@ -47,6 +48,7 @@ function AnswerRegis(props: AnswerRegisProps) {
       >
         <div className="grid gap-20">
           <FormField
+            disabled={props.hasSubmit}
             control={form.control}
             name="answer1"
             render={({ field }) => (
@@ -61,6 +63,7 @@ function AnswerRegis(props: AnswerRegisProps) {
           />
 
           <FormField
+            disabled={props.hasSubmit}
             control={form.control}
             name="answer2"
             render={({ field }) => (
@@ -79,6 +82,7 @@ function AnswerRegis(props: AnswerRegisProps) {
           />
 
           <FormField
+            disabled={props.hasSubmit}
             control={form.control}
             name="answer3"
             render={({ field }) => (
@@ -190,6 +194,7 @@ function AnswerRegis(props: AnswerRegisProps) {
           />
 
           <FormField
+            disabled={props.hasSubmit}
             control={form.control}
             name="answer4"
             render={({ field }) => (
@@ -208,6 +213,7 @@ function AnswerRegis(props: AnswerRegisProps) {
           />
 
           <FormField
+            disabled={props.hasSubmit}
             control={form.control}
             name="answer5"
             render={({ field }) => (
@@ -238,6 +244,7 @@ function AnswerRegis(props: AnswerRegisProps) {
           </div>
 
           <FormField
+            disabled={props.hasSubmit}
             control={form.control}
             name="answer6_1"
             render={({ field }) => (
@@ -256,6 +263,7 @@ function AnswerRegis(props: AnswerRegisProps) {
           />
 
           <FormField
+            disabled={props.hasSubmit}
             control={form.control}
             name="answer6_2"
             render={({ field }) => (
@@ -272,7 +280,7 @@ function AnswerRegis(props: AnswerRegisProps) {
         <div className="flex w-full justify-center pt-16">
           <Button
             type="submit"
-            disabled={props.isPending || !form.formState.isDirty}
+            disabled={props.isPending || !form.formState.isDirty || props.hasSubmit}
           >
             {props.isPending ? <Spinner /> : "บันทึกคำถามคัดเลือก 1"}
           </Button>

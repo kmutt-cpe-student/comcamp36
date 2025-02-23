@@ -42,6 +42,7 @@ interface FilesFormProps {
   data: z.infer<typeof formSchema>;
   onSubmit: (data: z.infer<typeof formSchema>) => void;
   isPending?: boolean;
+  hasSubmit: boolean;
 }
 
 function FilesForm(props: FilesFormProps) {
@@ -55,6 +56,7 @@ function FilesForm(props: FilesFormProps) {
       <form onSubmit={form.handleSubmit(props.onSubmit)}>
         <CardContent className="font-noto-sans-thai-looped grid grid-cols-1 justify-start gap-10 lg:grid-cols-2">
           <FormField
+            disabled={props.hasSubmit}
             control={form.control}
             name="face_photo"
             render={({ field }) => (
@@ -76,6 +78,7 @@ function FilesForm(props: FilesFormProps) {
             )}
           />
           <FormField
+            disabled={props.hasSubmit}
             control={form.control}
             name="thai_nationalid_copy"
             render={({ field }) => (
@@ -99,6 +102,7 @@ function FilesForm(props: FilesFormProps) {
             )}
           />
           <FormField
+            disabled={props.hasSubmit}
             control={form.control}
             name="parent_permission"
             render={({ field }) => (
@@ -121,6 +125,7 @@ function FilesForm(props: FilesFormProps) {
             )}
           />
           <FormField
+            disabled={props.hasSubmit}
             control={form.control}
             name="p1"
             render={({ field }) => (
@@ -146,6 +151,7 @@ function FilesForm(props: FilesFormProps) {
             )}
           />
           <FormField
+            disabled={props.hasSubmit}
             control={form.control}
             name="p7"
             render={({ field }) => (
@@ -175,7 +181,7 @@ function FilesForm(props: FilesFormProps) {
         <div className="flex w-full justify-center pt-16">
           <Button
             type="submit"
-            disabled={props.isPending || !form.formState.isDirty}
+            disabled={props.isPending || !form.formState.isDirty || props.hasSubmit}
           >
             {props.isPending ? <Spinner /> : "อัพโหลดไฟล์"}
           </Button>

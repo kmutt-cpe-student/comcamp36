@@ -17,6 +17,7 @@ import FilesForm, { formSchema } from "./form";
 import Wrapper from "./wrapper";
 
 function RegisterInfoPage() {
+  const { data: userData } = fetchQuery.useQuery("get", "/auth/me");
   const { mutate, isPending } = fetchQuery.useMutation(
     "post",
     "/files/upload",
@@ -51,7 +52,7 @@ function RegisterInfoPage() {
   if (isGetFilesPending) {
     return <RegisterFormSkeleton />;
   }
-
+  
   return (
     <Card className="w-full max-w-[110rem]">
       <CardHeader>
@@ -99,6 +100,7 @@ function RegisterInfoPage() {
           }}
           onSubmit={onSubmit}
           isPending={isPending}
+          hasSubmit={userData?.has_submit_answer ? userData.has_submit_answer : false}
         />
       )}
     </Card>

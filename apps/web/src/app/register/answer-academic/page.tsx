@@ -17,6 +17,11 @@ import RegisterFormSkeleton from "../skeleton";
 import AnswerAcademic, { formSchema } from "./form";
 
 function RegisterInfoPage() {
+  const { data: userData } = fetchQuery.useQuery(
+    "get",
+    "/auth/me",
+  );
+
   const queryClient = useQueryClient();
 
   const { data, isPending: isUserDataPending } = fetchQuery.useQuery(
@@ -74,6 +79,7 @@ function RegisterInfoPage() {
           }}
           onSubmit={onSubmit}
           isPending={isPending}
+          hasSubmit={userData?.has_submit_answer ? userData.has_submit_answer : false}
         />
       </CardContent>
     </Card>

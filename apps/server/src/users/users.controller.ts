@@ -77,13 +77,18 @@ export class UsersController {
     if (!req['user_id']) {
       throw new HttpException('Not found', HttpStatus.NOT_FOUND);
     }
+    const user = await this.usersService.findOne(req['user_id']);
+    if (user.has_submit_answer) {
+      throw new HttpException('UNAUTHORIZED', HttpStatus.UNAUTHORIZED);
+    }
+
     const birth = new Date(updateUserDto.birth);
-    const user = await this.usersService.update(
+    const updateuser = await this.usersService.update(
       req['user_id'],
       updateUserDto,
       birth,
     );
-    return user;
+    return updateuser;
   }
 
   // @Delete(':id')

@@ -17,11 +17,12 @@ import { AuthGuard } from 'src/auth/auth.guard';
 import type { Request } from 'express';
 import { UploadFileResponseDto } from './dto/upload-file-response.dto';
 import { UserFilesResponseDto } from './dto/user-files-response.dto';
+import { UsersService } from 'src/users/users.service';
 
 @Controller('files')
 @UseGuards(AuthGuard)
 export class FilesController {
-  constructor(private filesService: FilesService) {}
+  constructor(private filesService: FilesService, private usersService: UsersService) {}
 
   @ApiConsumes('multipart/form-data')
   @ApiResponse({
@@ -65,7 +66,11 @@ export class FilesController {
       { name: 'p7', maxCount: 1 },
     ]),
   )
-  uploadFile(@UploadedFiles() files: UploadFileDto, @Req() req: Request) {
+  async uploadFile(@UploadedFiles() files: UploadFileDto, @Req() req: Request) {
+    const user = await this.usersService.findOne(req['user_id']);
+    if (user.has_submit_answer) {
+      throw new HttpException('UNAUTHORIZED', HttpStatus.UNAUTHORIZED);
+    }
     return this.filesService.uploadFile(files, req['user_id']);
   }
 
