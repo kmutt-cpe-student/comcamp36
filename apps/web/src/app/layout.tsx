@@ -1,8 +1,12 @@
+import { Toaster } from "@/components/ui/sonner";
+
+import CookieConsent from "@/components/card/cookie-consent";
 import { CSPostHogProvider } from "@/components/provider/post-hog";
 import QueryProvider from "@/components/provider/query";
 import { TailwindIndicator } from "@/components/tailwind-indicator";
 import { gameOfSquid, gemunuLibre, notoSansThaiLooped, prompt } from "@/fonts";
 import type { Metadata } from "next";
+import ErrorBoundary from "./error-boundary";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -29,15 +33,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="scroll-smooth">
       <body
-        className={`${gameOfSquid.variable} ${prompt.className} ${notoSansThaiLooped.className} ${gemunuLibre.className}`}
+        className={`${gameOfSquid.variable} ${prompt.variable} ${notoSansThaiLooped.variable} ${gemunuLibre.variable}`}
       >
         <TailwindIndicator />
         <QueryProvider>
           <CSPostHogProvider>
-            {children}
-            {/* <CookieConsent /> */}
+            <ErrorBoundary>{children}</ErrorBoundary>
+            <Toaster richColors />
+            <CookieConsent />
           </CSPostHogProvider>
         </QueryProvider>
       </body>

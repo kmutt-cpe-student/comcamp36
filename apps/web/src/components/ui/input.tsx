@@ -5,7 +5,15 @@ import { cn } from "@/libs/utils";
 const Input = React.forwardRef<HTMLInputElement, React.ComponentProps<"input">>(
   ({ className, type, ...props }, ref) => {
     return (
-      <input type={type} className={cn("", className)} ref={ref} {...props} />
+      <input
+        type={type}
+        className={cn(
+          "border-vermilion-1/30 focus-visible:ring-vermilion/60 flex h-12 w-full rounded-md border bg-transparent px-3 py-1 shadow-sm transition-colors file:hidden placeholder:text-white/40 focus-visible:outline-none focus-visible:ring-1 disabled:cursor-not-allowed disabled:opacity-50",
+          className,
+        )}
+        ref={ref}
+        {...props}
+      />
     );
   },
 );
