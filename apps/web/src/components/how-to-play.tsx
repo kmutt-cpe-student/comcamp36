@@ -35,8 +35,10 @@ const TileDescription = ({
       />
     </div>
     <div className="flex min-h-[5rem] flex-col justify-center gap-2">
-      <p className="text-vermilion text-base font-bold sm:text-lg">{title}</p>
-      <small className="text-sm text-gray-300 sm:text-base">
+      <p className="font-prompt text-vermilion text-base font-bold sm:text-lg">
+        {title}
+      </p>
+      <small className="font-noto-sans-thai-looped text-sm text-gray-300 sm:text-base">
         {description}
       </small>
     </div>

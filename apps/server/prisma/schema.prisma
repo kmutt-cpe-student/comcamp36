@@ -3,15 +3,14 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
   directUrl = env("DIRECT_URL")
 }
 
 model User {
-  id                  String           @id @default(uuid())
-  google_id           String           @unique
-  title               String?
+  id                  String          @id @default(uuid())
+  google_id           String          @unique
   fullname            String?
   age                 Int?
   birth               DateTime?
@@ -22,50 +21,50 @@ model User {
   school              String?
   course              String?
   telephone           String?
-  email               String           @unique
+  email               String          @unique
   medical_coverage    String?
   chronic_disease     String?
   self_medicine       String?
   drug_allergic       String?
   food_allergic       String?
-  prefer_food         String?
   address             String?
   home_phone_tel      String?
   comcamp_attendance  Boolean?
   shirt_size          String?
-  everyday_attendance Boolean?
   has_laptop          Boolean?
   travel              String?
   parent_fullname     String?
   parent_relation     String?
   parent_phone        String?
-  has_submit_answer   Boolean @default(false)
-  academic_done       Boolean @default(false)
-  files_done          Boolean @default(false)
-  info_done           Boolean @default(false) 
-  regis_done          Boolean @default(false)
-  file                File?
-  answer_regis        AnswerRegis?
+  academic_done       Boolean         @default(false)
+  files_done          Boolean         @default(false)
+  info_done           Boolean         @default(false)
+  regis_done          Boolean         @default(false)
+  title               String?
+  prefer_food         String?
+  everyday_attendance Boolean?
+  has_submit_answer   Boolean         @default(false)
   answer_academic     AnswerAcademic?
+  answer_regis        AnswerRegis?
+  file                File?
 }
 
 model File {
-  id                            String @id @default(uuid())
-  userId                        String @unique
+  id                            String  @id @default(uuid())
+  userId                        String  @unique
   face_photo_filepath           String?
   thai_nationalid_copy_filepath String?
   parent_permission_filepath    String?
   p1_filepath                   String?
   p7_filepath                   String?
-
-  user User @relation(fields: [userId], references: [id])
+  user                          User    @relation(fields: [userId], references: [id])
 
   @@index([userId])
 }
 
 model AnswerRegis {
-  id        String @id @default(uuid())
-  userId    String @unique
+  id        String  @id @default(uuid())
+  userId    String  @unique
   answer1   String?
   answer2   String?
   answer3   String?
@@ -73,26 +72,24 @@ model AnswerRegis {
   answer5   String?
   answer6_1 String?
   answer6_2 String?
-
-  user User @relation(fields: [userId], references: [id])
+  user      User    @relation(fields: [userId], references: [id])
 
   @@index([userId])
 }
 
 model AnswerAcademic {
-  id             String @id @default(uuid())
-  userId         String @unique
+  id             String  @id @default(uuid())
+  userId         String  @unique
   algo_answer    String?
   chess_notation String?
   chess_score    Int?
-
-  user User @relation(fields: [userId], references: [id])
+  user           User    @relation(fields: [userId], references: [id])
 
   @@index([userId])
 }
 
 model Session {
-  sid    String   @id @default(uuid())
+  sid     String   @id @default(uuid())
   user_id String
-  expire DateTime @db.Timestamp(6)
+  expire  DateTime @db.Timestamp(6)
 }

@@ -1,20 +1,15 @@
 "use client";
 
+import AnswerRegis, { formSchema } from "@/app/register/answer-regis/form";
+import FormCard from "@/app/register/form-card";
+import RegisterFormSkeleton from "@/app/register/skeleton";
 import { TextShimmer } from "@/components/text/text-shimmer";
-import {
-  CardContent,
-  CardDescription,
-  CardForm,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { CardForm, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
 import { formatThaiBuddhist } from "@/libs/date";
 import { fetchQuery } from "@/libs/server/client";
 import { useQueryClient } from "@tanstack/react-query";
 import { toast } from "sonner";
 import { z } from "zod";
-import RegisterFormSkeleton from "../skeleton";
-import AnswerRegis, { formSchema } from "./form";
 
 function RegisterInfoPage() {
   const { data: userData } = fetchQuery.useQuery(
@@ -25,6 +20,10 @@ function RegisterInfoPage() {
   const { data, isPending: isUserDataPending } = fetchQuery.useQuery(
     "get",
     "/answer/user-regis",
+    undefined,
+    {
+      refetchOnWindowFocus: false,
+    },
   );
 
   const { mutate, isPending } = fetchQuery.useMutation(
@@ -80,8 +79,8 @@ function RegisterInfoPage() {
             answer6_2: data?.answer6_2 ? data.answer6_2 : "",
           }}
           onSubmit={onSubmit}
-          isPending={isPending}
-          hasSubmit={userData?.has_submit_answer ? userData.has_submit_answer : false}
+          isPending={isPending} 
+          hasSubmit={userData?.has_submit_answer ? userData.has_submit_answer : false}        
         />
       </CardContent>
     </CardForm>

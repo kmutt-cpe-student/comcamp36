@@ -23,8 +23,8 @@ interface NavbarProps {
 
 export default function Navbar({ items, extra }: NavbarProps) {
   return (
-    <div className="font-prompt fixed left-0 top-0 w-full px-5 py-5">
-      <div className="backdrop-blur-xs h-18 flex items-center justify-between rounded-[20px] border-[1px] border-[#424242] bg-[#292929]/50 px-5 lg:px-9">
+    <div className="font-prompt fixed left-0 top-0 w-full px-0 py-5 sm:px-5">
+      <div className="backdrop-blur-xs h-18 flex items-center justify-between rounded-xl border-[1px] border-[#424242] bg-[#292929]/50 px-3 lg:px-9">
         <div className="flex w-20 items-center justify-center pt-1">
           <Link href="/#hero">
             <Image

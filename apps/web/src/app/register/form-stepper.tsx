@@ -25,7 +25,7 @@ export const steps = [
   },
   {
     step: 3,
-    title: "คำถามคัดเลือก 1",
+    title: "ปริศนาปัญญาชน",
     href: "/register/answer-regis",
   },
   {
