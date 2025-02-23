@@ -24,11 +24,11 @@ export default function RegisterLayout({
         if (data?.email) {
           setHaveUser(true);
         } else {
-          return redirect("/signin");
+          return redirect("/sign-in");
         }
       } catch (error) {
         console.error(error);
-        return redirect("/signin");
+        return redirect("/sign-in");
       }
     }
     checkUser();

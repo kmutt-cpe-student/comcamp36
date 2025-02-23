@@ -46,7 +46,7 @@ export default function Home() {
             //     <Button>สมัครเลย!</Button>
             //   </Link>
             // ) : null
-            <Link href="/signin">
+            <Link href="/sign-in">
               <Button>สมัครเลย!</Button>
             </Link>
           }
