@@ -1,1 +1,26 @@
-<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><style>.cls-1{fill:#f15a29;}.cls-2{fill:#be3400;}.cls-3{fill:#ffc794;}.cls-4{font-size:34px;fill:#ffe3bf;font-family:GameOfSquids, Game Of Squids;}</style></defs><title>ช่องคำอวยพร</title><rect class="cls-1" width="100" height="100"/><rect class="cls-2" y="95" width="100" height="5"/><rect class="cls-3" width="100" height="5"/><text class="cls-4" transform="translate(38.31 61.5)">?</text></svg>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 24.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 100 100" style="enable-background:new 0 0 100 100;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#F15A29;}
+	.st1{fill:#BE3400;}
+	.st2{fill:#FFC794;}
+	.st3{enable-background:new    ;}
+	.st4{fill:#FFE3BF;}
+</style>
+<title>ช่องคำอวยพร</title>
+<rect class="st0" width="100" height="100"/>
+<rect y="95" class="st1" width="100" height="5"/>
+<rect class="st2" width="100" height="5"/>
+<g class="st3">
+	<path class="st4" d="M42.6,44.5H29.8v-4.3h12.8c1.8,0,3.3,0.6,4.5,1.9c1.2,1.2,1.9,2.7,1.9,4.5c0,1.8-0.6,3.3-1.9,4.5
+		c-1.2,1.2-2.7,1.9-4.5,1.9h-2.1v1.1h-4.3v-5.3h6.4c0.6,0,1.1-0.2,1.5-0.6c0.4-0.4,0.6-0.9,0.6-1.5s-0.2-1.1-0.6-1.5
+		C43.7,44.7,43.2,44.5,42.6,44.5z M38.3,61.5c-0.7,0-1.4-0.3-1.9-0.8c-0.5-0.5-0.8-1.1-0.8-1.9s0.3-1.4,0.8-1.9
+		c0.5-0.5,1.1-0.8,1.9-0.8s1.4,0.3,1.9,0.8c0.5,0.5,0.8,1.1,0.8,1.9s-0.3,1.4-0.8,1.9C39.7,61.2,39,61.5,38.3,61.5z"/>
+	<path class="st4" d="M69.2,40.3L57.4,61.5h-4.3L65,40.3H69.2z M55.8,45.6c-0.7,0-1.4-0.3-1.9-0.8c-0.5-0.5-0.8-1.1-0.8-1.9
+		s0.3-1.4,0.8-1.9c0.5-0.5,1.1-0.8,1.9-0.8s1.4,0.3,1.9,0.8c0.5,0.5,0.8,1.1,0.8,1.9s-0.3,1.4-0.8,1.9
+		C57.2,45.3,56.6,45.6,55.8,45.6z M67.5,61.5c-0.7,0-1.4-0.3-1.9-0.8c-0.5-0.5-0.8-1.1-0.8-1.9s0.3-1.4,0.8-1.9
+		c0.5-0.5,1.1-0.8,1.9-0.8s1.4,0.3,1.9,0.8c0.5,0.5,0.8,1.1,0.8,1.9s-0.3,1.4-0.8,1.9C68.9,61.2,68.3,61.5,67.5,61.5z"/>
+</g>
+</svg>
