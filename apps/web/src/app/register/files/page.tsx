@@ -12,7 +12,9 @@ import JsonToFormData from "@/libs/server/body-serializer";
 import { fetchQuery } from "@/libs/server/client";
 import { toast } from "sonner";
 import { z } from "zod";
+import RegisterFormSkeleton from "../skeleton";
 import FilesForm, { formSchema } from "./form";
+import Wrapper from "./wrapper";
 
 function RegisterInfoPage() {
   const { mutate, isPending } = fetchQuery.useMutation(
@@ -41,6 +43,15 @@ function RegisterInfoPage() {
     });
   };
 
+  const { data, isPending: isGetFilesPending } = fetchQuery.useQuery(
+    "get",
+    "/files/user-files",
+  );
+
+  if (isGetFilesPending) {
+    return <RegisterFormSkeleton />;
+  }
+
   return (
     <Card className="w-full max-w-[110rem]">
       <CardHeader>
@@ -56,17 +67,40 @@ function RegisterInfoPage() {
           <small>Card Description</small>
         </CardDescription>
       </CardHeader>
-      <FilesForm
-        data={{
-          face_photo: [],
-          thai_nationalid_copy: [],
-          parent_permission: [],
-          p1: [],
-          p7: [],
-        }}
-        onSubmit={onSubmit}
-        isPending={isPending}
-      />
+      {data ? (
+        <Wrapper
+          data={{
+            face_photo: {
+              url: data.face_photo?.url || "",
+              name: data.face_photo?.name || "",
+            },
+            thai_nationalid_copy: {
+              url: data.thai_nationalid_copy?.url || "",
+              name: data.thai_nationalid_copy?.name || "",
+            },
+            parent_permission: {
+              url: data.parent_permission?.url || "",
+              name: data.parent_permission?.name || "",
+            },
+            p1: { url: data.p1?.url || "", name: data.p1?.name || "" },
+            p7: { url: data.p7?.url || "", name: data.p7?.name || "" },
+          }}
+          onSubmit={onSubmit}
+          isPending={isPending}
+        />
+      ) : (
+        <FilesForm
+          data={{
+            face_photo: [],
+            thai_nationalid_copy: [],
+            parent_permission: [],
+            p1: [],
+            p7: [],
+          }}
+          onSubmit={onSubmit}
+          isPending={isPending}
+        />
+      )}
     </Card>
   );
 }

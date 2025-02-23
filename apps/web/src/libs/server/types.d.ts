@@ -111,38 +111,6 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
-  "/files/getblobs": {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    get?: never;
-    put?: never;
-    post: operations["FilesController_getBlobs"];
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  "/files/geturl": {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    get?: never;
-    put?: never;
-    post: operations["FilesController_getFiles"];
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
   "/files/user-files": {
     parameters: {
       query?: never;
@@ -258,20 +226,27 @@ export interface components {
       parent_relation?: string;
       parent_phone?: string;
     };
-    GetUrlFileInputDto: {
-      face_photo_key?: string;
-      thai_nationalid_copy_key?: string;
-      parent_permission_key?: string;
-      p1_key?: string;
-      p7_key?: string;
-    };
     UserFilesResponseDto: {
-      id: string;
-      face_photo_filepath: string;
-      thai_nationalid_copy_filepath: string;
-      parent_permission_filepath: string;
-      p1_filepath: string;
-      p7_filepath: string;
+      face_photo: {
+        name?: string;
+        url?: string;
+      };
+      thai_nationalid_copy: {
+        name?: string;
+        url?: string;
+      };
+      parent_permission: {
+        name?: string;
+        url?: string;
+      };
+      p1: {
+        name?: string;
+        url?: string;
+      };
+      p7: {
+        name?: string;
+        url?: string;
+      };
     };
     AnswerRegisResponseDto: {
       id: string;
@@ -451,52 +426,6 @@ export interface operations {
           [name: string]: unknown;
         };
         content?: never;
-      };
-    };
-  };
-  FilesController_getBlobs: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody: {
-      content: {
-        "application/json": components["schemas"]["GetUrlFileInputDto"];
-      };
-    };
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          "application/json": components["schemas"]["UserFilesResponseDto"];
-        };
-      };
-    };
-  };
-  FilesController_getFiles: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody: {
-      content: {
-        "application/json": components["schemas"]["GetUrlFileInputDto"];
-      };
-    };
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          "application/json": components["schemas"]["UserFilesResponseDto"];
-        };
       };
     };
   };
