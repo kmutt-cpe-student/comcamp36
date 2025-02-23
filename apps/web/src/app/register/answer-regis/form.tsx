@@ -46,7 +46,7 @@ function AnswerRegis(props: AnswerRegisProps) {
         onSubmit={form.handleSubmit(props.onSubmit)}
         className="font-noto-sans-thai-looped"
       >
-        <div className="grid gap-8 md:gap-20">
+        <div className="grid gap-12 md:gap-20">
           <FormField
             disabled={props.hasSubmit}
             control={form.control}

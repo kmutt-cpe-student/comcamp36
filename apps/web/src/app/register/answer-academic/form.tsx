@@ -44,7 +44,7 @@ function AnswerAcademic(props: AnswerAcademicProps) {
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(props.onSubmit)}>
-        <div className="font-noto-sans-thai-looped grid gap-8 md:gap-12">
+        <div className="font-noto-sans-thai-looped grid gap-12 md:gap-20">
           <div className="grid gap-6 md:gap-10">
             <div className="flex flex-col gap-3 md:gap-4">
               <p className="font-bold">1. 10 สหายในเงามืด</p>
