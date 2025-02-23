@@ -10,7 +10,7 @@ export default async function SigninPage() {
   if (data?.email) return redirect("/register");
 
   return (
-    <div className="bg-charcoal-1 grid h-screen w-screen grid-cols-1 place-content-center place-items-center items-center justify-center gap-10 md:grid-cols-2">
+    <div className="grid h-screen w-screen grid-cols-1 place-content-center place-items-center items-center justify-center gap-10 bg-[#0d0d0d] md:grid-cols-2">
       <div className="h-full w-fit">
         <div className="flex w-[18rem] justify-center md:w-[24rem]">
           <Image

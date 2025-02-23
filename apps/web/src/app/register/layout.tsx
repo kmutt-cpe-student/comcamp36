@@ -5,8 +5,9 @@ import PolicyConsent from "@/components/card/policy-consent";
 import Footer from "@/components/navigate/footer";
 import Navbar from "@/components/navigate/navbar";
 import Spinner from "@/components/spinner";
+import { Button } from "@/components/ui/button";
 import { fetchClient } from "@/libs/server/client";
-import { redirect } from "next/navigation";
+import { redirect, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { steps } from "./form-stepper";
 
@@ -16,6 +17,8 @@ export default function RegisterLayout({
   children: React.ReactNode;
 }>) {
   const [haveUser, setHaveUser] = useState(false);
+
+  const router = useRouter();
 
   useEffect(() => {
     async function checkUser() {
@@ -36,8 +39,15 @@ export default function RegisterLayout({
 
   if (!haveUser) {
     return (
-      <div className="flex min-h-screen w-full items-center justify-center bg-[#0d0d0d] text-white">
+      <div className="flex min-h-screen w-full flex-col items-center justify-center gap-4 bg-[#0d0d0d] text-white">
         <Spinner />
+        <Button
+          onClick={() => router.replace("/")}
+          variant="outline"
+          className="bg-[#0d0d0d]"
+        >
+          หากนานเกินไปให้กดปุ้มนี้เพื่อย้อนกลับ
+        </Button>
       </div>
     );
   }
