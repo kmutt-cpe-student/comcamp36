@@ -1,28 +1,39 @@
 "use client";
 
 import { formatThaiBuddhist } from "@/libs/date";
-import { fetchClient } from "@/libs/server/client";
+import { fetchQuery } from "@/libs/server/client";
 import { toast } from "sonner";
+import { Magnetic } from "../animation/magnetics";
+import { Button } from "../ui/button";
 
 export default function SubmitAnswerBtn() {
-  async function submitAnswer() {
-    try {
-      await fetchClient.POST("/answer/submit-answer");
-      toast.success("ส่งคำตอบสำเร็จ!", {
-        description: `ส่งคำตอบสำเร็จ ณ​ ${formatThaiBuddhist(new Date())}`,
-      });
-    } catch (error) {
-      toast.error("เกิดข้อผิดพลาดบางอย่างในระบบ!");
-      console.error(error);
-    }
-  }
+  const { mutate, isPending, isSuccess } = fetchQuery.useMutation(
+    "post",
+    "/answer/submit-answer",
+    {
+      onSuccess() {
+        toast.success("ส่งคำตอบสำเร็จ!", {
+          description: `ส่งคำตอบสำเร็จ ณ​ ${formatThaiBuddhist(new Date())}`,
+        });
+      },
+      onError() {
+        toast.error("เกิดข้อผิดพลาดบางอย่างในระบบ!");
+      },
+    },
+  );
 
   return (
-    <button
-      onClick={() => submitAnswer()}
-      className="bg-vermilion border-vermilion-special hover:bg-vermilion-1 hover:border-vermilion cursor-pointer rounded-lg border-2 px-10 transition-all duration-500"
-    >
-      ส่งใบสมัคร
-    </button>
+    <Magnetic range={300} actionArea="global">
+      <Button
+        className="rounded-4xl font-prompt mt-12 h-[4rem] w-fit px-20 text-2xl"
+        variant="destructive"
+        onClick={() => {
+          mutate({});
+        }}
+        disabled={isPending || isSuccess}
+      >
+        ส่งใบสมัคร! 🎉
+      </Button>
+    </Magnetic>
   );
 }

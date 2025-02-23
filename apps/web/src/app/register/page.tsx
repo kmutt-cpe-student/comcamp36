@@ -45,7 +45,7 @@ function RegisterPage() {
   }
 
   return (
-    <Card className="grid gap-4">
+    <Card className="grid gap-6">
       <div className="grid h-full grid-cols-1 gap-16 lg:grid-cols-[320px_1fr]">
         <Tilt isRevese rotationFactor={5}>
           <div className="relative mx-auto size-60 flex-shrink-0 overflow-hidden rounded-full border-[10px] border-white">
