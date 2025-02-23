@@ -2,7 +2,6 @@
 
 import { Tilt } from "@/components/card/tilt-card";
 import SubmitAnswerBtn from "@/components/register/submit-answer-btn";
-import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { Skeleton } from "@/components/ui/skeleton";
@@ -10,7 +9,6 @@ import { TextScramble } from "@/components/ui/text-scramble";
 import { fetchQuery } from "@/libs/server/client";
 import { Mail } from "lucide-react";
 import Image from "next/image";
-import Link from "next/link";
 import Status from "./status";
 
 function RegisterPage() {
@@ -92,16 +90,12 @@ function RegisterPage() {
 
       <Status {...data} />
 
-      <div className="font-noto-sans-thai-looped mt-16 flex justify-center">
-        <Link href="/register/info">
-          <Button size="lg">กรอกฟอร์มสมัคร</Button>
-        </Link>
-      </div>
       <div className="font-noto-sans-thai-looped flex justify-center">
         {data.info_done &&
           data.regis_done &&
           data.academic_done &&
-          data.files_done && <SubmitAnswerBtn />}
+          data.files_done &&
+          !data.has_submit_answer && <SubmitAnswerBtn />}
       </div>
     </Card>
   );
