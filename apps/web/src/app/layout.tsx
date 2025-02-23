@@ -6,6 +6,7 @@ import QueryProvider from "@/components/provider/query";
 import { TailwindIndicator } from "@/components/tailwind-indicator";
 import { gameOfSquid, gemunuLibre, notoSansThaiLooped, prompt } from "@/fonts";
 import type { Metadata } from "next";
+import ErrorBoundary from "./error-boundary";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -39,7 +40,7 @@ export default function RootLayout({
         <TailwindIndicator />
         <QueryProvider>
           <CSPostHogProvider>
-            {children}
+            <ErrorBoundary>{children}</ErrorBoundary>
             <Toaster richColors />
             <CookieConsent />
           </CSPostHogProvider>
