@@ -4,6 +4,17 @@ import Bishop from "@/components/chess/bishop";
 import Board from "@/components/chess/board";
 import Knight from "@/components/chess/knight";
 import Rook from "@/components/chess/rook";
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "@/components/ui/alert-dialog";
 import { cn } from "@/libs/utils";
 import {
   DndContext,
@@ -550,29 +561,56 @@ function ChessGame({ callback, disabled }: ChessGameProps) {
         </div>
 
         <div className="my-4 flex flex-wrap justify-center gap-2 px-2 sm:gap-4">
-          <Button
-            type="button"
-            onClick={handleReset}
-            variant="destructive"
-            className="text-sm sm:text-base"
-          >
-            เรื่มใหม่
-          </Button>
+          <AlertDialog>
+            <AlertDialogTrigger asChild>
+              <Button type="button" variant="destructive">
+                เริ่มใหม่
+              </Button>
+            </AlertDialogTrigger>
+            <AlertDialogContent>
+              <AlertDialogHeader>
+                <AlertDialogTitle>เริ่มเกมใหม่</AlertDialogTitle>
+                <AlertDialogDescription className="text-white/70">
+                  คุณแน่ใจหรือไม่ที่จะเริ่มเกมใหม่ ความคืบหน้าทั้งหมดจะหายไป
+                </AlertDialogDescription>
+              </AlertDialogHeader>
+              <AlertDialogFooter>
+                <AlertDialogCancel>ยกเลิก</AlertDialogCancel>
+                <AlertDialogAction onClick={handleReset}>
+                  ยืนยัน
+                </AlertDialogAction>
+              </AlertDialogFooter>
+            </AlertDialogContent>
+          </AlertDialog>
           <Button
             type="button"
             onClick={handleUndo}
-            className="text-sm sm:text-base"
             disabled={gameState.prevStates.length === 0}
           >
             ย้อนกลับ
           </Button>
-          <Button
-            type="button"
-            onClick={handleSubmit}
-            disabled={!canSubmit || disabled}
-          >
-            บันทึกผลการเล่น
-          </Button>
+          <AlertDialog>
+            <AlertDialogTrigger asChild>
+              <Button type="button" disabled={!canSubmit || disabled}>
+                บันทึกผลการเล่น
+              </Button>
+            </AlertDialogTrigger>
+            <AlertDialogContent>
+              <AlertDialogHeader>
+                <AlertDialogTitle>บันทึกผลการเล่น</AlertDialogTitle>
+                <AlertDialogDescription className="text-white/70">
+                  คุณแน่ใจหรือไม่ที่จะบันทึกผลการเล่น คะแนนของคุณคือ{" "}
+                  {gameState.score}
+                </AlertDialogDescription>
+              </AlertDialogHeader>
+              <AlertDialogFooter>
+                <AlertDialogCancel>ยกเลิก</AlertDialogCancel>
+                <AlertDialogAction onClick={handleSubmit}>
+                  ยืนยัน
+                </AlertDialogAction>
+              </AlertDialogFooter>
+            </AlertDialogContent>
+          </AlertDialog>
         </div>
 
         <div className="flex w-full justify-center">
