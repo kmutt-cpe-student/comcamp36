@@ -74,7 +74,7 @@ export class UserResponseDto {
   @ApiProperty({
     type: 'string',
   })
-  chronic_diseas?: string;
+  chronic_disease?: string;
 
   @ApiProperty({
     type: 'string',
@@ -94,7 +94,7 @@ export class UserResponseDto {
   @ApiProperty({
     type: 'string',
   })
-  perfer_food?: string;
+  prefer_food?: string;
 
   @ApiProperty({
     type: 'string',

@@ -30,6 +30,8 @@ function RegisterInfoPage() {
     mutate({
       body: {
         ...data,
+        chronic_diseas: data.chronic_disease,
+        everyday_attendence: data.everyday_attendance,
         birth: data.birth.getDate(),
       },
     });
@@ -55,11 +57,11 @@ function RegisterInfoPage() {
         telephone: data?.telephone ? data.telephone : "",
         email: data?.email ? data.email : "",
         medical_coverage: data?.medical_coverage ? data.medical_coverage : "",
-        chronic_disease: data?.chronic_diseas ? data.chronic_diseas : "",
+        chronic_disease: data?.chronic_disease ? data.chronic_disease : "",
         self_medicine: data?.self_medicine ? data.self_medicine : "",
         drug_allergic: data?.drug_allergic ? data.drug_allergic : "",
         food_allergic: data?.food_allergic ? data.food_allergic : "",
-        prefer_food: data?.perfer_food ? data.perfer_food : "",
+        prefer_food: data?.prefer_food ? data.prefer_food : "",
         address: data?.address ? data.address : "",
         home_phone_tel: data?.home_phone_tel ? data.home_phone_tel : "",
         comcamp_attendance: data?.comcamp_attendance

@@ -306,11 +306,11 @@ export interface components {
       course: string;
       telephone: string;
       medical_coverage: string;
-      chronic_diseas: string;
+      chronic_disease: string;
       self_medicine: string;
       drug_allergic: string;
       food_allergic: string;
-      perfer_food: string;
+      prefer_food: string;
       address: string;
       home_phone_tel: string;
       comcamp_attendance: boolean;
