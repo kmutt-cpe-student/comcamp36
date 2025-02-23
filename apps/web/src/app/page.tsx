@@ -41,7 +41,7 @@ export default function Home() {
             },
           ]}
           extra={
-            new Date() < new Date("2025-02-13T09:00:00") ? (
+            new Date() >= new Date("2025-02-24T09:00:00") ? (
               <Link href="/sign-in">
                 <Button>สมัครเลย!</Button>
               </Link>

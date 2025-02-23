@@ -1,7 +1,10 @@
 import FadeObserverDiv from "@/components/landing/fade-div";
 import Timer from "@/components/timer";
 import Image from "next/image";
+import Link from "next/link";
+import { Magnetic } from "../animation/magnetics";
 import { Tilt } from "../card/tilt-card";
+import { Button } from "../ui/button";
 
 function Hero() {
   return (
@@ -20,7 +23,7 @@ function Hero() {
             priority
           />
         </div>
-        <div className="flex flex-col items-center gap-4">
+        <div className="flex flex-col items-center gap-6">
           <h3 className="font-game-of-squid w-full text-center">
             7-11 <span className="text-vermilion">APRIL</span> 2025
           </h3>
@@ -40,9 +43,23 @@ function Hero() {
               แล้วมาร่วมหาคำตอบได้ใน “ComCamp ครั้งที่ 36“ 🛠️🎮
             </small>
           </div>
-          <div className="w-fit pt-6">
-            <Timer deadline="February, 24, 2025 09:00 AM" />
-          </div>
+
+          {new Date() >= new Date("2025-02-24T09:00:00") ? (
+            <Link href="/sign-in">
+              <Magnetic range={300}>
+                <Button
+                  className="rounded-4xl font-prompt h-[5rem] w-fit px-20 text-3xl"
+                  variant="destructive"
+                >
+                  สมัครเลย! 🎮
+                </Button>
+              </Magnetic>
+            </Link>
+          ) : (
+            <div className="w-fit pt-6">
+              <Timer deadline="February, 24, 2025 09:00 AM" />
+            </div>
+          )}
         </div>
       </div>
       <div className="hidden 2xl:block">
