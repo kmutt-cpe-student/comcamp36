@@ -64,9 +64,18 @@ function RegisterInfoPage() {
         data={{
           chess_notation: data?.chess_notation ? data.chess_notation : "",
           chess_score: data?.chess_score ? data.chess_score : 0,
-          algo_answer1: data?.algo_answer?.split("\n")[0] || "",
-          algo_answer2: data?.algo_answer?.split("\n")[2] || "",
-          algo_answer3: data?.algo_answer?.split("\n")[4] || "",
+          algo_answer1:
+            data?.algo_answer?.split(
+              "\n<-----ALGO-ANSWER-SPLITTER----->\n",
+            )[0] || "",
+          algo_answer2:
+            data?.algo_answer?.split(
+              "\n<-----ALGO-ANSWER-SPLITTER----->\n",
+            )[1] || "",
+          algo_answer3:
+            data?.algo_answer?.split(
+              "\n<-----ALGO-ANSWER-SPLITTER----->\n",
+            )[2] || "",
         }}
         onSubmit={onSubmit}
         isPending={isPending}
