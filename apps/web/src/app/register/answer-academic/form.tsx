@@ -180,7 +180,7 @@ function AnswerAcademic(props: AnswerAcademicProps) {
         </div>
         <div className="flex w-full justify-center pt-8 md:pt-16">
           <Button type="submit" disabled={props.isPending || props.hasSubmit}>
-            {props.isPending ? <Spinner /> : "บันทึกคำถามคัดเลือก 2"}
+            {props.isPending ? <Spinner /> : "บันทึกคำตอบปริศนาสถาบันวิศวะ"}
           </Button>
         </div>
         <FormStepper />
