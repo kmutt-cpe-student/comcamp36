@@ -31,7 +31,14 @@ export default function LogoutBtn() {
       >
         {isPending ? <Spinner /> : <div>ออกจากระบบ</div>}
       </Button>
-      <Button className="flex md:hidden" size="icon">
+      <Button
+        onClick={() => {
+          mutate({});
+        }}
+        disabled={isPending}
+        className="flex md:hidden"
+        size="icon"
+      >
         {isPending ? <Spinner /> : <LogOutIcon />}
       </Button>
     </div>
