@@ -296,7 +296,7 @@ function AnswerRegis(props: AnswerRegisProps) {
               props.isPending || !form.formState.isDirty || props.hasSubmit
             }
           >
-            {props.isPending ? <Spinner /> : "บันทึกคำถามคัดเลือก 1"}
+            {props.isPending ? <Spinner /> : "บันทึกคำตอบปริศนาปัญญาชน"}
           </Button>
         </div>
         <FormStepper />

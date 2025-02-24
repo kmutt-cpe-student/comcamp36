@@ -55,7 +55,7 @@ function RegisterInfoPage() {
   }
 
   return (
-    <FormCard title="ไฟล์ที่ต้องอับโหลด">
+    <FormCard title="ไฟล์ที่ต้องอัปโหลด">
       {data ? (
         <Wrapper
           data={{

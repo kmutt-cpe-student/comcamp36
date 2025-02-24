@@ -199,7 +199,7 @@ function FilesForm(props: FilesFormProps) {
               props.isPending || !form.formState.isDirty || props.hasSubmit
             }
           >
-            {props.isPending ? <Spinner /> : "อัพโหลดไฟล์"}
+            {props.isPending ? <Spinner /> : "อัปโหลดไฟล์"}
           </Button>
         </div>
         <CardFooter>
