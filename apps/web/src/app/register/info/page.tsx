@@ -1,11 +1,11 @@
 "use client";
 
-import { formatThaiBuddhist } from "@/libs/date";
 import { fetchQuery } from "@/libs/server/client";
 import { useQueryClient } from "@tanstack/react-query";
 import { toast } from "sonner";
 import { z } from "zod";
 import RegisterFormSkeleton from "../skeleton";
+import { formToastSuccess } from "../toast";
 import InfoForm, { formSchema } from "./form";
 
 function RegisterInfoPage() {
@@ -23,9 +23,7 @@ function RegisterInfoPage() {
   const { mutate, isPending } = fetchQuery.useMutation("post", "/users/info", {
     onSuccess: (mutateData) => {
       queryClient.setQueryData(["auth", { id: mutateData.id }], mutateData);
-      toast.success("บันทึกสำเร็จ!", {
-        description: `บันทึกสำเร็จ ณ​ ${formatThaiBuddhist(new Date())} กดปุ่มถัดไป เพื่อไปหน้าถัดไป`,
-      });
+      formToastSuccess();
     },
     onError: () => toast.error("เกิดข้อผิดพลาดบางอย่างในระบบ!"),
   });
@@ -72,8 +70,8 @@ function RegisterInfoPage() {
         comcamp_attendance: data?.comcamp_attendance
           ? data.comcamp_attendance
           : false,
-        everyday_attendance: data?.everyday_attendence
-          ? data.everyday_attendence
+        everyday_attendance: data?.everyday_attendance
+          ? data.everyday_attendance
           : false,
         has_laptop: data?.has_laptop ? data.has_laptop : false,
         travel: data?.travel ? data.travel : "",

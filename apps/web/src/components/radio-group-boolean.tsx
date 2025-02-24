@@ -20,8 +20,18 @@ function RadioGroupBoolean(props: RadioGroupBooleanProps) {
   const id = useId();
 
   return (
-    <RadioGroup defaultValue={data ? "1" : "2"} disabled={props.disabled}>
-      <div className="flex items-center gap-2" onClick={() => setData(true)}>
+    <RadioGroup
+      value={data ? "1" : "2"}
+      disabled={props.disabled}
+      onValueChange={(state) => {
+        if (state == "1") {
+          setData(true);
+        } else {
+          setData(false);
+        }
+      }}
+    >
+      <div className="flex items-center gap-2">
         <RadioGroupItem
           value="1"
           id={`${id}-1`}
@@ -35,7 +45,6 @@ function RadioGroupBoolean(props: RadioGroupBooleanProps) {
         <RadioGroupItem
           value="2"
           id={`${id}-2`}
-          onClick={() => setData(false)}
           className="hover:cursor-pointer"
         />
         <Label htmlFor={`${id}-2`} className="hover:cursor-pointer">
