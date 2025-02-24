@@ -25,7 +25,7 @@ services:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
   server:
-    image: ghcr.io/kmutt-cpe-student/comcamp36-server:main
+    image: ghcr.io/kmutt-cpe-student/comcamp36-server:staging
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.server.rule=Host(`api.comcamp.io`)"
