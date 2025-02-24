@@ -482,13 +482,13 @@ function InfoForm(props: InfoFormProps) {
                 name="has_laptop"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>มี Laptop</FormLabel>
+                    <FormLabel>สะดวกนำ Laptop มาค่าย</FormLabel>
                     <FormControl>
                       <RadioGroupBoolean
                         value={field.value}
                         onValueChange={field.onChange}
-                        true_label="มี laptop"
-                        false_label="ไม่มี laptop"
+                        true_label="สะดวก"
+                        false_label="ไม่สะดวก"
                         disabled={props.hasSubmit}
                       />
                     </FormControl>
@@ -503,7 +503,8 @@ function InfoForm(props: InfoFormProps) {
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel>
-                      สะดวกเข้าร่วมค่ายทุกวันหรือไม่ (ค้างคืน พักที่หอในมอ)
+                      สะดวกเข้าร่วมค่ายทุกวันหรือไม่ (พักค้างคืน ณ
+                      หอพักภายในมหาวิทยาลัย)
                     </FormLabel>
                     <FormControl>
                       <RadioGroupBoolean
