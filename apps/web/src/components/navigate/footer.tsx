@@ -17,7 +17,7 @@ function Footer() {
         </div>
         <div className="flex flex-col gap-1 text-sm text-white/30">
           <div>©2025 ComCamp36. All rights reserved.</div>
-          <div>Made with Love and Tear by CPE38 ❤️</div>
+          <div>Made with Love and Tear by CPE38 ❤️ ({process.env.CF_PAGES_BRANCH === "production" ? "" : `Branch: ${process.env.CF_PAGES_BRANCH || "local"}`})</div>
         </div>
       </div>
       <div className="flex items-end justify-end">
