@@ -20,7 +20,7 @@ function TitleSelector(props: SelectProps) {
     },
     {
       value: "miss_young",
-      label: "เด้กหญิง",
+      label: "เด็กหญิง",
     },
   ];
 
