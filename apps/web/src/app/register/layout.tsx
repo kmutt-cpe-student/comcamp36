@@ -6,9 +6,10 @@ import Footer from "@/components/navigate/footer";
 import Navbar from "@/components/navigate/navbar";
 import Spinner from "@/components/spinner";
 import { Button } from "@/components/ui/button";
-import { fetchClient } from "@/libs/server/client";
+import { fetchClient, fetchQuery } from "@/libs/server/client";
 import { redirect, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
+import { toast } from "sonner";
 import { steps } from "./form-stepper";
 
 export default function RegisterLayout({
@@ -19,6 +20,15 @@ export default function RegisterLayout({
   const [haveUser, setHaveUser] = useState(false);
 
   const router = useRouter();
+  const { mutate } = fetchQuery.useMutation("post", "/auth/logout", {
+    onSuccess() {
+      toast.success("สำเร็จ!");
+      router.replace("/");
+    },
+    onError() {
+      router.replace("/");
+    },
+  });
 
   useEffect(() => {
     async function checkUser() {
@@ -42,7 +52,7 @@ export default function RegisterLayout({
       <div className="flex min-h-screen w-full flex-col items-center justify-center gap-4 bg-[#0d0d0d] text-white">
         <Spinner />
         <Button
-          onClick={() => router.replace("/")}
+          onClick={() => mutate({})}
           variant="outline"
           className="bg-[#0d0d0d]"
         >
