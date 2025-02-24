@@ -30,7 +30,7 @@ export const formSchema = z.object({
     .min(1, "จำเป็นต้องอัพโหลดสำเนาบัตรประชาชน"),
   parent_permission: z
     .array(z.instanceof(File))
-    .min(1, "จำเป็นต้องอัพโหลดหนังสือยินยอมผู้ปกครอง"),
+    .min(1, "จำเป็นต้องอัพโหลดเอกสารขออนุญาตผู้ปกครอง"),
   p1: z
     .array(z.instanceof(File))
     .min(1, "จำเป็นต้องอัพโหลดสำเนาระเบียนแสดงผลการเรียน (ปพ.1)"),
@@ -110,7 +110,7 @@ function FilesForm(props: FilesFormProps) {
             name="parent_permission"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>หนังสือยินยอมผู้ปกครอง</FormLabel>
+                <FormLabel>เอกสารขออนุญาตผู้ปกครอง</FormLabel>
                 <FormDescription className="hover:text-vermilion text-white/40 hover:underline">
                   <strong>
                     <a
@@ -118,7 +118,7 @@ function FilesForm(props: FilesFormProps) {
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      คลิกที่นี่เพื่อดาวน์โหลดไฟล์หนังสือยินยอมผู้ปกครอง
+                      คลิกที่นี่เพื่อดาวน์โหลดไฟล์เอกสารขออนุญาตผู้ปกครอง
                     </a>
                   </strong>
                 </FormDescription>
