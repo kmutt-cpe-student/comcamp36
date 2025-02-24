@@ -302,7 +302,7 @@ function InfoForm(props: InfoFormProps) {
                 name="blood_group"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>กรุ็ปเลือด</FormLabel>
+                    <FormLabel>กรุ๊ปเลือด</FormLabel>
                     <FormControl>
                       <Input {...field} />
                     </FormControl>
