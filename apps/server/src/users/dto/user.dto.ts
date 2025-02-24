@@ -119,7 +119,7 @@ export class UserResponseDto {
   @ApiProperty({
     type: 'boolean',
   })
-  everyday_attendence?: boolean;
+  everyday_attendance?: boolean;
 
   @ApiProperty({
     type: 'boolean',
