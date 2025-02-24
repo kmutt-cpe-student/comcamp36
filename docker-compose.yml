@@ -17,7 +17,7 @@ services:
       - "--providers.docker.exposedbydefault=false"
       - "--entrypoints.server.address=:7642"
     ports:
-      - "7642:7642"
+      - "6521:7642"
     depends_on:
       - server
     networks:
