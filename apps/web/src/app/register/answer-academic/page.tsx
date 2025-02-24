@@ -49,7 +49,7 @@ function RegisterInfoPage() {
           data.algo_answer1,
           data.algo_answer2,
           data.algo_answer3,
-        ].join("\n\n"),
+        ].join("\n<-----ALGO-ANSWER-SPLITTER----->\n"),
       },
     });
   };
