@@ -396,7 +396,7 @@ function InfoForm(props: InfoFormProps) {
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel>
-                      อาหารที่รับประทาน (ปกติ/อิสลาม/มังสวิรัติ/อื่น ๆ โปรดระบุ)
+                      อาหารที่รับประทาน (ปกติ/ฮาลาล/มังสวิรัติ/อื่น ๆ โปรดระบุ)
                     </FormLabel>
                     <FormControl>
                       <Input {...field} />
