@@ -4,7 +4,12 @@ import FormCard from "@/app/register/form-card";
 import FormStepper from "@/app/register/form-stepper";
 import DatePicker from "@/components/date-picker";
 import RadioGroupBoolean from "@/components/radio-group-boolean";
+import BloodGroupSelector from "@/components/select/bloodgroup-dynselect";
 import GenderSelector from "@/components/select/gender-selector";
+import GraduationSelector from "@/components/select/graduation-dynselect";
+import ParentRelationSelector from "@/components/select/parentrelation-dynselect";
+import PreferFoodSelector from "@/components/select/preferfood-dynselect";
+import ReligionSelector from "@/components/select/religion-dynselect";
 import TitleSelector from "@/components/select/title-selector";
 import Spinner from "@/components/spinner";
 import { Button } from "@/components/ui/button";
@@ -68,7 +73,14 @@ interface InfoFormProps {
 function InfoForm(props: InfoFormProps) {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
-    defaultValues: props.data,
+    defaultValues: {
+      ...props.data,
+      graduation: props.data.graduation || "มัธยมศึกษาปีที่ 4",
+      blood_group: props.data.blood_group || "A",
+      prefer_food: props.data.prefer_food || "ปกติ",
+      parent_relation: props.data.parent_relation || "มารดา",
+      religion: props.data.religion || "พุทธ",
+    },
   });
 
   return (
@@ -173,14 +185,13 @@ function InfoForm(props: InfoFormProps) {
                 disabled={props.hasSubmit}
                 control={form.control}
                 name="religion"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>ศาสนา</FormLabel>
-                    <FormControl>
-                      <Input {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
+                render={({ field: { onChange, value, ...fieldProps } }) => (
+                  <ReligionSelector
+                    {...fieldProps}
+                    value={value}
+                    onValueChange={onChange}
+                    disabled={props.hasSubmit}
+                  />
                 )}
               />
             </div>
@@ -253,14 +264,13 @@ function InfoForm(props: InfoFormProps) {
                 disabled={props.hasSubmit}
                 control={form.control}
                 name="graduation"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>ระดับชั้นการศึกษา</FormLabel>
-                    <FormControl>
-                      <Input {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
+                render={({ field: { onChange, value, ...fieldProps } }) => (
+                  <GraduationSelector
+                    {...fieldProps}
+                    value={value}
+                    onValueChange={onChange}
+                    disabled={props.hasSubmit}
+                  />
                 )}
               />
               <FormField
@@ -300,14 +310,13 @@ function InfoForm(props: InfoFormProps) {
                 disabled={props.hasSubmit}
                 control={form.control}
                 name="blood_group"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>กรุ๊ปเลือด</FormLabel>
-                    <FormControl>
-                      <Input {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
+                render={({ field: { onChange, value, ...fieldProps } }) => (
+                  <BloodGroupSelector
+                    {...fieldProps}
+                    value={value}
+                    onValueChange={onChange}
+                    disabled={props.hasSubmit}
+                  />
                 )}
               />
               <FormField
@@ -394,15 +403,12 @@ function InfoForm(props: InfoFormProps) {
                 control={form.control}
                 name="prefer_food"
                 render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>
-                      อาหารที่รับประทาน (ปกติ/ฮาลาล/มังสวิรัติ/อื่น ๆ โปรดระบุ)
-                    </FormLabel>
-                    <FormControl>
-                      <Input {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
+                  <PreferFoodSelector
+                    {...field}
+                    value={field.value}
+                    onValueChange={field.onChange}
+                    disabled={props.hasSubmit}
+                  />
                 )}
               />
             </div>
@@ -429,13 +435,12 @@ function InfoForm(props: InfoFormProps) {
                 control={form.control}
                 name="parent_relation"
                 render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>ความสัมพันธ์กับผู้ปกครอง</FormLabel>
-                    <FormControl>
-                      <Input {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
+                  <ParentRelationSelector
+                    {...field}
+                    value={field.value}
+                    onValueChange={field.onChange}
+                    disabled={props.hasSubmit}
+                  />
                 )}
               />
               <FormField
