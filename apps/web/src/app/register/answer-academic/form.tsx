@@ -16,6 +16,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { CircleHelp } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { PEOPLES } from "./var";
@@ -79,10 +80,36 @@ function AnswerAcademic(props: AnswerAcademicProps) {
               render={({ field }) => (
                 <FormItem>
                   <FormLabel>
-                    <small>
-                      • อธิบายขั้นตอนของ อัลกอริทึม
-                      ที่คุณใช้ในการค้นหากลุ่มเพื่อนสนิท 10 คนนี้
-                    </small>
+                    <div className="flex flex-col gap-3 md:gap-4">
+                      <small>
+                        • อธิบายขั้นตอนของ อัลกอริทึม
+                        ที่คุณใช้ในการค้นหากลุ่มเพื่อนสนิท 10 คนนี้
+                      </small>
+                      <div className="flex gap-4 rounded-md border border-white/20 bg-white/5 p-4 text-white/70">
+                        <CircleHelp className="hidden size-6 sm:block" />
+                        <small>
+                          <span className="mb-3 block leading-none">
+                            แนวทางการตอบ: (ตัวอย่างนี้เป็นเพียงแนวทาง
+                            ไม่จำเป็นต้องตอบตาม)
+                          </span>
+                          <span className="text-sm">
+                            Step 1 : สุ่มเลือก เฟม และ บีม จากนั้นถามทั้งสอง
+                            &quot;รู้จักกันไหม&quot; ถ้าทั้งสองรู้จักกัน =
+                            ทั้งสองคนอาจอยู่ในกลุ่ม แต่ถ้าไม่รู้จักกัน =
+                            ใครสักคนอยู่ในกลุ่ม
+                          </span>
+                          <br />
+                          <span className="text-sm">
+                            Step 2 : ถาม บีม และ แชมป์ ว่ารู้จักกันไหม
+                            ถ้าทั้งสองคน &quot;ไม่รู้จักกัน&quot; =
+                            บีมอาจอยู่ในกลุ่ม 10 คน และแชมป์อาจไม่อยู่
+                            แต่ถ้ารู้จัก = ทั้งคู่อาจอยู่ในกลุ่ม 10 คน
+                          </span>
+                          <br />
+                          <span className="text-sm">Step 3 : ...</span>
+                        </small>
+                      </div>
+                    </div>
                   </FormLabel>
                   <FormControl>
                     <Textarea className="[resize:none]" {...field} />
