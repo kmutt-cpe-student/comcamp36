@@ -13,7 +13,12 @@ import Status from "./status";
 
 function RegisterPage() {
   const { data, isPending, isError } = fetchQuery.useQuery("get", "/auth/me");
-  const { data: filesData } = fetchQuery.useQuery("get", "/files/user-files");
+  const { data: filesData } = fetchQuery.useQuery(
+    "get",
+    "/files/user-files",
+    undefined,
+    { retry: false },
+  );
 
   if (isPending) {
     return (

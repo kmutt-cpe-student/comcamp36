@@ -50,6 +50,8 @@ export class AuthController {
           sameSite: 'lax',
           secure: process.env.NODE_ENV === 'production' ? true : false,
           httpOnly: true,
+          domain:
+            process.env.NODE_ENV === 'production' ? '.comcamp.io' : 'localhost',
         });
         return res.redirect(process.env.CLIENT_REDIRECT_AUTH_URL);
       }
@@ -65,6 +67,8 @@ export class AuthController {
           sameSite: 'lax',
           secure: process.env.NODE_ENV === 'production' ? true : false,
           httpOnly: true,
+          domain:
+            process.env.NODE_ENV === 'production' ? '.comcamp.io' : 'localhost',
         });
         return res.redirect(process.env.CLIENT_REDIRECT_AUTH_URL);
       }

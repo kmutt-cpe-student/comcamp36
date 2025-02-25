@@ -14,25 +14,25 @@ interface StatusProps {
 
 const steps = [
   {
-    image: "/static/image/learn/ai.png",
+    image: "/static/image/regis/0.png",
     href: "/register/info",
     label: "ข้อมูลส่วนตัว",
     doneKey: "info_done",
   },
   {
-    image: "/static/image/learn/c.png",
+    image: "/static/image/regis/1.png",
     href: "/register/answer-regis",
     label: "ปริศนาปัญญาชน",
     doneKey: "regis_done",
   },
   {
-    image: "/static/image/learn/game.png",
+    image: "/static/image/regis/2.png",
     href: "/register/answer-academic",
     label: "ปริศนาสถาบันวิศวะ",
     doneKey: "academic_done",
   },
   {
-    image: "/static/image/learn/web.png",
+    image: "/static/image/regis/3.png",
     href: "/register/files",
     label: "ไฟล์ที่ต้องอัพโหลด",
     doneKey: "files_done",
