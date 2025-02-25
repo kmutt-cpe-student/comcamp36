@@ -17,7 +17,7 @@ function NotFoundPage() {
           priority
         />
       </div>
-      <TextShimmer className="text-3xl font-bold">
+      <TextShimmer className="text-3xl font-bold [--base-gradient-color:#fff]">
         404 Not Found But 456 Found !
       </TextShimmer>
       <Link href="/">
