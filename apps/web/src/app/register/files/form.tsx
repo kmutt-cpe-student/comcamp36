@@ -112,15 +112,15 @@ function FilesForm(props: FilesFormProps) {
             render={({ field }) => (
               <FormItem>
                 <FormLabel>เอกสารขออนุญาตผู้ปกครอง</FormLabel>
-                <FormDescription className="hover:text-vermilion text-white/40 underline">
+                <FormDescription className="hover:text-vermilion text-white/40 underline underline-offset-4 transition-colors">
                   <strong>
                     <a
                       href={PARENT_FORM_URL}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex gap-x-2"
+                      className="flex items-center gap-x-2"
                     >
-                      <FileText className="text-vermilion" />{" "}
+                      <FileText className="text-vermilion" />
                       {
                         "> คลิกที่นี่เพื่อดาวน์โหลดไฟล์เอกสารขออนุญาตผู้ปกครอง <"
                       }
