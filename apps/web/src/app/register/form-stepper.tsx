@@ -20,7 +20,7 @@ export const steps = [
   },
   {
     step: 2,
-    title: "ข้อมูลส่วนตัว",
+    title: "ข้อมูลส่วนบุคคล",
     href: "/register/info",
   },
   {

@@ -16,7 +16,7 @@ const steps = [
   {
     image: "/static/image/regis/0.png",
     href: "/register/info",
-    label: "ข้อมูลส่วนตัว",
+    label: "ข้อมูลส่วนบุคคล",
     doneKey: "info_done",
   },
   {

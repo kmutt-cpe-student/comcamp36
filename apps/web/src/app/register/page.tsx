@@ -71,7 +71,7 @@ function RegisterPage() {
         <div className="flex h-full flex-col justify-start">
           <div className="flex flex-col gap-4">
             <div className="flex items-baseline justify-between">
-              <p className="text-[1rem] sm:text-[1.25rem]">ข้อมูลส่วนตัว</p>
+              <p className="text-[1rem] sm:text-[1.25rem]">ข้อมูลส่วนบุคคล</p>
               <TextScramble trigger className="text-[1rem] sm:text-[1.25rem]">
                 {`เหลือเวลาอีก ${Math.ceil(
                   (new Date("2025-03-13").getTime() - new Date().getTime()) /

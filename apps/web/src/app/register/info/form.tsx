@@ -30,27 +30,44 @@ import { z } from "zod";
 export const formSchema = z.object({
   title: z.string().min(1, "จำเป็นต้องระบุคำนำหน้า"),
   fullname: z.string().min(1, "จำเป็นต้องระบุชื่อเต็ม"),
-  age: z.number().min(15, "อายุต้องมากกว่า 15 ปี ณ วันสมัคร"),
+  age: z
+    .number()
+    .min(15, "อายุต้องมากกว่า 15 ปี ณ วันสมัคร")
+    .max(20, "อายุเกินช่วงที่กำหนด"),
   birth: z.date(),
   gender: z.string().min(1, "จำเป็นต้องระบุเพศ"),
   religion: z.string().min(1, "จำเป็นต้องระบุศาสนา"),
-  blood_group: z.string().min(1, "จำเป็นต้องระบุกลุ่มเลือด"),
+  blood_group: z.string().min(1, "จำเป็นต้องระบุหมู่เลือด"),
   graduation: z.string().min(1, "จำเป็นต้องระบุระดับชั้นการศึกษา"),
   school: z.string().min(1, "จำเป็นต้องระบุสถานศึกษา"),
   course: z.string().min(1, "จำเป็นต้องระบุสายการเรียน"),
   telephone: z
     .string()
     .min(10, "เบอร์โทรศัพท์ต้องมี 10 หลัก")
-    .max(10, "เบอร์โทรศัพท์ต้องมี 10 หลัก"),
+    .max(10, "เบอร์โทรศัพท์ต้องมี 10 หลัก")
+    .startsWith("0", "เบอร์โทรศัพท์ไม่ตรงตามแบบที่กำหนด")
+    .regex(/[0-9]{10}$/, "เบอร์โทรศัพท์ไม่ตรงตามแบบที่กำหนด"),
   email: z.string().min(1, "จำเป็นต้องระบุอีเมล").email(),
-  medical_coverage: z.string().min(1, "จำเป็นต้องระบุสิทธิการรักษาพยาบาล"),
-  chronic_disease: z.string().min(1, "จำเป็นต้องระบุโรคประจำตัว"),
-  self_medicine: z.string().min(1, "จำเป็นต้องระบุยาประจำตัว"),
-  drug_allergic: z.string().min(1, "จำเป็นต้องระบุยาที่แพ้"),
-  food_allergic: z.string().min(1, "จำเป็นต้องระบุอาหารที่แพ้"),
+  medical_coverage: z
+    .string()
+    .min(1, 'จำเป็นต้องระบุสิทธิการรักษาพยาบาล (หากไม่มีโปรดระบุ "-")'),
+  chronic_disease: z
+    .string()
+    .min(1, 'จำเป็นต้องระบุโรคประจำตัว (หากไม่มีโปรดระบุ "-")'),
+  self_medicine: z
+    .string()
+    .min(1, 'จำเป็นต้องระบุยาประจำตัว (หากไม่มีโปรดระบุ "-")'),
+  drug_allergic: z
+    .string()
+    .min(1, 'จำเป็นต้องระบุยาที่แพ้ (หากไม่มีโปรดระบุ "-")'),
+  food_allergic: z
+    .string()
+    .min(1, 'จำเป็นต้องระบุอาหารที่แพ้ (หากไม่มีโปรดระบุ "-")'),
   prefer_food: z.string().min(1, "จำเป็นต้องระบุอาหารที่รับประทาน"),
   address: z.string().min(1, "จำเป็นต้องระบุที่อยู่"),
-  home_phone_tel: z.string().min(1, "จำเป็นต้องระบุเบอร์โทรศัพท์บ้าน"),
+  home_phone_tel: z
+    .string()
+    .min(1, 'จำเป็นต้องระบุเบอร์โทรศัพท์บ้าน (หากไม่มีโปรดระบุ "-")'),
   comcamp_attendance: z.boolean(),
   everyday_attendance: z.boolean(),
   has_laptop: z.boolean(),
@@ -60,7 +77,9 @@ export const formSchema = z.object({
   parent_phone: z
     .string()
     .min(10, "เบอร์โทรศัพท์ต้องมี 10 หลัก")
-    .max(10, "เบอร์โทรศัพท์ต้องมี 10 หลัก"),
+    .max(10, "เบอร์โทรศัพท์ต้องมี 10 หลัก")
+    .startsWith("0", "เบอร์โทรศัพท์ไม่ตรงตามแบบที่กำหนด")
+    .regex(/[0-9]{10}$/, "เบอร์โทรศัพท์ไม่ตรงตามแบบที่กำหนด"),
 });
 
 interface InfoFormProps {
@@ -83,7 +102,7 @@ function InfoForm(props: InfoFormProps) {
       <Form {...form}>
         <form onSubmit={form.handleSubmit(props.onSubmit)}>
           <div className="font-noto-sans-thai-looped grid gap-4">
-            <h5 className="font-bold">ข้อมูลส่วนตัว</h5>
+            <h5 className="font-bold">ข้อมูลส่วนบุคคล</h5>
             <div className="grid w-full grid-cols-1 gap-6 md:grid-cols-[1fr_10fr]">
               <FormField
                 disabled={props.hasSubmit}
@@ -542,7 +561,7 @@ function InfoForm(props: InfoFormProps) {
                   props.isPending || !form.formState.isDirty || props.hasSubmit
                 }
               >
-                {props.isPending ? <Spinner /> : "บันทึกข้อมูลส่วนตัว"}
+                {props.isPending ? <Spinner /> : "บันทึกข้อมูลส่วนบุคคล"}
               </Button>
             </div>
 
