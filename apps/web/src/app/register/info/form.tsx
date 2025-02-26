@@ -29,7 +29,10 @@ import { z } from "zod";
 
 export const formSchema = z.object({
   title: z.string().min(1, "จำเป็นต้องระบุคำนำหน้า"),
-  fullname: z.string().min(1, "จำเป็นต้องระบุชื่อเต็ม"),
+  fullname: z
+    .string()
+    .min(1, "จำเป็นต้องระบุชื่อเต็ม")
+    .regex(/^[ก-๙a-zA-Z\s]+$/, "ชื่อต้องประกอบด้วยตัวอักษรภาษาไทยหรืออังกฤษ"),
   age: z
     .number()
     .min(15, "อายุต้องมากกว่า 15 ปี ณ วันสมัคร")
