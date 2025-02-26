@@ -55,7 +55,8 @@ function AnswerAcademic(props: AnswerAcademicProps) {
                 10 คนที่เป็นเพื่อนสนิทกัน แต่ในกลุ่ม 10
                 คนนี้จะไม่รู้จักกับนักศึกษาที่เหลือ รู้จักกันแค่ภายในกลุ่ม
                 และเช่นเดียวกัน นักศึกษาที่เหลือก็จะไม่รู้จักกับนักศึกษา 10
-                คนนี้ แต่จะมี 2 คนที่จะคอยโกหกว่ารู้จัก 10 คนนี้
+                คนนี้ แต่จะมี 2 คนที่จะคอยโกหกว่ารู้จัก 10 คนนี้ (สนใจเพียง 10
+                คน ส่วนอีก 26 คน อาจจะรู้จักหรือไม่รู้จักกันก็ได้)
               </Label>
               <div className="grid grid-cols-2 gap-2 rounded border border-white/20 p-4 sm:grid-cols-3 md:p-8 lg:grid-cols-4 2xl:grid-cols-5">
                 {PEOPLES.map((people, index) => (
