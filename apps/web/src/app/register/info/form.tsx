@@ -75,11 +75,6 @@ function InfoForm(props: InfoFormProps) {
     resolver: zodResolver(formSchema),
     defaultValues: {
       ...props.data,
-      graduation: props.data.graduation || "มัธยมศึกษาปีที่ 4",
-      blood_group: props.data.blood_group || "A",
-      prefer_food: props.data.prefer_food || "ปกติ",
-      parent_relation: props.data.parent_relation || "มารดา",
-      religion: props.data.religion || "พุทธ",
     },
   });
 
