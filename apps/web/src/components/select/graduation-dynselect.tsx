@@ -22,10 +22,6 @@ function GraduationSelector({
       value: "ปวช. 2",
       label: "ปวช. 2",
     },
-    {
-      value: "ปวช. 3",
-      label: "ปวช. 3",
-    },
   ];
 
   return (
