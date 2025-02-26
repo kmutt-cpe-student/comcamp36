@@ -20,7 +20,7 @@ export const steps = [
   },
   {
     step: 2,
-    title: "ข้อมูลส่วนตัว",
+    title: "ข้อมูลส่วนบุคคล",
     href: "/register/info",
   },
   {
@@ -35,7 +35,7 @@ export const steps = [
   },
   {
     step: 5,
-    title: "ไฟล์ที่ต้องอัพโหลด",
+    title: "ไฟล์ที่ต้องอัปโหลด",
     href: "/register/files",
   },
 ];
