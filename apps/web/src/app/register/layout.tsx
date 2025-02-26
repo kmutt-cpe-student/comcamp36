@@ -56,7 +56,7 @@ export default function RegisterLayout({
           variant="outline"
           className="bg-[#0d0d0d]"
         >
-          หากนานเกินไปให้กดปุ้มนี้เพื่อย้อนกลับ
+          หากนานเกินไป ให้กดปุ่มนี้เพื่อย้อนกลับ
         </Button>
       </div>
     );
