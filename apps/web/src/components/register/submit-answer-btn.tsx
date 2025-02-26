@@ -33,6 +33,10 @@ export default function SubmitAnswerBtn() {
     },
   );
 
+  if (isSuccess) {
+    return null;
+  }
+
   return (
     <Magnetic range={300} actionArea="global">
       <div className="my-4 flex flex-wrap justify-center gap-2 px-2 sm:gap-4">
