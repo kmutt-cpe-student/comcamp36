@@ -25,7 +25,7 @@ function PreferFoodSelector({
       {...props}
       onValueChange={onValueChange}
       preset={preset}
-      formLabel="อาหารที่รับประทาน"
+      formLabel="อาหารที่รับประทาน (ปกติ/ฮาลาล/มังสวิรัติ/อื่น ๆ)"
       placeholder="ระบุอาหารอื่น ๆ"
     />
   );

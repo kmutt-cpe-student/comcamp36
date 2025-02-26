@@ -35,7 +35,7 @@ export const steps = [
   },
   {
     step: 5,
-    title: "ไฟล์ที่ต้องอัพโหลด",
+    title: "ไฟล์ที่ต้องอัปโหลด",
     href: "/register/files",
   },
 ];
