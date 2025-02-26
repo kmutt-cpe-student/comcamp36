@@ -4,7 +4,7 @@ import FilesForm, { formSchema } from "@/app/register/files/form";
 import Wrapper from "@/app/register/files/wrapper";
 import FormCard from "@/app/register/form-card";
 import RegisterFormSkeleton from "@/app/register/skeleton";
-import { formatThaiBuddhist } from "@/libs/date";
+import { formToastSuccess } from "@/app/register/toast";
 import JsonToFormData from "@/libs/server/body-serializer";
 import { fetchQuery } from "@/libs/server/client";
 import { toast } from "sonner";
@@ -19,9 +19,7 @@ function RegisterInfoPage() {
     "/files/upload",
     {
       onSuccess() {
-        toast.success("บันทึกสำเร็จ!", {
-          description: `บันทึกสำเร็จ ณ​ ${formatThaiBuddhist(new Date())} กดปุ่มถัดไป เพื่อไปหน้าถัดไป`,
-        });
+        formToastSuccess();
       },
       onError: () => toast.error("เกิดข้อผิดพลาดบางอย่างในระบบ!"),
     },

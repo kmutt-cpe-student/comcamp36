@@ -3,7 +3,7 @@
 import AnswerRegis, { formSchema } from "@/app/register/answer-regis/form";
 import FormCard from "@/app/register/form-card";
 import RegisterFormSkeleton from "@/app/register/skeleton";
-import { formatThaiBuddhist } from "@/libs/date";
+import { formToastSuccess } from "@/app/register/toast";
 import { fetchQuery } from "@/libs/server/client";
 import { useQueryClient } from "@tanstack/react-query";
 import { toast } from "sonner";
@@ -29,9 +29,7 @@ function RegisterInfoPage() {
     {
       onSuccess: (mutateData) => {
         queryClient.setQueryData(["answer", { id: mutateData.id }], mutateData);
-        toast.success("บันทึกสำเร็จ!", {
-          description: `บันทึกสำเร็จ ณ​ ${formatThaiBuddhist(new Date())} กดปุ่มถัดไป เพื่อไปหน้าถัดไป`,
-        });
+        formToastSuccess();
       },
       onError: () => toast.error("เกิดข้อผิดพลาดบางอย่างในระบบ!"),
     },

@@ -4,7 +4,13 @@ import FormCard from "@/app/register/form-card";
 import FormStepper from "@/app/register/form-stepper";
 import DatePicker from "@/components/date-picker";
 import RadioGroupBoolean from "@/components/radio-group-boolean";
+import BloodGroupSelector from "@/components/select/bloodgroup-dynselect";
+import CourseSelector from "@/components/select/course-dynselect";
 import GenderSelector from "@/components/select/gender-selector";
+import GraduationSelector from "@/components/select/graduation-dynselect";
+import ParentRelationSelector from "@/components/select/parentrelation-dynselect";
+import PreferFoodSelector from "@/components/select/preferfood-dynselect";
+import ReligionSelector from "@/components/select/religion-dynselect";
 import TitleSelector from "@/components/select/title-selector";
 import Spinner from "@/components/spinner";
 import { Button } from "@/components/ui/button";
@@ -24,28 +30,48 @@ import { z } from "zod";
 
 export const formSchema = z.object({
   title: z.string().min(1, "จำเป็นต้องระบุคำนำหน้า"),
-  fullname: z.string().min(1, "จำเป็นต้องระบุชื่อเต็ม"),
-  age: z.number().min(15, "อายุต้องมากกว่า 15 ปี ณ วันสมัคร"),
+  fullname: z
+    .string()
+    .min(1, "จำเป็นต้องระบุชื่อเต็ม")
+    .regex(/^[ก-๙a-zA-Z\s]+$/, "ชื่อต้องประกอบด้วยตัวอักษรภาษาไทยหรืออังกฤษ"),
+  age: z
+    .number()
+    .min(15, "อายุต้องมากกว่า 15 ปี ณ วันสมัคร")
+    .max(20, "อายุเกินช่วงที่กำหนด"),
   birth: z.date(),
   gender: z.string().min(1, "จำเป็นต้องระบุเพศ"),
   religion: z.string().min(1, "จำเป็นต้องระบุศาสนา"),
-  blood_group: z.string().min(1, "จำเป็นต้องระบุกลุ่มเลือด"),
+  blood_group: z.string().min(1, "จำเป็นต้องระบุหมู่เลือด"),
   graduation: z.string().min(1, "จำเป็นต้องระบุระดับชั้นการศึกษา"),
   school: z.string().min(1, "จำเป็นต้องระบุสถานศึกษา"),
   course: z.string().min(1, "จำเป็นต้องระบุสายการเรียน"),
   telephone: z
     .string()
     .min(10, "เบอร์โทรศัพท์ต้องมี 10 หลัก")
-    .max(10, "เบอร์โทรศัพท์ต้องมี 10 หลัก"),
+    .max(10, "เบอร์โทรศัพท์ต้องมี 10 หลัก")
+    .startsWith("0", "เบอร์โทรศัพท์ไม่ตรงตามแบบที่กำหนด")
+    .regex(/[0-9]{10}$/, "เบอร์โทรศัพท์ไม่ตรงตามแบบที่กำหนด"),
   email: z.string().min(1, "จำเป็นต้องระบุอีเมล").email(),
-  medical_coverage: z.string().min(1, "จำเป็นต้องระบุสิทธิการรักษาพยาบาล"),
-  chronic_disease: z.string().min(1, "จำเป็นต้องระบุโรคประจำตัว"),
-  self_medicine: z.string().min(1, "จำเป็นต้องระบุยาประจำตัว"),
-  drug_allergic: z.string().min(1, "จำเป็นต้องระบุยาที่แพ้"),
-  food_allergic: z.string().min(1, "จำเป็นต้องระบุอาหารที่แพ้"),
+  medical_coverage: z
+    .string()
+    .min(1, 'จำเป็นต้องระบุสิทธิการรักษาพยาบาล (หากไม่มีโปรดระบุ "-")'),
+  chronic_disease: z
+    .string()
+    .min(1, 'จำเป็นต้องระบุโรคประจำตัว (หากไม่มีโปรดระบุ "-")'),
+  self_medicine: z
+    .string()
+    .min(1, 'จำเป็นต้องระบุยาประจำตัว (หากไม่มีโปรดระบุ "-")'),
+  drug_allergic: z
+    .string()
+    .min(1, 'จำเป็นต้องระบุยาที่แพ้ (หากไม่มีโปรดระบุ "-")'),
+  food_allergic: z
+    .string()
+    .min(1, 'จำเป็นต้องระบุอาหารที่แพ้ (หากไม่มีโปรดระบุ "-")'),
   prefer_food: z.string().min(1, "จำเป็นต้องระบุอาหารที่รับประทาน"),
   address: z.string().min(1, "จำเป็นต้องระบุที่อยู่"),
-  home_phone_tel: z.string().min(1, "จำเป็นต้องระบุเบอร์โทรศัพท์บ้าน"),
+  home_phone_tel: z
+    .string()
+    .min(1, 'จำเป็นต้องระบุเบอร์โทรศัพท์บ้าน (หากไม่มีโปรดระบุ "-")'),
   comcamp_attendance: z.boolean(),
   everyday_attendance: z.boolean(),
   has_laptop: z.boolean(),
@@ -55,7 +81,9 @@ export const formSchema = z.object({
   parent_phone: z
     .string()
     .min(10, "เบอร์โทรศัพท์ต้องมี 10 หลัก")
-    .max(10, "เบอร์โทรศัพท์ต้องมี 10 หลัก"),
+    .max(10, "เบอร์โทรศัพท์ต้องมี 10 หลัก")
+    .startsWith("0", "เบอร์โทรศัพท์ไม่ตรงตามแบบที่กำหนด")
+    .regex(/[0-9]{10}$/, "เบอร์โทรศัพท์ไม่ตรงตามแบบที่กำหนด"),
 });
 
 interface InfoFormProps {
@@ -68,7 +96,9 @@ interface InfoFormProps {
 function InfoForm(props: InfoFormProps) {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
-    defaultValues: props.data,
+    defaultValues: {
+      ...props.data,
+    },
   });
 
   return (
@@ -76,7 +106,7 @@ function InfoForm(props: InfoFormProps) {
       <Form {...form}>
         <form onSubmit={form.handleSubmit(props.onSubmit)}>
           <div className="font-noto-sans-thai-looped grid gap-4">
-            <h5 className="font-bold">ข้อมูลส่วนตัว</h5>
+            <h5 className="font-bold">ข้อมูลส่วนบุคคล</h5>
             <div className="grid w-full grid-cols-1 gap-6 md:grid-cols-[1fr_10fr]">
               <FormField
                 disabled={props.hasSubmit}
@@ -173,14 +203,13 @@ function InfoForm(props: InfoFormProps) {
                 disabled={props.hasSubmit}
                 control={form.control}
                 name="religion"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>ศาสนา</FormLabel>
-                    <FormControl>
-                      <Input {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
+                render={({ field: { onChange, value, ...fieldProps } }) => (
+                  <ReligionSelector
+                    {...fieldProps}
+                    value={value}
+                    onValueChange={onChange}
+                    disabled={props.hasSubmit}
+                  />
                 )}
               />
             </div>
@@ -253,14 +282,13 @@ function InfoForm(props: InfoFormProps) {
                 disabled={props.hasSubmit}
                 control={form.control}
                 name="graduation"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>ระดับชั้นการศึกษา</FormLabel>
-                    <FormControl>
-                      <Input {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
+                render={({ field: { onChange, value, ...fieldProps } }) => (
+                  <GraduationSelector
+                    {...fieldProps}
+                    value={value}
+                    onValueChange={onChange}
+                    disabled={props.hasSubmit}
+                  />
                 )}
               />
               <FormField
@@ -281,14 +309,13 @@ function InfoForm(props: InfoFormProps) {
                 disabled={props.hasSubmit}
                 control={form.control}
                 name="course"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>สายการเรียน</FormLabel>
-                    <FormControl>
-                      <Input {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
+                render={({ field: { onChange, value, ...fieldProps } }) => (
+                  <CourseSelector
+                    {...fieldProps}
+                    value={value}
+                    onValueChange={onChange}
+                    disabled={props.hasSubmit}
+                  />
                 )}
               />
             </div>
@@ -300,14 +327,13 @@ function InfoForm(props: InfoFormProps) {
                 disabled={props.hasSubmit}
                 control={form.control}
                 name="blood_group"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>กรุ๊ปเลือด</FormLabel>
-                    <FormControl>
-                      <Input {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
+                render={({ field: { onChange, value, ...fieldProps } }) => (
+                  <BloodGroupSelector
+                    {...fieldProps}
+                    value={value}
+                    onValueChange={onChange}
+                    disabled={props.hasSubmit}
+                  />
                 )}
               />
               <FormField
@@ -394,15 +420,12 @@ function InfoForm(props: InfoFormProps) {
                 control={form.control}
                 name="prefer_food"
                 render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>
-                      อาหารที่รับประทาน (ปกติ/อิสลาม/มังสวิรัติ/อื่น ๆ โปรดระบุ)
-                    </FormLabel>
-                    <FormControl>
-                      <Input {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
+                  <PreferFoodSelector
+                    {...field}
+                    value={field.value}
+                    onValueChange={field.onChange}
+                    disabled={props.hasSubmit}
+                  />
                 )}
               />
             </div>
@@ -429,13 +452,12 @@ function InfoForm(props: InfoFormProps) {
                 control={form.control}
                 name="parent_relation"
                 render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>ความสัมพันธ์กับผู้ปกครอง</FormLabel>
-                    <FormControl>
-                      <Input {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
+                  <ParentRelationSelector
+                    {...field}
+                    value={field.value}
+                    onValueChange={field.onChange}
+                    disabled={props.hasSubmit}
+                  />
                 )}
               />
               <FormField
@@ -542,7 +564,7 @@ function InfoForm(props: InfoFormProps) {
                   props.isPending || !form.formState.isDirty || props.hasSubmit
                 }
               >
-                {props.isPending ? <Spinner /> : "บันทึกข้อมูลส่วนตัว"}
+                {props.isPending ? <Spinner /> : "บันทึกข้อมูลส่วนบุคคล"}
               </Button>
             </div>
 
