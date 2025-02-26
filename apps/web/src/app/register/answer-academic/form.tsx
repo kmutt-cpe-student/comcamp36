@@ -179,7 +179,7 @@ function AnswerAcademic(props: AnswerAcademicProps) {
                     <FormLabel>รูปแบบการเดิน</FormLabel>
                     <FormControl>
                       <Textarea
-                        className="min-h-auto h-12 [resize:none] md:text-base"
+                        className="min-h-auto no-scrollbar h-12 md:text-base"
                         {...field}
                         disabled
                       />

@@ -112,9 +112,18 @@
     -webkit-appearance: none;
     margin: 0;
   }
-  input[type=number] {
-    -moz-appearance:textfield;
+  input[type="number"] {
+    appearance: textfield;
+    -moz-appearance: textfield;
   }
 }
 
-
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
