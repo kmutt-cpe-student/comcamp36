@@ -601,6 +601,15 @@ function ChessGame({ callback, disabled }: ChessGameProps) {
                 <AlertDialogDescription className="text-white/70">
                   คุณแน่ใจหรือไม่ที่จะบันทึกผลการเล่น คะแนนของคุณคือ{" "}
                   {gameState.score}
+                  <br />
+                  <br />
+                  <span className="text-vermilion-2">
+                    หลังจากบันทึกผลการเล่น คุณจะต้องกดปุ่ม{" "}
+                    <span className="font-semibold">
+                      &quot;บันทึกคำตอบปริศนาสถาบันวิศวะ&quot;
+                    </span>{" "}
+                    มิฉะนั้นคะแนนจะไม่ถูกบันทึกลงในระบบ
+                  </span>
                 </AlertDialogDescription>
               </AlertDialogHeader>
               <AlertDialogFooter>
