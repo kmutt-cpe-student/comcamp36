@@ -15,6 +15,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { FileText } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 
@@ -111,14 +112,18 @@ function FilesForm(props: FilesFormProps) {
             render={({ field }) => (
               <FormItem>
                 <FormLabel>เอกสารขออนุญาตผู้ปกครอง</FormLabel>
-                <FormDescription className="hover:text-vermilion text-white/40 hover:underline">
+                <FormDescription className="hover:text-vermilion text-white/40 underline">
                   <strong>
                     <a
                       href={PARENT_FORM_URL}
                       target="_blank"
                       rel="noopener noreferrer"
+                      className="flex gap-x-2"
                     >
-                      คลิกที่นี่เพื่อดาวน์โหลดไฟล์เอกสารขออนุญาตผู้ปกครอง
+                      <FileText className="text-vermilion" />{" "}
+                      {
+                        "> คลิกที่นี่เพื่อดาวน์โหลดไฟล์เอกสารขออนุญาตผู้ปกครอง <"
+                      }
                     </a>
                   </strong>
                 </FormDescription>
