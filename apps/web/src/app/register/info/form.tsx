@@ -5,6 +5,7 @@ import FormStepper from "@/app/register/form-stepper";
 import DatePicker from "@/components/date-picker";
 import RadioGroupBoolean from "@/components/radio-group-boolean";
 import BloodGroupSelector from "@/components/select/bloodgroup-dynselect";
+import CourseSelector from "@/components/select/course-dynselect";
 import GenderSelector from "@/components/select/gender-selector";
 import GraduationSelector from "@/components/select/graduation-dynselect";
 import ParentRelationSelector from "@/components/select/parentrelation-dynselect";
@@ -308,14 +309,13 @@ function InfoForm(props: InfoFormProps) {
                 disabled={props.hasSubmit}
                 control={form.control}
                 name="course"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>สายการเรียน</FormLabel>
-                    <FormControl>
-                      <Input {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
+                render={({ field: { onChange, value, ...fieldProps } }) => (
+                  <CourseSelector
+                    {...fieldProps}
+                    value={value}
+                    onValueChange={onChange}
+                    disabled={props.hasSubmit}
+                  />
                 )}
               />
             </div>
