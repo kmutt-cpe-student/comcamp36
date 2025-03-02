@@ -29,13 +29,15 @@ function RegisterInfoPage() {
   });
 
   const onSubmit = (data: z.infer<typeof formSchema>) => {
+    const localDate = new Date(data.birth);
+    const utcDate = new Date(Date.UTC(localDate.getFullYear(), localDate.getMonth(), localDate.getDate(), 0, 0, 0));
     mutate({
       body: {
         ...data,
         age: data.age,
         chronic_diseas: data.chronic_disease,
         everyday_attendence: data.everyday_attendance,
-        birth: data.birth.toISOString(),
+        birth: utcDate.toISOString(),
       },
     });
   };
