@@ -83,6 +83,7 @@ export class UsersController {
     }
 
     const birth = new Date(updateUserDto.birth);
+    birth.setUTCHours(0, 0, 0, 0);
     const updateuser = await this.usersService.update(
       req['user_id'],
       updateUserDto,
