@@ -82,10 +82,10 @@ export class UsersController {
       throw new HttpException('UNAUTHORIZED', HttpStatus.UNAUTHORIZED);
     }
 
-    const d = new Date(updateUserDto.birth);
-    const year = d.getFullYear();
-    const month = d.getMonth();
-    const day = d.getDate();
+    const inputDate = new Date(updateUserDto.birth);
+    const year = inputDate.getUTCFullYear();
+    const month = inputDate.getUTCMonth();
+    const day = inputDate.getUTCDate();
     const normalizedDate = new Date(Date.UTC(year, month, day));
 
     const updateuser = await this.usersService.update(
