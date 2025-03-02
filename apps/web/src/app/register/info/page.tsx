@@ -29,15 +29,13 @@ function RegisterInfoPage() {
   });
 
   const onSubmit = (data: z.infer<typeof formSchema>) => {
-    const localDate = new Date(data.birth);
-    const utcDate = new Date(Date.UTC(localDate.getFullYear(), localDate.getMonth(), localDate.getDate(), 0, 0, 0));
     mutate({
       body: {
         ...data,
         age: data.age,
         chronic_diseas: data.chronic_disease,
         everyday_attendence: data.everyday_attendance,
-        birth: utcDate.toISOString(),
+        birth: data.birth.toISOString(),
       },
     });
   };
@@ -52,7 +50,7 @@ function RegisterInfoPage() {
         title: data?.title ? data?.title : "",
         fullname: data?.fullname ? data.fullname : "",
         age: data?.age ?? 0,
-        birth: data?.birth ? new Date(data.birth) : new Date(),
+        birth: data?.birth ? new Date(Date.UTC(new Date(data.birth).getFullYear(), new Date(data.birth).getMonth(), new Date(data.birth).getDate(), 0, 0, 0)) : new Date(),
         gender: data?.gender ? data.gender : "",
         religion: data?.religion ? data.religion : "พุทธ",
         blood_group: data?.blood_group ? data.blood_group : "A",
