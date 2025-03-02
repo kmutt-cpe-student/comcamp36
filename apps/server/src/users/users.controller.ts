@@ -83,6 +83,7 @@ export class UsersController {
     }
 
     const birth = new Date(updateUserDto.birth);
+
     const updateuser = await this.usersService.update(
       req['user_id'],
       updateUserDto,
