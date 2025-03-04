@@ -13,7 +13,7 @@ model User {
   google_id           String          @unique
   fullname            String?
   age                 Int?
-  birth               DateTime?
+  birth               DateTime?       @db.Timestamptz()
   gender              String?
   religion            String?
   blood_group         String?
