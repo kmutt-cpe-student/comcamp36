@@ -13,7 +13,7 @@ model User {
   google_id           String          @unique
   fullname            String?
   age                 Int?
-  birth               DateTime?       @db.Timestamptz()
+  birth               DateTime?       @db.Timestamptz(6)
   gender              String?
   religion            String?
   blood_group         String?
@@ -91,5 +91,5 @@ model AnswerAcademic {
 model Session {
   sid     String   @id @default(uuid())
   user_id String
-  expire  DateTime @db.Timestamp(6)
+  expire  DateTime @db.Timestamptz(6)
 }
