@@ -25,19 +25,19 @@ const PARENT_FORM_URL =
 export const formSchema = z.object({
   face_photo: z
     .array(z.instanceof(File))
-    .min(1, "จำเป็นต้องอัพโหลดรูปใบหน้าตรง"),
+    .min(1, "จำเป็นต้องอัปโหลดรูปใบหน้าตรง"),
   thai_nationalid_copy: z
     .array(z.instanceof(File))
-    .min(1, "จำเป็นต้องอัพโหลดสำเนาบัตรประชาชน"),
+    .min(1, "จำเป็นต้องอัปโหลดสำเนาบัตรประชาชน"),
   parent_permission: z
     .array(z.instanceof(File))
-    .min(1, "จำเป็นต้องอัพโหลดเอกสารขออนุญาตผู้ปกครอง"),
+    .min(1, "จำเป็นต้องอัปโหลดเอกสารขออนุญาตผู้ปกครอง"),
   p1: z
     .array(z.instanceof(File))
-    .min(1, "จำเป็นต้องอัพโหลดสำเนาระเบียนแสดงผลการเรียน (ปพ.1)"),
+    .min(1, "จำเป็นต้องอัปโหลดสำเนาระเบียนแสดงผลการเรียน (ปพ.1)"),
   p7: z
     .array(z.instanceof(File))
-    .min(1, "จำเป็นต้องอัพโหลดสำเนาใบรับรองผลการศึกษา (ปพ.7)"),
+    .min(1, "จำเป็นต้องอัปโหลดสำเนาใบรับรองผลการศึกษา (ปพ.7)"),
 });
 
 interface FilesFormProps {
