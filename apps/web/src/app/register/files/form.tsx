@@ -65,7 +65,8 @@ function FilesForm(props: FilesFormProps) {
               <FormItem>
                 <FormLabel>รูปใบหน้าตรง</FormLabel>
                 <FormDescription className="text-white/40">
-                  <strong>เป็นไฟล์รูปภาพที่เห็นใบหน้าชัดเจน</strong>
+                  <strong>เป็นไฟล์รูปภาพที่เห็นใบหน้าชัดเจน</strong> (ขอเป็นรูป
+                  Selfie ตัวเอง)
                 </FormDescription>
                 <FormControl>
                   <FileUploader
@@ -89,7 +90,9 @@ function FilesForm(props: FilesFormProps) {
                 <FormLabel>สำเนาบัตรประชาชน</FormLabel>
                 <FormDescription className="text-white/40">
                   <strong>สามารถใช้สำเนาบัตรนักเรียนแทนได้</strong>{" "}
-                  (เซ็นสำเนาถูกต้อง)
+                  <span className="font-bold text-red-500">
+                    (เซ็นสำเนาถูกต้อง)
+                  </span>
                 </FormDescription>
                 <FormControl>
                   <FileUploader
@@ -152,7 +155,9 @@ function FilesForm(props: FilesFormProps) {
                   <strong>
                     สามารถใช้เอกสารแสดงผลการเรียนภาคการศึกษาล่าสุดแทนได้
                   </strong>{" "}
-                  (เซ็นสำเนาถูกต้อง)
+                  <span className="font-bold text-red-500">
+                    (เซ็นสำเนาถูกต้อง)
+                  </span>
                 </FormDescription>
                 <FormControl>
                   <FileUploader
@@ -180,7 +185,9 @@ function FilesForm(props: FilesFormProps) {
                     สามารถใช้เอกสารรับรองการเป็นนักเรียนแทนได้ เช่น
                     สำเนาบัตรนักเรียน
                   </strong>{" "}
-                  (เซ็นสำเนาถูกต้อง)
+                  <span className="font-bold text-red-500">
+                    (เซ็นสำเนาถูกต้อง)
+                  </span>
                 </FormDescription>
                 <FormControl>
                   <FileUploader

@@ -137,6 +137,9 @@ function InfoForm(props: InfoFormProps) {
                     <FormControl>
                       <Input {...field} />
                     </FormControl>
+                    <FormDescription className="text-white/40">
+                      ไม่เอาคำนำหน้าชื่อ
+                    </FormDescription>
                     <FormMessage />
                   </FormItem>
                 )}
@@ -254,6 +257,10 @@ function InfoForm(props: InfoFormProps) {
                     <FormControl>
                       <Input {...field} />
                     </FormControl>
+                    <FormDescription className="text-white/40">
+                      โปรดใช้ที่อยู่เต็ม ตัวอย่างเช่น เลขที่ 126 ถนนประชาอุทิศ
+                      แขวงบางมด เขตทุ่งครุ กรุงเทพมหานคร 10140
+                    </FormDescription>
                     <FormMessage />
                   </FormItem>
                 )}
@@ -441,6 +448,9 @@ function InfoForm(props: InfoFormProps) {
                   <FormControl>
                     <Input {...field} />
                   </FormControl>
+                  <FormDescription className="text-white/40">
+                    ไม่เอาคำนำหน้าชื่อ
+                  </FormDescription>
                   <FormMessage />
                 </FormItem>
               )}
