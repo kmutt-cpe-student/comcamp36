@@ -34,7 +34,7 @@ const steps = [
   {
     image: "/static/image/regis/3.png",
     href: "/register/files",
-    label: "ไฟล์ที่ต้องอัพโหลด",
+    label: "ไฟล์ที่ต้องอัปโหลด",
     doneKey: "files_done",
   },
 ];
