@@ -154,7 +154,7 @@ export function FileUploader(props: FileUploaderProps) {
               <div className="flex flex-col items-center justify-center gap-4 sm:px-5">
                 <div className="flex flex-col gap-px">
                   <p className="text-dimgray-1 font-medium">
-                    ลากและวาง หรือ คลิกตรงนี้เพื่ออัพโหลดไฟล์
+                    ลากและวาง หรือ คลิกตรงนี้เพื่ออัปโหลดไฟล์
                   </p>
                   <p className="text-dimgray-1 text-sm">
                     {maxFileCount > 1
