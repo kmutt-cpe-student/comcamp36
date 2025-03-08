@@ -138,7 +138,8 @@ function InfoForm(props: InfoFormProps) {
                       <Input {...field} />
                     </FormControl>
                     <FormDescription className="text-white/40">
-                      ไม่เอาคำนำหน้าชื่อ
+                      ไม่เอาคำนำหน้าชื่อ ตัวอย่างเช่น &quot;ห่านน้อย
+                      คอยรัก&quot;
                     </FormDescription>
                     <FormMessage />
                   </FormItem>
@@ -449,7 +450,7 @@ function InfoForm(props: InfoFormProps) {
                     <Input {...field} />
                   </FormControl>
                   <FormDescription className="text-white/40">
-                    ไม่เอาคำนำหน้าชื่อ
+                    ไม่เอาคำนำหน้าชื่อ ตัวอย่างเช่น &quot;ห่านน้อย คอยรัก&quot;
                   </FormDescription>
                   <FormMessage />
                 </FormItem>
