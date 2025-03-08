@@ -259,8 +259,9 @@ function InfoForm(props: InfoFormProps) {
                       <Input {...field} />
                     </FormControl>
                     <FormDescription className="text-white/40">
-                      โปรดใช้ที่อยู่เต็ม ตัวอย่างเช่น เลขที่ 126 ถนนประชาอุทิศ
-                      แขวงบางมด เขตทุ่งครุ กรุงเทพมหานคร 10140
+                      โปรดใช้ที่อยู่เต็ม ตัวอย่างเช่น &quot;เลขที่ 126
+                      ถนนประชาอุทิศ แขวงบางมด เขตทุ่งครุ กรุงเทพมหานคร
+                      10140&quot;
                     </FormDescription>
                     <FormMessage />
                   </FormItem>
