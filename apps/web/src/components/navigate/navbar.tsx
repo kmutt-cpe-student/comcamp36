@@ -12,7 +12,7 @@ import {
   DrawerTrigger,
 } from "@/components/ui/drawer";
 import { ReactNode } from "react";
-import { TextShimmer } from "../text/text-shimmer";
+import { TextShimmerWave } from "../text/text-shimmer-wave";
 import { Banner } from "../ui/banner";
 
 interface NavbarProps {
@@ -64,7 +64,7 @@ export default function Navbar({ items, extra }: NavbarProps) {
               className="group flex items-center justify-center text-lg"
             >
               <span className="me-1 leading-none">✨</span>
-              <TextShimmer
+              <TextShimmerWave
                 duration={2}
                 className="cursor-pointer text-lg font-medium transition-colors [--base-color:var(--color-vermilion)] [--base-gradient-color:var(--color-vermilion-1)] dark:[--base-color:var(--color-vermilion)] dark:[--base-gradient-color:var(--color-vermilion-1)]"
               >
@@ -78,7 +78,7 @@ export default function Navbar({ items, extra }: NavbarProps) {
                     ? `เหลืออีก ${daysLeft.toString()} วันจะหมดเขตรับแล้วน่ะ สมัครเลย!`
                     : "ไม่ถึงวันแล้วน่ะสมัครเลย! เวลาสุดท้าย 23:59:59";
                 })()}
-              </TextShimmer>
+              </TextShimmerWave>
               <ArrowRight
                 className="-mt-0.5 ms-2 inline-flex opacity-60 transition-transform group-hover:translate-x-0.5"
                 size={18}
