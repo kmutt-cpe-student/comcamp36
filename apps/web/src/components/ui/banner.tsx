@@ -127,7 +127,11 @@ const Banner = React.forwardRef<HTMLDivElement, BannerProps>(
         className={cn(bannerVariants({ variant }), className)}
         {...props}
       >
-        <MagicCard className="h-fit w-full rounded-none px-4 py-3">
+        <MagicCard
+          className="h-fit w-full rounded-none px-4 py-3"
+          gradientColor="#F15A29"
+          gradientOpacity={0.2}
+        >
           {innerContent}
         </MagicCard>
       </div>
