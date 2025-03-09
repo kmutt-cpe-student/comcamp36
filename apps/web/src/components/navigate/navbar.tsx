@@ -1,6 +1,6 @@
 "use client";
 
-import { MenuIcon } from "lucide-react";
+import { ArrowRight, MenuIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -12,6 +12,8 @@ import {
   DrawerTrigger,
 } from "@/components/ui/drawer";
 import { ReactNode } from "react";
+import { TextShimmer } from "../text/text-shimmer";
+import { Banner } from "../ui/banner";
 
 interface NavbarProps {
   items: {
@@ -53,8 +55,42 @@ export default function Navbar({ items, extra }: NavbarProps) {
   );
 
   return (
-    <div className="font-prompt fixed left-0 top-0 w-full px-0 py-5 sm:px-5">
-      <div className="backdrop-blur-xs h-18 flex items-center justify-between rounded-xl border-[1px] border-[#424242] bg-[#292929]/50 px-3 lg:px-9">
+    <div className="font-prompt fixed left-0 top-0 w-full">
+      <Banner isClosable>
+        <div className="w-full font-bold text-white">
+          <div className="flex text-sm sm:justify-center">
+            <a
+              href="/register"
+              className="group flex items-center justify-center text-lg"
+            >
+              <span className="me-1 leading-none">✨</span>
+              <TextShimmer
+                duration={2}
+                className="cursor-pointer text-lg font-medium transition-colors [--base-color:var(--color-vermilion)] [--base-gradient-color:var(--color-vermilion-1)] dark:[--base-color:var(--color-vermilion)] dark:[--base-gradient-color:var(--color-vermilion-1)]"
+              >
+                {(() => {
+                  const daysLeft = Math.floor(
+                    (new Date("2025-03-14T00:00:00+07:00").getTime() -
+                      Date.now()) /
+                      (1000 * 60 * 60 * 24),
+                  );
+                  return daysLeft > 0
+                    ? `เหลืออีก ${daysLeft.toString()} วันจะหมดเขตรับแล้วน่ะ สมัครเลย!`
+                    : "ไม่ถึงวันแล้วน่ะสมัครเลย! เวลาสุดท้าย 23:59:59";
+                })()}
+              </TextShimmer>
+              <ArrowRight
+                className="-mt-0.5 ms-2 inline-flex opacity-60 transition-transform group-hover:translate-x-0.5"
+                size={18}
+                strokeWidth={3}
+                aria-hidden="true"
+              />
+            </a>
+          </div>
+        </div>
+      </Banner>
+
+      <div className="backdrop-blur-xs h-18 mx-0 my-5 flex items-center justify-between rounded-xl border-[1px] border-[#424242] bg-[#292929]/50 px-3 sm:mx-5 lg:px-9">
         <div className="flex w-20 items-center justify-center pt-1">
           <Link href="/#hero">
             <Image
