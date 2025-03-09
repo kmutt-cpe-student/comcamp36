@@ -76,7 +76,7 @@ export default function Navbar({ items, extra }: NavbarProps) {
                   );
                   return daysLeft > 0
                     ? `เหลืออีก ${daysLeft.toString()} วันจะหมดเขตรับแล้วน่ะ รีบสมัครเลย!`
-                    : "ไม่ถึงวันแล้วน่ะ รับสมัครเลย! เวลาสุดท้าย 23:59:59";
+                    : "ไม่ถึงวันแล้วน่ะ รีบสมัครเลย! เวลาสุดท้าย 23:59:59";
                 })()}
               </TextShimmerWave>
               <ArrowRight
