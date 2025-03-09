@@ -56,17 +56,17 @@ export default function Navbar({ items, extra }: NavbarProps) {
 
   return (
     <div className="font-prompt fixed left-0 top-0 w-full">
-      <Banner isClosable>
+      <Banner>
         <div className="w-full font-bold text-white">
           <div className="flex text-sm sm:justify-center">
             <a
               href="/register"
-              className="group flex items-center justify-center text-lg"
+              className="group flex items-center justify-center text-base"
             >
               <span className="me-1 leading-none">✨</span>
               <TextShimmerWave
                 duration={2}
-                className="cursor-pointer text-lg font-medium transition-colors [--base-color:var(--color-vermilion)] [--base-gradient-color:var(--color-vermilion-1)] dark:[--base-color:var(--color-vermilion)] dark:[--base-gradient-color:var(--color-vermilion-1)]"
+                className="cursor-pointer text-base font-medium transition-colors [--base-color:var(--color-vermilion)] [--base-gradient-color:var(--color-vermilion-1)] dark:[--base-color:var(--color-vermilion)] dark:[--base-gradient-color:var(--color-vermilion-1)]"
               >
                 {(() => {
                   const daysLeft = Math.floor(
@@ -75,8 +75,8 @@ export default function Navbar({ items, extra }: NavbarProps) {
                       (1000 * 60 * 60 * 24),
                   );
                   return daysLeft > 0
-                    ? `เหลืออีก ${daysLeft.toString()} วันจะหมดเขตรับแล้วน่ะ สมัครเลย!`
-                    : "ไม่ถึงวันแล้วน่ะสมัครเลย! เวลาสุดท้าย 23:59:59";
+                    ? `เหลืออีก ${daysLeft.toString()} วันจะหมดเขตรับแล้วน่ะ รีบสมัครเลย!`
+                    : "ไม่ถึงวันแล้วน่ะ รับสมัครเลย! เวลาสุดท้าย 23:59:59";
                 })()}
               </TextShimmerWave>
               <ArrowRight

@@ -127,7 +127,7 @@ const Banner = React.forwardRef<HTMLDivElement, BannerProps>(
         className={cn(bannerVariants({ variant }), className)}
         {...props}
       >
-        <MagicCard className="h-fit w-full rounded-none px-4 py-4">
+        <MagicCard className="h-fit w-full rounded-none px-4 py-3">
           {innerContent}
         </MagicCard>
       </div>
