@@ -1,7 +1,6 @@
 "use client";
 
 import { Tilt } from "@/components/card/tilt-card";
-import SubmitAnswerBtn from "@/components/register/submit-answer-btn";
 import { Card } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { Skeleton } from "@/components/ui/skeleton";
@@ -94,14 +93,6 @@ function RegisterPage() {
       </div>
 
       <Status {...data} />
-
-      <div className="font-noto-sans-thai-looped flex justify-center">
-        {data.info_done &&
-          data.regis_done &&
-          data.academic_done &&
-          data.files_done &&
-          !data.has_submit_answer && <SubmitAnswerBtn />}
-      </div>
     </Card>
   );
 }
