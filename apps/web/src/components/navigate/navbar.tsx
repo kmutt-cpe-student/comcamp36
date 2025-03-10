@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowRight, MenuIcon } from "lucide-react";
+import { MenuIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -59,33 +59,15 @@ export default function Navbar({ items, extra }: NavbarProps) {
       <Banner>
         <div className="w-full font-bold text-white">
           <div className="flex text-sm sm:justify-center">
-            <a
-              href="/register"
-              className="group flex items-center justify-center text-base"
-            >
+            <div className="group flex items-center justify-center text-base">
               <span className="me-1 leading-none">✨</span>
               <TextShimmerWave
                 duration={2}
                 className="cursor-pointer text-base font-medium transition-colors [--base-color:var(--color-vermilion)] [--base-gradient-color:var(--color-vermilion-1)] dark:[--base-color:var(--color-vermilion)] dark:[--base-gradient-color:var(--color-vermilion-1)]"
               >
-                {(() => {
-                  const daysLeft = Math.floor(
-                    (new Date("2025-03-14T00:00:00+07:00").getTime() -
-                      Date.now()) /
-                      (1000 * 60 * 60 * 24),
-                  );
-                  return daysLeft > 0
-                    ? `เหลือเวลาอีก ${daysLeft.toString()} วันจะหมดเขตรับสมัครแล้วนะ รีบสมัครเลย!`
-                    : "เหลือเวลาอีกไม่ 1 ถึงวันแล้วนะ รีบสมัครเลย! (ปิดรับสมัครเวลา 23:59:59)";
-                })()}
+                ปิดรับสมัครแล้วขอบคุณ!
               </TextShimmerWave>
-              <ArrowRight
-                className="-mt-0.5 ms-2 inline-flex opacity-60 transition-transform group-hover:translate-x-0.5"
-                size={18}
-                strokeWidth={3}
-                aria-hidden="true"
-              />
-            </a>
+            </div>
           </div>
         </div>
       </Banner>
