@@ -11,6 +11,7 @@ import {
   DrawerTitle,
   DrawerTrigger,
 } from "@/components/ui/drawer";
+import { calculateTimeLeft } from "@/libs/date";
 import { ReactNode } from "react";
 import { TextShimmerWave } from "../text/text-shimmer-wave";
 import { Banner } from "../ui/banner";
@@ -69,13 +70,14 @@ export default function Navbar({ items, extra }: NavbarProps) {
                 className="cursor-pointer text-base font-medium transition-colors [--base-color:var(--color-vermilion)] [--base-gradient-color:var(--color-vermilion-1)] dark:[--base-color:var(--color-vermilion)] dark:[--base-gradient-color:var(--color-vermilion-1)]"
               >
                 {(() => {
-                  const daysLeft = Math.floor(
-                    (new Date("2025-03-14T00:00:00+07:00").getTime() -
-                      Date.now()) /
-                      (1000 * 60 * 60 * 24),
+                  const { isLate, daysLeft } = calculateTimeLeft(
+                    new Date("2025-03-13T23:59:59+07:00"),
                   );
+
+                  if (isLate) return "หมดเขตรับสมัครแล้ว";
+
                   return daysLeft > 0
-                    ? `เหลือเวลาอีก ${daysLeft.toString()} วันจะหมดเขตรับสมัครแล้วนะ รีบสมัครเลย!`
+                    ? `เหลือเวลาอีก ${daysLeft} วันจะหมดเขตรับสมัครแล้วนะ รีบสมัครเลย!`
                     : "เหลือเวลาอีกไม่ถึง 1 วันแล้วนะ รีบสมัครเลย! (ปิดรับสมัครเวลา 23:59:59)";
                 })()}
               </TextShimmerWave>
