@@ -1,11 +1,16 @@
 "use client";
 
 import ChessGame from "@/components/chess/chess-game";
+import FormCard from "../register/form-card";
 
 function ChessPage() {
   return (
-    <div className="bg-charcoal-1 h-full w-full pt-12">
-      <ChessGame callback={() => {}} />
+    <div className="bg-charcoal-1 flex h-full w-full items-center justify-center">
+      <div className="flex h-full w-full max-w-[80rem] py-10">
+        <FormCard title="">
+          <ChessGame callback={() => {}} />
+        </FormCard>
+      </div>
     </div>
   );
 }
