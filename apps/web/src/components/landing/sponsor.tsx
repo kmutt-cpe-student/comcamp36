@@ -13,7 +13,13 @@ export interface Sponsor {
   image_path: string;
 }
 
-const SponsorList: Sponsor[] = [];
+const SponsorList: Sponsor[] = [
+  {
+    name: "Exxonmobil",
+    tier: SponsorTiers.gold,
+    image_path: "/static/image/sponsors/exxonmobil.png",
+  },
+];
 
 function Sponsors() {
   return (
