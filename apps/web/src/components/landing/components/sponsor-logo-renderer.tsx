@@ -15,7 +15,7 @@ const SponsorLogoRenderer = ({ data: s }: SponsorLogoRendererProps) => {
   }
 
   return (
-    <MagicCard className="flex w-full justify-center border-white/20 px-6 py-2">
+    <MagicCard className="flex w-full justify-center border-white/20 px-10 py-4 align-middle">
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         style={{ width: "auto", height: `${h}px` }}
