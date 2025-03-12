@@ -156,7 +156,9 @@ function FilesForm(props: FilesFormProps) {
                     สามารถใช้เอกสารแสดงผลการเรียนภาคการศึกษาล่าสุดแทนได้
                   </strong>{" "}
                   <span className="font-bold text-red-500">
-                    (เซ็นสำเนาถูกต้อง)
+                    (เซ็นสำเนาถูกต้อง --{" "}
+                    <span className="underline">สำคัญ!</span>{" "}
+                    ต้องมีผลการเรียนเฉลี่ย GPAX)
                   </span>
                 </FormDescription>
                 <FormControl>
