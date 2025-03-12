@@ -11,7 +11,6 @@ import {
   DrawerTitle,
   DrawerTrigger,
 } from "@/components/ui/drawer";
-import { calculateTimeLeft } from "@/libs/date";
 import { ReactNode } from "react";
 import { TextShimmerWave } from "../text/text-shimmer-wave";
 import { Banner } from "../ui/banner";
