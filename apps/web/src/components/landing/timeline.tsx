@@ -15,7 +15,7 @@ const TimelineItems = [
     backgroundColor: "#006A71",
   },
   {
-    day: "16",
+    day: "24",
     month: "Mar",
     year: "2025",
     title: "ประกาศผล",
@@ -24,7 +24,7 @@ const TimelineItems = [
     textColor: "text-black",
   },
   {
-    day: "16-18",
+    day: "24-25",
     month: "Mar",
     monthColor: "text-[#FFC94A]",
     year: "2025",
