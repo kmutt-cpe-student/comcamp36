@@ -5,7 +5,6 @@ import { Card } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { Skeleton } from "@/components/ui/skeleton";
 import { TextScramble } from "@/components/ui/text-scramble";
-import { calculateTimeLeft } from "@/libs/date";
 import { fetchQuery } from "@/libs/server/client";
 import { Mail } from "lucide-react";
 import Image from "next/image";
@@ -72,18 +71,11 @@ function RegisterPage() {
           <div className="flex flex-col gap-4">
             <div className="flex items-baseline justify-between">
               <p className="text-[1rem] sm:text-[1.25rem]">ข้อมูลส่วนบุคคล</p>
-              <TextScramble trigger className="text-[1rem] sm:text-[1.25rem]">
-                {(() => {
-                  const { isLate, daysLeft, hoursLeft } = calculateTimeLeft(
-                    new Date("2025-03-13T23:59:59+07:00"),
-                  );
-
-                  if (isLate) return "หมดเขตรับสมัครแล้ว";
-
-                  return daysLeft > 0
-                    ? `เหลือเวลาอีก ${daysLeft} วัน`
-                    : `เหลือเวลาอีก ${hoursLeft} ชั่วโมง`;
-                })()}
+              <TextScramble
+                trigger
+                className="text-[1rem] font-bold sm:text-[1.25rem]"
+              >
+                กำลังประมวลผล!
               </TextScramble>
             </div>
             <Separator />
