@@ -50,7 +50,18 @@ function RegisterInfoPage() {
         title: data?.title ? data?.title : "",
         fullname: data?.fullname ? data.fullname : "",
         age: data?.age ?? 0,
-        birth: data?.birth ? new Date(Date.UTC(new Date(data.birth).getFullYear(), new Date(data.birth).getMonth(), new Date(data.birth).getDate(), 0, 0, 0)) : new Date(),
+        birth: data?.birth
+          ? new Date(
+              Date.UTC(
+                new Date(data.birth).getFullYear(),
+                new Date(data.birth).getMonth(),
+                new Date(data.birth).getDate(),
+                0,
+                0,
+                0,
+              ),
+            )
+          : new Date(),
         gender: data?.gender ? data.gender : "",
         religion: data?.religion ? data.religion : "พุทธ",
         blood_group: data?.blood_group ? data.blood_group : "A",
@@ -81,7 +92,7 @@ function RegisterInfoPage() {
       }}
       onSubmit={onSubmit}
       isPending={isPending}
-      hasSubmit={data?.has_submit_answer ? data.has_submit_answer : false}
+      hasSubmit={true}
     />
   );
 }

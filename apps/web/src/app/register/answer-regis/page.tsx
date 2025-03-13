@@ -10,9 +10,6 @@ import { toast } from "sonner";
 import { z } from "zod";
 
 function RegisterInfoPage() {
-  const { data: userData } = fetchQuery.useQuery("get", "/auth/me", {
-    refetchOnWindowFocus: false,
-  });
   const queryClient = useQueryClient();
   const { data, isPending: isUserDataPending } = fetchQuery.useQuery(
     "get",
@@ -61,9 +58,7 @@ function RegisterInfoPage() {
         }}
         onSubmit={onSubmit}
         isPending={isPending}
-        hasSubmit={
-          userData?.has_submit_answer ? userData.has_submit_answer : false
-        }
+        hasSubmit={true}
       />
     </FormCard>
   );

@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowRight, MenuIcon } from "lucide-react";
+import { MenuIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -11,7 +11,6 @@ import {
   DrawerTitle,
   DrawerTrigger,
 } from "@/components/ui/drawer";
-import { calculateTimeLeft } from "@/libs/date";
 import { ReactNode } from "react";
 import { TextShimmerWave } from "../text/text-shimmer-wave";
 import { Banner } from "../ui/banner";
@@ -60,34 +59,15 @@ export default function Navbar({ items, extra }: NavbarProps) {
       <Banner>
         <div className="w-full font-bold text-white">
           <div className="flex text-sm sm:justify-center">
-            <a
-              href="/register"
-              className="group flex items-center justify-center text-base"
-            >
+            <div className="group flex items-center justify-center text-base">
               <span className="me-1 leading-none">✨</span>
               <TextShimmerWave
                 duration={2}
                 className="cursor-pointer text-base font-medium transition-colors [--base-color:var(--color-vermilion)] [--base-gradient-color:var(--color-vermilion-1)] dark:[--base-color:var(--color-vermilion)] dark:[--base-gradient-color:var(--color-vermilion-1)]"
               >
-                {(() => {
-                  const { isLate, daysLeft } = calculateTimeLeft(
-                    new Date("2025-03-13T23:59:59+07:00"),
-                  );
-
-                  if (isLate) return "หมดเขตรับสมัครแล้ว";
-
-                  return daysLeft > 0
-                    ? `เหลือเวลาอีก ${daysLeft} วันจะหมดเขตรับสมัครแล้วนะ รีบสมัครเลย!`
-                    : "เหลือเวลาอีกไม่ถึง 1 วันแล้วนะ รีบสมัครเลย! (ปิดรับสมัครเวลา 23:59:59)";
-                })()}
+                ปิดรับสมัครแล้วขอบคุณ!
               </TextShimmerWave>
-              <ArrowRight
-                className="-mt-0.5 ms-2 inline-flex opacity-60 transition-transform group-hover:translate-x-0.5"
-                size={18}
-                strokeWidth={3}
-                aria-hidden="true"
-              />
-            </a>
+            </div>
           </div>
         </div>
       </Banner>

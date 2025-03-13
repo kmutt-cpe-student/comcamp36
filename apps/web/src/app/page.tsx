@@ -1,6 +1,5 @@
 import Footer from "@/components/navigate/footer";
 import Navbar from "@/components/navigate/navbar";
-import { Button } from "@/components/ui/button";
 import dynamic from "next/dynamic";
 import Link from "next/link";
 
@@ -42,7 +41,9 @@ export default function Home() {
           ]}
           extra={
             <Link href="/sign-in">
-              <Button>สมัครเลย!</Button>
+              <div className="font-noto-sans-thai-looped rounded-lg border border-dashed px-4 py-2 text-white">
+                ปิดรับสมัครแล้ว
+              </div>
             </Link>
           }
         />

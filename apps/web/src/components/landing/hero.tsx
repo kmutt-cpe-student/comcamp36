@@ -1,6 +1,5 @@
 import FadeObserverDiv from "@/components/landing/fade-div";
 import Image from "next/image";
-import Link from "next/link";
 import { Magnetic } from "../animation/magnetics";
 import { Tilt } from "../card/tilt-card";
 import { Button } from "../ui/button";
@@ -43,16 +42,15 @@ function Hero() {
             </small>
           </div>
 
-          <Link href="/sign-in">
-            <Magnetic range={300}>
-              <Button
-                className="rounded-4xl font-prompt h-[5rem] w-fit px-20 text-3xl"
-                variant="destructive"
-              >
-                สมัครเลย! 🎮
-              </Button>
-            </Magnetic>
-          </Link>
+          <Magnetic range={300}>
+            <Button
+              className="rounded-4xl font-prompt h-[5rem] w-fit px-20 text-3xl"
+              variant="ghost"
+              disabled
+            >
+              ปิดรับสมัครแล้ว
+            </Button>
+          </Magnetic>
         </div>
       </div>
       <div className="hidden 2xl:block">
