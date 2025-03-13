@@ -65,7 +65,7 @@ export default function Navbar({ items, extra }: NavbarProps) {
                 duration={2}
                 className="cursor-pointer text-base font-medium transition-colors [--base-color:var(--color-vermilion)] [--base-gradient-color:var(--color-vermilion-1)] dark:[--base-color:var(--color-vermilion)] dark:[--base-gradient-color:var(--color-vermilion-1)]"
               >
-                ปิดรับสมัครแล้วขอบคุณ!
+                ปิดรับสมัครแล้ว ขอขอบคุณน้อง ๆ ทุกคนที่สนใจ แล้วเจอกันที่ค่าย!
               </TextShimmerWave>
             </div>
           </div>
