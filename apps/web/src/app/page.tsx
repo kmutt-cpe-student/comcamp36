@@ -1,7 +1,6 @@
 import Footer from "@/components/navigate/footer";
 import Navbar from "@/components/navigate/navbar";
 import dynamic from "next/dynamic";
-import Link from "next/link";
 
 const Hero = dynamic(() => import("../components/landing/hero"));
 const WhatIs = dynamic(() => import("../components/landing/what-is"));
@@ -40,11 +39,9 @@ export default function Home() {
             },
           ]}
           extra={
-            <Link href="/sign-in">
-              <div className="font-noto-sans-thai-looped rounded-lg border border-dashed px-4 py-2 text-white">
-                ปิดรับสมัครแล้ว
-              </div>
-            </Link>
+            <div className="font-noto-sans-thai-looped cursor-not-allowed select-none rounded-lg border border-dashed px-4 py-2 text-white">
+              ปิดรับสมัครแล้ว
+            </div>
           }
         />
       </div>
