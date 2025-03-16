@@ -2,9 +2,10 @@ import { ConfettiFireworks } from "@/app/confirm/_components/firework";
 
 function ConfirmPage() {
   return (
-    <div className="pt-12">
+    <>
       <ConfettiFireworks />
-    </div>
+      <div>ยืนยันสิทธิ์</div>
+    </>
   );
 }
 export default ConfirmPage;

@@ -73,6 +73,7 @@ export default function RegisterLayout({
             },
           ]}
           extra={<LogoutBtn />}
+          hideBanner
         />
       </div>
       <div className="font-prompt py-30 flex min-h-screen w-full justify-center px-0 sm:px-5">
