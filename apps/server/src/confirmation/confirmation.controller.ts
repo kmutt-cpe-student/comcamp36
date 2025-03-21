@@ -22,12 +22,16 @@ export class ConfirmationController {
   constructor(private readonly confirmationService: ConfirmationService) {}
 
   @Get('user-confirmation')
-  @ApiResponse({ status: 200, type: ConfirmResponseDto || null })
-  getUserConfirmation(@Req() req: Request) {
+  @ApiResponse({ status: 200, type: ConfirmResponseDto })
+  async getUserConfirmation(@Req() req: Request) {
     if (!req['user_id']) {
       throw new HttpException('UNAUTHORIZED', HttpStatus.UNAUTHORIZED);
     }
-    return this.confirmationService.findConfirm(req['user_id']);
+    const confirm = await this.confirmationService.findConfirm(req['user_id']);
+    if (!confirm) {
+      return { isPassed: false, confirm: null };
+    }
+    return { isPassed: true, confirm };
   }
 
   @Post('user-confirmation')

@@ -12,10 +12,14 @@ export class ConfirmationService {
   }
 
   updateConfirm(userId: string, updateConfirmDto: UpdateConfirmDto) {
+    const receiptDate = new Date(updateConfirmDto.receipt_datetime);
     return this.prisma.confirmation.update({
       where: { user_id: userId },
       data: {
         ...updateConfirmDto,
+        receipt_datetime: receiptDate,
+        isAnswerDone: new Date(),
+        isConfirmDone: new Date(),
       },
     });
   }
