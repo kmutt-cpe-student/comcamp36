@@ -10,6 +10,7 @@ import { AnswerModule } from './answer/answer.module';
 import { AuthModule } from './auth/auth.module';
 import { SessionModule } from './session/session.module';
 import { AuthMiddleware } from './auth/auth.middleware';
+import { ConfirmationModule } from './confirmation/confirmation.module';
 
 @Module({
   imports: [
@@ -38,6 +39,7 @@ import { AuthMiddleware } from './auth/auth.middleware';
     UsersModule,
     FilesModule,
     AnswerModule,
+    ConfirmationModule,
   ],
   controllers: [AppController],
   providers: [AppService],

@@ -1,0 +1,32 @@
+export class CreateAnswerConfirmDto {
+  question1: number;
+  question2: number;
+  question3: number;
+  question4: number;
+  question5: number;
+  question6: number;
+  question7: number;
+  question8: number;
+  question9: number;
+  question10: number;
+  question11: number;
+  question12: number;
+  question13: number;
+  question14: number;
+  question15: number;
+  question16: number;
+  question17: number;
+  question18: number;
+  question19: number;
+  question20: number;
+  question21: number;
+  question22: number;
+  question23: number;
+  question24: number;
+  question25: number;
+  question26: number;
+  question27: number;
+  question28: number;
+  question29: number;
+  question30: number;
+}

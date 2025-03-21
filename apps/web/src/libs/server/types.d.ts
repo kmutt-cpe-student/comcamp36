@@ -175,6 +175,38 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
+  "/confirmation/user-confirmation": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get: operations["ConfirmationController_getUserConfirmation"];
+    put?: never;
+    post: operations["ConfirmationController_updateUserConfirmation"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/confirmation/user-answer-confirmation": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    post: operations["ConfirmationController_createUserAnswerConfirmation"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
 }
 export type webhooks = Record<string, never>;
 export interface components {
@@ -295,6 +327,10 @@ export interface components {
       chess_notation: string;
       chess_score: number;
     };
+    ConfirmResponseDto: Record<string, never>;
+    UpdateConfirmDto: Record<string, never>;
+    CreateAnswerConfirmDto: Record<string, never>;
+    AnswerConfirmResponseDto: Record<string, never>;
   };
   responses: never;
   parameters: never;
@@ -562,6 +598,71 @@ export interface operations {
         };
         content: {
           "application/json": components["schemas"]["AnswerAcademicResponseDto"];
+        };
+      };
+    };
+  };
+  ConfirmationController_getUserConfirmation: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["ConfirmResponseDto"];
+        };
+      };
+    };
+  };
+  ConfirmationController_updateUserConfirmation: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody: {
+      content: {
+        "application/json": components["schemas"]["UpdateConfirmDto"];
+      };
+    };
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["ConfirmResponseDto"];
+        };
+      };
+    };
+  };
+  ConfirmationController_createUserAnswerConfirmation: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody: {
+      content: {
+        "application/json": components["schemas"]["CreateAnswerConfirmDto"];
+      };
+    };
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["AnswerConfirmResponseDto"];
         };
       };
     };

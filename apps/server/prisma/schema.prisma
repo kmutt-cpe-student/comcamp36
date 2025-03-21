@@ -47,6 +47,8 @@ model User {
   answer_academic     AnswerAcademic?
   answer_regis        AnswerRegis?
   file                File?
+  confirmation        Confirmation?
+  answerConfirmation  AnswerConfirm?
 }
 
 model File {
@@ -92,4 +94,56 @@ model Session {
   sid     String   @id @default(uuid())
   user_id String
   expire  DateTime @db.Timestamptz(6)
+}
+
+model Confirmation {
+  user_id String @id @unique
+  index String
+  fullname String
+  nickname String?
+  request_food String?
+  Ipad Boolean?
+  os_notebook String?
+  travel String?
+  receipt_path String?
+  receipt_datetime DateTime? @db.Timestamptz(6)
+  confirmation_status String
+  isAnswerDone DateTime? @db.Timestamptz(6)
+  isConfirmDone DateTime? @db.Timestamptz(6)
+  user User @relation(fields: [user_id], references: [id])
+}
+
+model AnswerConfirm {
+  user_id String @id @unique
+  question1 Int?
+  question2 Int?
+  question3 Int?
+  question4 Int?
+  question5 Int?
+  question6 Int?
+  question7 Int?
+  question8 Int?
+  question9 Int?
+  question10 Int?
+  question11 Int?
+  question12 Int?
+  question13 Int?
+  question14 Int?
+  question15 Int?
+  question16 Int?
+  question17 Int?
+  question18 Int?
+  question19 Int?
+  question20 Int?
+  question21 Int?
+  question22 Int?
+  question23 Int?
+  question24 Int?
+  question25 Int?
+  question26 Int?
+  question27 Int?
+  question28 Int?
+  question29 Int?
+  question30 Int?
+  user User @relation(fields: [user_id], references: [id])
 }

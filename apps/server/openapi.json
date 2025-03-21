@@ -219,6 +219,75 @@
         },
         "tags": ["Answer"]
       }
+    },
+    "/confirmation/user-confirmation": {
+      "get": {
+        "operationId": "ConfirmationController_getUserConfirmation",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/ConfirmResponseDto" }
+              }
+            }
+          }
+        },
+        "tags": ["Confirmation"]
+      },
+      "post": {
+        "operationId": "ConfirmationController_updateUserConfirmation",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/UpdateConfirmDto" }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/ConfirmResponseDto" }
+              }
+            }
+          }
+        },
+        "tags": ["Confirmation"]
+      }
+    },
+    "/confirmation/user-answer-confirmation": {
+      "post": {
+        "operationId": "ConfirmationController_createUserAnswerConfirmation",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateAnswerConfirmDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AnswerConfirmResponseDto"
+                }
+              }
+            }
+          }
+        },
+        "tags": ["Confirmation"]
+      }
     }
   },
   "info": {
@@ -446,7 +515,11 @@
           "chess_score": { "type": "number" }
         },
         "required": ["algo_answer", "chess_notation", "chess_score"]
-      }
+      },
+      "ConfirmResponseDto": { "type": "object", "properties": {} },
+      "UpdateConfirmDto": { "type": "object", "properties": {} },
+      "CreateAnswerConfirmDto": { "type": "object", "properties": {} },
+      "AnswerConfirmResponseDto": { "type": "object", "properties": {} }
     }
   }
 }
