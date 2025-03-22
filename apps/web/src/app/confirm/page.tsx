@@ -16,6 +16,8 @@ function ConfirmPage() {
     },
   );
 
+  return <Candidate />;
+
   if (isPending) {
     return <ConfirmLoading />;
   }
@@ -27,7 +29,5 @@ function ConfirmPage() {
   if (data.isPassed && data.confirm.index.includes("reserved")) {
     return <Reserved />;
   }
-
-  return <Candidate />;
 }
 export default ConfirmPage;
