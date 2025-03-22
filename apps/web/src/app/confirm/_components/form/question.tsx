@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 
-interface QuestionProps {
+export interface QuestionProps {
   question: string;
   choices: string[];
   selected: string | null;

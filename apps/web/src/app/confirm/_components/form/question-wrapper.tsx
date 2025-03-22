@@ -8,15 +8,10 @@ import { ArrowLeft, ArrowRight, Check, Loader2 } from "lucide-react";
 import { useCallback, useMemo, useState } from "react";
 import { toast } from "sonner";
 import { useMediaQuery } from "usehooks-ts";
-import { Question } from "./question";
-
-interface QuestionItem {
-  question: string;
-  choices: string[];
-}
+import { Question, type QuestionProps } from "./question";
 
 interface QuestionWrapperProps {
-  questions: QuestionItem[];
+  questions: Pick<QuestionProps, "question" | "choices">[];
   onSubmit: (answers: string[]) => void;
 }
 
