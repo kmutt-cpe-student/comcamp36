@@ -1,3 +1,4 @@
+import { DateTimePicker } from "@/components/date/datetime-picker";
 import { FileUploader } from "@/components/files";
 import RadioGroupBoolean from "@/components/radio-group-boolean";
 import OsGroupSelector from "@/components/select/os_dynselect";
@@ -26,13 +27,13 @@ export const formSchema = z.object({
     .string()
     .min(1, "จำเป็นต้องระบุชื่อเล่น")
     .regex(/^[ก-๙a-zA-Z\s]+$/, "ชื่อต้องประกอบด้วยตัวอักษรภาษาไทยหรืออังกฤษ"),
-  request_food: z.string().min(1, "จำเป็นต้องระบุอาหาร ถ้าไม่มีให้ -"),
+  request_food: z.string().min(1, "จำเป็นต้องระบุอาหาร"),
   ipad: z.boolean(),
   os_notebook: z
     .string()
     .min(1, "จำเป็นต้องระบุ ระบบปฏิบัติการ (OS) ของโน็ตบุ็คที่นำมา"),
   have_mouse: z.boolean(),
-  travel: z.string(),
+  travel: z.string().min(1, "จำเป็นต้องระบุวิธีการเดินทางมาเข้าร่วมค่าย"),
   receipt_image: z
     .array(z.instanceof(File))
     .min(1, "จำเป็นต้องอัปโหลดรูปใบหน้าตรง"),
@@ -103,7 +104,6 @@ function ConfirmForm(props: ConfirmFormProps) {
                       </div>
                     </div>
                   </div>
-                  <FormMessage />
                 </FormItem>
               )}
             />
@@ -269,10 +269,15 @@ function ConfirmForm(props: ConfirmFormProps) {
                 <FormField
                   control={form.control}
                   name="receipt_datetime"
-                  render={() => (
+                  render={({ field }) => (
                     <FormItem>
                       <FormLabel>วันเวลาที่โอนเงิน</FormLabel>
-                      <FormControl></FormControl>
+                      <FormControl>
+                        <DateTimePicker
+                          value={field.value}
+                          onChange={field.onChange}
+                        />
+                      </FormControl>
                       <FormMessage />
                     </FormItem>
                   )}

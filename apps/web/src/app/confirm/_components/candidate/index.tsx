@@ -44,13 +44,13 @@ function Candidate(props: CandidateProps) {
           <CardContent className="font-noto-sans-thai-looped pt-8">
             <ConfirmForm
               data={{
-                nickname: "สมชาย",
-                request_food: "ข้าวผัด",
+                nickname: "",
+                request_food: "",
                 ipad: true,
-                os_notebook: "Windows",
+                os_notebook: "",
                 have_mouse: false,
-                travel: "รถไฟ",
-                receipt_image: [new File([""], "receipt.png")],
+                travel: "",
+                receipt_image: [],
                 receipt_datetime: new Date(),
               }}
               onSubmit={(data) => {
