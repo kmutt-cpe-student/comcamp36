@@ -16,7 +16,7 @@ function ConfirmPage() {
     },
   );
 
-  return <Candidate />;
+  return <Candidate isAnswerDone={false} />;
 
   if (isPending) {
     return <ConfirmLoading />;
