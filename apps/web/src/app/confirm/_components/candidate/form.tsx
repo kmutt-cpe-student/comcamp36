@@ -1,5 +1,3 @@
-import JoinedButton from "@/app/confirm/_components/candidate/joined-button";
-import RejectedButton from "@/app/confirm/_components/candidate/rejected-button";
 import { FileUploader } from "@/components/files";
 import RadioGroupBoolean from "@/components/radio-group-boolean";
 import OsGroupSelector from "@/components/select/os_dynselect";
@@ -285,8 +283,7 @@ function ConfirmForm(props: ConfirmFormProps) {
         </div>
 
         <div className="flex w-full items-center justify-center gap-6">
-          <RejectedButton />
-          <JoinedButton isAllDone={false} />
+          <Button>กรอกข้อมูลส่วนตัว!</Button>
         </div>
       </form>
     </Form>
