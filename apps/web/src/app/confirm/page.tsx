@@ -25,14 +25,14 @@ function ConfirmPage() {
     );
   }
 
-  if (!data?.isPassed) {
-    return <Candidate />;
+  if (!data?.confirm) {
+    return <Ineligible />;
   }
 
-  if (data.confirm.index.includes("reserved")) {
+  if (data.isPassed && data.confirm.index.includes("reserved")) {
     return <Reserved />;
   }
 
-  return <Ineligible />;
+  return <Candidate />;
 }
 export default ConfirmPage;
