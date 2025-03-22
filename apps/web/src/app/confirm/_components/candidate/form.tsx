@@ -1,8 +1,10 @@
 import JoinedButton from "@/app/confirm/_components/candidate/joined-button";
 import RejectedButton from "@/app/confirm/_components/candidate/rejected-button";
+import { FileUploader } from "@/components/files";
 import RadioGroupBoolean from "@/components/radio-group-boolean";
 import OsGroupSelector from "@/components/select/os_dynselect";
 import PreferFoodSelector from "@/components/select/preferfood-dynselect";
+import { Button } from "@/components/ui/button";
 import {
   Form,
   FormControl,
@@ -15,8 +17,10 @@ import {
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { CircleAlertIcon } from "lucide-react";
+import { CircleAlertIcon, CopyIcon } from "lucide-react";
+import Image from "next/image";
 import { useForm } from "react-hook-form";
+import { toast } from "sonner";
 import { z } from "zod";
 
 export const formSchema = z.object({
@@ -57,7 +61,7 @@ function ConfirmForm(props: ConfirmFormProps) {
         onSubmit={form.handleSubmit(props.onSubmit)}
         className="flex flex-col gap-12"
       >
-        <div className="grid grid-cols-[1.5fr_1fr]">
+        <div className="grid grid-cols-1 gap-10 lg:grid-cols-[1.5fr_1fr]">
           <div className="flex flex-col gap-12">
             <h5 className="font-bold">ข้อมูลเพิ่มเติม</h5>
             <FormField
@@ -189,8 +193,87 @@ function ConfirmForm(props: ConfirmFormProps) {
               )}
             />
           </div>
-          <div>
+          <div className="flex flex-col gap-6">
             <h5 className="font-bold">ค่ายืนยันสิทธิ์</h5>
+            <div className="flex w-full flex-col items-center justify-center gap-6 pt-6">
+              <div className="flex w-[25rem] items-center justify-center rounded-md bg-white px-10 py-5">
+                <Image
+                  style={{ width: "100%", height: "auto" }}
+                  width={0}
+                  height={0}
+                  src="/static/image/bkk_bank_logo.svg"
+                  alt="Hero card section"
+                  loading="lazy"
+                />
+              </div>
+              <p className="font-bold">350 บาท</p>
+              <div className="w-full rounded-md border border-green-500/50 px-4 py-3 text-green-600">
+                <div className="flex gap-3">
+                  <CircleAlertIcon
+                    className="mt-0.5 shrink-0 opacity-60"
+                    size={24}
+                    aria-hidden="true"
+                  />
+                  <div className="grow space-y-1">
+                    <p className="text-xl font-bold">ธนาคารกรุงเทพ</p>
+                    <ul className="list-inside list-disc text-sm opacity-80">
+                      <li className="space-x-2 text-lg">
+                        098-5-844455
+                        <Button
+                          size="icon"
+                          className="ml-2"
+                          variant="outline"
+                          type="button"
+                          onClick={() => {
+                            navigator.clipboard.writeText("098-5-844455");
+                            toast.success("คัดลอกสำเร็จ!", {
+                              description: "",
+                            });
+                          }}
+                        >
+                          <CopyIcon />
+                        </Button>
+                      </li>
+                      <li className="text-lg">
+                        ชื่อบัญชี นาย ภูมิพัฒน์ อภิวาทธนะพงศ์
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div className="flex w-full flex-col gap-12 pt-6">
+                <FormField
+                  control={form.control}
+                  name="receipt_image"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>ใบเสร็จ</FormLabel>
+                      <FormControl>
+                        <FileUploader
+                          maxFileCount={1}
+                          maxSize={4 * 1024 * 1024}
+                          value={field.value}
+                          onValueChange={field.onChange}
+                          accept={{ "image/*": [], "application/pdf": [] }}
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                <FormField
+                  control={form.control}
+                  name="receipt_datetime"
+                  render={() => (
+                    <FormItem>
+                      <FormLabel>วันเวลาที่โอนเงิน</FormLabel>
+                      <FormControl></FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+              </div>
+            </div>
           </div>
         </div>
 
