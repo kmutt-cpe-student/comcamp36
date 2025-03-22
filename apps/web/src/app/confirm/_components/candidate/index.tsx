@@ -1,9 +1,10 @@
 import ConfirmForm, {
   FormSchema,
 } from "@/app/confirm/_components/candidate/form";
+import JoinedButton from "@/app/confirm/_components/candidate/joined-button";
+import RejectedButton from "@/app/confirm/_components/candidate/rejected-button";
 import { ConfettiFireworks } from "@/components/animation/firework";
 import { TextShimmer } from "@/components/text/text-shimmer";
-import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
@@ -80,8 +81,8 @@ function Candidate(props: CandidateProps) {
         )}
 
         <div className="flex w-full items-center justify-center gap-4">
-          <Button>ยืนยันสิทธิ์</Button>
-          <Button>สละสิทธิ์</Button>
+          <JoinedButton isAnswerDone isInfoDone />
+          <RejectedButton />
         </div>
       </div>
     </>
