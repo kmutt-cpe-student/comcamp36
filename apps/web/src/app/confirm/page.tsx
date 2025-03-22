@@ -1,9 +1,10 @@
 "use client";
 
-import { ConfettiFireworks } from "@/app/confirm/_components/firework";
+import Candidate from "@/app/confirm/_components/candidate";
+import Ineligible from "@/app/confirm/_components/ineligible";
+import Reserved from "@/app/confirm/_components/reserved";
 import Spinner from "@/components/spinner";
 import { fetchQuery } from "@/libs/server/client";
-import Image from "next/image";
 
 function ConfirmPage() {
   const { data, isPending } = fetchQuery.useQuery(
@@ -15,8 +16,6 @@ function ConfirmPage() {
     },
   );
 
-  console.log(data);
-
   if (isPending) {
     return (
       <div className="flex flex-col items-center">
@@ -26,24 +25,14 @@ function ConfirmPage() {
     );
   }
 
-  return (
-    <div>
-      <ConfettiFireworks />
-      <h1 className="text-center">{data?.isPassed ? "ผ่าน เย้ๆ" : "โง่กาก"}</h1>
-      <div className="relative h-96 w-96">
-        <Image
-          src={
-            data?.isPassed
-              ? "/static/image/placeholder/frontmant-purple.png"
-              : "/static/image/placeholder/main-char.png"
-          }
-          alt="Profile"
-          className="object-cover"
-          fill
-          priority
-        />
-      </div>
-    </div>
-  );
+  if (!data?.isPassed) {
+    return <Candidate />;
+  }
+
+  if (data.confirm.index.includes("reserved")) {
+    return <Reserved />;
+  }
+
+  return <Ineligible />;
 }
 export default ConfirmPage;
