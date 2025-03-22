@@ -1,9 +1,7 @@
 "use client";
 
-import LogoutBtn from "@/components/auth/logout-btn";
 import PolicyConsent from "@/components/card/policy-consent";
 import Footer from "@/components/navigate/footer";
-import Navbar from "@/components/navigate/navbar";
 import Spinner from "@/components/spinner";
 import { Button } from "@/components/ui/button";
 import { fetchClient, fetchQuery } from "@/libs/server/client";
@@ -64,18 +62,6 @@ export default function RegisterLayout({
   return (
     <div className="max-w-screen min-h-screen bg-[#0d0d0d] text-white">
       <PolicyConsent />
-      <div className="absolute z-[100]">
-        <Navbar
-          items={[
-            {
-              href: "",
-              label: "",
-            },
-          ]}
-          extra={<LogoutBtn />}
-          hideBanner
-        />
-      </div>
       <div className="font-prompt py-30 flex min-h-screen w-full justify-center px-0 sm:px-5">
         {children}
       </div>

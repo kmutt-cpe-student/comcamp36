@@ -2,8 +2,8 @@
 
 import Candidate from "@/app/confirm/_components/candidate";
 import Ineligible from "@/app/confirm/_components/ineligible";
+import ConfirmLoading from "@/app/confirm/_components/loading";
 import Reserved from "@/app/confirm/_components/reserved";
-import Spinner from "@/components/spinner";
 import { fetchQuery } from "@/libs/server/client";
 
 function ConfirmPage() {
@@ -17,12 +17,7 @@ function ConfirmPage() {
   );
 
   if (isPending) {
-    return (
-      <div className="flex flex-col items-center">
-        <h3 className="mb-5">ผลที่ออกคือ...</h3>
-        <Spinner />
-      </div>
-    );
+    return <ConfirmLoading />;
   }
 
   if (!data?.confirm) {
@@ -33,6 +28,6 @@ function ConfirmPage() {
     return <Reserved />;
   }
 
-  return <Candidate />;
+  return <Candidate isAnswerDone={false} />;
 }
 export default ConfirmPage;

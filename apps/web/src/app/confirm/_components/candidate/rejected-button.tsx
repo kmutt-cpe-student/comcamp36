@@ -1,0 +1,42 @@
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "@/components/ui/alert-dialog";
+import { Button } from "@/components/ui/button";
+import { CircleXIcon } from "lucide-react";
+
+function RejectedButton({ disabled }: { disabled?: boolean }) {
+  return (
+    <AlertDialog>
+      <AlertDialogTrigger asChild>
+        <Button variant="destructive" disabled={disabled}>
+          สละสิทธิ์ <CircleXIcon />
+        </Button>
+      </AlertDialogTrigger>
+      <AlertDialogContent>
+        <AlertDialogHeader>
+          <AlertDialogTitle className="text-vermilion-1">
+            สละสิทธิ์การเข้าร่วม ค่าย Comcamp36 !
+          </AlertDialogTitle>
+          <AlertDialogDescription className="text-white/70">
+            หากกดเข้าร่วมแล้วจะไม่สามารถย้อนกลับได้น่ะ
+          </AlertDialogDescription>
+        </AlertDialogHeader>
+        <AlertDialogFooter>
+          <AlertDialogCancel>ยกเลิก</AlertDialogCancel>
+          <AlertDialogAction asChild>
+            <Button variant="destructive">ยืนยันที่จะสละสิทธิ์</Button>
+          </AlertDialogAction>
+        </AlertDialogFooter>
+      </AlertDialogContent>
+    </AlertDialog>
+  );
+}
+export default RejectedButton;
