@@ -16,9 +16,8 @@ function ConfirmPage() {
     },
   );
 
-  return <ConfirmLoading />;
-
   if (isPending) {
+    return <ConfirmLoading />;
   }
 
   if (!data?.confirm) {
