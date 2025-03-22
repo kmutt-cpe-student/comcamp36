@@ -113,11 +113,18 @@ function ConfirmForm(props: ConfirmFormProps) {
               control={form.control}
               name="os_notebook"
               render={({ field: { onChange, value, ...fieldProps } }) => (
-                <OsGroupSelector
-                  {...fieldProps}
-                  value={value}
-                  onValueChange={onChange}
-                />
+                <FormItem>
+                  <OsGroupSelector
+                    {...fieldProps}
+                    value={value}
+                    onValueChange={onChange}
+                  />
+                  <FormDescription>
+                    ถ้าน้อง ๆ ใช้ Linux/Unix อื่น ๆ น้องจากที่พี่ ๆ ให้เลือก
+                    บอกชื่อ Distro ด้วยน่ะ ! ถ้า Windows ไม่ใช้ 11/10
+                    ให้เลือกอิ่นๆแล้วระบุว่าเป็น Windows อะไรด้วย
+                  </FormDescription>
+                </FormItem>
               )}
             />
             <div className="grid grid-cols-2">
