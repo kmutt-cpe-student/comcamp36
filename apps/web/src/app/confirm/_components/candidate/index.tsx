@@ -28,14 +28,14 @@ function Candidate(props: CandidateProps) {
       onSuccess: () => {
         toast.success("ยืนยันสิทธิ์เรียบร้อย!");
       },
-      onError: () => toast.error("เกิดข้อผิดพลาดบางอย่างในระบบ!"),
+      onError: () => toast.error("เกิดข้อผิดพลาดบางอย่างในการยืนยันสิทธิ์!"),
     },
   );
   const { mutate: mutateReceipt } = fetchQuery.useMutation(
     "post",
     "/files/upload-receipt",
     {
-      onError: () => toast.error("เกิดข้อผิดพลาดบางอย่างในระบบ!"),
+      onError: () => toast.error("เกิดข้อผิดพลาดบางอย่างในการอัพโหลดไฟล์!"),
     },
   );
 
