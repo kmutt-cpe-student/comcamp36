@@ -1,6 +1,6 @@
+import { GradientButton } from "@/components/gradient-button";
 import {
   AlertDialog,
-  AlertDialogAction,
   AlertDialogCancel,
   AlertDialogContent,
   AlertDialogDescription,
@@ -53,9 +53,13 @@ function JoinedButton({
   return (
     <AlertDialog>
       <AlertDialogTrigger asChild>
-        <Button type="button" disabled={disabled}>
-          เข้าร่วม! <CircleCheckBigIcon />
-        </Button>
+        <GradientButton
+          type="button"
+          disabled={disabled}
+          className="flex gap-2"
+        >
+          <p className="text-lg">เข้าร่วม!</p> <CircleCheckBigIcon />
+        </GradientButton>
       </AlertDialogTrigger>
       <AlertDialogContent>
         <AlertDialogHeader>
@@ -67,8 +71,14 @@ function JoinedButton({
           </AlertDialogDescription>
         </AlertDialogHeader>
         <AlertDialogFooter>
-          <AlertDialogCancel>ยกเลิก</AlertDialogCancel>
-          <AlertDialogAction>ยืนยันเข้าร่วมค่าย</AlertDialogAction>
+          <AlertDialogCancel className="px-5 py-6">ยกเลิก</AlertDialogCancel>
+          <GradientButton
+            type="button"
+            disabled={disabled}
+            className="flex gap-2 rounded-lg px-2 py-3 text-sm"
+          >
+            ยืนยันการเข้าร่วม
+          </GradientButton>
         </AlertDialogFooter>
       </AlertDialogContent>
     </AlertDialog>

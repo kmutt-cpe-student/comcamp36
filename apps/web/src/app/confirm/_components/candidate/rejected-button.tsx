@@ -1,6 +1,5 @@
 import {
   AlertDialog,
-  AlertDialogAction,
   AlertDialogCancel,
   AlertDialogContent,
   AlertDialogDescription,
@@ -26,14 +25,12 @@ function RejectedButton({ disabled }: { disabled?: boolean }) {
             สละสิทธิ์การเข้าร่วม ค่าย Comcamp36 !
           </AlertDialogTitle>
           <AlertDialogDescription className="text-white/70">
-            หากกดเข้าร่วมแล้วจะไม่สามารถย้อนกลับได้น่ะ
+            หากกดสละสิทธิ์แล้วจะไม่สามารถย้อนกลับได้น่ะ
           </AlertDialogDescription>
         </AlertDialogHeader>
         <AlertDialogFooter>
           <AlertDialogCancel>ยกเลิก</AlertDialogCancel>
-          <AlertDialogAction asChild>
-            <Button variant="destructive">ยืนยันที่จะสละสิทธิ์</Button>
-          </AlertDialogAction>
+          <Button variant="destructive">ยืนยันที่จะสละสิทธิ์</Button>
         </AlertDialogFooter>
       </AlertDialogContent>
     </AlertDialog>

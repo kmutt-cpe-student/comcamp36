@@ -1,6 +1,8 @@
 import { TextShimmer } from "@/components/text/text-shimmer";
-import { TriangleAlert } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { ChevronLeft, TriangleAlert } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 function Ineligible() {
   return (
@@ -16,28 +18,33 @@ function Ineligible() {
           className="transition-all hover:scale-[1.1]"
         />
       </div>
-      <div className="font-noto-sans-thai-looped rounded-md border border-amber-500/50 px-7 py-3 text-amber-600">
-        <div className="flex flex-col items-center text-xl">
-          <div className="flex items-center">
-            <TriangleAlert
-              className="-mt-0.5 me-3 inline-flex opacity-60"
-              size={30}
-              aria-hidden="true"
-            />
+
+      <div className="font-noto-sans-thai-looped bg-charcoal-1 mx-4 rounded-md border border-amber-500/50 p-7 text-amber-600">
+        <div className="flex items-center justify-start text-xl">
+          <TriangleAlert
+            className="-mt-0.5 me-3 inline-flex size-10 opacity-60"
+            aria-hidden="true"
+          />
+          <div className="grid gap-2">
             <TextShimmer
               duration={2}
-              className="w-fit max-w-full text-xl font-bold transition-opacity duration-200 [--base-color:var(--color-vermilion)] [--base-gradient-color:var(--color-vermilion-1)] dark:[--base-color:var(--color-vermilion)] dark:[--base-gradient-color:var(--color-vermilion-1)]"
+              className="w-fit max-w-full text-2xl font-bold transition-opacity duration-200 [--base-color:var(--color-vermilion)] [--base-gradient-color:var(--color-vermilion-1)] dark:[--base-color:var(--color-vermilion)] dark:[--base-gradient-color:var(--color-vermilion-1)]"
             >
-              ขอแสดงความเสียใจ
+              ไม่ผ่านการคัดเลือก
             </TextShimmer>
+            <p className="text-vermilion/80 text-lg font-light">
+              พี่ ๆ ได้รับความตั้งใจของน้อง ๆ แล้วขอบคุณมากสำหรับคำตอบ สู้ต่อไป
+              แล้วเจอกันปีหน้าน่ะ !
+            </p>
           </div>
-          <p className="mt-3 w-fit max-w-full text-center text-base transition-opacity duration-200 [--base-color:var(--color-vermilion)] [--base-gradient-color:var(--color-vermilion-1)] dark:[--base-color:var(--color-vermilion)] dark:[--base-gradient-color:var(--color-vermilion-1)]">
-            พี่ ๆ เห็นถึงความตั้งใจของน้อง ๆ แล้วนะ ขอบคุณที่มาสมัคร
-            ครั้งนี้อาจยังไม่ใช่โอกาสของน้อง แต่ขอให้พยายามต่อไป
-            พี่เป็นกำลังใจให้เสมอ! 💙🚀
-          </p>
         </div>
       </div>
+      <Link href="/">
+        <Button>
+          <ChevronLeft />
+          กลับไปหน้าแรก
+        </Button>
+      </Link>
     </div>
   );
 }

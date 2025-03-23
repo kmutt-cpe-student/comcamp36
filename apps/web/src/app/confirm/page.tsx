@@ -7,12 +7,13 @@ import Reserved from "@/app/confirm/_components/reserved";
 import { fetchQuery } from "@/libs/server/client";
 
 function ConfirmPage() {
-  const { data, isPending } = fetchQuery.useQuery(
+  const { data, isPending, isError } = fetchQuery.useQuery(
     "get",
     "/confirmation/user-confirmation",
     undefined,
     {
       refetchOnWindowFocus: false,
+      retry: 1,
     },
   );
 
@@ -20,7 +21,7 @@ function ConfirmPage() {
     return <ConfirmLoading />;
   }
 
-  if (!data?.isPassed) {
+  if (!data?.confirm || isError) {
     return <Ineligible />;
   }
 

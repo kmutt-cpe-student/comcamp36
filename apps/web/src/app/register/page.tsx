@@ -1,14 +1,15 @@
 "use client";
 
 import { Tilt } from "@/components/card/tilt-card";
+import { GradientButton } from "@/components/gradient-button";
+import { SearchIcon } from "@/components/icons/search-icon";
 import { Card } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { Skeleton } from "@/components/ui/skeleton";
-import { TextScramble } from "@/components/ui/text-scramble";
 import { fetchQuery } from "@/libs/server/client";
 import { Mail } from "lucide-react";
 import Image from "next/image";
-import Status from "./status";
+import Link from "next/link";
 
 function RegisterPage() {
   const { data, isPending, isError } = fetchQuery.useQuery("get", "/auth/me");
@@ -49,8 +50,8 @@ function RegisterPage() {
   }
 
   return (
-    <Card className="grid gap-6">
-      <div className="grid h-full grid-cols-1 gap-16 lg:grid-cols-[320px_1fr]">
+    <Card className="mt-[10rem] flex h-fit flex-col gap-4">
+      <div className="grid grid-cols-1 gap-16 lg:grid-cols-[320px_1fr]">
         <Tilt isRevese rotationFactor={5}>
           <div className="relative mx-auto size-60 flex-shrink-0 overflow-hidden rounded-full border-[10px] border-white">
             <Image
@@ -70,17 +71,14 @@ function RegisterPage() {
         <div className="flex h-full flex-col justify-start">
           <div className="flex flex-col gap-4">
             <div className="flex items-baseline justify-between">
-              <p className="text-[1rem] sm:text-[1.25rem]">ข้อมูลส่วนบุคคล</p>
-              <TextScramble
-                trigger
-                className="text-[1rem] font-bold sm:text-[1.25rem]"
-              >
-                กำลังประมวลผล!
-              </TextScramble>
+              <p className="text-[1rem] font-bold sm:text-[1.25rem]">
+                ข้อมูลส่วนบุคคล
+              </p>
             </div>
             <Separator />
           </div>
           <div className="flex h-full flex-col justify-center p-5">
+            <p className="font-bold">สวัสดีน้อง!</p>
             <p className="font-bold leading-normal text-white lg:text-[3rem]">
               {!data.fullname ? "[REDACTED]" : data.fullname}
             </p>
@@ -92,7 +90,13 @@ function RegisterPage() {
         </div>
       </div>
 
-      <Status {...data} />
+      <div className="flex w-full max-w-full items-center justify-center pt-10">
+        <Link href="/confirm">
+          <GradientButton className="flex gap-4 rounded-xl px-20 py-4">
+            <SearchIcon /> <p>ตรวจสอบผลการคัดเลือก!</p>
+          </GradientButton>
+        </Link>
+      </div>
     </Card>
   );
 }

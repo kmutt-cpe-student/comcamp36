@@ -1,7 +1,7 @@
 "use client";
 
+import AnimatedGradientBackground from "@/components/animation/animated-gradient-background";
 import PolicyConsent from "@/components/card/policy-consent";
-import Footer from "@/components/navigate/footer";
 import Spinner from "@/components/spinner";
 import { Button } from "@/components/ui/button";
 import { fetchClient, fetchQuery } from "@/libs/server/client";
@@ -60,12 +60,25 @@ export default function RegisterLayout({
   }
 
   return (
-    <div className="max-w-screen min-h-screen bg-[#0d0d0d] text-white">
-      <PolicyConsent />
-      <div className="font-prompt py-30 flex min-h-screen w-full justify-center px-0 sm:px-5">
-        {children}
+    <div className="max-w-screen relative w-full overflow-hidden bg-[var(--color-charcoal)] text-white">
+      <AnimatedGradientBackground
+        gradientColors={[
+          "#0A0A0A",
+          "var(--color-vermilion)",
+          "var(--color-mustard-1)",
+          "var(--color-vermilion-1)",
+          "var(--color-dimgray)",
+          "var(--color-charcoal-special)",
+          "var(--color-vermilion-special)",
+        ]}
+      />
+
+      <div className="relative z-10 flex h-full flex-col items-center justify-start px-4 text-center">
+        <PolicyConsent />
+        <div className="font-prompt py-30 flex min-h-screen w-full justify-center px-0 sm:px-5">
+          {children}
+        </div>
       </div>
-      <Footer />
     </div>
   );
 }
