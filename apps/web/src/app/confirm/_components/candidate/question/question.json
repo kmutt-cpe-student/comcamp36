@@ -61,7 +61,7 @@
   },
   {
     "id": "7",
-    "question": "จากภาพโค้ดตัวอย่าง ผลลัพธ์ที่แสดงออกทางหน้าจอคือข้อความใดต่อไปนี้<br>`let num1 = 5;<br>let num2 = \"5\";<br>if(num1 == num2){<br>console.log(\"Equal\");<br>}<br>else{<br>console.log(\"Not Equal\");<br>}<br>`",
+    "question": "จากภาพโค้ดตัวอย่าง ผลลัพธ์ที่แสดงออกทางหน้าจอคือข้อความใดต่อไปนี้ ```js\nlet num1 = 5;\nlet num2 = \"5\";\nif (num1 == num2) {\n\tconsole.log(\"Equal\");\n} else {\n\tconsole.log(\"Not Equal\");\n}\n```",
     "choice": {
       "1": "Equal",
       "2": "Not Equal",
@@ -191,7 +191,7 @@
   },
   {
     "id": "20",
-    "question": "จงหาผลลัพท์ของการใช้คำสั่ง np.dot(a, b) , a = np.array([1, 2, 3, 4]) , b = np.array([5, 6, 7, 8])",
+    "question": "จงหาผลลัพท์ของการใช้คำสั่ง ```py\nnp.dot(a, b)\na = np.array([1, 2, 3, 4])\nb = np.array([5, 6, 7, 8])```",
     "choice": {
       "1": "70",
       "2": "38",
