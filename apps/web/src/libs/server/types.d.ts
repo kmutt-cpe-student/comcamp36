@@ -386,7 +386,8 @@ export interface components {
     };
     Confirm: {
       user_id: string;
-      index: string;
+      index: number;
+      gender: string;
       fullname: string;
       nickname: string;
       request_food: string;

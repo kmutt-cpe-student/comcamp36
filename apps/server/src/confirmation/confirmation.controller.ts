@@ -45,7 +45,7 @@ export class ConfirmationController {
       throw new HttpException('UNAUTHORIZED', HttpStatus.UNAUTHORIZED);
     }
     const confirm = await this.confirmationService.findConfirm(req['user_id']);
-    if (!confirm) {
+    if (!confirm || confirm.confirmation_status == 'reserved') {
       throw new HttpException('UNAUTHORIZED', HttpStatus.UNAUTHORIZED);
     }
     return this.confirmationService.updateConfirmInfo(
@@ -64,7 +64,7 @@ export class ConfirmationController {
       throw new HttpException('UNAUTHORIZED', HttpStatus.UNAUTHORIZED);
     }
     const confirm = await this.confirmationService.findConfirm(req['user_id']);
-    if (!confirm) {
+    if (!confirm || confirm.confirmation_status == 'reserved') {
       throw new HttpException('UNAUTHORIZED', HttpStatus.UNAUTHORIZED);
     }
 
@@ -94,7 +94,7 @@ export class ConfirmationController {
       throw new HttpException('UNAUTHORIZED', HttpStatus.UNAUTHORIZED);
     }
     const confirm = await this.confirmationService.findConfirm(req['user_id']);
-    if (!confirm) {
+    if (!confirm || confirm.confirmation_status == 'reserved') {
       throw new HttpException('UNAUTHORIZED', HttpStatus.UNAUTHORIZED);
     }
     return this.confirmationService.createAnswerConfirm(

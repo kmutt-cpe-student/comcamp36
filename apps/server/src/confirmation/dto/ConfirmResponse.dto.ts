@@ -7,9 +7,14 @@ export class Confirm {
   user_id: string;
 
   @ApiProperty({
+    type: 'number',
+  })
+  index: number;
+
+  @ApiProperty({
     type: 'string',
   })
-  index: string;
+  gender: string;
 
   @ApiProperty({
     type: 'string',

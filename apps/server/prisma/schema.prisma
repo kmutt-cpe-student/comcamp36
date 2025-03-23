@@ -98,7 +98,8 @@ model Session {
 
 model Confirmation {
   user_id String @id @unique
-  index String
+  index Int
+  gender String
   fullname String
   nickname String?
   request_food String?
