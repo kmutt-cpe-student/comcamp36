@@ -1,6 +1,8 @@
 import { TextShimmer } from "@/components/text/text-shimmer";
-import { TriangleAlert } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { ChevronLeft, TriangleAlert } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 function Ineligible() {
   return (
@@ -16,21 +18,32 @@ function Ineligible() {
           className="transition-all hover:scale-[1.1]"
         />
       </div>
-      <div className="font-noto-sans-thai-looped rounded-md border border-amber-500/50 px-4 py-3 text-amber-600">
-        <div className="flex items-center text-xl">
+      <div className="font-noto-sans-thai-looped mx-4 rounded-md border border-amber-500/50 px-4 py-3 text-amber-600">
+        <div className="flex items-center justify-start text-xl">
           <TriangleAlert
-            className="-mt-0.5 me-3 inline-flex opacity-60"
-            size={30}
+            className="-mt-0.5 me-3 inline-flex size-10 opacity-60"
             aria-hidden="true"
           />
-          <TextShimmer
-            duration={2}
-            className="w-fit max-w-full text-xl font-bold transition-opacity duration-200 [--base-color:var(--color-vermilion)] [--base-gradient-color:var(--color-vermilion-1)] dark:[--base-color:var(--color-vermilion)] dark:[--base-gradient-color:var(--color-vermilion-1)]"
-          >
-            พี่ๆได้รับความตั้งใจของน้อง ๆ แล้วน่ะ ขอบคุณมากสำหรับคำตอบ
-          </TextShimmer>
+          <div className="grid gap-2">
+            <TextShimmer
+              duration={2}
+              className="w-fit max-w-full text-2xl font-bold transition-opacity duration-200 [--base-color:var(--color-vermilion)] [--base-gradient-color:var(--color-vermilion-1)] dark:[--base-color:var(--color-vermilion)] dark:[--base-gradient-color:var(--color-vermilion-1)]"
+            >
+              ไม่ผ่านการคัดเลือก
+            </TextShimmer>
+            <p className="text-vermilion/80 text-lg font-light">
+              พี่ ๆ ได้รับความตั้งใจของน้อง ๆ แล้วขอบคุณมากสำหรับคำตอบ สู้ต่อไป
+              แล้วเจอกันปีหน้าน่ะ !
+            </p>
+          </div>
         </div>
       </div>
+      <Link href="/">
+        <Button>
+          <ChevronLeft />
+          กลับไปหน้าแรก
+        </Button>
+      </Link>
     </div>
   );
 }
