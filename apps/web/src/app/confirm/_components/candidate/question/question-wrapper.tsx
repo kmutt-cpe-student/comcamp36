@@ -6,13 +6,12 @@ import { cn } from "@/libs/utils";
 import { AnimatePresence, motion } from "framer-motion";
 import { ArrowLeft, ArrowRight, Check, Loader2 } from "lucide-react";
 import { useCallback, useMemo, useState } from "react";
-import { toast } from "sonner";
 import { useMediaQuery } from "usehooks-ts";
 import { Question, type QuestionProps } from "./question";
 
 interface QuestionWrapperProps {
   questions: Pick<QuestionProps, "question" | "choices">[];
-  onSubmit: (answers: string[]) => void;
+  onSubmit: (answers: number[]) => void;
 }
 
 export function QuestionWrapper({ questions, onSubmit }: QuestionWrapperProps) {
@@ -59,20 +58,16 @@ export function QuestionWrapper({ questions, onSubmit }: QuestionWrapperProps) {
 
   const handleSubmitAnswers = useCallback(() => {
     setIsSubmitting(true);
+    const numericAnswers = selectedAnswers.map((answer, index) => {
+      const choiceIndex = questions[index].choices.findIndex(
+        (choice) => choice === answer,
+      );
+      return choiceIndex !== -1 ? choiceIndex + 1 : null;
+    });
 
-    // Simulate
-    setTimeout(() => {
-      try {
-        onSubmit(selectedAnswers as string[]);
-        toast.success("คำตอบของคุณถูกส่งเรียบร้อยแล้ว");
-      } catch (error) {
-        toast.error("เกิดข้อผิดพลาดในการส่งคำตอบ กรุณาลองอีกครั้ง");
-        console.error(error);
-      } finally {
-        setIsSubmitting(false);
-      }
-    }, 800);
-  }, [onSubmit, selectedAnswers]);
+    onSubmit(numericAnswers as number[]);
+    setIsSubmitting(false);
+  }, [onSubmit, questions, selectedAnswers]);
 
   const currentQuestion = questions[currentQuestionIndex];
   const isLastQuestion = currentQuestionIndex === questions.length - 1;

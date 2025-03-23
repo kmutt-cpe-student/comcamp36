@@ -18,10 +18,13 @@ import {
 import JsonToFormData from "@/libs/server/body-serializer";
 import { fetchQuery } from "@/libs/server/client";
 import { components } from "@/libs/server/types";
-import { CircleCheckBigIcon, TriangleAlert } from "lucide-react";
+import { ChevronLeft, CircleCheckBigIcon, TriangleAlert } from "lucide-react";
 import Image from "next/image";
 import { useState } from "react";
 import { toast } from "sonner";
+
+import Question from "@/app/confirm/_components/candidate/question";
+import { getFiles } from "@/libs/files";
 
 interface CandidateProps {
   confirmData:
@@ -57,6 +60,7 @@ function Candidate(props: CandidateProps) {
     },
     onError: () => toast.error("เกิดข้อผิดพลาดบางอย่างในการยืนยันสิทธิ์!"),
   });
+
   const { mutateAsync: mutateReceipt, isPending: receiptUploadPending } =
     fetchQuery.useMutation("post", "/files/upload-receipt", {
       onError: () => toast.error("เกิดข้อผิดพลาดบางอย่างในการอัพโหลดไฟล์!"),
@@ -83,6 +87,8 @@ function Candidate(props: CandidateProps) {
     });
   };
 
+  console.log(props.confirmData);
+
   return (
     <>
       <ConfettiFireworks />
@@ -91,6 +97,12 @@ function Candidate(props: CandidateProps) {
           <div className="flex flex-col gap-24">
             <Card className="w-full max-w-[110rem] px-5 sm:px-10">
               <CardHeader>
+                <div
+                  className="flex w-full cursor-pointer items-center justify-start gap-2 text-start text-sm transition-all hover:text-white"
+                  onClick={() => setConfirmStatus(null)}
+                >
+                  <ChevronLeft /> <p className="text-sm">ย้อนกลับ</p>
+                </div>
                 <CardTitle className="flex items-center justify-center">
                   <TextShimmer
                     duration={2}
@@ -107,13 +119,15 @@ function Candidate(props: CandidateProps) {
               <CardContent className="font-noto-sans-thai-looped pt-8">
                 <ConfirmForm
                   data={{
-                    nickname: "",
-                    request_food: "",
-                    ipad: true,
-                    os_notebook: "",
-                    have_mouse: false,
-                    travel: "",
-                    receipt_image: [],
+                    nickname: props.confirmData?.confirm.nickname || "",
+                    request_food: props.confirmData?.confirm.request_food || "",
+                    ipad: props.confirmData?.confirm.haveIpad || false,
+                    os_notebook: props.confirmData?.confirm.os_notebook || "",
+                    have_mouse: props.confirmData?.confirm.haveMouse || false,
+                    travel: props.confirmData?.confirm.travel || "",
+                    receipt_image: getFiles(
+                      props.confirmData?.confirm.receipt_path,
+                    ),
                     receipt_datetime: new Date(),
                   }}
                   onSubmit={(data) => {
@@ -142,6 +156,9 @@ function Candidate(props: CandidateProps) {
                     ขอให้น้องๆตอบตามที่เข้าใจ
                   </CardDescription>
                 </CardHeader>
+                <CardContent>
+                  <Question />
+                </CardContent>
               </Card>
             )}
 
@@ -210,7 +227,7 @@ function Candidate(props: CandidateProps) {
                   <p className="text-vermilion">น้องได้ทำการสละสิทธิ์แล้ว</p>
                 ) : props.confirmData?.confirm.confirmation_status == "yes" ? (
                   <p className="text-vermilion">
-                    น้องได้ทำการยืนยันสิทธิ์แล้ว โปรดรออีเมลจากพี่ๆ
+                    น้องได้ทำการยืนยันสิทธิ์แล้ว โปรดรออีเมลจากพี่ ๆ
                   </p>
                 ) : (
                   <div className="flex items-center justify-center">

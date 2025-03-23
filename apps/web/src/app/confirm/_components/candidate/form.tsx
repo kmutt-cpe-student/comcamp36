@@ -101,7 +101,10 @@ function ConfirmForm(props: ConfirmFormProps) {
                       <div className="grow space-y-1">
                         <p className="text-sm font-bold">ตัวอย่าง</p>
                         <ul className="list-inside list-disc text-sm opacity-80">
-                          <li>ตัวอย่างให้น้องๆ</li>
+                          <li>
+                            อาหารพิเศษ เช่น ฮาลาล มังสวิรัติ ปกติ
+                            ไม่กินอาหารทะเล หรือว่าแพ้อะไร กินอะไรไม่ได้{" "}
+                          </li>
                         </ul>
                       </div>
                     </div>
@@ -180,6 +183,7 @@ function ConfirmForm(props: ConfirmFormProps) {
                   </FormControl>
                   <FormDescription>
                     ช่วยเล่าวิธีการเดินทางมาเข้าค่ายให้พี่ ๆ ทราบหน่อย
+                    ขอแบบระเอียด ๆ
                   </FormDescription>
                   <div className="rounded-md border border-green-500/50 px-4 py-3 text-green-600">
                     <div className="flex gap-3">
@@ -191,7 +195,19 @@ function ConfirmForm(props: ConfirmFormProps) {
                       <div className="grow space-y-1">
                         <p className="text-sm font-bold">ตัวอย่าง</p>
                         <ul className="list-inside list-disc text-sm opacity-80">
-                          <li>ตัวอย่างให้น้องๆ</li>
+                          <li>
+                            วิธีการเดินทางจากบ้านน้องมาจนถึงมหาวิทยาลัย เช่น
+                            จากบ้านไปขึ้นเครื่องบินลงดอนเมืองนั่ง Taxi
+                            ต่อมาที่มอ
+                          </li>
+                          <li>
+                            พี่ๆสามารถไปรับที่ สถานีขนส่งหมอชิต บางซื่อ หัวลำโพง
+                            ได้
+                          </li>
+                          <li>
+                            หรือถ้าไม่แน่ใจก็ยืนยันสิทธิ์ก่อนแล้วมาคุยกับพี่ๆใน
+                            Line OpenChat ได้ ! (ได้หลังจากยืนยันสิทธิ์)
+                          </li>
                         </ul>
                       </div>
                     </div>
