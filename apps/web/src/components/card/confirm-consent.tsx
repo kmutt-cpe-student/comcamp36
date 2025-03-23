@@ -1,9 +1,9 @@
 "use client";
 
-import PrivacyPolicy from "@/app/privacy/policy";
 import { MagicCard } from "@/components/card/magic-card";
 import { cn } from "@/libs/utils";
 import { useEffect, useState } from "react";
+import ConfirmPolicy from "../confirm-policy";
 import { Button } from "../ui/button";
 import { Checkbox } from "../ui/checkbox";
 import { ScrollArea } from "../ui/scroll-area";
@@ -54,7 +54,7 @@ export default function ConfirmConsent({ demo = false }) {
           <h4 className="h-fit font-bold">ข้อกำหนดการยืนยันสิทธิ</h4>
 
           <ScrollArea className="bg-charcoal max-h-full rounded-xl p-5">
-            <PrivacyPolicy />
+            <ConfirmPolicy />
           </ScrollArea>
 
           <div className="flex h-fit w-full justify-between">
@@ -63,7 +63,7 @@ export default function ConfirmConsent({ demo = false }) {
                 checked={check}
                 onCheckedChange={(checked) => setCheck(checked === true)}
               />
-              <small>รับทราบและให้ความยินยอมตามนโยบายความเป็นส่วนตัว</small>
+              <small>รับทราบและให้ความยินยอมตามข้อกำหนดการยืนยันสิทธิ</small>
             </div>
 
             <Button onClick={accept} disabled={!check}>

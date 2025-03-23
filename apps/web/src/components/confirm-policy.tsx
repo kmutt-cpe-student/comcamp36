@@ -1,7 +1,6 @@
 function ConfirmPolicy() {
   return (
-    <div className="font-noto-sans-thai-looped flex h-full w-full flex-col gap-2">
-      <Header title="ข้อกำหนดการยืนยันสิทธิ" index={1} />
+    <div className="font-noto-sans-thai-looped flex h-full w-full flex-col gap-2 text-left">
       <FirstArt>
         โครงการฝึกอบรมเชิงปฏิบัติการคอมพิวเตอร์เบื้องต้น ครั้งที่ 36
         (ต่อไปนี้จะเรียกว่า “โครงการ”)
@@ -9,7 +8,7 @@ function ConfirmPolicy() {
       </FirstArt>
       <br />
 
-      <Header title="เงินมัดจำ" index={2} />
+      <Header title="เงินมัดจำ" index={1} />
       <FirstArt>
         โครงการมีการเรียกเก็บค่ามัดจำการเข้าร่วมจำนวน 350 บาท
         เพื่อเป็นหลักประกันในการเข้าร่วมกิจกรรม
@@ -38,7 +37,7 @@ function ConfirmPolicy() {
 
       <br />
 
-      <Header title="การคุ้มครองข้อมูลส่วนบุคคล" index={3} />
+      <Header title="การคุ้มครองข้อมูลส่วนบุคคล" index={2} />
       <FirstArt>
         เนื่องจากในบริเวณกิจกรรมของโครงการ มีการบันทึกภาพบรรยากาศภายในโครงการ
         ทั้งภาพนิ่ง ภาพเคลื่อนไหว และเสียง

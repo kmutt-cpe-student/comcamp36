@@ -101,9 +101,7 @@ function Candidate(props: CandidateProps) {
   return (
     <>
       <ConfettiFireworks />
-      {props.confirmData?.confirm.confirmation_status == "yes" && (
-        <ConfirmConsent />
-      )}
+      <ConfirmConsent />
       <div>
         {confirmStatus ? (
           <div className="flex flex-col gap-24">
