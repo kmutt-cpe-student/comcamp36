@@ -4,6 +4,7 @@ import ConfirmForm, {
   FormSchema,
 } from "@/app/confirm/_components/candidate/form";
 import JoinedButton from "@/app/confirm/_components/candidate/joined-button";
+import Question from "@/app/confirm/_components/candidate/question";
 import RejectedButton from "@/app/confirm/_components/candidate/rejected-button";
 import { ConfettiFireworks } from "@/components/animation/firework";
 import { GradientButton } from "@/components/gradient-button";
@@ -15,16 +16,20 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { getFiles } from "@/libs/files";
 import JsonToFormData from "@/libs/server/body-serializer";
 import { fetchQuery } from "@/libs/server/client";
 import { components } from "@/libs/server/types";
-import { ChevronLeft, CircleCheckBigIcon, TriangleAlert } from "lucide-react";
+import { motion } from "framer-motion";
+import {
+  ArrowDown,
+  ChevronLeft,
+  CircleCheckBigIcon,
+  TriangleAlert,
+} from "lucide-react";
 import Image from "next/image";
 import { useState } from "react";
 import { toast } from "sonner";
-
-import Question from "@/app/confirm/_components/candidate/question";
-import { getFiles } from "@/libs/files";
 
 interface CandidateProps {
   confirmData:
@@ -172,7 +177,21 @@ function Candidate(props: CandidateProps) {
               </Card>
             )}
 
-            <div className="flex w-full items-center justify-center gap-4">
+            <div className="flex w-full flex-col items-center justify-center gap-4">
+              <div className="flex">
+                <p>คลิกที่ปุ่มด่านล่างเพื่อยืนยันสิทธิ์</p>
+                <motion.div
+                  animate={{ y: [0, -10, 0], rotate: 0 }}
+                  transition={{
+                    repeat: Infinity,
+                    repeatType: "loop",
+                    duration: 1,
+                    ease: "easeInOut",
+                  }}
+                >
+                  <ArrowDown />
+                </motion.div>
+              </div>
               <JoinedButton
                 confirmJoin={() =>
                   mutateConfirmation({
