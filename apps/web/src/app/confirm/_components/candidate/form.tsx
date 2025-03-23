@@ -32,7 +32,7 @@ export const formSchema = z.object({
   ipad: z.boolean(),
   os_notebook: z
     .string()
-    .min(1, "จำเป็นต้องระบุ ระบบปฏิบัติการ (OS) ของโน๊ตบุ๊คที่นำมา"),
+    .min(1, "จำเป็นต้องระบุ ระบบปฏิบัติการ (OS) ของโน้ตบุ๊กที่นำมา"),
   have_mouse: z.boolean(),
   travel: z.string().min(1, "จำเป็นต้องระบุวิธีการเดินทางมาเข้าร่วมค่าย"),
   receipt_image: z
@@ -182,7 +182,8 @@ function ConfirmForm(props: ConfirmFormProps) {
                     />
                   </FormControl>
                   <FormDescription>
-                    เขียนอธิบายวิธีการมาค่ายของน้อง ทั้งนี้เพื่อให้พี่ค่ายสามารถวางแผนการอำนวยความสะดวกให้น้องได้อย่างเต็มที่
+                    เขียนอธิบายวิธีการมาค่ายของน้อง
+                    ทั้งนี้เพื่อให้พี่ค่ายสามารถวางแผนการอำนวยความสะดวกให้น้องได้อย่างเต็มที่
                   </FormDescription>
                   <div className="rounded-md border border-green-500/50 px-4 py-3 text-green-600">
                     <div className="flex gap-3">
@@ -195,10 +196,20 @@ function ConfirmForm(props: ConfirmFormProps) {
                         <p className="text-sm font-bold">ตัวอย่าง</p>
                         <ul className="list-inside list-disc text-sm opacity-80">
                           <li>
-                            เดินทางจากบ้านพักด้วยรถโดยสารประจำทางสาย 75 ลงป้ายหน้ามหาวิทยาลัยฯ
+                            เดินทางจากบ้านพักด้วยรถโดยสารประจำทางสาย 75
+                            ลงป้ายหน้ามหาวิทยาลัยฯ
                           </li>
                           <li>
-                            ทั้งนี้หากมีข้อสงสัยเรื่องการเดินทาง สามารถติดต่อฝ่ายประชาสัมพันธ์<a className="underline cursor-pointer" href="https://comcamp.io/#contact" target="_blank" rel="noopener noreferrer">ได้ที่นี่</a>
+                            ทั้งนี้หากมีข้อสงสัยเรื่องการเดินทาง
+                            สามารถติดต่อฝ่ายประชาสัมพันธ์
+                            <a
+                              className="cursor-pointer underline"
+                              href="https://comcamp.io/#contact"
+                              target="_blank"
+                              rel="noopener noreferrer"
+                            >
+                              ได้ที่นี่
+                            </a>
                           </li>
                         </ul>
                       </div>
@@ -307,7 +318,10 @@ function ConfirmForm(props: ConfirmFormProps) {
             {props.isConfirmationinfoPending || props.isReceiptUploadPending ? (
               <Spinner />
             ) : (
-              <div className="flex gap-x-1"> <SaveIcon /> บันทึกข้อมูลเพิ่มเติม</div>
+              <div className="flex gap-x-1">
+                {" "}
+                <SaveIcon /> บันทึกข้อมูลเพิ่มเติม
+              </div>
             )}
           </Button>
         </div>

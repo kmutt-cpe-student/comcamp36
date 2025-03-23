@@ -17,7 +17,7 @@ function OsGroupSelector({ onValueChange = () => {}, ...props }: SelectProps) {
     },
     {
       value: "No",
-      label: "ไม่มีโน๊ตบุ๊ค",
+      label: "ไม่มีโน้ตบุ๊ก",
     },
   ];
 
