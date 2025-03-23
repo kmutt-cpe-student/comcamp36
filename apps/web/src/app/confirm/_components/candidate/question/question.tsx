@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 
 import { Button } from "@/components/ui/button";
@@ -6,6 +7,7 @@ interface ImageContent {
   type: "image";
   content: string;
   altText?: string;
+  caption?: string;
 }
 
 interface TextContent {
@@ -31,12 +33,18 @@ export function Question({
   return (
     <div className="flex flex-col gap-6">
       {typeof question !== "string" && question.type === "image" ? (
-        // eslint-disable-next-line @next/next/no-img-element
-        <img
-          src={question.content}
-          alt={question.altText}
-          className="h-auto w-full"
-        />
+        <figure>
+          <img
+            src={question.content}
+            alt={question.altText}
+            className="h-auto w-full"
+          />
+          {question.caption && (
+            <figcaption className="text-dimgray text-sm">
+              {question.caption}
+            </figcaption>
+          )}
+        </figure>
       ) : (
         <h2 className="text-2xl font-semibold">
           {typeof question === "string" ? question : question.content}
@@ -62,12 +70,18 @@ export function Question({
             className="h-auto min-h-14 w-full flex-1 shrink-0 justify-start whitespace-normal py-3 text-left text-lg"
           >
             {typeof choice !== "string" && choice.type === "image" ? (
-              // eslint-disable-next-line @next/next/no-img-element
-              <img
-                src={choice.content}
-                alt={choice.altText}
-                className="pointer-events-none h-auto w-full"
-              />
+              <figure>
+                <img
+                  src={choice.content}
+                  alt={choice.altText}
+                  className="pointer-events-none h-auto w-full"
+                />
+                {choice.caption && (
+                  <figcaption className="text-dimgray text-sm">
+                    {choice.caption}
+                  </figcaption>
+                )}
+              </figure>
             ) : (
               <>{typeof choice === "string" ? choice : choice.content}</>
             )}
