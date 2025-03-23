@@ -63,9 +63,9 @@ export default function RegisterLayout({
     <div className="max-w-screen relative w-full overflow-hidden bg-[var(--color-charcoal)] text-white">
       <AnimatedGradientBackground
         gradientColors={[
-          "#0A0A0A",
-          "var(--color-vermilion)",
-          "var(--color-mustard-1)",
+          "#0D0D0D",
+          "var(--color-charcoal-1)",
+          "var(--color-charcoal-1)",
           "var(--color-vermilion-1)",
           "var(--color-dimgray)",
           "var(--color-charcoal-special)",
