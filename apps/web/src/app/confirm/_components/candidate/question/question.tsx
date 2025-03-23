@@ -2,9 +2,22 @@
 
 import { Button } from "@/components/ui/button";
 
+interface ImageContent {
+  type: "image";
+  content: string;
+  altText?: string;
+}
+
+interface TextContent {
+  type: "text";
+  content: string;
+}
+
+type ImageOrText = ImageContent | TextContent;
+
 export interface QuestionProps {
-  question: string;
-  choices: string[];
+  question: string | ImageOrText;
+  choices: string[] | ImageOrText[];
   selected: string | null;
   onSelect: (choice: string) => void;
 }
@@ -17,17 +30,47 @@ export function Question({
 }: QuestionProps) {
   return (
     <div className="flex flex-col gap-6">
-      <h2 className="text-2xl font-semibold">{question}</h2>
+      {typeof question !== "string" && question.type === "image" ? (
+        // eslint-disable-next-line @next/next/no-img-element
+        <img
+          src={question.content}
+          alt={question.altText}
+          className="h-auto w-full"
+        />
+      ) : (
+        <h2 className="text-2xl font-semibold">
+          {typeof question === "string" ? question : question.content}
+        </h2>
+      )}
       <div className="grid w-full grid-cols-1 gap-3">
         {choices.map((choice, index) => (
           <Button
             key={index}
-            variant={selected === choice ? "default" : "secondary"}
-            onClick={() => onSelect(choice)}
-            aria-pressed={selected === choice}
+            variant={
+              selected ===
+              (typeof choice === "string" ? choice : choice.content)
+                ? "default"
+                : "secondary"
+            }
+            onClick={() =>
+              onSelect(typeof choice === "string" ? choice : choice.content)
+            }
+            aria-pressed={
+              selected ===
+              (typeof choice === "string" ? choice : choice.content)
+            }
             className="h-auto min-h-14 w-full flex-1 shrink-0 justify-start whitespace-normal py-3 text-left text-lg"
           >
-            {choice}
+            {typeof choice !== "string" && choice.type === "image" ? (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img
+                src={choice.content}
+                alt={choice.altText}
+                className="pointer-events-none h-auto w-full"
+              />
+            ) : (
+              <>{typeof choice === "string" ? choice : choice.content}</>
+            )}
           </Button>
         ))}
       </div>
