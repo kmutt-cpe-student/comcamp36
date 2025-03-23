@@ -7,15 +7,9 @@ interface FileCardProps {
   file: File;
   onRemove: () => void;
   disabled?: boolean;
-  noPreview?: boolean;
 }
 
-export function FileCard({
-  file,
-  onRemove,
-  disabled,
-  noPreview,
-}: FileCardProps) {
+export function FileCard({ file, onRemove, disabled }: FileCardProps) {
   return (
     <div className="relative flex items-center gap-2.5">
       <div className="flex flex-1 gap-2.5">
@@ -24,10 +18,6 @@ export function FileCard({
           <div className="flex flex-col gap-px">
             <a
               onClick={() => {
-                if (noPreview) {
-                  return;
-                }
-
                 window.open(URL.createObjectURL(file), "_blank");
               }}
               className="text-charcoal-special line-clamp-1 cursor-pointer text-sm font-medium hover:underline"

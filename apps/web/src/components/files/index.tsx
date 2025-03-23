@@ -22,7 +22,6 @@ interface FileUploaderProps extends React.HTMLAttributes<HTMLDivElement> {
   maxFileCount?: DropzoneProps["maxFiles"];
   multiple?: boolean;
   disabled?: boolean;
-  nopreview?: boolean;
 }
 
 export function FileUploader(props: FileUploaderProps) {
@@ -179,7 +178,6 @@ export function FileUploader(props: FileUploaderProps) {
                   file={file}
                   onRemove={() => onRemove(index)}
                   disabled={disabled}
-                  noPreview={props.nopreview}
                 />
               ))}
             </div>
