@@ -59,6 +59,7 @@ function Candidate(props: CandidateProps) {
     },
     onError: () => toast.error("เกิดข้อผิดพลาดบางอย่างในการยืนยันสิทธิ์!"),
   });
+
   const { mutateAsync: mutateReceipt, isPending: receiptUploadPending } =
     fetchQuery.useMutation("post", "/files/upload-receipt", {
       onError: () => toast.error("เกิดข้อผิดพลาดบางอย่างในการอัพโหลดไฟล์!"),
