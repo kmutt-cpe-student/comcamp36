@@ -32,7 +32,7 @@ export const formSchema = z.object({
   ipad: z.boolean(),
   os_notebook: z
     .string()
-    .min(1, "จำเป็นต้องระบุ ระบบปฏิบัติการ (OS) ของโน็ตบุ็คที่นำมา"),
+    .min(1, "จำเป็นต้องระบุ ระบบปฏิบัติการ (OS) ของโน๊ตบุ๊คที่นำมา"),
   have_mouse: z.boolean(),
   travel: z.string().min(1, "จำเป็นต้องระบุวิธีการเดินทางมาเข้าร่วมค่าย"),
   receipt_image: z
@@ -89,7 +89,7 @@ function ConfirmForm(props: ConfirmFormProps) {
                     onValueChange={field.onChange}
                   />
                   <FormDescription>
-                    คำอธิบายสำหรับอาหารที่รับประทาน
+                    คำอธิบายสำหรับอาหารที่น้อง ๆ รับประทานได้
                   </FormDescription>
                   <div className="rounded-md border border-green-500/50 px-4 py-3 text-green-600">
                     <div className="flex gap-3">
@@ -119,10 +119,11 @@ function ConfirmForm(props: ConfirmFormProps) {
                     value={value}
                     onValueChange={onChange}
                   />
-                  <FormDescription>
-                    ถ้าน้อง ๆ ใช้ Linux/Unix อื่น ๆ น้องจากที่พี่ ๆ ให้เลือก
-                    บอกชื่อ Distro ด้วยน่ะ ! ถ้า Windows ไม่ใช้ 11/10
-                    ให้เลือกอิ่นๆแล้วระบุว่าเป็น Windows อะไรด้วย
+                  <FormDescription className="text-balance">
+                    หากน้อง ๆ ใช้ Linux/Unix อื่น ๆ ที่ไม่มีในตัวเลือก
+                    กรุณาเลือก &quot;อื่น ๆ&quot; และระบุชื่อ Distro ด้วย สำหรับ
+                    Windows ที่ไม่ใช่เวอร์ชั่น 11/10 โปรดเลือก &quot;อื่น
+                    ๆ&quot; และระบุว่าเป็น Windows เวอร์ชั่นใด
                   </FormDescription>
                 </FormItem>
               )}
@@ -178,7 +179,7 @@ function ConfirmForm(props: ConfirmFormProps) {
                     />
                   </FormControl>
                   <FormDescription>
-                    คำอธิบายสำหรับการเดินทางมาค่าย
+                    ช่วยเล่าวิธีการเดินทางมาเข้าค่ายให้พี่ ๆ ทราบหน่อย
                   </FormDescription>
                   <div className="rounded-md border border-green-500/50 px-4 py-3 text-green-600">
                     <div className="flex gap-3">

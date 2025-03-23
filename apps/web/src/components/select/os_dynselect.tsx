@@ -17,7 +17,7 @@ function OsGroupSelector({ onValueChange = () => {}, ...props }: SelectProps) {
     },
     {
       value: "No",
-      label: "ไม่มีโน็ตบุ็ค",
+      label: "ไม่มีโน๊ตบุ๊ค",
     },
   ];
 
@@ -26,8 +26,8 @@ function OsGroupSelector({ onValueChange = () => {}, ...props }: SelectProps) {
       {...props}
       onValueChange={onValueChange}
       preset={preset}
-      formLabel="ระบบปฎิบัติการของโน็ดบุ็คที่นำมาค่าย"
-      placeholder="ระบุระบบปฎิบัติการของโน็ดบุ็คที่นำมาค่าย"
+      formLabel="ระบบปฎิบัติการของโน๊ตบุ๊คที่นำมาค่าย"
+      placeholder="ระบุระบบปฎิบัติการของโน๊ตบุ๊คที่นำมาค่าย"
     />
   );
 }

@@ -32,16 +32,17 @@ function Reserved() {
               duration={2}
               className="w-fit max-w-full text-2xl font-bold transition-opacity duration-200 [--base-color:var(--color-mustard)] [--base-gradient-color:var(--color-mustard-1)] dark:[--base-color:var(--color-mustard)] dark:[--base-gradient-color:var(--color-mustard-1)]"
             >
-              ตัวสำรอง !
+              ตัวสำรอง!
             </TextShimmer>
             <div className="flex flex-col pl-4">
               <p className="text-mustard-1 text-lg font-normal">
-                น้องได้รับการคัดเลือกให้เป็นตัวสำรอง ! รอพี่ ๆ ติดต่อทางโทรศัพท์
-                ตามเบอร์ที่น้องๆกรอกมาน่ะ
+                ขอบคุณที่สนใจเข้าร่วมค่าย น้อง ๆ
+                ได้รับคัดเลือกให้เป็นตัวสำรองแล้ว พี่ ๆ
+                จะติดต่อกลับไปทางโทรศัพท์ตามเบอร์ที่น้อง ๆ ให้ไว้
               </p>
               <p className="text-mustard-1 text-lg font-normal">
-                ภายในวันที่ 26/03/2567 ถึง 27/03/2567 น่ะ! ช่วงเวลา 08:00 ถึง
-                18:00 น่ะ
+                พี่ ๆ จะติดต่อในวันที่ 26-27 มีนาคม 2567 ระหว่างเวลา 08:00-18:00
+                น. โปรดเตรียมรับสายในช่วงเวลาดังกล่าวด้วยนะ!
               </p>
             </div>
           </div>
