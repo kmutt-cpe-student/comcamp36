@@ -183,7 +183,7 @@
     "id": "19",
     "question": "ลำดับการจัดการข้อมูลในข้อใดถูกต้อง",
     "choice": {
-      "1": "Data Collection -> Data Analysis -> Data Cleaning -> Data Preprocessing -> ModelTraining -> Model Evaluation",
+      "1": "Data Collection -> Data Analysis -> Data Cleaning -> Data Preprocessing -> Model Training -> Model Evaluation",
       "2": "Data Cleaning -> Data Collection -> Data Analysis -> Data Preprocessing -> Model Training -> Model Evaluation",
       "3": "Data Collection -> Data Cleaning -> Data Preprocessing -> Data Analysis -> Model Training -> Model Evaluation",
       "4": "Data Collection -> Data Preprocessing -> Data Cleaning -> Data Analysis -> Model Evaluation -> Model Training"
