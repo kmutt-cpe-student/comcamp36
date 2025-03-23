@@ -74,6 +74,10 @@ function Candidate(props: CandidateProps) {
       bodySerializer: JsonToFormData,
     });
 
+    const utcDate = new Date(
+      data.receipt_datetime.getTime() -
+        data.receipt_datetime.getTimezoneOffset() * 60000,
+    );
     await mutateConfirmationInfo({
       body: {
         nickname: data.nickname,
@@ -82,12 +86,10 @@ function Candidate(props: CandidateProps) {
         travel: data.travel,
         haveIpad: data.ipad,
         haveMouse: data.have_mouse,
-        receipt_datetime: data.receipt_datetime.toISOString(),
+        receipt_datetime: utcDate.toISOString(),
       },
     });
   };
-
-  console.log(props.confirmData);
 
   return (
     <>
@@ -128,7 +130,15 @@ function Candidate(props: CandidateProps) {
                     receipt_image: getFiles(
                       props.confirmData?.confirm.receipt_path,
                     ),
-                    receipt_datetime: new Date(),
+                    receipt_datetime: props.confirmData?.confirm
+                      .receipt_datetime
+                      ? new Date(
+                          props.confirmData.confirm.receipt_datetime.replace(
+                            "Z",
+                            "",
+                          ),
+                        )
+                      : new Date(),
                   }}
                   onSubmit={(data) => {
                     onSubmit(data);

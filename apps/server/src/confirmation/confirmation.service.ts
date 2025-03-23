@@ -13,12 +13,10 @@ export class ConfirmationService {
   }
 
   updateConfirmInfo(userId: string, updateConfirmDto: UpdateConfirmInfoDto) {
-    const receiptDate = new Date(updateConfirmDto.receipt_datetime);
     return this.prisma.confirmation.update({
       where: { user_id: userId },
       data: {
         ...updateConfirmDto,
-        receipt_datetime: receiptDate,
         isInfoDone: new Date(),
       },
     });
@@ -34,19 +32,23 @@ export class ConfirmationService {
     });
   }
 
-  createAnswerConfirm(
+  async createAnswerConfirm(
     userId: string,
     createAnswerConfirmDto: CreateAnswerConfirmDto,
   ) {
-    this.prisma.confirmation.update({
+    await this.prisma.confirmation.update({
       where: { user_id: userId },
       data: {
         isAnswerDone: new Date(),
       },
     });
-    return this.prisma.answerConfirm.create({
-      data: {
+    return this.prisma.answerConfirm.upsert({
+      where: { user_id: userId },
+      create: {
         user_id: userId,
+        ...createAnswerConfirmDto,
+      },
+      update: {
         ...createAnswerConfirmDto,
       },
     });
