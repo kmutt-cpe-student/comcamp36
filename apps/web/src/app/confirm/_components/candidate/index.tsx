@@ -21,23 +21,17 @@ interface CandidateProps {
 }
 
 function Candidate(props: CandidateProps) {
-  const { mutate: mutateConfirmation } = fetchQuery.useMutation(
-    "post",
-    "/confirmation/user-confirmation",
-    {
+  const { mutateAsync: mutateConfirmation, isPending: confirmationPending } =
+    fetchQuery.useMutation("post", "/confirmation/user-confirmation", {
       onSuccess: () => {
         toast.success("ยืนยันสิทธิ์เรียบร้อย!");
       },
       onError: () => toast.error("เกิดข้อผิดพลาดบางอย่างในการยืนยันสิทธิ์!"),
-    },
-  );
-  const { mutate: mutateReceipt } = fetchQuery.useMutation(
-    "post",
-    "/files/upload-receipt",
-    {
+    });
+  const { mutateAsync: mutateReceipt, isPending: receiptUploadPending } =
+    fetchQuery.useMutation("post", "/files/upload-receipt", {
       onError: () => toast.error("เกิดข้อผิดพลาดบางอย่างในการอัพโหลดไฟล์!"),
-    },
-  );
+    });
 
   const onSubmit = async (data: FormSchema) => {
     await mutateReceipt({
@@ -94,6 +88,8 @@ function Candidate(props: CandidateProps) {
               onSubmit={(data) => {
                 onSubmit(data);
               }}
+              isConfirmationPending={confirmationPending}
+              isReceiptUploadPending={receiptUploadPending}
             />
           </CardContent>
         </Card>

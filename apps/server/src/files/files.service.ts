@@ -97,7 +97,7 @@ export class FilesService {
         receipt_path: receipt_key,
       },
     });
-    return receipt_key;
+    return { receipt_key };
   }
 
   uploadToS3 = async (
@@ -155,7 +155,7 @@ export class FilesService {
 
   async getReceiptFile(receipt_url: string) {
     const receipt_path = await this.getUrl(receipt_url);
-    return receipt_path;
+    return { receipt_path };
   }
 
   async getBlobs(urls: GetUrlFileInputDto) {

@@ -307,6 +307,9 @@ export interface components {
       parent_relation?: string;
       parent_phone?: string;
     };
+    UploadReceiptResponseDto: {
+      receipt_key: string;
+    };
     UserFilesResponseDto: {
       face_photo: {
         name?: string;
@@ -331,6 +334,9 @@ export interface components {
     };
     GetReceiptFileDto: {
       receipt_key: string;
+    };
+    ReceiptFileResponseDto: {
+      receipt_path: string;
     };
     AnswerRegisResponseDto: {
       id: string;
@@ -628,7 +634,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"];
+          "application/json": components["schemas"]["UploadReceiptResponseDto"];
         };
       };
     };
@@ -670,7 +676,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"];
+          "application/json": components["schemas"]["ReceiptFileResponseDto"];
         };
       };
     };

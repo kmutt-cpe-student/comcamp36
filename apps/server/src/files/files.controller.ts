@@ -24,6 +24,8 @@ import { UploadFileResponseDto } from './dto/upload-file-response.dto';
 import { UserFilesResponseDto } from './dto/user-files-response.dto';
 import { UsersService } from 'src/users/users.service';
 import { GetReceiptFileDto } from './dto/get-receipt-file.dto';
+import { UploadReceiptResponseDto } from './dto/upload-receipt-response.dto';
+import { ReceiptFileResponseDto } from './dto/receipt-file-response.dto';
 
 @Controller('files')
 @UseGuards(AuthGuard)
@@ -84,7 +86,7 @@ export class FilesController {
   }
 
   @Post('upload-receipt')
-  @ApiResponse({ status: 200, type: 'string' })
+  @ApiResponse({ status: 200, type: UploadReceiptResponseDto })
   @ApiBody({
     schema: {
       type: 'object',
@@ -100,7 +102,7 @@ export class FilesController {
   uploadReceipt(
     @UploadedFile() file: Express.Multer.File,
     @Req() req: Request,
-  ) {
+  ): Promise<UploadReceiptResponseDto> {
     if (!req['user_id']) {
       throw new HttpException('UNAUTHORIZED', HttpStatus.UNAUTHORIZED);
     }
@@ -164,8 +166,11 @@ export class FilesController {
   }
 
   @Post('get-receipt')
-  @ApiResponse({ status: 200, type: 'string' })
-  async getReceipt(@Req() req: Request, @Body() body: GetReceiptFileDto) {
+  @ApiResponse({ status: 200, type: ReceiptFileResponseDto })
+  async getReceipt(
+    @Req() req: Request,
+    @Body() body: GetReceiptFileDto,
+  ): Promise<ReceiptFileResponseDto> {
     if (!req['user_id']) {
       throw new HttpException('UNAUTHORIZED', HttpStatus.UNAUTHORIZED);
     }

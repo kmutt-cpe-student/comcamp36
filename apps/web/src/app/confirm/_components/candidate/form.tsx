@@ -3,6 +3,7 @@ import { FileUploader } from "@/components/files";
 import RadioGroupBoolean from "@/components/radio-group-boolean";
 import OsGroupSelector from "@/components/select/os_dynselect";
 import PreferFoodSelector from "@/components/select/preferfood-dynselect";
+import Spinner from "@/components/spinner";
 import { Button } from "@/components/ui/button";
 import {
   Form,
@@ -45,7 +46,8 @@ export type FormSchema = z.infer<typeof formSchema>;
 interface ConfirmFormProps {
   data: FormSchema;
   onSubmit: (data: z.infer<typeof formSchema>) => void;
-  isPending?: boolean;
+  isConfirmationPending: boolean;
+  isReceiptUploadPending: boolean;
 }
 
 function ConfirmForm(props: ConfirmFormProps) {
@@ -259,7 +261,7 @@ function ConfirmForm(props: ConfirmFormProps) {
                           maxSize={4 * 1024 * 1024}
                           value={field.value}
                           onValueChange={field.onChange}
-                          accept={{ "image/*": [], "application/pdf": [] }}
+                          accept={{ "image/*": [] }}
                         />
                       </FormControl>
                       <FormMessage />
@@ -288,7 +290,17 @@ function ConfirmForm(props: ConfirmFormProps) {
         </div>
 
         <div className="flex w-full items-center justify-center gap-6">
-          <Button>กรอกข้อมูลส่วนตัว!</Button>
+          <Button
+            disabled={
+              props.isConfirmationPending || props.isReceiptUploadPending
+            }
+          >
+            {props.isConfirmationPending || props.isReceiptUploadPending ? (
+              <Spinner />
+            ) : (
+              "กรอกข้อมูลส่วนตัว!"
+            )}
+          </Button>
         </div>
       </form>
     </Form>
