@@ -24,6 +24,7 @@ import { useState } from "react";
 import { toast } from "sonner";
 
 import Question from "@/app/confirm/_components/candidate/question";
+import { getFiles } from "@/libs/files";
 
 interface CandidateProps {
   confirmData:
@@ -86,6 +87,8 @@ function Candidate(props: CandidateProps) {
     });
   };
 
+  console.log(props.confirmData);
+
   return (
     <>
       <ConfettiFireworks />
@@ -116,13 +119,15 @@ function Candidate(props: CandidateProps) {
               <CardContent className="font-noto-sans-thai-looped pt-8">
                 <ConfirmForm
                   data={{
-                    nickname: "",
-                    request_food: "",
-                    ipad: true,
-                    os_notebook: "",
-                    have_mouse: false,
-                    travel: "",
-                    receipt_image: [],
+                    nickname: props.confirmData?.confirm.nickname || "",
+                    request_food: props.confirmData?.confirm.request_food || "",
+                    ipad: props.confirmData?.confirm.haveIpad || false,
+                    os_notebook: props.confirmData?.confirm.os_notebook || "",
+                    have_mouse: props.confirmData?.confirm.haveMouse || false,
+                    travel: props.confirmData?.confirm.travel || "",
+                    receipt_image: getFiles(
+                      props.confirmData?.confirm.receipt_path,
+                    ),
                     receipt_datetime: new Date(),
                   }}
                   onSubmit={(data) => {
