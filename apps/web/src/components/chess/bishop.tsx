@@ -14,7 +14,7 @@ const Bishop = (props: SVGProps<SVGSVGElement>) => (
       />
       <g>
         <path
-          className="fill-[#F8F8F8] stroke-2 stroke-[#464646]"
+          className="fill-[#F8F8F8] stroke-[#464646] stroke-2"
           style={{
             strokeMiterlimit: 10,
           }}
@@ -22,7 +22,7 @@ const Bishop = (props: SVGProps<SVGSVGElement>) => (
         />
       </g>
       <path
-        className="fill-[#F8F8F8] stroke-2 stroke-[#464646]"
+        className="fill-[#F8F8F8] stroke-[#464646] stroke-2"
         style={{
           strokeMiterlimit: 10,
         }}
