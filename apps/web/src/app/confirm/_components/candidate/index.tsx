@@ -227,7 +227,7 @@ function Candidate(props: CandidateProps) {
                   <p className="text-vermilion">น้องได้ทำการสละสิทธิ์แล้ว</p>
                 ) : props.confirmData?.confirm.confirmation_status == "yes" ? (
                   <p className="text-vermilion">
-                    น้องได้ทำการยืนยันสิทธิ์แล้ว โปรดรออีเมลจากพี่ๆ
+                    น้องได้ทำการยืนยันสิทธิ์แล้ว โปรดรออีเมลจากพี่ ๆ
                   </p>
                 ) : (
                   <div className="flex items-center justify-center">
