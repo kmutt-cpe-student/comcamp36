@@ -4,7 +4,6 @@ import ConfirmForm, {
   FormSchema,
 } from "@/app/confirm/_components/candidate/form";
 import JoinedButton from "@/app/confirm/_components/candidate/joined-button";
-import Question from "@/app/confirm/_components/candidate/question";
 import RejectedButton from "@/app/confirm/_components/candidate/rejected-button";
 import { ConfettiFireworks } from "@/components/animation/firework";
 import { GradientButton } from "@/components/gradient-button";
@@ -16,7 +15,6 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { getFiles } from "@/libs/files";
 import JsonToFormData from "@/libs/server/body-serializer";
 import { fetchQuery } from "@/libs/server/client";
 import { components } from "@/libs/server/types";
@@ -30,6 +28,10 @@ import {
 import Image from "next/image";
 import { useState } from "react";
 import { toast } from "sonner";
+
+import Question from "@/app/confirm/_components/candidate/question";
+import ConfirmConsent from "@/components/card/confirm-consent";
+import { getFiles } from "@/libs/files";
 
 interface CandidateProps {
   confirmData:
@@ -99,6 +101,9 @@ function Candidate(props: CandidateProps) {
   return (
     <>
       <ConfettiFireworks />
+      {props.confirmData?.confirm.confirmation_status == "yes" && (
+        <ConfirmConsent />
+      )}
       <div>
         {confirmStatus ? (
           <div className="flex flex-col gap-24">
@@ -115,21 +120,27 @@ function Candidate(props: CandidateProps) {
                     duration={2}
                     className="text-3xl font-bold transition-opacity duration-200 [--base-color:var(--color-vermilion)] [--base-gradient-color:var(--color-vermilion-1)] dark:[--base-color:var(--color-vermilion)] dark:[--base-gradient-color:var(--color-vermilion-1)]"
                   >
-                    ขอแสดงความยินดีด้วย!
+                    ข้อมูลสำหรับการยืนยันสิทธิ์
                   </TextShimmer>
                 </CardTitle>
-                <CardDescription className="itemsce- font-noto-sans-thai-looped flex justify-center text-xl text-white">
-                  น้องๆได้รับการคัดเลือกให้เป็นตัวจริง! ขอให้น้อง ๆ
-                  กรอกข้อมูลเพิ่มเติมให้พี่ ๆ ด้วย!
+                <CardDescription className="font-noto-sans-thai-looped flex flex-col items-center justify-center gap-y-1 text-xl text-white">
+                  <span>
+                    โปรดกรอกข้อมูลเพิ่มเติมต่อไปนี้
+                    เพื่อให้พี่ค่ายสามารถเตรียมสิ่งที่จำเป็นสำหรับน้องได้ถูกต้อง
+                  </span>
+                  <br />{" "}
+                  <span className="font-bold">**ไม่มีผลต่อผลการคัดเลือก**</span>
                 </CardDescription>
               </CardHeader>
               <CardContent className="font-noto-sans-thai-looped pt-8">
                 <ConfirmForm
                   data={{
                     nickname: props.confirmData?.confirm.nickname || "",
-                    request_food: props.confirmData?.confirm.request_food || "",
+                    request_food:
+                      props.confirmData?.confirm.request_food || "ปกติ",
                     ipad: props.confirmData?.confirm.haveIpad || false,
-                    os_notebook: props.confirmData?.confirm.os_notebook || "",
+                    os_notebook:
+                      props.confirmData?.confirm.os_notebook || "Windows",
                     have_mouse: props.confirmData?.confirm.haveMouse || false,
                     travel: props.confirmData?.confirm.travel || "",
                     receipt_image: getFiles(
@@ -162,13 +173,22 @@ function Candidate(props: CandidateProps) {
                       duration={2}
                       className="text-3xl font-bold transition-opacity duration-200 [--base-color:var(--color-vermilion)] [--base-gradient-color:var(--color-vermilion-1)] dark:[--base-color:var(--color-vermilion)] dark:[--base-gradient-color:var(--color-vermilion-1)]"
                     >
-                      คำถาม!
+                      ชุดคำถามจากฝ่ายวิชาการ
                     </TextShimmer>
                   </CardTitle>
-                  <CardDescription className="itemsce- font-noto-sans-thai-looped flex justify-center text-xl text-white">
-                    นี้เป็นคำถามจากพี่ ๆ วิชาการ โดยถามเพื่อให้พี่ ๆ ได้ ออกแบบ
-                    วิธีการเรียนการสอนให้ดีขึ้น อาจจะเยอะหน่อยน่ะ
-                    ขอให้น้องๆตอบตามที่เข้าใจ
+                  <CardDescription className="font-noto-sans-thai-looped flex flex-col items-center justify-center text-xl text-white">
+                    <div className="flex flex-col text-left">
+                      <span className="font-bold">คำชี้แจง</span>
+                      <span>
+                        1. ชุดคำถามนี้มีทั้งหมด 30 ข้อ
+                        โดยมีทั้งแบบทดสอบพื้นฐานและชุดคำถาม
+                      </span>
+                      <span>
+                        2. ส่วนของแบบทดสอบนี้ไม่มีการแก้ไขเพิ่มเติม
+                        หากมีข้อสงสัยหรือไม่มั่นใจในคำตอบให้เลือกตอบตามดุลยพินิจของตนเอง
+                      </span>
+                      <span>3. ชุดคำถามนี้ไม่มีผลต่อผลการคัดเลือก</span>
+                    </div>
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
@@ -242,11 +262,11 @@ function Candidate(props: CandidateProps) {
                     ผ่านการคัดเลือก
                   </TextShimmer>
                   <p className="text-lg font-light text-green-500">
-                    ยินดีด้วย! น้องๆได้รับการคัดเลือกให้เป็นตัวจริง!
-                    หากต้องการเข้าร่วมค่ายให้น้องเลือก
+                    ยินดีด้วย! น้องผ่านการคัดเลือกเข้าสู่ค่าย ComCamp 36!
+                    หากต้องการเข้าร่วมค่ายโปรดเลือก
                     &quot;กรอกข้อมูลเพิ่มเติมเพื่อยืนยันสิทธิ์&quot;
                     เพื่อกรอกข้อมูลเพิ่มเติมและยืนยันสิทธิ์ตามลำดับต่อไป
-                    แต่หากน้องต้องการสละสิทธิ์ให้น้องเลือก &quot;สละสิทธิ์&quot;
+                    แต่หากต้องการสละสิทธิ์ให้น้องเลือก &quot;สละสิทธิ์&quot;
                   </p>
                 </div>
               </div>

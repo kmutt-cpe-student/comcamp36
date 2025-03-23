@@ -9,7 +9,7 @@ function OsGroupSelector({ onValueChange = () => {}, ...props }: SelectProps) {
     },
     {
       value: "macOs (ARM)",
-      label: "macOs ชิป Silicon (M1/M2/.....)",
+      label: "macOs ชิป Apple Silicon (M1/M2/.....)",
     },
     {
       value: "macOs (Intel)",
@@ -26,8 +26,8 @@ function OsGroupSelector({ onValueChange = () => {}, ...props }: SelectProps) {
       {...props}
       onValueChange={onValueChange}
       preset={preset}
-      formLabel="ระบบปฎิบัติการของโน๊ตบุ๊คที่นำมาค่าย"
-      placeholder="ระบุระบบปฎิบัติการของโน๊ตบุ๊คที่นำมาค่าย"
+      formLabel="ระบบปฎิบัติการของโน้ตบุ๊กที่นำมาค่าย"
+      placeholder="ระบุระบบปฎิบัติการของโน้ตบุ๊กที่นำมาค่าย"
     />
   );
 }
