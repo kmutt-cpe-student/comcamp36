@@ -1,9 +1,12 @@
+"use client";
+
 import ConfirmForm, {
   FormSchema,
 } from "@/app/confirm/_components/candidate/form";
 import JoinedButton from "@/app/confirm/_components/candidate/joined-button";
 import RejectedButton from "@/app/confirm/_components/candidate/rejected-button";
 import { ConfettiFireworks } from "@/components/animation/firework";
+import { GradientButton } from "@/components/gradient-button";
 import { TextShimmer } from "@/components/text/text-shimmer";
 import {
   Card,
@@ -14,6 +17,9 @@ import {
 } from "@/components/ui/card";
 import JsonToFormData from "@/libs/server/body-serializer";
 import { fetchQuery } from "@/libs/server/client";
+import { CircleCheckBigIcon, TriangleAlert } from "lucide-react";
+import Image from "next/image";
+import { useState } from "react";
 import { toast } from "sonner";
 
 interface CandidateProps {
@@ -21,8 +27,10 @@ interface CandidateProps {
 }
 
 function Candidate(props: CandidateProps) {
+  const [confirmStatus, setConfirmStatus] = useState<boolean | null>(null); //no สละสิทธิ์ yes ยืนยัน
+
   const { mutateAsync: mutateConfirmation, isPending: confirmationPending } =
-    fetchQuery.useMutation("post", "/confirmation/user-confirmation", {
+    fetchQuery.useMutation("post", "/confirmation/user-confirmation-info", {
       onSuccess: () => {
         toast.success("ยืนยันสิทธิ์เรียบร้อย!");
       },
@@ -57,67 +65,115 @@ function Candidate(props: CandidateProps) {
   return (
     <>
       <ConfettiFireworks />
-      <div className="flex flex-col gap-24">
-        <Card className="w-full max-w-[110rem] px-5 sm:px-10">
-          <CardHeader>
-            <CardTitle className="flex items-center justify-center">
-              <TextShimmer
-                duration={2}
-                className="text-3xl font-bold transition-opacity duration-200 [--base-color:var(--color-vermilion)] [--base-gradient-color:var(--color-vermilion-1)] dark:[--base-color:var(--color-vermilion)] dark:[--base-gradient-color:var(--color-vermilion-1)]"
-              >
-                ขอแสดงความยินดีด้วย!
-              </TextShimmer>
-            </CardTitle>
-            <CardDescription className="itemsce- font-noto-sans-thai-looped flex justify-center text-xl text-white">
-              น้องๆได้รับการคัดเลือกให้เป็นตัวจริง! ขอให้น้อง ๆ
-              กรอกข้อมูลเพิ่มเติมให้พี่ ๆ ด้วย!
-            </CardDescription>
-          </CardHeader>
-          <CardContent className="font-noto-sans-thai-looped pt-8">
-            <ConfirmForm
-              data={{
-                nickname: "",
-                request_food: "",
-                ipad: true,
-                os_notebook: "",
-                have_mouse: false,
-                travel: "",
-                receipt_image: [],
-                receipt_datetime: new Date(),
-              }}
-              onSubmit={(data) => {
-                onSubmit(data);
-              }}
-              isConfirmationPending={confirmationPending}
-              isReceiptUploadPending={receiptUploadPending}
-            />
-          </CardContent>
-        </Card>
+      <div>
+        {confirmStatus ? (
+          <div className="flex flex-col gap-24">
+            <Card className="w-full max-w-[110rem] px-5 sm:px-10">
+              <CardHeader>
+                <CardTitle className="flex items-center justify-center">
+                  <TextShimmer
+                    duration={2}
+                    className="text-3xl font-bold transition-opacity duration-200 [--base-color:var(--color-vermilion)] [--base-gradient-color:var(--color-vermilion-1)] dark:[--base-color:var(--color-vermilion)] dark:[--base-gradient-color:var(--color-vermilion-1)]"
+                  >
+                    ขอแสดงความยินดีด้วย!
+                  </TextShimmer>
+                </CardTitle>
+                <CardDescription className="itemsce- font-noto-sans-thai-looped flex justify-center text-xl text-white">
+                  น้องๆได้รับการคัดเลือกให้เป็นตัวจริง! ขอให้น้อง ๆ
+                  กรอกข้อมูลเพิ่มเติมให้พี่ ๆ ด้วย!
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="font-noto-sans-thai-looped pt-8">
+                <ConfirmForm
+                  data={{
+                    nickname: "",
+                    request_food: "",
+                    ipad: true,
+                    os_notebook: "",
+                    have_mouse: false,
+                    travel: "",
+                    receipt_image: [],
+                    receipt_datetime: new Date(),
+                  }}
+                  onSubmit={(data) => {
+                    onSubmit(data);
+                  }}
+                  isConfirmationPending={confirmationPending}
+                  isReceiptUploadPending={receiptUploadPending}
+                />
+              </CardContent>
+            </Card>
 
-        {!props.isAnswerDone && (
-          <Card className="w-full max-w-[110rem] px-5 sm:px-10">
-            <CardHeader>
-              <CardTitle className="flex items-center justify-center">
-                <TextShimmer
-                  duration={2}
-                  className="text-3xl font-bold transition-opacity duration-200 [--base-color:var(--color-vermilion)] [--base-gradient-color:var(--color-vermilion-1)] dark:[--base-color:var(--color-vermilion)] dark:[--base-gradient-color:var(--color-vermilion-1)]"
+            {!props.isAnswerDone && (
+              <Card className="w-full max-w-[110rem] px-5 sm:px-10">
+                <CardHeader>
+                  <CardTitle className="flex items-center justify-center">
+                    <TextShimmer
+                      duration={2}
+                      className="text-3xl font-bold transition-opacity duration-200 [--base-color:var(--color-vermilion)] [--base-gradient-color:var(--color-vermilion-1)] dark:[--base-color:var(--color-vermilion)] dark:[--base-gradient-color:var(--color-vermilion-1)]"
+                    >
+                      คำถาม!
+                    </TextShimmer>
+                  </CardTitle>
+                  <CardDescription className="itemsce- font-noto-sans-thai-looped flex justify-center text-xl text-white">
+                    นี้เป็นคำถามจากพี่ ๆ วิชาการ โดยถามเพื่อให้พี่ ๆ ได้ ออกแบบ
+                    วิธีการเรียนการสอนให้ดีขึ้น อาจจะเยอะหน่อยน่ะ
+                    ขอให้น้องๆตอบตามที่เข้าใจ
+                  </CardDescription>
+                </CardHeader>
+              </Card>
+            )}
+
+            <div className="flex w-full items-center justify-center gap-4">
+              <JoinedButton />
+            </div>
+          </div>
+        ) : (
+          <div className="flex min-h-full w-full flex-col items-center justify-center gap-10">
+            <div className="flex w-[25rem] justify-center">
+              <Image
+                style={{ width: "100%", height: "auto" }}
+                width={5000}
+                height={0}
+                src="/static/image/placeholder/frontman-yellow.png"
+                alt="Hero card section"
+                loading="lazy"
+                className="transition-all hover:scale-[1.1]"
+              />
+            </div>
+
+            <div className="font-noto-sans-thai-looped bg-charcoal-1 mx-4 rounded-md border border-amber-500/50 p-7">
+              <div className="flex items-center justify-start text-xl">
+                <TriangleAlert
+                  className="-mt-0.5 me-3 inline-flex size-10 text-green-500 opacity-60"
+                  aria-hidden="true"
+                />
+                <div className="grid gap-2">
+                  <TextShimmer
+                    duration={2}
+                    className="w-fit max-w-full text-2xl font-bold transition-opacity duration-200 [--base-color:var(--color-green-500)] [--base-gradient-color:var(--color-green-600)] dark:[--base-color:var(--color-green-500)] dark:[--base-gradient-color:var(--color-green-600)]"
+                  >
+                    ผ่านการคัดเลือก
+                  </TextShimmer>
+                  <p className="text-lg font-light text-green-500">
+                    น้องๆได้รับการคัดเลือกให้เป็นตัวจริง!
+                  </p>
+                </div>
+              </div>
+
+              <div className="mt-5 flex items-center justify-center">
+                <GradientButton
+                  type="button"
+                  className="mr-2 flex gap-2"
+                  onClick={() => setConfirmStatus(true)}
                 >
-                  คำถาม!
-                </TextShimmer>
-              </CardTitle>
-              <CardDescription className="itemsce- font-noto-sans-thai-looped flex justify-center text-xl text-white">
-                นี้เป็นคำถามจากพี่ ๆ วิชาการ โดยถามเพื่อให้พี่ ๆ ได้ ออกแบบ
-                วิธีการเรียนการสอนให้ดีขึ้น อาจจะเยอะหน่อยน่ะ
-                ขอให้น้องๆตอบตามที่เข้าใจ
-              </CardDescription>
-            </CardHeader>
-          </Card>
+                  <p className="text-lg">ยืนยันสิทธิ์</p> <CircleCheckBigIcon />
+                </GradientButton>
+                <RejectedButton confirmReject={() => setConfirmStatus(false)} />
+              </div>
+            </div>
+          </div>
         )}
-
-        <div className="flex w-full items-center justify-center gap-4">
-          <JoinedButton isAnswerDone isInfoDone />
-          <RejectedButton />
-        </div>
       </div>
     </>
   );

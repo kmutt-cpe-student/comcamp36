@@ -11,7 +11,12 @@ import {
 import { Button } from "@/components/ui/button";
 import { CircleXIcon } from "lucide-react";
 
-function RejectedButton({ disabled }: { disabled?: boolean }) {
+interface RejectedButtonProps {
+  disabled?: boolean;
+  confirmReject: () => void;
+}
+
+function RejectedButton({ disabled, confirmReject }: RejectedButtonProps) {
   return (
     <AlertDialog>
       <AlertDialogTrigger asChild>
@@ -30,7 +35,9 @@ function RejectedButton({ disabled }: { disabled?: boolean }) {
         </AlertDialogHeader>
         <AlertDialogFooter>
           <AlertDialogCancel>ยกเลิก</AlertDialogCancel>
-          <Button variant="destructive">ยืนยันที่จะสละสิทธิ์</Button>
+          <Button onClick={confirmReject} variant="destructive">
+            ยืนยันที่จะสละสิทธิ์
+          </Button>
         </AlertDialogFooter>
       </AlertDialogContent>
     </AlertDialog>

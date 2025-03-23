@@ -109,6 +109,7 @@ model Confirmation {
   receipt_path String?
   receipt_datetime DateTime? @db.Timestamptz(6)
   confirmation_status String
+  isInfoDone DateTime? @db.Timestamptz(6)
   isAnswerDone DateTime? @db.Timestamptz(6)
   isConfirmDone DateTime? @db.Timestamptz(6)
   user User @relation(fields: [user_id], references: [id])

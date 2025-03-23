@@ -1,7 +1,8 @@
 import { Injectable } from '@nestjs/common';
 import { PrismaService } from 'src/prisma/prisma.service';
-import { UpdateConfirmDto } from './dto/UpdateConfirm.dto';
+import { UpdateConfirmInfoDto } from './dto/UpdateConfirmInfo.dto';
 import { CreateAnswerConfirmDto } from './dto/CreateAnswerConfirm.dto';
+import { UpdateConfirmDto } from './dto/UpdateConfirm.dto';
 
 @Injectable()
 export class ConfirmationService {
@@ -11,14 +12,24 @@ export class ConfirmationService {
     return this.prisma.confirmation.findUnique({ where: { user_id: userId } });
   }
 
-  updateConfirm(userId: string, updateConfirmDto: UpdateConfirmDto) {
+  updateConfirmInfo(userId: string, updateConfirmDto: UpdateConfirmInfoDto) {
     const receiptDate = new Date(updateConfirmDto.receipt_datetime);
     return this.prisma.confirmation.update({
       where: { user_id: userId },
       data: {
         ...updateConfirmDto,
         receipt_datetime: receiptDate,
-        isAnswerDone: new Date(),
+        isConfirmDone: new Date(),
+        isInfoDone: new Date(),
+      },
+    });
+  }
+
+  updateConfirm(userId: string, updateConfirmDto: UpdateConfirmDto) {
+    return this.prisma.confirmation.update({
+      where: { user_id: userId },
+      data: {
+        confirmation_status: updateConfirmDto.confirmation_status,
         isConfirmDone: new Date(),
       },
     });
@@ -28,6 +39,12 @@ export class ConfirmationService {
     userId: string,
     createAnswerConfirmDto: CreateAnswerConfirmDto,
   ) {
+    this.prisma.confirmation.update({
+      where: { user_id: userId },
+      data: {
+        isAnswerDone: new Date(),
+      },
+    });
     return this.prisma.answerConfirm.create({
       data: {
         user_id: userId,

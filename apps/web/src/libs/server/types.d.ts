@@ -223,6 +223,22 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
+  "/confirmation/user-confirmation-info": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    post: operations["ConfirmationController_updateUserConfirmationInfo"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
   "/confirmation/user-answer-confirmation": {
     parameters: {
       query?: never;
@@ -388,7 +404,7 @@ export interface components {
       isPassed: boolean;
       confirm: components["schemas"]["Confirm"];
     };
-    UpdateConfirmDto: {
+    UpdateConfirmInfoDto: {
       nickname: string;
       request_food: string;
       haveIpad: boolean;
@@ -396,6 +412,9 @@ export interface components {
       os_notebook: string;
       travel: string;
       receipt_datetime: string;
+    };
+    UpdateConfirmDto: {
+      confirmation_status: string;
     };
     CreateAnswerConfirmDto: {
       question1: number;
@@ -811,6 +830,29 @@ export interface operations {
     requestBody: {
       content: {
         "application/json": components["schemas"]["UpdateConfirmDto"];
+      };
+    };
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["ConfirmResponseDto"];
+        };
+      };
+    };
+  };
+  ConfirmationController_updateUserConfirmationInfo: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody: {
+      content: {
+        "application/json": components["schemas"]["UpdateConfirmInfoDto"];
       };
     };
     responses: {
