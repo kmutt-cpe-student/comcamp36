@@ -23,6 +23,8 @@ import Image from "next/image";
 import { useState } from "react";
 import { toast } from "sonner";
 
+import Question from "@/app/confirm/_components/candidate/question";
+
 interface CandidateProps {
   confirmData:
     | {
@@ -142,6 +144,9 @@ function Candidate(props: CandidateProps) {
                     ขอให้น้องๆตอบตามที่เข้าใจ
                   </CardDescription>
                 </CardHeader>
+                <CardContent>
+                  <Question />
+                </CardContent>
               </Card>
             )}
 
