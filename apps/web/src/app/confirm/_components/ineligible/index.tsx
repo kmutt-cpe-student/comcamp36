@@ -18,7 +18,8 @@ function Ineligible() {
           className="transition-all hover:scale-[1.1]"
         />
       </div>
-      <div className="font-noto-sans-thai-looped mx-4 rounded-md border border-amber-500/50 px-4 py-3 text-amber-600">
+
+      <div className="font-noto-sans-thai-looped bg-charcoal-1 mx-4 rounded-md border border-amber-500/50 p-7 text-amber-600">
         <div className="flex items-center justify-start text-xl">
           <TriangleAlert
             className="-mt-0.5 me-3 inline-flex size-10 opacity-60"
