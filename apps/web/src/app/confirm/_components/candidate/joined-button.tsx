@@ -1,4 +1,5 @@
 import { GradientButton } from "@/components/gradient-button";
+import Spinner from "@/components/spinner";
 import {
   AlertDialog,
   AlertDialogCancel,
@@ -18,23 +19,27 @@ import {
 import { CircleCheckBigIcon } from "lucide-react";
 
 interface JoinedButtonProps {
-  isInfoDone?: boolean;
-  isAnswerDone?: boolean;
+  isInfoDone: string | null;
+  isAnswerDone: string | null;
   disabled?: boolean;
+  isConfirmLoading: boolean;
+  confirmJoin: () => void;
 }
 
 function JoinedButton({
   disabled,
   isAnswerDone,
   isInfoDone,
+  confirmJoin,
+  isConfirmLoading,
 }: JoinedButtonProps) {
-  if (!isAnswerDone && !isInfoDone) {
+  if (!isAnswerDone || !isInfoDone) {
     return (
       <>
         <HoverCard openDelay={0} closeDelay={20}>
           <HoverCardTrigger>
             <Button type="button" disabled>
-              เข้าร่วม! <CircleCheckBigIcon />
+              เข้าร่วม! และ ยืนยันสิทธิ์ <CircleCheckBigIcon />
             </Button>
           </HoverCardTrigger>
           <HoverCardContent
@@ -58,7 +63,8 @@ function JoinedButton({
           disabled={disabled}
           className="flex gap-2"
         >
-          <p className="text-lg">เข้าร่วม!</p> <CircleCheckBigIcon />
+          <p className="text-lg">เข้าร่วม! และ ยืนยันสิทธิ์</p>{" "}
+          <CircleCheckBigIcon />
         </GradientButton>
       </AlertDialogTrigger>
       <AlertDialogContent>
@@ -72,11 +78,12 @@ function JoinedButton({
         <AlertDialogFooter>
           <AlertDialogCancel className="px-5 py-6">ยกเลิก</AlertDialogCancel>
           <GradientButton
+            onClick={confirmJoin}
             type="button"
-            disabled={disabled}
+            disabled={disabled || isConfirmLoading}
             className="flex gap-2 rounded-lg px-2 py-3 text-sm"
           >
-            ยืนยันการเข้าร่วม
+            {!isConfirmLoading ? "ยืนยันการเข้าร่วม" : <Spinner />}
           </GradientButton>
         </AlertDialogFooter>
       </AlertDialogContent>

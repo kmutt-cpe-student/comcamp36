@@ -19,7 +19,6 @@ export class ConfirmationService {
       data: {
         ...updateConfirmDto,
         receipt_datetime: receiptDate,
-        isConfirmDone: new Date(),
         isInfoDone: new Date(),
       },
     });

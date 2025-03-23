@@ -69,6 +69,11 @@ export class Confirm {
   @ApiProperty({
     type: 'string',
   })
+  isInfoDone?: Date;
+
+  @ApiProperty({
+    type: 'string',
+  })
   isConfirmDone?: Date;
 }
 

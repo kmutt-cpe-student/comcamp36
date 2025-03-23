@@ -13,7 +13,7 @@ import { AuthGuard } from 'src/auth/auth.guard';
 import { UpdateConfirmInfoDto } from './dto/UpdateConfirmInfo.dto';
 import { CreateAnswerConfirmDto } from './dto/CreateAnswerConfirm.dto';
 import { ApiResponse } from '@nestjs/swagger';
-import { ConfirmResponseDto } from './dto/ConfirmResponse.dto';
+import { Confirm, ConfirmResponseDto } from './dto/ConfirmResponse.dto';
 import { AnswerConfirmResponseDto } from './dto/AnswerConfirmResponse.dto';
 import { UpdateConfirmDto } from './dto/UpdateConfirm.dto';
 
@@ -36,7 +36,7 @@ export class ConfirmationController {
   }
 
   @Post('user-confirmation-info')
-  @ApiResponse({ status: 200, type: ConfirmResponseDto })
+  @ApiResponse({ status: 200, type: Confirm })
   async updateUserConfirmationInfo(
     @Req() req: Request,
     @Body() updateConfirmDto: UpdateConfirmInfoDto,
@@ -55,7 +55,7 @@ export class ConfirmationController {
   }
 
   @Post('user-confirmation')
-  @ApiResponse({ status: 200, type: ConfirmResponseDto })
+  @ApiResponse({ status: 200, type: Confirm })
   async updateUserConfirmation(
     @Req() req: Request,
     @Body() updateConfirmDto: UpdateConfirmDto,

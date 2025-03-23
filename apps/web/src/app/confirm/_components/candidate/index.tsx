@@ -17,25 +17,46 @@ import {
 } from "@/components/ui/card";
 import JsonToFormData from "@/libs/server/body-serializer";
 import { fetchQuery } from "@/libs/server/client";
+import { components } from "@/libs/server/types";
 import { CircleCheckBigIcon, TriangleAlert } from "lucide-react";
 import Image from "next/image";
 import { useState } from "react";
 import { toast } from "sonner";
 
 interface CandidateProps {
-  isAnswerDone: boolean;
+  confirmData:
+    | {
+        isPassed: boolean;
+        confirm: components["schemas"]["Confirm"];
+      }
+    | undefined;
 }
 
 function Candidate(props: CandidateProps) {
   const [confirmStatus, setConfirmStatus] = useState<boolean | null>(null); //no สละสิทธิ์ yes ยืนยัน
 
   const { mutateAsync: mutateConfirmation, isPending: confirmationPending } =
-    fetchQuery.useMutation("post", "/confirmation/user-confirmation-info", {
-      onSuccess: () => {
-        toast.success("ยืนยันสิทธิ์เรียบร้อย!");
+    fetchQuery.useMutation("post", "/confirmation/user-confirmation", {
+      onSuccess: (mutationData) => {
+        if (mutationData.confirmation_status == "no") {
+          toast.success("สละสิทธิ์เรียบร้อย!");
+          window.location.reload();
+        } else if (mutationData.confirmation_status == "yes") {
+          toast.success("ยืนยันสิทธิ์เรียบร้อย!");
+          window.location.reload();
+        }
       },
-      onError: () => toast.error("เกิดข้อผิดพลาดบางอย่างในการยืนยันสิทธิ์!"),
+      onError: () => toast.error("เกิดข้อผิดพลาดบางอย่างในระบบ!"),
     });
+  const {
+    mutateAsync: mutateConfirmationInfo,
+    isPending: confirmationPendingInfo,
+  } = fetchQuery.useMutation("post", "/confirmation/user-confirmation-info", {
+    onSuccess: () => {
+      toast.success("ยืนยันสิทธิ์เรียบร้อย!");
+    },
+    onError: () => toast.error("เกิดข้อผิดพลาดบางอย่างในการยืนยันสิทธิ์!"),
+  });
   const { mutateAsync: mutateReceipt, isPending: receiptUploadPending } =
     fetchQuery.useMutation("post", "/files/upload-receipt", {
       onError: () => toast.error("เกิดข้อผิดพลาดบางอย่างในการอัพโหลดไฟล์!"),
@@ -49,7 +70,7 @@ function Candidate(props: CandidateProps) {
       bodySerializer: JsonToFormData,
     });
 
-    await mutateConfirmation({
+    await mutateConfirmationInfo({
       body: {
         nickname: data.nickname,
         request_food: data.request_food,
@@ -98,13 +119,13 @@ function Candidate(props: CandidateProps) {
                   onSubmit={(data) => {
                     onSubmit(data);
                   }}
-                  isConfirmationPending={confirmationPending}
+                  isConfirmationinfoPending={confirmationPendingInfo}
                   isReceiptUploadPending={receiptUploadPending}
                 />
               </CardContent>
             </Card>
 
-            {!props.isAnswerDone && (
+            {!props.confirmData?.confirm.isAnswerDone && (
               <Card className="w-full max-w-[110rem] px-5 sm:px-10">
                 <CardHeader>
                   <CardTitle className="flex items-center justify-center">
@@ -125,7 +146,26 @@ function Candidate(props: CandidateProps) {
             )}
 
             <div className="flex w-full items-center justify-center gap-4">
-              <JoinedButton />
+              <JoinedButton
+                confirmJoin={() =>
+                  mutateConfirmation({
+                    body: {
+                      confirmation_status: "yes",
+                    },
+                  })
+                }
+                isConfirmLoading={confirmationPending}
+                isAnswerDone={
+                  props.confirmData?.confirm.isAnswerDone
+                    ? props.confirmData.confirm.isAnswerDone
+                    : null
+                }
+                isInfoDone={
+                  props.confirmData?.confirm.isInfoDone
+                    ? props.confirmData.confirm.isInfoDone
+                    : null
+                }
+              />
             </div>
           </div>
         ) : (
@@ -156,20 +196,46 @@ function Candidate(props: CandidateProps) {
                     ผ่านการคัดเลือก
                   </TextShimmer>
                   <p className="text-lg font-light text-green-500">
-                    น้องๆได้รับการคัดเลือกให้เป็นตัวจริง!
+                    ยินดีด้วย! น้องๆได้รับการคัดเลือกให้เป็นตัวจริง!
+                    หากต้องการเข้าร่วมค่ายให้น้องเลือก
+                    &quot;กรอกข้อมูลเพิ่มเติมเพื่อยืนยันสิทธิ์&quot;
+                    เพื่อกรอกข้อมูลเพิ่มเติมและยืนยันสิทธิ์ตามลำดับต่อไป
+                    แต่หากน้องต้องการสละสิทธิ์ให้น้องเลือก &quot;สละสิทธิ์&quot;
                   </p>
                 </div>
               </div>
 
               <div className="mt-5 flex items-center justify-center">
-                <GradientButton
-                  type="button"
-                  className="mr-2 flex gap-2"
-                  onClick={() => setConfirmStatus(true)}
-                >
-                  <p className="text-lg">ยืนยันสิทธิ์</p> <CircleCheckBigIcon />
-                </GradientButton>
-                <RejectedButton confirmReject={() => setConfirmStatus(false)} />
+                {props.confirmData?.confirm.confirmation_status == "no" ? (
+                  <p className="text-vermilion">น้องได้ทำการสละสิทธิ์แล้ว</p>
+                ) : props.confirmData?.confirm.confirmation_status == "yes" ? (
+                  <p className="text-vermilion">
+                    น้องได้ทำการยืนยันสิทธิ์แล้ว โปรดรออีเมลจากพี่ๆ
+                  </p>
+                ) : (
+                  <div className="flex items-center justify-center">
+                    <GradientButton
+                      type="button"
+                      className="mr-2 flex gap-2"
+                      onClick={() => setConfirmStatus(true)}
+                    >
+                      <p className="text-lg">
+                        กรอกข้อมูลเพิ่มเติมเพื่อยืนยันสิทธิ์
+                      </p>{" "}
+                      <CircleCheckBigIcon />
+                    </GradientButton>
+                    <RejectedButton
+                      confirmReject={() =>
+                        mutateConfirmation({
+                          body: {
+                            confirmation_status: "no",
+                          },
+                        })
+                      }
+                      isConfirmLoading={confirmationPending}
+                    />
+                  </div>
+                )}
               </div>
             </div>
           </div>

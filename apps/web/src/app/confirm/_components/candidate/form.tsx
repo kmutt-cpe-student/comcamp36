@@ -46,7 +46,7 @@ export type FormSchema = z.infer<typeof formSchema>;
 interface ConfirmFormProps {
   data: FormSchema;
   onSubmit: (data: z.infer<typeof formSchema>) => void;
-  isConfirmationPending: boolean;
+  isConfirmationinfoPending: boolean;
   isReceiptUploadPending: boolean;
 }
 
@@ -293,10 +293,10 @@ function ConfirmForm(props: ConfirmFormProps) {
         <div className="flex w-full items-center justify-center gap-6">
           <Button
             disabled={
-              props.isConfirmationPending || props.isReceiptUploadPending
+              props.isConfirmationinfoPending || props.isReceiptUploadPending
             }
           >
-            {props.isConfirmationPending || props.isReceiptUploadPending ? (
+            {props.isConfirmationinfoPending || props.isReceiptUploadPending ? (
               <Spinner />
             ) : (
               "กรอกข้อมูลส่วนตัว!"

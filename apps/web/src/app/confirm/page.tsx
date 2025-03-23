@@ -29,6 +29,6 @@ function ConfirmPage() {
     return <Reserved />;
   }
 
-  return <Candidate isAnswerDone={false} />;
+  return <Candidate confirmData={data} />;
 }
 export default ConfirmPage;

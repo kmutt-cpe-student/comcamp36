@@ -398,6 +398,7 @@ export interface components {
       receipt_datetime: string;
       confirmation_status: string;
       isAnswerDone: string;
+      isInfoDone: string;
       isConfirmDone: string;
     };
     ConfirmResponseDto: {
@@ -838,7 +839,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["ConfirmResponseDto"];
+          "application/json": components["schemas"]["Confirm"];
         };
       };
     };
@@ -861,7 +862,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["ConfirmResponseDto"];
+          "application/json": components["schemas"]["Confirm"];
         };
       };
     };

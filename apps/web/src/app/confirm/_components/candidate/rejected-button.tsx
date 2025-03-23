@@ -1,3 +1,4 @@
+import Spinner from "@/components/spinner";
 import {
   AlertDialog,
   AlertDialogCancel,
@@ -13,10 +14,15 @@ import { CircleXIcon } from "lucide-react";
 
 interface RejectedButtonProps {
   disabled?: boolean;
+  isConfirmLoading: boolean;
   confirmReject: () => void;
 }
 
-function RejectedButton({ disabled, confirmReject }: RejectedButtonProps) {
+function RejectedButton({
+  disabled,
+  confirmReject,
+  isConfirmLoading,
+}: RejectedButtonProps) {
   return (
     <AlertDialog>
       <AlertDialogTrigger asChild>
@@ -36,8 +42,13 @@ function RejectedButton({ disabled, confirmReject }: RejectedButtonProps) {
         </AlertDialogHeader>
         <AlertDialogFooter>
           <AlertDialogCancel>ยกเลิก</AlertDialogCancel>
-          <Button onClick={confirmReject} variant="destructive">
-            ยืนยันการสละสิทธิ์
+          <Button
+            disabled={isConfirmLoading}
+            className="text-white"
+            onClick={confirmReject}
+            variant="destructive"
+          >
+            {!isConfirmLoading ? "ยืนยันการสละสิทธิ์" : <Spinner />}
           </Button>
         </AlertDialogFooter>
       </AlertDialogContent>
