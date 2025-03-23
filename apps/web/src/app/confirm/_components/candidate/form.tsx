@@ -58,7 +58,7 @@ function ConfirmForm(props: ConfirmFormProps) {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(props.onSubmit)}
-        className="flex flex-col gap-12"
+        className="flex flex-col gap-12 text-start"
       >
         <div className="grid grid-cols-1 gap-10 lg:grid-cols-[1.5fr_1fr]">
           <div className="flex flex-col gap-12">

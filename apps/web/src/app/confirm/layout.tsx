@@ -65,8 +65,8 @@ export default function RegisterLayout({
         gradientColors={[
           "#0A0A0A",
           "var(--color-vermilion)",
-          "var(--color-mustard)",
-          "var(--color-vermilion-4)",
+          "var(--color-mustard-1)",
+          "var(--color-vermilion-1)",
           "var(--color-dimgray)",
           "var(--color-charcoal-special)",
           "var(--color-vermilion-special)",
