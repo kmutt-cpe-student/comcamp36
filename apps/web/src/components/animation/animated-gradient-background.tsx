@@ -158,7 +158,7 @@ const AnimatedGradientBackground: React.FC<AnimatedGradientBackgroundProps> = ({
     >
       <div
         ref={containerRef}
-        style={containerStyle}
+        style={{ ...containerStyle, opacity: 0.8 }}
         className="absolute inset-0 transition-transform"
       />
     </motion.div>
