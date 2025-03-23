@@ -263,7 +263,6 @@ function ConfirmForm(props: ConfirmFormProps) {
                           value={field.value}
                           onValueChange={field.onChange}
                           accept={{ "image/*": [] }}
-                          nopreview
                         />
                       </FormControl>
                       <FormMessage />
