@@ -178,7 +178,7 @@ function Candidate(props: CandidateProps) {
             )}
 
             <div className="flex w-full flex-col items-center justify-center gap-4">
-              <div className="flex">
+              <div className="flex items-center gap-2">
                 <p>คลิกที่ปุ่มด่านล่างเพื่อยืนยันสิทธิ์</p>
                 <motion.div
                   animate={{ y: [0, -10, 0], rotate: 0 }}
