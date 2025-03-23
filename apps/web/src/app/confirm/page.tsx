@@ -20,11 +20,11 @@ function ConfirmPage() {
     return <ConfirmLoading />;
   }
 
-  if (!data?.confirm) {
+  if (!data?.isPassed) {
     return <Ineligible />;
   }
 
-  if (data.isPassed && data.confirm.index.includes("reserved")) {
+  if (data.isPassed && data.confirm.confirmation_status == "reserved") {
     return <Reserved />;
   }
 

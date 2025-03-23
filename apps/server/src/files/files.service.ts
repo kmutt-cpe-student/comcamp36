@@ -89,6 +89,17 @@ export class FilesService {
     };
   }
 
+  async uploadReceipt(receipt: Express.Multer.File, userId: string) {
+    const receipt_key = await this.uploadToS3(receipt, 'receipt', userId);
+    await this.prisma.confirmation.update({
+      where: { user_id: userId },
+      data: {
+        receipt_path: receipt_key,
+      },
+    });
+    return receipt_key;
+  }
+
   uploadToS3 = async (
     file: Express.Multer.File,
     fileType: string,
@@ -140,6 +151,11 @@ export class FilesService {
       p1_filepath,
       p7_filepath,
     };
+  }
+
+  async getReceiptFile(receipt_url: string) {
+    const receipt_path = await this.getUrl(receipt_url);
+    return receipt_path;
   }
 
   async getBlobs(urls: GetUrlFileInputDto) {

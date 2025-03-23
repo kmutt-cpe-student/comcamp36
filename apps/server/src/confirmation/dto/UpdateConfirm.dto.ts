@@ -17,7 +17,13 @@ export class UpdateConfirmDto {
     type: 'boolean',
     required: true,
   })
-  Ipad: boolean;
+  haveIpad: boolean;
+
+  @ApiProperty({
+    type: 'boolean',
+    required: true,
+  })
+  haveMouse?: boolean;
 
   @ApiProperty({
     type: 'string',
@@ -30,12 +36,6 @@ export class UpdateConfirmDto {
     required: true,
   })
   travel: string;
-
-  @ApiProperty({
-    type: 'string',
-    required: true,
-  })
-  receipt_path: string;
 
   @ApiProperty({
     type: 'string',

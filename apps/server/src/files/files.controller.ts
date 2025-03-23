@@ -1,16 +1,21 @@
 import {
+  Body,
   Controller,
   Get,
   HttpException,
   HttpStatus,
   Post,
   Req,
+  UploadedFile,
   UploadedFiles,
   UseGuards,
   UseInterceptors,
 } from '@nestjs/common';
 import { ApiBody, ApiConsumes, ApiResponse } from '@nestjs/swagger';
-import { FileFieldsInterceptor } from '@nestjs/platform-express';
+import {
+  FileFieldsInterceptor,
+  FileInterceptor,
+} from '@nestjs/platform-express';
 import { FilesService } from './files.service';
 import { UploadFileDto } from './dto/upload-files.dto';
 import { AuthGuard } from 'src/auth/auth.guard';
@@ -18,6 +23,7 @@ import type { Request } from 'express';
 import { UploadFileResponseDto } from './dto/upload-file-response.dto';
 import { UserFilesResponseDto } from './dto/user-files-response.dto';
 import { UsersService } from 'src/users/users.service';
+import { GetReceiptFileDto } from './dto/get-receipt-file.dto';
 
 @Controller('files')
 @UseGuards(AuthGuard)
@@ -77,6 +83,30 @@ export class FilesController {
     return this.filesService.uploadFile(files, req['user_id']);
   }
 
+  @Post('upload-receipt')
+  @ApiResponse({ status: 200, type: 'string' })
+  @ApiBody({
+    schema: {
+      type: 'object',
+      properties: {
+        file: {
+          type: 'string',
+          format: 'binary',
+        },
+      },
+    },
+  })
+  @UseInterceptors(FileInterceptor('file'))
+  uploadReceipt(
+    @UploadedFile() file: Express.Multer.File,
+    @Req() req: Request,
+  ) {
+    if (!req['user_id']) {
+      throw new HttpException('UNAUTHORIZED', HttpStatus.UNAUTHORIZED);
+    }
+    return this.filesService.uploadReceipt(file, req['user_id']);
+  }
+
   // @Post('getblobs')
   // @ApiResponse({ status: 200, type: UserFilesResponseDto })
   // getBlobs(@Body() urls: GetUrlFileInputDto) {
@@ -131,5 +161,17 @@ export class FilesController {
         url: url.p7_filepath,
       },
     };
+  }
+
+  @Post('get-receipt')
+  @ApiResponse({ status: 200, type: 'string' })
+  async getReceipt(@Req() req: Request, @Body() body: GetReceiptFileDto) {
+    if (!req['user_id']) {
+      throw new HttpException('UNAUTHORIZED', HttpStatus.UNAUTHORIZED);
+    }
+    const receipt_filepath = await this.filesService.getReceiptFile(
+      body.receipt_key,
+    );
+    return receipt_filepath;
   }
 }

@@ -111,6 +111,22 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
+  "/files/upload-receipt": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    post: operations["FilesController_uploadReceipt"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
   "/files/user-files": {
     parameters: {
       query?: never;
@@ -121,6 +137,22 @@ export interface paths {
     get: operations["FilesController_getUserFiles"];
     put?: never;
     post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/files/get-receipt": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    post: operations["FilesController_getReceipt"];
     delete?: never;
     options?: never;
     head?: never;
@@ -297,6 +329,9 @@ export interface components {
         url?: string;
       };
     };
+    GetReceiptFileDto: {
+      receipt_key: string;
+    };
     AnswerRegisResponseDto: {
       id: string;
       answer1: string;
@@ -333,7 +368,8 @@ export interface components {
       fullname: string;
       nickname: string;
       request_food: string;
-      Ipad: string;
+      haveIpad: boolean;
+      haveMouse: boolean;
       os_notebook: string;
       travel: string;
       receipt_path: string;
@@ -343,16 +379,16 @@ export interface components {
       isConfirmDone: string;
     };
     ConfirmResponseDto: {
-      isPassed: string;
+      isPassed: boolean;
       confirm: components["schemas"]["Confirm"];
     };
     UpdateConfirmDto: {
       nickname: string;
       request_food: string;
-      Ipad: boolean;
+      haveIpad: boolean;
+      haveMouse: boolean;
       os_notebook: string;
       travel: string;
-      receipt_path: string;
       receipt_datetime: string;
     };
     CreateAnswerConfirmDto: {
@@ -571,6 +607,32 @@ export interface operations {
       };
     };
   };
+  FilesController_uploadReceipt: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody: {
+      content: {
+        "application/json": {
+          /** Format: binary */
+          file?: File;
+        };
+      };
+    };
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"];
+        };
+      };
+    };
+  };
   FilesController_getUserFiles: {
     parameters: {
       query?: never;
@@ -586,6 +648,29 @@ export interface operations {
         };
         content: {
           "application/json": components["schemas"]["UserFilesResponseDto"];
+        };
+      };
+    };
+  };
+  FilesController_getReceipt: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody: {
+      content: {
+        "application/json": components["schemas"]["GetReceiptFileDto"];
+      };
+    };
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"];
         };
       };
     };

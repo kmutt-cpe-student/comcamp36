@@ -12,14 +12,52 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import JsonToFormData from "@/libs/server/body-serializer";
+import { fetchQuery } from "@/libs/server/client";
+import { toast } from "sonner";
 
 interface CandidateProps {
   isAnswerDone: boolean;
 }
 
 function Candidate(props: CandidateProps) {
-  const onSubmit = (data: FormSchema) => {
-    console.log(data);
+  const { mutate: mutateConfirmation } = fetchQuery.useMutation(
+    "post",
+    "/confirmation/user-confirmation",
+    {
+      onSuccess: () => {
+        toast.success("ยืนยันสิทธิ์เรียบร้อย!");
+      },
+      onError: () => toast.error("เกิดข้อผิดพลาดบางอย่างในระบบ!"),
+    },
+  );
+  const { mutate: mutateReceipt } = fetchQuery.useMutation(
+    "post",
+    "/files/upload-receipt",
+    {
+      onError: () => toast.error("เกิดข้อผิดพลาดบางอย่างในระบบ!"),
+    },
+  );
+
+  const onSubmit = async (data: FormSchema) => {
+    await mutateReceipt({
+      body: {
+        file: data.receipt_image[0],
+      },
+      bodySerializer: JsonToFormData,
+    });
+
+    await mutateConfirmation({
+      body: {
+        nickname: data.nickname,
+        request_food: data.request_food,
+        os_notebook: data.os_notebook,
+        travel: data.travel,
+        haveIpad: data.ipad,
+        haveMouse: data.have_mouse,
+        receipt_datetime: data.receipt_datetime.toISOString(),
+      },
+    });
   };
 
   return (

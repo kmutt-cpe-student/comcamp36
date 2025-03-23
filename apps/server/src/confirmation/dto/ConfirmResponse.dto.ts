@@ -27,9 +27,14 @@ export class Confirm {
   request_food?: string;
 
   @ApiProperty({
-    type: 'string',
+    type: 'boolean',
   })
-  Ipad?: boolean;
+  haveIpad?: boolean;
+
+  @ApiProperty({
+    type: 'boolean',
+  })
+  haveMouse?: boolean;
 
   @ApiProperty({
     type: 'string',
@@ -69,7 +74,7 @@ export class Confirm {
 
 export class ConfirmResponseDto {
   @ApiProperty({
-    type: 'string',
+    type: 'boolean',
   })
   isPassed: boolean;
 
