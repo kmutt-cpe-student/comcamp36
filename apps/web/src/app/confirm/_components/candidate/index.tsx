@@ -18,7 +18,7 @@ import {
 import JsonToFormData from "@/libs/server/body-serializer";
 import { fetchQuery } from "@/libs/server/client";
 import { components } from "@/libs/server/types";
-import { CircleCheckBigIcon, TriangleAlert } from "lucide-react";
+import { ChevronLeft, CircleCheckBigIcon, TriangleAlert } from "lucide-react";
 import Image from "next/image";
 import { useState } from "react";
 import { toast } from "sonner";
@@ -94,6 +94,12 @@ function Candidate(props: CandidateProps) {
           <div className="flex flex-col gap-24">
             <Card className="w-full max-w-[110rem] px-5 sm:px-10">
               <CardHeader>
+                <div
+                  className="flex w-full cursor-pointer items-center justify-start gap-2 text-start text-sm transition-all hover:text-white"
+                  onClick={() => setConfirmStatus(null)}
+                >
+                  <ChevronLeft /> <p className="text-sm">ย้อนกลับ</p>
+                </div>
                 <CardTitle className="flex items-center justify-center">
                   <TextShimmer
                     duration={2}
