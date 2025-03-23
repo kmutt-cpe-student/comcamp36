@@ -21,16 +21,17 @@ function RejectedButton({ disabled }: { disabled?: boolean }) {
       </AlertDialogTrigger>
       <AlertDialogContent>
         <AlertDialogHeader>
-          <AlertDialogTitle className="text-vermilion-1">
-            สละสิทธิ์การเข้าร่วม ค่าย Comcamp36 !
+          <AlertDialogTitle className="text-vermilion">
+            สละสิทธิ์การเข้าร่วมค่าย ComCamp36 !
           </AlertDialogTitle>
           <AlertDialogDescription className="text-white/70">
-            หากกดสละสิทธิ์แล้วจะไม่สามารถย้อนกลับได้น่ะ
+            เมื่อน้อง ๆ กดยืนยันการสละสิทธิ์แล้ว จะไม่สามารถกลับมาแก้ไขได้อีก
+            กรุณาตัดสินใจให้แน่ใจก่อนยืนยัน
           </AlertDialogDescription>
         </AlertDialogHeader>
         <AlertDialogFooter>
           <AlertDialogCancel>ยกเลิก</AlertDialogCancel>
-          <Button variant="destructive">ยืนยันที่จะสละสิทธิ์</Button>
+          <Button variant="destructive">ยืนยันการสละสิทธิ์</Button>
         </AlertDialogFooter>
       </AlertDialogContent>
     </AlertDialog>

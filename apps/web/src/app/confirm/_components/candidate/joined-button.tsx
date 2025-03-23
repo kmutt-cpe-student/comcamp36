@@ -63,11 +63,10 @@ function JoinedButton({
       </AlertDialogTrigger>
       <AlertDialogContent>
         <AlertDialogHeader>
-          <AlertDialogTitle>
-            ยืนยันการเข้าร่วม ค่าย Comcamp36 !
-          </AlertDialogTitle>
+          <AlertDialogTitle>ยืนยันการเข้าร่วมค่าย Comcamp36 !</AlertDialogTitle>
           <AlertDialogDescription className="text-white/70">
-            หากกดเข้าร่วมแล้วจะไม่สามารถย้อนกลับได้น่ะ
+            เมื่อน้อง ๆ กดยืนยันแล้ว จะไม่สามารถแก้ไขข้อมูลได้อีก
+            กรุณาตรวจสอบข้อมูลให้ถูกต้องก่อนยืนยันนะ
           </AlertDialogDescription>
         </AlertDialogHeader>
         <AlertDialogFooter>

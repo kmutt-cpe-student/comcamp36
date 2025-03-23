@@ -68,9 +68,9 @@ function Candidate(props: CandidateProps) {
                 ขอแสดงความยินดีด้วย!
               </TextShimmer>
             </CardTitle>
-            <CardDescription className="itemsce- font-noto-sans-thai-looped flex justify-center text-xl text-white">
-              น้องๆได้รับการคัดเลือกให้เป็นตัวจริง! ขอให้น้อง ๆ
-              กรอกข้อมูลเพิ่มเติมให้พี่ ๆ ด้วย!
+            <CardDescription className="itemsce- font-noto-sans-thai-looped flex justify-center text-balance text-xl text-white">
+              ยินดีด้วย! น้องได้รับการคัดเลือกเป็นผู้เข้าร่วมค่ายแล้ว
+              กรุณากรอกข้อมูลเพิ่มเติมให้พี่ ๆ ด้วย
             </CardDescription>
           </CardHeader>
           <CardContent className="font-noto-sans-thai-looped pt-8">
@@ -105,10 +105,11 @@ function Candidate(props: CandidateProps) {
                   คำถาม!
                 </TextShimmer>
               </CardTitle>
-              <CardDescription className="itemsce- font-noto-sans-thai-looped flex justify-center text-xl text-white">
-                นี้เป็นคำถามจากพี่ ๆ วิชาการ โดยถามเพื่อให้พี่ ๆ ได้ ออกแบบ
-                วิธีการเรียนการสอนให้ดีขึ้น อาจจะเยอะหน่อยน่ะ
-                ขอให้น้องๆตอบตามที่เข้าใจ
+              <CardDescription className="itemsce- font-noto-sans-thai-looped flex justify-center text-balance text-xl text-white">
+                พี่ ๆ ฝ่ายวิชาการมีคำถามสั้น ๆ สำหรับน้อง ๆ คำตอบของน้อง ๆ
+                จะช่วยให้พี่ ๆ ออกแบบการเรียนการสอนได้เหมาะสมยิ่งขึ้น
+                อาจจะมีหลายข้อนิดหน่อย แต่ตอบตามความเข้าใจของน้อง ๆ ได้เลย
+                ไม่มีคำตอบที่ผิด
               </CardDescription>
             </CardHeader>
           </Card>
