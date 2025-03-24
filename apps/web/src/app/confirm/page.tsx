@@ -36,12 +36,12 @@ function ConfirmPage() {
     if (data?.confirm && data.confirm.index < 900) {
       return (
         <InView>
-          <div>รอก่อนน่ะ พี่ ๆ กำลังประมวลผลกันอยู่</div>
+          <div>รอก่อนนะ พี่ ๆ กำลังประมวลผลกันอยู่</div>
         </InView>
       );
     }
   }
-  
+
   if (isError || userDataError) {
     return <ConfirmationError />;
   }
