@@ -26,12 +26,12 @@ import {
   CircleCheckBigIcon,
 } from "lucide-react";
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { toast } from "sonner";
 
 import Question from "@/app/confirm/_components/candidate/question";
 import ConfirmConsent from "@/components/card/confirm-consent";
-import { getFiles } from "@/libs/files";
+import { getReceipt } from "@/libs/files";
 import { QueryObserverResult, RefetchOptions } from "@tanstack/react-query";
 
 interface CandidateProps {
@@ -115,6 +115,23 @@ function Candidate(props: CandidateProps) {
     });
   };
 
+  const [files, setFiles] = useState<File[]>([]);
+
+  useEffect(() => {
+    const fetchFiles = async () => {
+      if (props.confirmData?.confirm.receipt_path) {
+        const receiptFile = await getReceipt(
+          props.confirmData.confirm.receipt_path,
+        );
+        setFiles(receiptFile ? receiptFile.flat() : []);
+      }
+    };
+
+    fetchFiles();
+  }, [props.confirmData]);
+
+  console.log(files);
+
   return (
     <>
       <ConfettiFireworks />
@@ -158,9 +175,7 @@ function Candidate(props: CandidateProps) {
                       props.confirmData?.confirm.os_notebook || "Windows",
                     have_mouse: props.confirmData?.confirm.haveMouse || false,
                     travel: props.confirmData?.confirm.travel || "",
-                    receipt_image: getFiles(
-                      props.confirmData?.confirm.receipt_path,
-                    ),
+                    receipt_image: files,
                     receipt_datetime: props.confirmData?.confirm
                       .receipt_datetime
                       ? new Date(
