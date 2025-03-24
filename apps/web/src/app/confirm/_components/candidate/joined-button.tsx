@@ -48,7 +48,12 @@ function JoinedButton({
             className="font-noto-sans-thai-looped"
             align="center"
           >
-            น้อง ๆ จำเป็นต้องกรอกข้อมูลให้เสร็จ และ ตอบคำถามให้ครบ!
+            น้อง ๆ จำเป็นต้องกรอกข้อมูลให้เสร็จ และ ตอบคำถามให้ครบ! ตอนนี้น้อง
+            {isInfoDone
+              ? "ตอบคำถามไม่ครบ!"
+              : isAnswerDone
+                ? "กรอกข้อมูลไม่ครบ!"
+                : "กรอกข้อมูลและตอบคำถามจากฝ่ายวิชาการไม่ครบ!"}
           </HoverCardContent>
         </HoverCard>
       </>
