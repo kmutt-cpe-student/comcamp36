@@ -50,6 +50,59 @@
         "tags": ["Auth"]
       }
     },
+    "/users/info": {
+      "post": {
+        "operationId": "UsersController_updateRegister",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/UpdateUserDto" }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/UserResponseDto" }
+              }
+            }
+          }
+        },
+        "tags": ["Users"]
+      }
+    },
+    "/files/upload": {
+      "post": {
+        "operationId": "FilesController_uploadFile",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "face_photo": { "type": "string", "format": "binary" },
+                  "thai_nationalid_copy": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "parent_permission": { "type": "string", "format": "binary" },
+                  "p1": { "type": "string", "format": "binary" },
+                  "p7": { "type": "string", "format": "binary" }
+                }
+              }
+            }
+          }
+        },
+        "responses": { "200": { "description": "" } },
+        "tags": ["Files"]
+      }
+    },
     "/files/upload-receipt": {
       "post": {
         "operationId": "FilesController_uploadReceipt",
@@ -128,10 +181,43 @@
         "tags": ["Files"]
       }
     },
+    "/answer/submit-answer": {
+      "post": {
+        "operationId": "AnswerController_submitAnswer",
+        "parameters": [],
+        "responses": { "201": { "description": "" } },
+        "tags": ["Answer"]
+      }
+    },
     "/answer/user-regis": {
       "get": {
         "operationId": "AnswerController_findRegisWithUser",
         "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AnswerRegisResponseDto"
+                }
+              }
+            }
+          }
+        },
+        "tags": ["Answer"]
+      },
+      "post": {
+        "operationId": "AnswerController_upsertRegisWithUser",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/UpsertAnswerRegisDto" }
+            }
+          }
+        },
         "responses": {
           "200": {
             "description": "",
@@ -151,6 +237,33 @@
       "get": {
         "operationId": "AnswerController_findAcademicWithUser",
         "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AnswerAcademicResponseDto"
+                }
+              }
+            }
+          }
+        },
+        "tags": ["Answer"]
+      },
+      "post": {
+        "operationId": "AnswerController_upsertAcademicWithUser",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpsertAnswerAcademicDto"
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "description": "",
@@ -346,6 +459,37 @@
           "has_submit_answer"
         ]
       },
+      "UpdateUserDto": {
+        "type": "object",
+        "properties": {
+          "title": { "type": "string" },
+          "fullname": { "type": "string" },
+          "age": { "type": "number" },
+          "birth": { "type": "string" },
+          "gender": { "type": "string" },
+          "religion": { "type": "string" },
+          "blood_group": { "type": "string" },
+          "graduation": { "type": "string" },
+          "school": { "type": "string" },
+          "course": { "type": "string" },
+          "telephone": { "type": "string" },
+          "medical_coverage": { "type": "string" },
+          "chronic_diseas": { "type": "string" },
+          "self_medicine": { "type": "string" },
+          "drug_allergic": { "type": "string" },
+          "food_allergic": { "type": "string" },
+          "prefer_food": { "type": "string" },
+          "address": { "type": "string" },
+          "home_phone_tel": { "type": "string" },
+          "comcamp_attendance": { "type": "boolean" },
+          "everyday_attendence": { "type": "boolean" },
+          "has_laptop": { "type": "boolean" },
+          "travel": { "type": "string" },
+          "parent_fullname": { "type": "string" },
+          "parent_relation": { "type": "string" },
+          "parent_phone": { "type": "string" }
+        }
+      },
       "UploadReceiptResponseDto": {
         "type": "object",
         "properties": { "receipt_key": { "type": "string" } },
@@ -431,6 +575,27 @@
           "answer6_2"
         ]
       },
+      "UpsertAnswerRegisDto": {
+        "type": "object",
+        "properties": {
+          "answer1": { "type": "string" },
+          "answer2": { "type": "string" },
+          "answer3": { "type": "string" },
+          "answer4": { "type": "string" },
+          "answer5": { "type": "string" },
+          "answer6_1": { "type": "string" },
+          "answer6_2": { "type": "string" }
+        },
+        "required": [
+          "answer1",
+          "answer2",
+          "answer3",
+          "answer4",
+          "answer5",
+          "answer6_1",
+          "answer6_2"
+        ]
+      },
       "AnswerAcademicResponseDto": {
         "type": "object",
         "properties": {
@@ -440,6 +605,15 @@
           "chess_score": { "type": "number" }
         },
         "required": ["id", "algo_answer", "chess_notation", "chess_score"]
+      },
+      "UpsertAnswerAcademicDto": {
+        "type": "object",
+        "properties": {
+          "algo_answer": { "type": "string" },
+          "chess_notation": { "type": "string" },
+          "chess_score": { "type": "number" }
+        },
+        "required": ["algo_answer", "chess_notation", "chess_score"]
       },
       "Confirm": {
         "type": "object",
