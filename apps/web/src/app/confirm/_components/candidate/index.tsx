@@ -32,6 +32,7 @@ import { toast } from "sonner";
 import Question from "@/app/confirm/_components/candidate/question";
 import ConfirmConsent from "@/components/card/confirm-consent";
 import { getFiles } from "@/libs/files";
+import { QueryObserverResult, RefetchOptions } from "@tanstack/react-query";
 
 interface CandidateProps {
   confirmData:
@@ -40,6 +41,15 @@ interface CandidateProps {
         confirm: components["schemas"]["Confirm"];
       }
     | undefined;
+
+  refetch: (
+    options?: RefetchOptions | undefined,
+  ) => Promise<
+    QueryObserverResult<
+      { isPassed: boolean; confirm: components["schemas"]["Confirm"] },
+      never
+    >
+  >;
 }
 
 function Candidate(props: CandidateProps) {
@@ -64,6 +74,7 @@ function Candidate(props: CandidateProps) {
       },
       onError: () => toast.error("เกิดข้อผิดพลาดบางอย่างในระบบ!"),
     });
+
   const {
     mutateAsync: mutateConfirmationInfo,
     isPending: confirmationPendingInfo,
@@ -196,7 +207,7 @@ function Candidate(props: CandidateProps) {
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <Question />
+                  <Question refetch={props.refetch} />
                 </CardContent>
               </Card>
             )}
