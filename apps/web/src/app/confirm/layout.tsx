@@ -1,7 +1,9 @@
 "use client";
 
 import AnimatedGradientBackground from "@/components/animation/animated-gradient-background";
+import LogoutBtn from "@/components/auth/logout-btn";
 import PolicyConsent from "@/components/card/policy-consent";
+import Navbar from "@/components/navigate/navbar";
 import Spinner from "@/components/spinner";
 import { Button } from "@/components/ui/button";
 import { fetchClient, fetchQuery } from "@/libs/server/client";
@@ -77,6 +79,7 @@ export default function ConfirmLayout({
 
       <div className="relative z-10 flex h-full flex-col items-center justify-start px-4 text-center">
         <PolicyConsent />
+        <Navbar items={[]} extra={<LogoutBtn />} hideBanner />
         <div className="font-prompt flex min-h-screen w-full flex-col justify-center gap-2 px-0 py-10 sm:px-4">
           <Link href="..">
             <Button className="w-fit" variant="ghost">
