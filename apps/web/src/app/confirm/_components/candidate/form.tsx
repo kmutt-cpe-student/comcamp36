@@ -1,7 +1,7 @@
 import { DateTimePicker } from "@/components/date/datetime-picker";
 import { FileUploader } from "@/components/files";
 import RadioGroupBoolean from "@/components/radio-group-boolean";
-import OsGroupSelector from "@/components/select/os_dynselect";
+import OsGroupSelector from "@/components/select/os-dynselect";
 import PreferFoodSelector from "@/components/select/preferfood-dynselect";
 import Spinner from "@/components/spinner";
 import { Button } from "@/components/ui/button";
@@ -89,9 +89,10 @@ function ConfirmForm(props: ConfirmFormProps) {
                     onValueChange={field.onChange}
                   />
                   <FormDescription>
-                    คำอธิบายสำหรับอาหารที่น้อง ๆ รับประทานได้
+                    หากไม่มีในตัวเลือก เช่น มีอาการแพ้อาหาร โปรดเลือก &quot;อื่น
+                    ๆ&quot; แล้วระบุ
                   </FormDescription>
-                  <div className="rounded-md border border-green-500/50 px-4 py-3 text-green-600">
+                  <div className="rounded-md border border-green-400/50 px-4 py-3 text-green-400">
                     <div className="flex gap-3">
                       <CircleAlertIcon
                         className="mt-0.5 shrink-0 opacity-60"
@@ -102,8 +103,8 @@ function ConfirmForm(props: ConfirmFormProps) {
                         <p className="text-sm font-bold">ตัวอย่าง</p>
                         <ul className="list-inside list-disc text-sm opacity-80">
                           <li>
-                            อาหารพิเศษ เช่น ฮาลาล มังสวิรัติ ปกติ
-                            ไม่กินอาหารทะเล หรือว่าแพ้อะไร กินอะไรไม่ได้{" "}
+                            อาหารพิเศษ เช่น ฮาลาล มังสวิรัติ ปกติ แพ้อาหารทะเล
+                            หรือระบุอาหารที่แพ้อื่น ๆ{" "}
                           </li>
                         </ul>
                       </div>
@@ -185,7 +186,7 @@ function ConfirmForm(props: ConfirmFormProps) {
                     เขียนอธิบายวิธีการมาค่ายของน้อง
                     ทั้งนี้เพื่อให้พี่ค่ายสามารถวางแผนการอำนวยความสะดวกให้น้องได้อย่างเต็มที่
                   </FormDescription>
-                  <div className="rounded-md border border-green-500/50 px-4 py-3 text-green-600">
+                  <div className="rounded-md border border-green-400/50 px-4 py-3 text-green-400">
                     <div className="flex gap-3">
                       <CircleAlertIcon
                         className="mt-0.5 shrink-0 opacity-60"
@@ -193,8 +194,8 @@ function ConfirmForm(props: ConfirmFormProps) {
                         aria-hidden="true"
                       />
                       <div className="grow space-y-1">
-                        <p className="text-sm font-bold">ตัวอย่าง</p>
-                        <ul className="list-inside list-disc text-sm opacity-80">
+                        <p className="text-base font-bold">ตัวอย่าง</p>
+                        <ul className="list-inside list-disc text-base opacity-80">
                           <li>
                             เดินทางจากบ้านพักด้วยรถโดยสารประจำทางสาย 75
                             ลงป้ายหน้ามหาวิทยาลัยฯ
@@ -234,7 +235,7 @@ function ConfirmForm(props: ConfirmFormProps) {
                 />
               </div>
               <p className="font-bold">350 บาท</p>
-              <div className="w-full rounded-md border border-green-500/50 px-4 py-3 text-green-600">
+              <div className="w-full rounded-md border border-green-400/50 px-4 py-3 text-green-400">
                 <div className="flex gap-3">
                   <CircleAlertIcon
                     className="mt-0.5 shrink-0 opacity-60"
@@ -263,6 +264,18 @@ function ConfirmForm(props: ConfirmFormProps) {
                       </li>
                       <li className="text-lg">
                         ชื่อบัญชี นาย ภูมิพัฒน์ อภิวาทธนะพงศ์
+                      </li>
+                      <li className="text-lg">
+                        จ่ายเพื่อเป็นค่ามัดจำเท่านั้น และจะได้คืนหลังจบค่าย
+                        สามารถอ่านเพิ่มเติมเกี่ยวกับเงินมัดจำ
+                        <a
+                          className="cursor-pointer underline"
+                          href="/confirm/policy"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          ได้ที่นี่
+                        </a>
                       </li>
                     </ul>
                   </div>

@@ -22,8 +22,8 @@ import { motion } from "framer-motion";
 import {
   ArrowDown,
   ChevronLeft,
+  CircleCheck,
   CircleCheckBigIcon,
-  TriangleAlert,
 } from "lucide-react";
 import Image from "next/image";
 import { useState } from "react";
@@ -44,6 +44,12 @@ interface CandidateProps {
 
 function Candidate(props: CandidateProps) {
   const [confirmStatus, setConfirmStatus] = useState<boolean | null>(null); //no สละสิทธิ์ yes ยืนยัน
+
+  const {
+    data: userData,
+    isPending: userDataPending,
+    isError: userDataError,
+  } = fetchQuery.useQuery("get", "/auth/me");
 
   const { mutateAsync: mutateConfirmation, isPending: confirmationPending } =
     fetchQuery.useMutation("post", "/confirmation/user-confirmation", {
@@ -247,19 +253,19 @@ function Candidate(props: CandidateProps) {
             </div>
 
             <div className="font-noto-sans-thai-looped bg-charcoal-1 mx-4 rounded-md border border-amber-500/50 p-7">
-              <div className="flex items-center justify-start text-xl">
-                <TriangleAlert
-                  className="-mt-0.5 me-3 inline-flex size-10 text-green-500 opacity-60"
+              <div className="flex flex-col items-center justify-start text-xl">
+                <CircleCheck
+                  className="-mt-0.5 me-3 inline-flex size-20 text-green-400 opacity-60"
                   aria-hidden="true"
                 />
-                <div className="grid gap-2">
+                <div className="flex flex-col justify-center gap-2 text-center">
                   <TextShimmer
                     duration={2}
-                    className="w-fit max-w-full text-2xl font-bold transition-opacity duration-200 [--base-color:var(--color-green-500)] [--base-gradient-color:var(--color-green-600)] dark:[--base-color:var(--color-green-500)] dark:[--base-gradient-color:var(--color-green-600)]"
+                    className="mx-auto max-w-full text-3xl font-bold transition-opacity duration-200 [--base-color:var(--color-green-500)] [--base-gradient-color:var(--color-green-600)] dark:[--base-color:var(--color-green-500)] dark:[--base-gradient-color:var(--color-green-600)]"
                   >
                     ผ่านการคัดเลือก
                   </TextShimmer>
-                  <p className="text-lg font-light text-green-500">
+                  <p className="lg:max-w-2/3 mx-auto text-lg font-light text-green-300">
                     ยินดีด้วย! น้องผ่านการคัดเลือกเข้าสู่ค่าย ComCamp 36!
                     หากต้องการเข้าร่วมค่ายโปรดเลือก
                     &quot;กรอกข้อมูลเพิ่มเติมเพื่อยืนยันสิทธิ์&quot;
@@ -274,7 +280,8 @@ function Candidate(props: CandidateProps) {
                   <p className="text-vermilion">น้องได้ทำการสละสิทธิ์แล้ว</p>
                 ) : props.confirmData?.confirm.confirmation_status == "yes" ? (
                   <p className="text-vermilion">
-                    น้องได้ทำการยืนยันสิทธิ์แล้ว โปรดรออีเมลจากพี่ ๆ
+                    น้องได้ทำการยืนยันสิทธิ์เรียบร้อยแล้ว
+                    โปรดรออีเมลยืนยันจากพี่ ๆ
                   </p>
                 ) : (
                   <div className="flex items-center justify-center">
@@ -301,6 +308,11 @@ function Candidate(props: CandidateProps) {
                   </div>
                 )}
               </div>
+              {!userDataPending && !userDataError && (
+                <p className="pt-4 text-center text-base text-gray-400">
+                  {userData?.fullname} - {userData?.email}
+                </p>
+              )}
             </div>
           </div>
         )}
