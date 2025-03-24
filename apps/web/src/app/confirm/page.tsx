@@ -15,7 +15,6 @@ function ConfirmPage() {
     isError: userDataError,
   } = fetchQuery.useQuery("get", "/auth/me");
 
-
   const { data, isPending, isError, refetch } = fetchQuery.useQuery(
     "get",
     "/confirmation/user-confirmation",

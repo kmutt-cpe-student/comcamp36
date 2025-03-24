@@ -127,7 +127,7 @@ export function Question({
           )}
         </figure>
       ) : (
-        <h2 className="text-2xl font-semibold normal-case">
+        <h2 className="text-xl font-semibold normal-case">
           {formatCodeBlocks(
             typeof question === "string" ? question : question.content,
           )}
@@ -150,7 +150,7 @@ export function Question({
               selected ===
               (typeof choice === "string" ? choice : choice.content)
             }
-            className="h-auto min-h-14 w-full flex-1 shrink-0 justify-start whitespace-normal py-3 text-left text-lg normal-case"
+            className="h-auto min-h-14 w-full flex-1 shrink-0 justify-start whitespace-normal py-3 text-left text-sm normal-case"
           >
             {typeof choice !== "string" && choice.type === "image" ? (
               <figure>

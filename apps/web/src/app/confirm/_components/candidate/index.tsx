@@ -54,7 +54,18 @@ interface CandidateProps {
 }
 
 function Candidate(props: CandidateProps) {
+  const [answerDone, setAnswerDone] = useState(false);
   const [confirmStatus, setConfirmStatus] = useState<boolean | null>(null); //no สละสิทธิ์ yes ยืนยัน
+
+  const { mutate: mutateAnswerConfirm, isPending: answerConfirmPending } =
+    fetchQuery.useMutation("post", "/confirmation/user-answer-confirmation", {
+      onSuccess: () => {
+        toast.success("ส่งคำตอบเรียบร้อย!");
+        setAnswerDone(true);
+      },
+      onError: () => toast.error("เกิดข้อผิดพลาดบางอย่างในส่งคำตอบ!"),
+    });
+
   const { mutateAsync: mutateConfirmation, isPending: confirmationPending } =
     fetchQuery.useMutation("post", "/confirmation/user-confirmation", {
       onSuccess: (mutationData) => {
@@ -74,7 +85,7 @@ function Candidate(props: CandidateProps) {
     isPending: confirmationPendingInfo,
   } = fetchQuery.useMutation("post", "/confirmation/user-confirmation-info", {
     onSuccess: () => {
-      toast.success("ยืนยันสิทธิ์เรียบร้อย!");
+      toast.success("บันทึกข้อมูลเรียบร้อย!");
     },
     onError: () => toast.error("เกิดข้อผิดพลาดบางอย่างในการยืนยันสิทธิ์!"),
   });
@@ -122,9 +133,11 @@ function Candidate(props: CandidateProps) {
     };
 
     fetchFiles();
-  }, [props.confirmData]);
 
-  console.log(files);
+    if (props.confirmData) {
+      setAnswerDone(props.confirmData.confirm.isAnswerDone ? true : false);
+    }
+  }, [props.confirmData]);
 
   return (
     <>
@@ -142,7 +155,7 @@ function Candidate(props: CandidateProps) {
                   <ChevronLeft />{" "}
                   <p className="text-sm">กลับไปหน้ายืนยันสิทธิ์</p>
                 </div>
-                <CardTitle className="flex items-center justify-center">
+                <CardTitle className="mt-3 flex items-center justify-center">
                   <TextShimmer
                     duration={2}
                     className="text-3xl font-bold transition-opacity duration-200 [--base-color:var(--color-vermilion)] [--base-gradient-color:var(--color-vermilion-1)] dark:[--base-color:var(--color-vermilion)] dark:[--base-gradient-color:var(--color-vermilion-1)]"
@@ -151,12 +164,13 @@ function Candidate(props: CandidateProps) {
                   </TextShimmer>
                 </CardTitle>
                 <CardDescription className="font-noto-sans-thai-looped flex flex-col items-center justify-center gap-y-1 text-xl text-white">
-                  <span>
+                  <span className="text-base">
                     โปรดกรอกข้อมูลเพิ่มเติมต่อไปนี้
                     เพื่อให้พี่ค่ายสามารถเตรียมสิ่งที่จำเป็นสำหรับน้องได้ถูกต้อง
                   </span>
-                  <br />{" "}
-                  <span className="font-bold">**ไม่มีผลต่อผลการคัดเลือก**</span>
+                  <span className="text-base font-bold text-red-500">
+                    (ไม่มีผลต่อผลการคัดเลือก)
+                  </span>
                 </CardDescription>
               </CardHeader>
               <CardContent className="font-noto-sans-thai-looped pt-8">
@@ -190,18 +204,18 @@ function Candidate(props: CandidateProps) {
               </CardContent>
             </Card>
 
-            {!props.confirmData?.confirm.isAnswerDone && (
-              <Card className="w-full max-w-[110rem] px-5 sm:px-10">
-                <CardHeader>
-                  <CardTitle className="flex items-center justify-center">
-                    <TextShimmer
-                      duration={2}
-                      className="text-3xl font-bold transition-opacity duration-200 [--base-color:var(--color-vermilion)] [--base-gradient-color:var(--color-vermilion-1)] dark:[--base-color:var(--color-vermilion)] dark:[--base-gradient-color:var(--color-vermilion-1)]"
-                    >
-                      ชุดคำถามจากฝ่ายวิชาการ
-                    </TextShimmer>
-                  </CardTitle>
-                  <CardDescription className="font-noto-sans-thai-looped flex flex-col items-center justify-center text-xl text-white">
+            <Card className="w-full max-w-[110rem] px-5 sm:px-10">
+              <CardHeader>
+                <CardTitle className="flex items-center justify-center">
+                  <TextShimmer
+                    duration={2}
+                    className="text-3xl font-bold transition-opacity duration-200 [--base-color:var(--color-vermilion)] [--base-gradient-color:var(--color-vermilion-1)] dark:[--base-color:var(--color-vermilion)] dark:[--base-gradient-color:var(--color-vermilion-1)]"
+                  >
+                    ชุดคำถามจากฝ่ายวิชาการ
+                  </TextShimmer>
+                </CardTitle>
+                <CardDescription className="font-noto-sans-thai-looped flex flex-col items-center justify-center text-base text-white">
+                  {!answerDone ? (
                     <div className="flex flex-col text-left">
                       <span className="font-bold">คำชี้แจง</span>
                       <span>
@@ -214,13 +228,30 @@ function Candidate(props: CandidateProps) {
                       </span>
                       <span>3. ชุดคำถามนี้ไม่มีผลต่อผลการคัดเลือก</span>
                     </div>
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <Question refetch={props.refetch} />
-                </CardContent>
-              </Card>
-            )}
+                  ) : (
+                    <div className="my-2 flex flex-col text-left">
+                      <p>น้องได้ตอบคำถามเรียบร้อยแล้ว!</p>
+                    </div>
+                  )}
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                {!answerDone && (
+                  <Question
+                    onSubmitCallback={(answers) => {
+                      const formattedAnswers = answers.reduce<{
+                        [key: string]: number;
+                      }>((acc, answer, index) => {
+                        acc[`question${index + 1}`] = Number(answer);
+                        return acc;
+                      }, {});
+                      mutateAnswerConfirm({ body: formattedAnswers as never });
+                    }}
+                    isLoading={answerConfirmPending}
+                  />
+                )}
+              </CardContent>
+            </Card>
 
             <div className="flex w-full flex-col items-center justify-center gap-4">
               <div className="flex items-center gap-2">
@@ -307,13 +338,15 @@ function Candidate(props: CandidateProps) {
                   <div className="flex items-center justify-center">
                     <GradientButton
                       type="button"
-                      className="mr-2 flex gap-2"
+                      className="mr-2"
                       onClick={() => setConfirmStatus(true)}
                     >
-                      <p className="text-lg">
+                      <p className="mr-2 text-base">
                         กรอกข้อมูลเพิ่มเติมเพื่อยืนยันสิทธิ์
-                      </p>{" "}
-                      <CircleCheckBigIcon />
+                      </p>
+                      <div>
+                        <CircleCheckBigIcon className="h-4 w-4" />
+                      </div>
                     </GradientButton>
                     <RejectedButton
                       confirmReject={() =>

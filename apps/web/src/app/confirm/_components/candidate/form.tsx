@@ -62,8 +62,8 @@ function ConfirmForm(props: ConfirmFormProps) {
         onSubmit={form.handleSubmit(props.onSubmit)}
         className="flex flex-col gap-12 text-start"
       >
-        <div className="grid grid-cols-1 gap-10 lg:grid-cols-[1.5fr_1fr]">
-          <div className="flex flex-col gap-12">
+        <div className="grid grid-cols-1 gap-12 lg:grid-cols-[1.5fr_1fr]">
+          <div className="flex flex-col gap-10">
             <h5 className="font-bold">ข้อมูลเพิ่มเติม</h5>
             <FormField
               control={form.control}
@@ -223,8 +223,8 @@ function ConfirmForm(props: ConfirmFormProps) {
           </div>
           <div className="flex flex-col gap-6">
             <h5 className="font-bold">ค่ามัดจำการยืนยันสิทธิ์</h5>
-            <div className="flex w-full flex-col items-center justify-center gap-6 pt-6">
-              <div className="flex w-[25rem] items-center justify-center rounded-md bg-white px-10 py-5">
+            <div className="flex w-full flex-col items-center justify-center gap-2 pt-6">
+              <div className="flex items-center justify-center rounded-md bg-white px-10 py-5">
                 <Image
                   style={{ width: "100%", height: "auto" }}
                   width={0}
@@ -234,7 +234,7 @@ function ConfirmForm(props: ConfirmFormProps) {
                   loading="lazy"
                 />
               </div>
-              <p className="font-bold">350 บาท</p>
+              <p className="font-bold">จำนวน 350 บาท</p>
               <div className="w-full rounded-md border border-green-400/50 px-4 py-3 text-green-400">
                 <div className="flex gap-3">
                   <CircleAlertIcon
