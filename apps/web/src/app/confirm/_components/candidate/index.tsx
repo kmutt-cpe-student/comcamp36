@@ -55,7 +55,6 @@ interface CandidateProps {
 
 function Candidate(props: CandidateProps) {
   const [confirmStatus, setConfirmStatus] = useState<boolean | null>(null); //no สละสิทธิ์ yes ยืนยัน
-
   const { mutateAsync: mutateConfirmation, isPending: confirmationPending } =
     fetchQuery.useMutation("post", "/confirmation/user-confirmation", {
       onSuccess: (mutationData) => {
@@ -273,7 +272,6 @@ function Candidate(props: CandidateProps) {
                 className="transition-all hover:scale-[1.1]"
               />
             </div>
-
             <div className="font-noto-sans-thai-looped bg-charcoal-1 mx-4 rounded-md border border-amber-500/50 px-7 py-12">
               <div className="flex flex-col items-center justify-start text-xl">
                 <CircleCheck
