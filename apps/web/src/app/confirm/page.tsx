@@ -6,8 +6,15 @@ import ConfirmLoading from "@/app/confirm/_components/loading";
 import Reserved from "@/app/confirm/_components/reserved";
 import { InView } from "@/components/animation/in-view";
 import { fetchQuery } from "@/libs/server/client";
+import ConfirmationError from "./_components/error";
 
 function ConfirmPage() {
+  const {
+    data: userData,
+    isPending: userDataPending,
+    isError: userDataError,
+  } = fetchQuery.useQuery("get", "/auth/me");
+
   const { data, isPending, isError, refetch } = fetchQuery.useQuery(
     "get",
     "/confirmation/user-confirmation",
@@ -18,7 +25,7 @@ function ConfirmPage() {
     },
   );
 
-  if (isPending) {
+  if (isPending || userDataPending) {
     return <ConfirmLoading />;
   }
 
@@ -29,16 +36,20 @@ function ConfirmPage() {
     if (data?.confirm && data.confirm.index < 900) {
       return (
         <InView>
-          <div>รอก่อนน่ะ พี่ ๆ กำลังประมวลผลกันอยู่</div>
+          <div>รอก่อนนะ พี่ ๆ กำลังประมวลผลกันอยู่</div>
         </InView>
       );
     }
   }
 
-  if (!data?.confirm || isError) {
+  if (isError || userDataError) {
+    return <ConfirmationError />;
+  }
+
+  if (!data?.confirm) {
     return (
       <InView>
-        <Ineligible />
+        <Ineligible userData={userData} />
       </InView>
     );
   }
@@ -46,14 +57,14 @@ function ConfirmPage() {
   if (data.isPassed && data.confirm.confirmation_status == "reserved") {
     return (
       <InView>
-        <Reserved />
+        <Reserved userData={userData} />
       </InView>
     );
   }
 
   return (
     <InView>
-      <Candidate confirmData={data} refetch={refetch} />
+      <Candidate confirmData={data} refetch={refetch} userData={userData} />
     </InView>
   );
 }
