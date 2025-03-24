@@ -22,6 +22,19 @@ function ConfirmPage() {
     return <ConfirmLoading />;
   }
 
+  const currentDate = new Date();
+  const targetDate = new Date("2025-03-24T16:00:00+07:00");
+
+  if (currentDate < targetDate) {
+    if (data?.confirm && data.confirm.index < 900) {
+      return (
+        <InView>
+          <div>รอก่อนน่ะ พี่ ๆ กำลังประมวลผลกันอยู่</div>
+        </InView>
+      );
+    }
+  }
+
   if (!data?.confirm || isError) {
     return (
       <InView>
