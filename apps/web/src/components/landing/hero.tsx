@@ -1,8 +1,8 @@
 import FadeObserverDiv from "@/components/landing/fade-div";
+import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { Magnetic } from "../animation/magnetics";
 import { Tilt } from "../card/tilt-card";
-import { Button } from "../ui/button";
 
 function Hero() {
   return (
@@ -42,7 +42,7 @@ function Hero() {
             </small>
           </div>
 
-          <Magnetic range={300}>
+          <Magnetic range={80}>
             <Button
               className="rounded-4xl font-prompt h-[5rem] w-fit px-20 text-3xl"
               variant="ghost"
@@ -50,6 +50,12 @@ function Hero() {
             >
               ปิดรับสมัครแล้ว
             </Button>
+            {/* TODO: Uncomment this when open confirmation */}
+            {/* <Link href="/register">
+              <GradientButton className="flex gap-4 rounded-xl px-20 py-4">
+                <SearchIcon /> <p>ตรวจสอบผลการคัดเลือก!</p>
+              </GradientButton>
+            </Link> */}
           </Magnetic>
         </div>
       </div>
