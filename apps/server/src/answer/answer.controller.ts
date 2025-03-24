@@ -1,8 +1,8 @@
 import {
   Controller,
   Get,
-  //  Post,
-  //  Body,
+  Post,
+  Body,
   HttpException,
   HttpStatus,
   UseGuards,
@@ -11,32 +11,32 @@ import {
 import { AnswerService } from './answer.service';
 import { AuthGuard } from 'src/auth/auth.guard';
 import type { Request } from 'express';
-import {} from //  UpsertAnswerAcademicDto,
-//  UpsertAnswerRegisDto,
-'./dto/upsert-answer.dto';
+import {
+  UpsertAnswerAcademicDto,
+  UpsertAnswerRegisDto,
+} from './dto/upsert-answer.dto';
 import { ApiResponse } from '@nestjs/swagger';
 import {
   AnswerAcademicResponseDto,
   AnswerRegisResponseDto,
 } from './dto/answer-response.dto';
-//import { UsersService } from 'src/users/users.service';
+import { UsersService } from 'src/users/users.service';
 
 @Controller('answer')
 @UseGuards(AuthGuard)
 export class AnswerController {
   constructor(
     private readonly answerService: AnswerService,
-    //private userService: UsersService,
+    private userService: UsersService,
   ) {}
 
-  /*
   @Post('submit-answer')
   submitAnswer(@Req() req: Request) {
     if (!req['user_id']) {
       throw new HttpException('UNAUTHORIZED', HttpStatus.UNAUTHORIZED);
     }
     return this.answerService.submitAnswer(req['user_id']);
-  }*/
+  }
 
   //Regis
   // @Post('regis')
@@ -83,7 +83,6 @@ export class AnswerController {
   //   return answerRegis;
   // }
 
-  /*
   @Post('user-regis')
   @ApiResponse({ status: 200, type: AnswerRegisResponseDto })
   async upsertRegisWithUser(
@@ -102,7 +101,7 @@ export class AnswerController {
       req['user_id'],
       upsertAnswerRegisDto,
     );
-  }*/
+  }
 
   //Academic
   // @Post('academic')
@@ -138,7 +137,6 @@ export class AnswerController {
     return this.answerService.findOneAcademicWithUser(req['user_id']);
   }
 
-  /*
   @Post('user-academic')
   @ApiResponse({ status: 200, type: AnswerAcademicResponseDto })
   async upsertAcademicWithUser(
@@ -156,7 +154,7 @@ export class AnswerController {
       req['user_id'],
       upsertAnswerAcademicDto,
     );
-  }*/
+  }
 
   // @Patch('academic/:id')
   // async updateAcademic(

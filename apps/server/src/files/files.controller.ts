@@ -7,26 +7,22 @@ import {
   Post,
   Req,
   UploadedFile,
-  //  UploadedFiles,
+  UploadedFiles,
   UseGuards,
   UseInterceptors,
 } from '@nestjs/common';
+import { ApiBody, ApiConsumes, ApiResponse } from '@nestjs/swagger';
 import {
-  ApiBody,
-  //  ApiConsumes,
-  ApiResponse,
-} from '@nestjs/swagger';
-import {
-  //  FileFieldsInterceptor,
+  FileFieldsInterceptor,
   FileInterceptor,
 } from '@nestjs/platform-express';
 import { FilesService } from './files.service';
-//import { UploadFileDto } from './dto/upload-files.dto';
+import { UploadFileDto } from './dto/upload-files.dto';
 import { AuthGuard } from 'src/auth/auth.guard';
 import type { Request } from 'express';
-//import { UploadFileResponseDto } from './dto/upload-file-response.dto';
+import { UploadFileResponseDto } from './dto/upload-file-response.dto';
 import { UserFilesResponseDto } from './dto/user-files-response.dto';
-//import { UsersService } from 'src/users/users.service';
+import { UsersService } from 'src/users/users.service';
 import { GetReceiptFileDto } from './dto/get-receipt-file.dto';
 import { UploadReceiptResponseDto } from './dto/upload-receipt-response.dto';
 import { ReceiptFileResponseDto } from './dto/receipt-file-response.dto';
@@ -36,10 +32,9 @@ import { ReceiptFileResponseDto } from './dto/receipt-file-response.dto';
 export class FilesController {
   constructor(
     private filesService: FilesService,
-    //private usersService: UsersService,
+    private usersService: UsersService,
   ) {}
 
-  /*
   @ApiConsumes('multipart/form-data')
   @ApiResponse({
     status: 200,
@@ -88,7 +83,7 @@ export class FilesController {
       throw new HttpException('UNAUTHORIZED', HttpStatus.UNAUTHORIZED);
     }
     return this.filesService.uploadFile(files, req['user_id']);
-  }*/
+  }
 
   @Post('upload-receipt')
   @ApiResponse({ status: 200, type: UploadReceiptResponseDto })

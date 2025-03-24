@@ -1,23 +1,24 @@
 import {
   Controller,
-  //  Post,
-  //  Body,
-  //  HttpException,
-  //  HttpStatus,
+  Post,
+  Body,
+  HttpException,
+  HttpStatus,
   UseGuards,
-  //  Req,
+  Req,
 } from '@nestjs/common';
-//import { UsersService } from './users.service';
-//import { UpdateUserDto } from './dto/update-user.dto';
-//import { ApiResponse } from '@nestjs/swagger';
+import { UsersService } from './users.service';
+import { UpdateUserDto } from './dto/update-user.dto';
+import { ApiResponse } from '@nestjs/swagger';
 import { AuthGuard } from 'src/auth/auth.guard';
-//import type { Request } from 'express';
-//import { UserResponseDto } from './dto/user.dto';
+import type { Request } from 'express';
+import { UserResponseDto } from './dto/user.dto';
 
 @Controller('users')
 @UseGuards(AuthGuard)
 export class UsersController {
-  //constructor(private readonly usersService: UsersService) {}
+  constructor(private readonly usersService: UsersService) {}
+
   // @Post()
   // @ApiResponse({
   //   status: 200,
@@ -29,6 +30,7 @@ export class UsersController {
   //   }
   //   return 'User created successfully';
   // }
+
   // @Get()
   // @ApiResponse({
   //   status: 200,
@@ -37,6 +39,7 @@ export class UsersController {
   //   const users = await this.usersService.findAll();
   //   return users;
   // }
+
   // @Get(':id')
   // @ApiResponse({
   //   status: 200,
@@ -48,6 +51,7 @@ export class UsersController {
   //   }
   //   return user;
   // }
+
   // @Patch(':id')
   // @ApiResponse({
   //   status: 200,
@@ -60,7 +64,7 @@ export class UsersController {
   //   const birth = new Date(updateUserDto.birth);
   //   return this.usersService.update(id, updateUserDto, birth);
   // }
-  /*
+
   @Post('info')
   @ApiResponse({
     status: 200,
@@ -86,7 +90,8 @@ export class UsersController {
       birth,
     );
     return updateuser;
-  }*/
+  }
+
   // @Delete(':id')
   // @ApiResponse({
   //   status: 200,
