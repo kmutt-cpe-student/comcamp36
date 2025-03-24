@@ -1,10 +1,10 @@
+import { GradientButton } from "@/components/gradient-button";
 import FadeObserverDiv from "@/components/landing/fade-div";
 import { SearchIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { Magnetic } from "../animation/magnetics";
 import { Tilt } from "../card/tilt-card";
-import { GradientButton } from "../gradient-button";
 
 function Hero() {
   return (
