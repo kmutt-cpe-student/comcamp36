@@ -111,6 +111,22 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
+  "/files/upload-receipt": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    post: operations["FilesController_uploadReceipt"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
   "/files/user-files": {
     parameters: {
       query?: never;
@@ -121,6 +137,22 @@ export interface paths {
     get: operations["FilesController_getUserFiles"];
     put?: never;
     post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/files/get-receipt": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    post: operations["FilesController_getReceipt"];
     delete?: never;
     options?: never;
     head?: never;
@@ -169,6 +201,54 @@ export interface paths {
     get: operations["AnswerController_findAcademicWithUser"];
     put?: never;
     post: operations["AnswerController_upsertAcademicWithUser"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/confirmation/user-confirmation": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get: operations["ConfirmationController_getUserConfirmation"];
+    put?: never;
+    post: operations["ConfirmationController_updateUserConfirmation"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/confirmation/user-confirmation-info": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    post: operations["ConfirmationController_updateUserConfirmationInfo"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/confirmation/user-answer-confirmation": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    post: operations["ConfirmationController_createUserAnswerConfirmation"];
     delete?: never;
     options?: never;
     head?: never;
@@ -243,6 +323,9 @@ export interface components {
       parent_relation?: string;
       parent_phone?: string;
     };
+    UploadReceiptResponseDto: {
+      receipt_key: string;
+    };
     UserFilesResponseDto: {
       face_photo: {
         name?: string;
@@ -264,6 +347,12 @@ export interface components {
         name?: string;
         url?: string;
       };
+    };
+    GetReceiptFileDto: {
+      receipt_key: string;
+    };
+    ReceiptFileResponseDto: {
+      receipt_path: string;
     };
     AnswerRegisResponseDto: {
       id: string;
@@ -294,6 +383,105 @@ export interface components {
       algo_answer: string;
       chess_notation: string;
       chess_score: number;
+    };
+    Confirm: {
+      user_id: string;
+      index: number;
+      gender: string;
+      fullname: string;
+      nickname: string;
+      request_food: string;
+      haveIpad: boolean;
+      haveMouse: boolean;
+      os_notebook: string;
+      travel: string;
+      receipt_path: string;
+      receipt_datetime: string;
+      confirmation_status: string;
+      isAnswerDone: string;
+      isInfoDone: string;
+      isConfirmDone: string;
+    };
+    ConfirmResponseDto: {
+      isPassed: boolean;
+      confirm: components["schemas"]["Confirm"];
+    };
+    UpdateConfirmInfoDto: {
+      nickname: string;
+      request_food: string;
+      haveIpad: boolean;
+      haveMouse: boolean;
+      os_notebook: string;
+      travel: string;
+      receipt_datetime: string;
+    };
+    UpdateConfirmDto: {
+      confirmation_status: string;
+    };
+    CreateAnswerConfirmDto: {
+      question1: number;
+      question2: number;
+      question3: number;
+      question4: number;
+      question5: number;
+      question6: number;
+      question7: number;
+      question8: number;
+      question9: number;
+      question10: number;
+      question11: number;
+      question12: number;
+      question13: number;
+      question14: number;
+      question15: number;
+      question16: number;
+      question17: number;
+      question18: number;
+      question19: number;
+      question20: number;
+      question21: number;
+      question22: number;
+      question23: number;
+      question24: number;
+      question25: number;
+      question26: number;
+      question27: number;
+      question28: number;
+      question29: number;
+      question30: number;
+    };
+    AnswerConfirmResponseDto: {
+      user_id: string;
+      question1: number;
+      question2: number;
+      question3: number;
+      question4: number;
+      question5: number;
+      question6: number;
+      question7: number;
+      question8: number;
+      question9: number;
+      question10: number;
+      question11: number;
+      question12: number;
+      question13: number;
+      question14: number;
+      question15: number;
+      question16: number;
+      question17: number;
+      question18: number;
+      question19: number;
+      question20: number;
+      question21: number;
+      question22: number;
+      question23: number;
+      question24: number;
+      question25: number;
+      question26: number;
+      question27: number;
+      question28: number;
+      question29: number;
+      question30: number;
     };
   };
   responses: never;
@@ -446,6 +634,32 @@ export interface operations {
       };
     };
   };
+  FilesController_uploadReceipt: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody: {
+      content: {
+        "application/json": {
+          /** Format: binary */
+          file?: File;
+        };
+      };
+    };
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["UploadReceiptResponseDto"];
+        };
+      };
+    };
+  };
   FilesController_getUserFiles: {
     parameters: {
       query?: never;
@@ -461,6 +675,29 @@ export interface operations {
         };
         content: {
           "application/json": components["schemas"]["UserFilesResponseDto"];
+        };
+      };
+    };
+  };
+  FilesController_getReceipt: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody: {
+      content: {
+        "application/json": components["schemas"]["GetReceiptFileDto"];
+      };
+    };
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["ReceiptFileResponseDto"];
         };
       };
     };
@@ -562,6 +799,94 @@ export interface operations {
         };
         content: {
           "application/json": components["schemas"]["AnswerAcademicResponseDto"];
+        };
+      };
+    };
+  };
+  ConfirmationController_getUserConfirmation: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["ConfirmResponseDto"];
+        };
+      };
+    };
+  };
+  ConfirmationController_updateUserConfirmation: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody: {
+      content: {
+        "application/json": components["schemas"]["UpdateConfirmDto"];
+      };
+    };
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["Confirm"];
+        };
+      };
+    };
+  };
+  ConfirmationController_updateUserConfirmationInfo: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody: {
+      content: {
+        "application/json": components["schemas"]["UpdateConfirmInfoDto"];
+      };
+    };
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["Confirm"];
+        };
+      };
+    };
+  };
+  ConfirmationController_createUserAnswerConfirmation: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody: {
+      content: {
+        "application/json": components["schemas"]["CreateAnswerConfirmDto"];
+      };
+    };
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["AnswerConfirmResponseDto"];
         };
       };
     };

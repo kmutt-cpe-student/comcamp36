@@ -21,9 +21,10 @@ interface NavbarProps {
     href: string;
   }[];
   extra?: ReactNode;
+  hideBanner?: boolean;
 }
 
-export default function Navbar({ items, extra }: NavbarProps) {
+export default function Navbar({ items, extra, hideBanner }: NavbarProps) {
   const renderDrawer = () => (
     <Drawer>
       <DrawerTrigger asChild>
@@ -56,21 +57,23 @@ export default function Navbar({ items, extra }: NavbarProps) {
 
   return (
     <div className="font-prompt fixed left-0 top-0 w-full">
-      <Banner>
-        <div className="w-full font-bold text-white">
-          <div className="flex text-sm sm:justify-center">
-            <div className="group flex items-center justify-center text-base">
-              <span className="me-1 leading-none">✨</span>
-              <TextShimmerWave
-                duration={2}
-                className="cursor-pointer text-base font-medium transition-colors [--base-color:var(--color-vermilion)] [--base-gradient-color:var(--color-vermilion-1)] dark:[--base-color:var(--color-vermilion)] dark:[--base-gradient-color:var(--color-vermilion-1)]"
-              >
-                ปิดรับสมัครแล้ว ขอขอบคุณน้อง ๆ ทุกคนที่สนใจ แล้วเจอกันที่ค่าย!
-              </TextShimmerWave>
+      {!hideBanner && (
+        <Banner>
+          <div className="w-full font-bold text-white">
+            <div className="flex text-sm sm:justify-center">
+              <div className="group flex items-center justify-center text-base">
+                <span className="me-1 leading-none">✨</span>
+                <TextShimmerWave
+                  duration={2}
+                  className="cursor-pointer text-base font-medium transition-colors [--base-color:var(--color-vermilion)] [--base-gradient-color:var(--color-vermilion-1)] dark:[--base-color:var(--color-vermilion)] dark:[--base-gradient-color:var(--color-vermilion-1)]"
+                >
+                  ปิดรับสมัครแล้ว ขอขอบคุณน้อง ๆ ทุกคนที่สนใจ แล้วเจอกันที่ค่าย!
+                </TextShimmerWave>
+              </div>
             </div>
           </div>
-        </div>
-      </Banner>
+        </Banner>
+      )}
 
       <div className="backdrop-blur-xs h-18 mx-0 my-5 flex items-center justify-between rounded-xl border-[1px] border-[#424242] bg-[#292929]/50 px-3 sm:mx-5 lg:px-9">
         <div className="flex w-20 items-center justify-center pt-1">

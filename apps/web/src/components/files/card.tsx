@@ -20,7 +20,7 @@ export function FileCard({ file, onRemove, disabled }: FileCardProps) {
               onClick={() => {
                 window.open(URL.createObjectURL(file), "_blank");
               }}
-              className="text-charcoal-special line-clamp-1 cursor-pointer text-sm font-medium hover:underline"
+              className="text-charcoal-special line-clamp-1 max-w-[calc(100%-10rem)] cursor-pointer text-sm font-medium hover:underline"
             >
               {file.name}
             </a>

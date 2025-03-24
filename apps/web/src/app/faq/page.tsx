@@ -1,13 +1,14 @@
 import FaqAccordion from "@/components/faq-accordion";
 import Navbar from "@/components/navigate/navbar";
 
+import Footer from "@/components/navigate/footer";
 import { TextShimmer } from "@/components/text/text-shimmer";
 import { Accordion } from "@/components/ui/accordion";
 import { faqs } from "./faq";
 
 function FAQsPage() {
   return (
-    <div className="bg-charcoal-1 absolute h-fit w-full overflow-x-hidden scroll-smooth">
+    <div className="bg-charcoal-1 absolute min-h-screen w-full overflow-x-hidden scroll-smooth">
       <div className="absolute z-[100]">
         <Navbar items={[{ label: "หน้าหลัก", href: "/" }]} />
       </div>
@@ -27,6 +28,7 @@ function FAQsPage() {
           ))}
         </Accordion>
       </div>
+      <Footer />
     </div>
   );
 }
