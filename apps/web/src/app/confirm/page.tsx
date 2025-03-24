@@ -4,6 +4,7 @@ import Candidate from "@/app/confirm/_components/candidate";
 import Ineligible from "@/app/confirm/_components/ineligible";
 import ConfirmLoading from "@/app/confirm/_components/loading";
 import Reserved from "@/app/confirm/_components/reserved";
+import { InView } from "@/components/animation/in-view";
 import { fetchQuery } from "@/libs/server/client";
 
 function ConfirmPage() {
@@ -22,13 +23,25 @@ function ConfirmPage() {
   }
 
   if (!data?.confirm || isError) {
-    return <Ineligible />;
+    return (
+      <InView>
+        <Ineligible />
+      </InView>
+    );
   }
 
   if (data.isPassed && data.confirm.confirmation_status == "reserved") {
-    return <Reserved />;
+    return (
+      <InView>
+        <Reserved />
+      </InView>
+    );
   }
 
-  return <Candidate confirmData={data} refetch={refetch} />;
+  return (
+    <InView>
+      <Candidate confirmData={data} refetch={refetch} />
+    </InView>
+  );
 }
 export default ConfirmPage;
