@@ -10,7 +10,6 @@ import { fetchClient, fetchQuery } from "@/libs/server/client";
 import { redirect, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
-import { steps } from "./form-stepper";
 
 export default function RegisterLayout({
   children,
@@ -66,14 +65,7 @@ export default function RegisterLayout({
     <div className="max-w-screen min-h-screen bg-[#0d0d0d] text-white">
       <PolicyConsent />
       <div className="absolute z-[100]">
-        <Navbar
-          items={steps.map((step) => ({
-            label: step.title,
-            href: step.href,
-          }))}
-          extra={<LogoutBtn />}
-          hideBanner
-        />
+        <Navbar items={[]} extra={<LogoutBtn />} hideBanner />
       </div>
       <div className="font-prompt py-30 flex min-h-screen w-full justify-center px-0 pt-10 sm:px-5">
         {children}
