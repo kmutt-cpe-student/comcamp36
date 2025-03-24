@@ -1,14 +1,12 @@
 "use client";
 
 import { Tilt } from "@/components/card/tilt-card";
-import { GradientButton } from "@/components/gradient-button";
 import { Card } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { Skeleton } from "@/components/ui/skeleton";
 import { fetchQuery } from "@/libs/server/client";
-import { Mail, SearchIcon } from "lucide-react";
+import { Mail } from "lucide-react";
 import Image from "next/image";
-import Link from "next/link";
 
 function RegisterPage() {
   const { data, isPending, isError } = fetchQuery.useQuery("get", "/auth/me");
@@ -89,13 +87,14 @@ function RegisterPage() {
         </div>
       </div>
 
-      <div className="flex w-full max-w-full items-center justify-center pt-10">
+      {/* TODO: Uncomment this when open confirmation */}
+      {/* <div className="flex w-full max-w-full items-center justify-center pt-10">
         <Link href="/confirm">
           <GradientButton className="flex gap-4 rounded-xl px-20 py-4">
             <SearchIcon /> <p>ตรวจสอบผลการคัดเลือก!</p>
           </GradientButton>
         </Link>
-      </div>
+      </div> */}
     </Card>
   );
 }
