@@ -145,7 +145,8 @@ function Candidate(props: CandidateProps) {
                   className="flex w-full cursor-pointer items-center justify-start gap-2 text-start text-sm transition-all hover:text-white"
                   onClick={() => setConfirmStatus(null)}
                 >
-                  <ChevronLeft /> <p className="text-sm">ย้อนกลับ</p>
+                  <ChevronLeft />{" "}
+                  <p className="text-sm">กลับไปหน้ายืนยันสิทธิ์</p>
                 </div>
                 <CardTitle className="flex items-center justify-center">
                   <TextShimmer

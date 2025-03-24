@@ -5,11 +5,13 @@ import PolicyConsent from "@/components/card/policy-consent";
 import Spinner from "@/components/spinner";
 import { Button } from "@/components/ui/button";
 import { fetchClient, fetchQuery } from "@/libs/server/client";
+import { ChevronLeft } from "lucide-react";
+import Link from "next/link";
 import { redirect, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
 
-export default function RegisterLayout({
+export default function ConfirmLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
@@ -75,8 +77,13 @@ export default function RegisterLayout({
 
       <div className="relative z-10 flex h-full flex-col items-center justify-start px-4 text-center">
         <PolicyConsent />
-        <div className="font-prompt py-30 flex min-h-screen w-full justify-center px-0 sm:px-5">
-          {children}
+        <div className="font-prompt flex min-h-screen w-full flex-col justify-center gap-2 px-0 py-10 sm:px-4">
+          <Link href="..">
+            <Button className="w-fit" variant="ghost">
+              <ChevronLeft /> <p className="text-sm">กลับไปหน้าหลัก</p>
+            </Button>
+          </Link>
+          <div className="flex min-h-[80vh] justify-center">{children}</div>
         </div>
       </div>
     </div>
