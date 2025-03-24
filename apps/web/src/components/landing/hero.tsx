@@ -1,8 +1,10 @@
 import FadeObserverDiv from "@/components/landing/fade-div";
-import { Button } from "@/components/ui/button";
+import { SearchIcon } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import { Magnetic } from "../animation/magnetics";
 import { Tilt } from "../card/tilt-card";
+import { GradientButton } from "../gradient-button";
 
 function Hero() {
   return (
@@ -43,19 +45,11 @@ function Hero() {
           </div>
 
           <Magnetic range={80}>
-            <Button
-              className="rounded-4xl font-prompt h-[5rem] w-fit px-20 text-3xl"
-              variant="ghost"
-              disabled
-            >
-              ปิดรับสมัครแล้ว
-            </Button>
-            {/* TODO: Uncomment this when open confirmation */}
-            {/* <Link href="/register">
+            <Link href="/register">
               <GradientButton className="flex gap-4 rounded-xl px-20 py-4">
                 <SearchIcon /> <p>ตรวจสอบผลการคัดเลือก!</p>
               </GradientButton>
-            </Link> */}
+            </Link>
           </Magnetic>
         </div>
       </div>
