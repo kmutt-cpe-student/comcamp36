@@ -1,6 +1,8 @@
+import { GradientButton } from "@/components/gradient-button";
 import Footer from "@/components/navigate/footer";
 import Navbar from "@/components/navigate/navbar";
 import dynamic from "next/dynamic";
+import Link from "next/link";
 
 const Hero = dynamic(() => import("../components/landing/hero"));
 const WhatIs = dynamic(() => import("../components/landing/what-is"));
@@ -39,15 +41,11 @@ export default function Home() {
             },
           ]}
           extra={
-            <div className="font-noto-sans-thai-looped cursor-not-allowed select-none rounded-lg border border-dashed px-4 py-2 text-white">
-              ปิดรับสมัครแล้ว
-            </div>
-            // TODO: Uncomment this when open confirmation
-            // <Link href="/register">
-            //   <GradientButton className="flex gap-4 rounded-xl px-4 text-sm">
-            //     <p className="text-sm">ตรวจสอบผลการคัดเลือก!</p>
-            //   </GradientButton>
-            // </Link>
+            <Link href="/register">
+              <GradientButton className="flex gap-4 rounded-xl px-4 text-sm">
+                <p className="text-sm">ตรวจสอบผลการคัดเลือก!</p>
+              </GradientButton>
+            </Link>
           }
         />
       </div>
