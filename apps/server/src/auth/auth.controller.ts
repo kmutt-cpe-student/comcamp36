@@ -54,25 +54,30 @@ export class AuthController {
             process.env.NODE_ENV === 'production' ? '.comcamp.io' : 'localhost',
         });
         return res.redirect(process.env.CLIENT_REDIRECT_AUTH_URL);
-      }
-      //Not exists
-      else {
-        // const newUser = await this.userService.create({
-        //   email: profile.email,
-        //   google_id: profile.googleID,
-        // });
-        // const session = await this.sessionService.create(newUser.id);
-        // res.cookie('sid', session.sid, {
-        //   maxAge: 1000 * 60 * 60 * 24 * 7, // 1 days
-        //   sameSite: 'lax',
-        //   secure: process.env.NODE_ENV === 'production' ? true : false,
-        //   httpOnly: true,
-        //   domain:
-        //     process.env.NODE_ENV === 'production' ? '.comcamp.io' : 'localhost',
-        // });
+      } else {
+        await this.registerNewUser(profile, res);
         return res.redirect(process.env.CLIENT_REDIRECT_AUTH_URL);
       }
     }
+  }
+
+  private async registerNewUser(
+    profile: { email: string; googleID: string },
+    res: Response<any, Record<string, any>>,
+  ) {
+    const newUser = await this.userService.create({
+      email: profile.email,
+      google_id: profile.googleID,
+    });
+    const session = await this.sessionService.create(newUser.id);
+    res.cookie('sid', session.sid, {
+      maxAge: 1000 * 60 * 60 * 24 * 7, // 1 days
+      sameSite: 'lax',
+      secure: process.env.NODE_ENV === 'production' ? true : false,
+      httpOnly: true,
+      domain:
+        process.env.NODE_ENV === 'production' ? '.comcamp.io' : 'localhost',
+    });
   }
 
   @Post('logout')
