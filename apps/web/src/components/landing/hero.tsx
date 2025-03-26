@@ -1,9 +1,6 @@
-import { GradientButton } from "@/components/gradient-button";
 import FadeObserverDiv from "@/components/landing/fade-div";
 import { Button } from "@/components/ui/button";
-import { SearchIcon } from "lucide-react";
 import Image from "next/image";
-import Link from "next/link";
 import { Magnetic } from "../animation/magnetics";
 import { Tilt } from "../card/tilt-card";
 
@@ -53,11 +50,6 @@ function Hero() {
             >
               ปิดรับสมัครแล้ว
             </Button>
-            <Link href="/register">
-              <GradientButton className="flex gap-4 rounded-xl px-20 py-4">
-                <SearchIcon /> <p>ตรวจสอบผลการคัดเลือก!</p>
-              </GradientButton>
-            </Link>
           </Magnetic>
         </div>
       </div>

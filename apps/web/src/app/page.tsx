@@ -1,8 +1,6 @@
-import { GradientButton } from "@/components/gradient-button";
 import Footer from "@/components/navigate/footer";
 import Navbar from "@/components/navigate/navbar";
 import dynamic from "next/dynamic";
-import Link from "next/link";
 
 const Hero = dynamic(() => import("../components/landing/hero"));
 const WhatIs = dynamic(() => import("../components/landing/what-is"));
@@ -40,13 +38,6 @@ export default function Home() {
               href: "#contact",
             },
           ]}
-          extra={
-            <Link href="/register">
-              <GradientButton className="flex gap-4 rounded-xl px-4 text-sm">
-                <p className="text-sm">ตรวจสอบผลการคัดเลือก!</p>
-              </GradientButton>
-            </Link>
-          }
         />
       </div>
       <div className="font-prompt relative h-fit bg-[#0d0d0d] bg-cover bg-center bg-no-repeat text-white">
