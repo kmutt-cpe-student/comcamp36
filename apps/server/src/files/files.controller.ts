@@ -26,6 +26,7 @@ import { UsersService } from 'src/users/users.service';
 import { GetReceiptFileDto } from './dto/get-receipt-file.dto';
 import { UploadReceiptResponseDto } from './dto/upload-receipt-response.dto';
 import { ReceiptFileResponseDto } from './dto/receipt-file-response.dto';
+import { GetUrlFileInputDto } from 'src/files/dto/geturl-file-input.dto';
 
 @Controller('files')
 @UseGuards(AuthGuard)
@@ -109,17 +110,17 @@ export class FilesController {
     return this.filesService.uploadReceipt(file, req['user_id']);
   }
 
-  // @Post('getblobs')
-  // @ApiResponse({ status: 200, type: UserFilesResponseDto })
-  // getBlobs(@Body() urls: GetUrlFileInputDto) {
-  //   return this.filesService.getBlobs(urls);
-  // }
+  @Post('getblobs')
+  @ApiResponse({ status: 200, type: UserFilesResponseDto })
+  getBlobs(@Body() urls: GetUrlFileInputDto) {
+    return this.filesService.getBlobs(urls);
+  }
 
-  // @Post('geturl')
-  // @ApiResponse({ status: 200, type: UserFilesResponseDto })
-  // getFiles(@Body() urls: GetUrlFileInputDto) {
-  //   return this.filesService.getFile(urls);
-  // }
+  @Post('geturl')
+  @ApiResponse({ status: 200, type: UserFilesResponseDto })
+  getFiles(@Body() urls: GetUrlFileInputDto) {
+    return this.filesService.getFile(urls);
+  }
 
   @Get('user-files')
   @ApiResponse({ status: 200, type: UserFilesResponseDto })
